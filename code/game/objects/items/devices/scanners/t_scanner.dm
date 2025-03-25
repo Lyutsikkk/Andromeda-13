@@ -1,6 +1,6 @@
 /obj/item/t_scanner
-	name = "\improper T-ray scanner"
-	desc = "A terahertz-ray emitter and scanner used to detect underfloor objects such as cables and pipes."
+	name = "\improper Т-скан"
+	desc = "Излучатель терагерцового излучения, используемые для обнаружения объектов под полом, таких как кабели и трубы."
 	custom_price = PAYCHECK_LOWER * 0.7
 	icon = 'icons/obj/devices/scanner.dmi'
 	icon_state = "t-ray0"
@@ -17,7 +17,7 @@
 	var/shut_off_on_unequip = TRUE
 
 /obj/item/t_scanner/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] begins to emit terahertz-rays into [user.p_their()] brain with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] начинает излучать терагерцовые лучи в мозг [user.p_their()] с помощью [src]! Похоже, что [user.p_theyre()] пытается покончить с собой!"))
 	return TOXLOSS
 
 /obj/item/t_scanner/proc/toggle_on()

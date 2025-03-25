@@ -1,6 +1,6 @@
 /obj/item/wrench
-	name = "wrench"
-	desc = "A wrench with common uses. Can be found in your hand."
+	name = "гаечный ключ"
+	desc = "Гаечный ключ общего назначения."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "wrench"
 	inhand_icon_state = "wrench"
@@ -40,8 +40,8 @@
 	return BRUTELOSS
 
 /obj/item/wrench/abductor
-	name = "alien wrench"
-	desc = "A polarized wrench. It causes anything placed between the jaws to turn."
+	name = "инопланетный гаечный ключ"
+	desc = "Гаечный ключ с поляризацией. Он поворачивает все, даже без WD-40!"
 	icon = 'icons/obj/antags/abductor.dmi'
 	inside_belt_icon_state = "wrench_alien"
 	icon_angle = -135
@@ -51,8 +51,8 @@
 
 
 /obj/item/wrench/medical
-	name = "medical wrench"
-	desc = "A medical wrench with common(medical?) uses. Can be found in your hand."
+	name = "медицинский гаечный ключ"
+	desc = "Медецинский гачечный ключ.. Это лечит наглость крайне нехороших пациентов, если провести ключём по голове."
 	icon_state = "wrench_medical"
 	inhand_icon_state = "wrench_medical"
 	force = 2 //MEDICAL
@@ -65,10 +65,10 @@
 /obj/item/wrench/medical/examine(mob/user)
 	. = ..()
 	if(suicider)
-		. += span_notice("For some reason, it reminds you of [suicider].")
+		. += span_notice("По какой-то причине это напоминает вам о [suicider].")
 
 /obj/item/wrench/medical/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is praying to the medical wrench to take [user.p_their()] soul. It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] молится медицинскому ключу, чтобы тот забрал душу [user.p_their()]. Похоже, что [user.p_theyre()] пытается покончить с собой!"))
 	user.Stun(100, ignore_canstun = TRUE)// Stun stops them from wandering off
 	user.set_light_color(COLOR_VERY_SOFT_YELLOW)
 	user.set_light(2)
@@ -87,16 +87,16 @@
 	return OXYLOSS
 
 /obj/item/wrench/cyborg
-	name = "hydraulic wrench"
-	desc = "An advanced robotic wrench, powered by internal hydraulics. Twice as fast as the handheld version."
+	name = "гидравлический гаечный ключ"
+	desc = "Усовершенствованный роботизированный гаечный ключ, приводимый в действие внутренней гидравликой. Робототехнический зажим гидравликой!"
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "toolkit_engiborg_wrench"
 	icon_angle = 0
 	toolspeed = 0.5
 
 /obj/item/wrench/combat
-	name = "combat wrench"
-	desc = "It's like a normal wrench but edgier. Can be found on the battlefield."
+	name = "полевой гаечный ключ"
+	desc = "Починить технику и вломить противнику. Дёшего и сердито!"
 	icon_state = "wrench_combat"
 	inhand_icon_state = "wrench_combat"
 	inside_belt_icon_state = "wrench_combat"
@@ -127,13 +127,13 @@
 
 	tool_behaviour = active ? TOOL_WRENCH : initial(tool_behaviour)
 	if(user)
-		balloon_alert(user, "[name] [active ? "active, woe!":"restrained"]")
+		balloon_alert(user, "[name] [active ? "активированный!":"выключен"]")
 	playsound(src, active ? 'sound/items/weapons/saberon.ogg' : 'sound/items/weapons/saberoff.ogg', 5, TRUE)
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
 /obj/item/wrench/bolter
-	name = "bolter wrench"
-	desc = "A wrench designed to grab into airlock's bolting system and raise it regardless of the airlock's power status."
+	name = "гаечный ключ болтера"
+	desc = "Гаечный ключ, предназначенный для захвата системы крепления воздушного шлюза и подъема его независимо от состояния питания воздушного шлюза."
 	icon_state = "bolter_wrench"
 	inhand_icon_state = "bolter_wrench"
 	icon_angle = -90

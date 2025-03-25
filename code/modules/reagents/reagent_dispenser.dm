@@ -233,7 +233,7 @@
 
 /obj/structure/reagent_dispensers/watertank
 	name = "резервуар для воды"
-	desc = "Резервуар для воды."
+	desc = "Вода! Много воды.."
 	icon_state = "water"
 	openable = TRUE
 	climbable = TRUE
@@ -245,7 +245,7 @@
 	tank_volume = 100000
 
 /obj/structure/reagent_dispensers/foamtank
-	name = "резервуар для пены для пожаротушения"
+	name = "резервуар с пеной для пожаротушения"
 	desc = "Бак, полный противопожарной пены."
 	icon_state = "foam"
 	reagent_id = /datum/reagent/firefighting_foam
@@ -255,7 +255,7 @@
 
 /obj/structure/reagent_dispensers/fueltank
 	name = "топливный резервуар"
-	desc = "Заполните бак промышленным топливом для сварки. Не расходуйте его."
+	desc = "Резервуар для топлива под высоким давлением, предназначенный для хранения гигантского количества топлива."
 	icon_state = "fuel"
 	reagent_id = /datum/reagent/fuel
 	openable = TRUE
@@ -329,7 +329,7 @@
 
 /obj/structure/reagent_dispensers/fueltank/large
 	name = "топливный резервуар большой емкости"
-	desc = "Бак должен быть заполнен большим количеством сварочного топлива. Хранить вдали от открытого огня."
+	desc = "Не сливать! Казённое топливо! Так же просим вас не проверять корпус резервуара на его теплопередачу."
 	icon_state = "fuel_high"
 	tank_volume = 5000
 
@@ -341,7 +341,7 @@
 
 /obj/structure/reagent_dispensers/wall/peppertank
 	name = "заправка перцового баллончика"
-	desc = "Contains condensed capsaicin for use in law \"enforcement.\""
+	desc = "Содержит сгущенный капсаицин"
 	icon_state = "pepper"
 	reagent_id = /datum/reagent/consumable/condensedcapsaicin
 
@@ -384,8 +384,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/reagent_dispensers/wall/peppertank, 3
 	paper_cups--
 
 /obj/structure/reagent_dispensers/beerkeg
-	name = "beer keg"
-	desc = "Beer is liquid bread, it's good for you..."
+	name = "пивная кега"
+	desc = "Красивая этикетка популярной пивоварни Певко. Made in Srakov."
 	icon_state = "beer"
 	reagent_id = /datum/reagent/consumable/ethanol/beer
 	openable = TRUE
@@ -424,10 +424,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/reagent_dispensers/wall/virusfood, 30
 	reagent_id = /datum/reagent/consumable/nutraslop
 
 /obj/structure/reagent_dispensers/plumbed
-	name = "stationary water tank"
+	name = "резервуар с водой"
 	anchored = TRUE
 	icon_state = "water_stationary"
-	desc = "A stationary, plumbed, water tank."
+	desc = "Вода! Много воды.."
 	can_be_tanked = FALSE
 
 /obj/structure/reagent_dispensers/plumbed/Initialize(mapload)
@@ -440,7 +440,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/reagent_dispensers/wall/virusfood, 30
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/reagent_dispensers/plumbed/storage
-	name = "stationary storage tank"
+	name = "резервуар"
 	icon_state = "tank_stationary"
 	reagent_id = null //start empty
 
@@ -462,9 +462,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/reagent_dispensers/wall/virusfood, 30
 	. += tank_color
 
 /obj/structure/reagent_dispensers/plumbed/fuel
-	name = "stationary fuel tank"
+	name = "резервуар с топливом"
 	icon_state = "fuel_stationary"
-	desc = "A stationary, plumbed, fuel tank."
+	desc = "Не сливать! Казённое топливо! Так же просим вас не проверять корпус резервуара на его теплопередачу."
 	reagent_id = /datum/reagent/fuel
 	accepts_rig = TRUE
 

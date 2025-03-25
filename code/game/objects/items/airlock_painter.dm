@@ -1,7 +1,7 @@
 /obj/item/airlock_painter
-	name = "airlock painter"
-	desc = "An advanced autopainter preprogrammed with several paintjobs for airlocks. Use it on an airlock during or after construction to change the paintjob."
-	desc_controls = "Alt-Click to remove the ink cartridge."
+	name = "шлюзопэинт"
+	desc = "Усовершенствованный автоматический маляр, предварительно запрограммированный на несколько режимов покраски воздушных шлюзов. Используйте его на воздушном шлюзе во время или после строительства, чтобы изменить окраску."
+	desc_controls = "Нажмите и удерживайте клавишу Alt, чтобы извлечь чернильный картридж."
 	icon = 'icons/obj/devices/tool.dmi'
 	icon_state = "paint_sprayer"
 	inhand_icon_state = "paint_sprayer"
@@ -64,10 +64,10 @@
 //because you're expecting user input.
 /obj/item/airlock_painter/proc/can_use(mob/user)
 	if(!ink)
-		balloon_alert(user, "no cartridge!")
+		balloon_alert(user, "нет картриджа!")
 		return FALSE
 	else if(ink.charges < 1)
-		balloon_alert(user, "out of ink!")
+		balloon_alert(user, "закончилась краска!")
 		return FALSE
 	else
 		return TRUE
@@ -76,7 +76,7 @@
 	var/obj/item/organ/lungs/L = user.get_organ_slot(ORGAN_SLOT_LUNGS)
 
 	if(can_use(user) && L)
-		user.visible_message(span_suicide("[user] is inhaling toner from [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+		user.visible_message(span_suicide("[user] вдыхает тонер из [src]! Похоже, что [user.p_theyre()] пытается покончить с собой!"))
 		use(user)
 
 		// Once you've inhaled the toner, you throw up your lungs
@@ -102,27 +102,27 @@
 
 		// TODO maybe add some colorful vomit?
 
-		user.visible_message(span_suicide("[user] vomits out [user.p_their()] [L]!"))
+		user.visible_message(span_suicide("[user] вырвало [user.p_their()] [L]!"))
 		playsound(user.loc, 'sound/effects/splat.ogg', 50, TRUE)
 
 		L.forceMove(T)
 
 		return (TOXLOSS|OXYLOSS)
 	else if(can_use(user) && !L)
-		user.visible_message(span_suicide("[user] is spraying toner on [user.p_them()]self from [src]! It looks like [user.p_theyre()] trying to commit suicide."))
+		user.visible_message(span_suicide("[user] распыляет тонер на [user.p_them()] себя из [src]! Похоже, что [user.p_theyre()] пытается покончить с собой."))
 		user.reagents.add_reagent(/datum/reagent/colorful_reagent, 1)
 		user.reagents.expose(user, TOUCH, 1)
 		return TOXLOSS
 
 	else
-		user.visible_message(span_suicide("[user] is trying to inhale toner from [src]! It might be a suicide attempt if [src] had any toner."))
+		user.visible_message(span_suicide("[user] пытается вдохнуть тонер из [src]! Это могло бы быть попыткой самоубийства, если бы у [src] был тонер."))
 		return SHAME
 
 
 /obj/item/airlock_painter/examine(mob/user)
 	. = ..()
 	if(!ink)
-		. += span_notice("It doesn't have a toner cartridge installed.")
+		. += span_notice("В нем не установлен картридж с тонером.")
 		return
 	var/ink_level = "high"
 	if(ink.charges < 1)
@@ -137,11 +137,11 @@
 /obj/item/airlock_painter/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/toner))
 		if(ink)
-			to_chat(user, span_warning("[src] already contains \a [ink]!"))
+			to_chat(user, span_warning("[src] уже содержит [ink]!"))
 			return
 		if(!user.transferItemToLoc(W, src))
 			return
-		to_chat(user, span_notice("You install [W] into [src]."))
+		to_chat(user, span_notice("Вы устанавливаете [W] в [src]."))
 		ink = W
 		playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 	else
@@ -154,13 +154,13 @@
 	playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 	ink.forceMove(user.drop_location())
 	user.put_in_hands(ink)
-	to_chat(user, span_notice("You remove [ink] from [src]."))
+	to_chat(user, span_notice("Вы удаляете [ink] из [src]."))
 	ink = null
 	return CLICK_ACTION_SUCCESS
 
 /obj/item/airlock_painter/decal
-	name = "decal painter"
-	desc = "An airlock painter, reprogrammed to use a different style of paint in order to apply decals for floor tiles as well, in addition to repainting doors. Decals break when the floor tiles are removed."
+	name = "декальпэинт"
+	desc = "Маляр шлюзовой камеры, перепрограммированный на использование другого вида краски, чтобы наносить наклейки и рисунки на напольную плитку, в дополнение к перекраске дверей. Наклейки и рисунки пропадают при снятии напольной плитки."
 	desc_controls = "Alt-Click to remove the ink cartridge."
 	icon = 'icons/obj/devices/tool.dmi'
 	icon_state = "decal_sprayer"
@@ -377,8 +377,8 @@
 	initial_ink_type = /obj/item/toner/extreme
 
 /obj/item/airlock_painter/decal/tile
-	name = "tile sprayer"
-	desc = "An airlock painter, reprogrammed to use a different style of paint in order to spray colors on floor tiles as well, in addition to repainting doors. Decals break when the floor tiles are removed."
+	name = "тилеспрей"
+	desc = "Маляр для воздушных шлюзов, перепрограммированный на использование краски другого типа, чтобы наносить краски и рисунки на напольную плитку, а также перекрашивать двери. При снятии плитки с пола наклейки и рисунки пропадают."
 	desc_controls = "Alt-Click to remove the ink cartridge."
 	icon_state = "tile_sprayer"
 	stored_dir = 2

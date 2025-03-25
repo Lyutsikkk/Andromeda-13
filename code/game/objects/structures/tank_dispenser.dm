@@ -19,7 +19,7 @@
 
 /obj/structure/tank_dispenser/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/contextual_screentip_bare_hands, lmb_text = "Возьмите плазменный баллон", rmb_text = "Возьмите кислородный баллон")
+	AddElement(/datum/element/contextual_screentip_bare_hands, lmb_text = "Плазма (ЛКМ)", rmb_text = "Кислород (ПКМ)")
 	update_appearance()
 
 /obj/structure/tank_dispenser/update_overlays()
@@ -47,7 +47,7 @@
 /obj/structure/tank_dispenser/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
 	if (!oxygentanks)
-		balloon_alert(user, "никаких кислородных баллонов!")
+		balloon_alert(user, "нету кислородных баллонов!")
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	dispense(/obj/item/tank/internals/oxygen, user)
 	oxygentanks--
@@ -82,7 +82,7 @@
 
 	if(!user.transferItemToLoc(I, src))
 		return
-	balloon_alert(user, "вставленный резервуар")
+	balloon_alert(user, "вставляете в раздатчик")
 	update_appearance()
 
 /obj/structure/tank_dispenser/atom_deconstruct(disassembled = TRUE)
@@ -103,6 +103,6 @@
 	if (isnull(existing_tank))
 		existing_tank = new tank_type
 	receiver.put_in_hands(existing_tank)
-	balloon_alert(receiver, "tank received")
+	balloon_alert(receiver, "взяли баллон")
 
 #undef TANK_DISPENSER_CAPACITY

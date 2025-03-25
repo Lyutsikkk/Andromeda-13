@@ -1,6 +1,6 @@
 /obj/item/screwdriver
-	name = "screwdriver"
-	desc = "You can be totally screwy with this."
+	name = "отвертка"
+	desc = "Можно закрутить винтик или открутить почку противнику"
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "screwdriver_map"
 	inhand_icon_state = "screwdriver"
@@ -51,7 +51,7 @@
 	acid = 30
 
 /obj/item/screwdriver/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is stabbing [src] into [user.p_their()] [pick("temple", "heart")]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] вонзает [src] в [user.p_their()] [pick("temple", "heart")]! Похоже, что [user.p_theyre()] пытается покончить с собой!"))
 	return BRUTELOSS
 
 /obj/item/screwdriver/Initialize(mapload)
@@ -62,7 +62,7 @@
 	AddElement(/datum/element/falling_hazard, damage = force, wound_bonus = wound_bonus, hardhat_safety = TRUE, crushes = FALSE, impact_sound = hitsound)
 
 /obj/item/screwdriver/abductor
-	name = "alien screwdriver"
+	name = "инопланетная отвертка"
 	desc = "An ultrasonic screwdriver."
 	icon = 'icons/obj/antags/abductor.dmi'
 	icon_state = "screwdriver_a"
@@ -78,8 +78,8 @@
 	return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "screwdriver_alien")
 
 /obj/item/screwdriver/power
-	name = "hand drill"
-	desc = "A simple powered hand drill."
+	name = "ручная дрель"
+	desc = "Огромная сила в твоих руках, более 3000 об/минуту. Можно использовать как шуруповёрт или гайковёрт."
 	icon_state = "drill"
 	inside_belt_icon_state = null
 	inhand_icon_state = "drill"
@@ -129,25 +129,25 @@
 
 	tool_behaviour = (active ? TOOL_WRENCH : TOOL_SCREWDRIVER)
 	if(user)
-		balloon_alert(user, "attached [active ? "bolt bit" : "screw bit"]")
+		balloon_alert(user, "головка для [active ? "гайковёрта" : "шуруповёрта"]")
 	playsound(src, 'sound/items/tools/change_drill.ogg', 50, TRUE)
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
 /obj/item/screwdriver/power/examine()
 	. = ..()
-	. += " It's fitted with a [tool_behaviour == TOOL_SCREWDRIVER ? "screw" : "bolt"] bit."
+	. += " Он оснащен насадкой [tool_behaviour == TOOL_SCREWDRIVER ? "винт" : "болт"]."
 
 /obj/item/screwdriver/power/suicide_act(mob/living/user)
 	if(tool_behaviour == TOOL_SCREWDRIVER)
-		user.visible_message(span_suicide("[user] is putting [src] to [user.p_their()] temple. It looks like [user.p_theyre()] trying to commit suicide!"))
+		user.visible_message(span_suicide("[user] вводит [src] в [user.p_their()] висок. Похоже, что [user.p_theyre()] пытается покончить с собой!"))
 	else
-		user.visible_message(span_suicide("[user] is pressing [src] against [user.p_their()] head! It looks like [user.p_theyre()] trying to commit suicide!"))
+		user.visible_message(span_suicide("[user] вводит [src] в [user.p_their()] голову! Похоже, что [user.p_theyre()] пытается покончить с собой!"))
 	playsound(loc, 'sound/items/tools/drill_use.ogg', 50, TRUE, -1)
 	return BRUTELOSS
 
 /obj/item/screwdriver/cyborg
-	name = "automated screwdriver"
-	desc = "A powerful automated screwdriver, designed to be both precise and quick."
+	name = "автоматическая отвертка"
+	desc = "Мощная автоматическая отвертка, предназначенная для точной и быстрой работы."
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "toolkit_engiborg_screwdriver"
 	hitsound = 'sound/items/tools/drill_hit.ogg'

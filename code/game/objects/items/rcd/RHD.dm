@@ -3,8 +3,8 @@
 #define SILO_USE_AMOUNT (SHEET_MATERIAL_AMOUNT / 4)
 
 /obj/item/construction
-	name = "not for ingame use"
-	desc = "A device used to rapidly build and deconstruct. Reload with iron, plasteel, glass or compressed matter cartridges."
+	name = "не для использования в игре"
+	desc = "Устройство Быстрого Строительства. Устройство, используемое для быстрого создания и демонтажа. Для перезарядки используйте картриджи."
 	opacity = FALSE
 	density = FALSE
 	anchored = FALSE
