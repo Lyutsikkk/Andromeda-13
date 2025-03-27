@@ -324,7 +324,7 @@
 
 /obj/item/food/donut/jelly/bungo
 	name = "Пончик с желе бунго"
-	desc = "Отлично сочетается с баночкой "восторг хиппи"."
+	desc = "Отлично сочетается с баночкой 'восторг хиппи'."
 	icon_state = "jelly_yellow"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,

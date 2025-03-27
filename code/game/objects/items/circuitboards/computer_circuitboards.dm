@@ -396,7 +396,7 @@
 	build_path = /obj/machinery/computer/records/medical
 
 /obj/item/circuitboard/computer/operating
-	name = "Operating Computer"
+	name = "Операционный компьютер"
 	greyscale_colors = CIRCUIT_COLOR_MEDICAL
 	build_path = /obj/machinery/computer/operating
 

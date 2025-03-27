@@ -220,9 +220,9 @@
 		display_results(
 			user,
 			target,
-			span_notice("You succeed."),
-			span_notice("[user] succeeds!"),
-			span_notice("[user] finishes."),
+			span_notice("Вы добиваетесь успеха."),
+			span_notice("[user] добился успеха!"),
+			span_notice("[user] завершает работу."),
 		)
 	return TRUE
 

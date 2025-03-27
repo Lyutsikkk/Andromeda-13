@@ -1,6 +1,6 @@
 /obj/item/retractor
-	name = "retractor"
-	desc = "Retracts stuff."
+	name = "ретрактор"
+	desc = "Убирает всякую всячину."
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "retractor"
 	inhand_icon_state = "retractor"
@@ -29,8 +29,8 @@
 	icon_angle = 45
 
 /obj/item/hemostat
-	name = "hemostat"
-	desc = "You think you have seen this before."
+	name = "гемостат"
+	desc = "Вам кажется, что вы уже видели это раньше."
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "hemostat"
 	inhand_icon_state = "hemostat"
@@ -61,8 +61,8 @@
 	icon_angle = 45
 
 /obj/item/cautery
-	name = "cautery"
-	desc = "This stops bleeding."
+	name = "прижигатель"
+	desc = "Это останавливает кровотечение."
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "cautery"
 	inhand_icon_state = "cautery"
@@ -153,8 +153,8 @@
 	. += span_notice("It's set to [tool_behaviour == TOOL_CAUTERY ? "mending" : "drilling"] mode.")
 
 /obj/item/surgicaldrill
-	name = "surgical drill"
-	desc = "You can drill using this item. You dig?"
+	name = "хирургическая дрель"
+	desc = "Вы можете сверлить черепушки и не только."
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "drill"
 	inhand_icon_state = "drill"
@@ -202,8 +202,8 @@
 	toolspeed = 0.5
 
 /obj/item/scalpel
-	name = "scalpel"
-	desc = "Cut, cut, and once more cut."
+	name = "скальпель"
+	desc = "Режь, режь и еще раз режь."
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "scalpel"
 	inhand_icon_state = "scalpel"
@@ -261,8 +261,8 @@
 	toolspeed = 0.5
 
 /obj/item/circular_saw
-	name = "circular saw"
-	desc = "For heavy duty cutting."
+	name = "хирургическая пила"
+	desc = "Для резки плотных тканей или костей."
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "saw"
 	inhand_icon_state = "saw"
@@ -320,8 +320,8 @@
 
 
 /obj/item/surgical_drapes
-	name = "surgical drapes"
-	desc = "Nanotrasen brand surgical drapes provide optimal safety and infection control."
+	name = "стерильная тряпка"
+	desc = "Хирургическая тряпка марки Nanotrasen обеспечивают оптимальную безопасность и инфекционный контроль."
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "surgical_drapes"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -607,8 +607,8 @@
 	return BRUTELOSS
 
 /obj/item/bonesetter
-	name = "bonesetter"
-	desc = "For setting things right."
+	name = "костоправ"
+	desc = "Что? Рука торчит не в ту сторону? Сейчас исправим!"
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "bonesetter"
 	icon_angle = 135
@@ -632,8 +632,8 @@
 	icon_angle = 45
 
 /obj/item/blood_filter
-	name = "blood filter"
-	desc = "For filtering the blood."
+	name = "фильтр для очистки крови"
+	desc = "Для фильтрации крови."
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "bloodfilter"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'

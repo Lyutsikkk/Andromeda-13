@@ -13,19 +13,19 @@ import { Window } from '../layouts';
 
 const damageTypes = [
   {
-    label: 'Brute',
+    label: 'Физические',
     type: 'bruteLoss',
   },
   {
-    label: 'Burn',
+    label: 'Термические',
     type: 'fireLoss',
   },
   {
-    label: 'Toxin',
+    label: 'Токсины',
     type: 'toxLoss',
   },
   {
-    label: 'Respiratory',
+    label: 'Респираторные',
     type: 'oxyLoss',
   },
 ];
@@ -39,13 +39,13 @@ export const OperatingComputer = (props) => {
       <Window.Content scrollable>
         <Tabs>
           <Tabs.Tab selected={tab === 1} onClick={() => setTab(1)}>
-            Patient State
+            Состояние пациента
           </Tabs.Tab>
           <Tabs.Tab selected={tab === 2} onClick={() => setTab(2)}>
-            Surgery Procedures
+            Хирургические процедуры
           </Tabs.Tab>
           <Tabs.Tab onClick={() => act('open_experiments')}>
-            Experiments
+            эксперименты
           </Tabs.Tab>
         </Tabs>
         {tab === 1 && <PatientStateView />}
@@ -64,16 +64,16 @@ const PatientStateView = (props) => {
 
   return (
     <>
-      <Section title="Patient State">
+      <Section title="Состояние пациента">
         {Object.keys(patient).length ? (
           <LabeledList>
-            <LabeledList.Item label="State" color={patient.statstate}>
+            <LabeledList.Item label="Состояние" color={patient.statstate}>
               {patient.stat}
             </LabeledList.Item>
-            <LabeledList.Item label="Blood Type">
+            <LabeledList.Item label="Тип крови">
               {patient.blood_type || 'Unable to determine blood type'}
             </LabeledList.Item>
-            <LabeledList.Item label="Health">
+            <LabeledList.Item label="Здоровье">
               <ProgressBar
                 value={patient.health}
                 minValue={patient.minHealth}
@@ -95,30 +95,30 @@ const PatientStateView = (props) => {
             ))}
           </LabeledList>
         ) : (
-          'No Patient Detected'
+          'Пациент не обнаружен'
         )}
       </Section>
-      {procedures.length === 0 && <Section>No Active Procedures</Section>}
+      {procedures.length === 0 && <Section>Никаких активных процедур</Section>}
       {procedures.map((procedure) => (
         <Section key={procedure.name} title={procedure.name}>
           <LabeledList>
-            <LabeledList.Item label="Next Step">
+            <LabeledList.Item label="Следующий шаг">
               {procedure.next_step}
             </LabeledList.Item>
             {procedure.chems_needed && (
-              <LabeledList.Item label="Required Chems">
+              <LabeledList.Item label="Необходимые химические вещества">
                 <NoticeBox success={procedure.chems_present ? true : false}>
                   {procedure.chems_needed}
                 </NoticeBox>
               </LabeledList.Item>
             )}
             {procedure.alternative_step && (
-              <LabeledList.Item label="Alternative Step">
+              <LabeledList.Item label="Альтернативный шаг">
                 {procedure.alternative_step}
               </LabeledList.Item>
             )}
             {procedure.alt_chems_needed && (
-              <LabeledList.Item label="Required Chems">
+              <LabeledList.Item label="Необходимые химические вещества">
                 <NoticeBox success={procedure.alt_chems_present ? true : false}>
                   {procedure.alt_chems_needed}
                 </NoticeBox>
@@ -135,10 +135,10 @@ const SurgeryProceduresView = (props) => {
   const { act, data } = useBackend();
   const { surgeries = [] } = data;
   return (
-    <Section title="Advanced Surgery Procedures">
+    <Section title="Передовые хирургические процедуры">
       <Button
         icon="download"
-        content="Sync Research Database"
+        content="Синхронизация исследовательской базы данных"
         onClick={() => act('sync')}
       />
       {surgeries.map((surgery) => (

@@ -1,5 +1,5 @@
 /datum/surgery/organ_manipulation
-	name = "Organ manipulation"
+	name = "Манипуляции с органами"
 	surgery_flags = SURGERY_REQUIRE_RESTING | SURGERY_REQUIRE_LIMB | SURGERY_REQUIRES_REAL_LIMB | SURGERY_MORBID_CURIOSITY
 	possible_locs = list(BODY_ZONE_CHEST, BODY_ZONE_HEAD)
 	steps = list(
@@ -203,11 +203,11 @@
 		display_results(
 			user,
 			target,
-			span_notice("You begin to insert [tool] into [target]'s [target.parse_zone_with_bodypart(target_zone)]..."),
-			span_notice("[user] begins to insert [tool] into [target]'s [target.parse_zone_with_bodypart(target_zone)]."),
-			span_notice("[user] begins to insert something into [target]'s [target.parse_zone_with_bodypart(target_zone)]."),
+			span_notice("Вы начинаете вставлять [tool] в [target] [target.parse_zone_with_bodypart(target_zone)]..."),
+			span_notice("[user] начинает вставлять [tool] в [target] [target.parse_zone_with_bodypart(target_zone)]."),
+			span_notice("[user] начинает что-то вставлять в [target] [target.parse_zone_with_bodypart(target_zone)]."),
 		)
-		display_pain(target, "You can feel something being placed in your [target.parse_zone_with_bodypart(target_zone)]!")
+		display_pain(target, "Вы можете почувствовать, как что-то помещается в вашу [target.parse_zone_with_bodypart(target_zone)]!")
 
 
 	else if(implement_type in implements_extract)
@@ -253,11 +253,11 @@
 				display_results(
 					user,
 					target,
-					span_notice("You begin to extract [target_organ] from [target]'s [target.parse_zone_with_bodypart(target_zone)]..."),
-					span_notice("[user] begins to extract [target_organ] from [target]'s [target.parse_zone_with_bodypart(target_zone)]."),
-					span_notice("[user] begins to extract something from [target]'s [target.parse_zone_with_bodypart(target_zone)]."),
+					span_notice("Вы начинаете извлекать [target_organ] из [target] [target.parse_zone_with_bodypart(target_zone)]..."),
+					span_notice("[user] начинает извлекать [target_organ] из [target] [target.parse_zone_with_bodypart(target_zone)]."),
+					span_notice("[user] начинает извлекать что-то из [target] [target.parse_zone_with_bodypart(target_zone)]."),
 				)
-				display_pain(target, "You can feel your [target_organ.name] being removed from your [target.parse_zone_with_bodypart(target_zone)]!")
+				display_pain(target, "Вы можете почувствовать, что ваш  [target_organ.name] удаляется из вашей [target.parse_zone_with_bodypart(target_zone)]!")
 			else
 				return SURGERY_STEP_FAIL
 
@@ -279,11 +279,11 @@
 		display_results(
 			user,
 			target,
-			span_notice("You insert [tool] into [target]'s [target.parse_zone_with_bodypart(target_zone)]."),
-			span_notice("[user] inserts [tool] into [target]'s [target.parse_zone_with_bodypart(target_zone)]!"),
-			span_notice("[user] inserts something into [target]'s [target.parse_zone_with_bodypart(target_zone)]!"),
+			span_notice("Вы вставляете [tool] в [target] [target.parse_zone_with_bodypart(target_zone)]."),
+			span_notice("[user] вставляет [tool] в [target] [target.parse_zone_with_bodypart(target_zone)]!"),
+			span_notice("[user] вставляет что-то в [target] [target.parse_zone_with_bodypart(target_zone)]!"),
 		)
-		display_pain(target, "Your [target.parse_zone_with_bodypart(target_zone)] throbs with pain as your new [tool.name] comes to life!")
+		display_pain(target, "Ваш [target.parse_zone_with_bodypart(target_zone)] пульсирует от боли, когда ваш новый [tool.name] оживает!")
 		target_organ.on_surgical_insertion(user, target, target_zone, tool)
 
 	else if(current_type == "extract")
@@ -291,12 +291,12 @@
 			display_results(
 				user,
 				target,
-				span_notice("You successfully extract [target_organ] from [target]'s [target.parse_zone_with_bodypart(target_zone)]."),
-				span_notice("[user] successfully extracts [target_organ] from [target]'s [target.parse_zone_with_bodypart(target_zone)]!"),
-				span_notice("[user] successfully extracts something from [target]'s [target.parse_zone_with_bodypart(target_zone)]!"),
+				span_notice("Вы успешно извлекли [target_organ] из [target] [target.parse_zone_with_bodypart(target_zone)]."),
+				span_notice("[user] успешно извлек [target_organ] из [target] [target.parse_zone_with_bodypart(target_zone)]!"),
+				span_notice("[user] успешно извлекает что-то из [target] [target.parse_zone_with_bodypart(target_zone)]!"),
 			)
-			display_pain(target, "Your [target.parse_zone_with_bodypart(target_zone)] throbs with pain, you can't feel your [target_organ.name] anymore!")
-			log_combat(user, target, "surgically removed [target_organ.name] from", addition="COMBAT MODE: [uppertext(user.combat_mode)]")
+			display_pain(target, "Ваша [target.parse_zone_with_bodypart(target_zone)] пульсирует от боли, вы больше не чувствуете свою [target_organ.name]!")
+			log_combat(user, target, "удален хирургическим путем [target_organ.name] из", addition="COMBAT MODE: [uppertext(user.combat_mode)]")
 			target_organ.Remove(target)
 			target_organ.forceMove(get_turf(target))
 			target_organ.on_surgical_removal(user, target, target_zone, tool)
@@ -319,7 +319,7 @@
 
 /datum/surgery_step/manipulate_organs/any
 	time = 6.4 SECONDS
-	name = "manipulate organs (hemostat/organ)"
+	name = "Манипуляции с органами (гемостат/орган)"
 
 /datum/surgery_step/manipulate_organs/any/can_use_organ(obj/item/organ/organ)
 	return TRUE
@@ -327,7 +327,7 @@
 ///Surgery step for internal organs, like hearts and brains
 /datum/surgery_step/manipulate_organs/internal
 	time = 6.4 SECONDS
-	name = "manipulate organs (hemostat/organ)"
+	name = "Манипуляции с органами (гемостат/орган)"
 
 ///only operate on internal organs
 /datum/surgery_step/manipulate_organs/internal/can_use_organ(obj/item/organ/organ)

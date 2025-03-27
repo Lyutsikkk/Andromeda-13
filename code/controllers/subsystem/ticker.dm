@@ -160,9 +160,9 @@ SUBSYSTEM_DEF(ticker)
 				start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 10)
 			for(var/client/C in GLOB.clients)
 				window_flash(C, ignorepref = TRUE) //let them know lobby has opened up.
-			to_chat(world, span_notice("<b>Welcome to [station_name()]!</b>"))
+			to_chat(world, span_notice("<b>Добро пожаловать на [station_name()]!</b>"))
 			for(var/channel_tag in CONFIG_GET(str_list/channel_announce_new_game))
-				send2chat(new /datum/tgs_message_content("New round starting on [SSmapping.current_map.map_name]!"), channel_tag)
+				send2chat(new /datum/tgs_message_content("Начинается новый раунд на [SSmapping.current_map.map_name]!"), channel_tag)
 			current_state = GAME_STATE_PREGAME
 			SEND_SIGNAL(src, COMSIG_TICKER_ENTER_PREGAME)
 
@@ -231,7 +231,7 @@ SUBSYSTEM_DEF(ticker)
 	return FALSE
 
 /datum/controller/subsystem/ticker/proc/setup()
-	to_chat(world, span_boldannounce("Starting game..."))
+	to_chat(world, span_boldannounce("Начало игры..."))
 	var/init_start = world.timeofday
 
 	CHECK_TICK
@@ -245,12 +245,12 @@ SUBSYSTEM_DEF(ticker)
 
 	if(!GLOB.Debug2)
 		if(!can_continue)
-			log_game("Game failed pre_setup")
-			to_chat(world, "<B>Error setting up game.</B> Reverting to pre-game lobby.")
+			log_game("Игра провалилась pre_setup")
+			to_chat(world, "<B>Ошибка при настройке игры.</B> Возвращаюсь в предыгровое лобби.")
 			SSjob.reset_occupations()
 			return FALSE
 	else
-		message_admins(span_notice("DEBUG: Bypassing prestart checks..."))
+		message_admins(span_notice("DEBUG: Обход предварительных проверок..."))
 
 	CHECK_TICK
 
@@ -282,17 +282,17 @@ SUBSYSTEM_DEF(ticker)
 	round_start_time = world.time //otherwise round_start_time would be 0 for the signals
 	SEND_SIGNAL(src, COMSIG_TICKER_ROUND_STARTING, world.time)
 
-	log_world("Game start took [(world.timeofday - init_start)/10]s")
+	log_world("Начало игры заняло [(world.timeofday - init_start)/10]")
 	INVOKE_ASYNC(SSdbcore, TYPE_PROC_REF(/datum/controller/subsystem/dbcore,SetRoundStart))
 
-	to_chat(world, span_notice(span_bold("Welcome to [station_name()], enjoy your stay!")))
+	to_chat(world, span_notice(span_bold("Добро пожаловать на [station_name()], приятного вам пребывания!")))
 	SEND_SOUND(world, sound(SSstation.announcer.get_rand_welcome_sound()))
 
 	current_state = GAME_STATE_PLAYING
 	Master.SetRunLevel(RUNLEVEL_GAME)
 
 	if(length(GLOB.holidays))
-		to_chat(world, span_notice("and..."))
+		to_chat(world, span_notice("и..."))
 		for(var/holidayname in GLOB.holidays)
 			var/datum/holiday/holiday = GLOB.holidays[holidayname]
 			to_chat(world, span_info(holiday.greet()))
@@ -309,7 +309,7 @@ SUBSYSTEM_DEF(ticker)
 
 	var/list/adm = get_admin_counts()
 	var/list/allmins = adm["present"]
-	send2adminchat("Server", "Round [GLOB.round_id ? "#[GLOB.round_id]" : ""] has started[allmins.len ? ".":" with no active admins online!"]")
+	send2adminchat("Сервер", "Раунд [GLOB.round_id ? "#[GLOB.round_id]" : ""] запущен [allmins.len ? ".":" активных администраторов в сети нет!"]")
 	setup_done = TRUE
 
 	for(var/i in GLOB.start_landmarks_list)
@@ -317,7 +317,7 @@ SUBSYSTEM_DEF(ticker)
 		if(istype(S)) //we can not runtime here. not in this important of a proc.
 			S.after_round_start()
 		else
-			stack_trace("[S] [S.type] found in start landmarks list, which isn't a start landmark!")
+			stack_trace("[S] [S.type] найден в списке начальных ориентиров, который не является начальным ориентиром!")
 
 	// handle persistence stuff that requires ckeys, in this case hardcore mode and temporal scarring
 	for(var/i in GLOB.player_list)
@@ -331,9 +331,9 @@ SUBSYSTEM_DEF(ticker)
 		if(!iter_human.hardcore_survival_score)
 			continue
 		if(iter_human.mind?.special_role)
-			to_chat(iter_human, span_notice("You will gain [round(iter_human.hardcore_survival_score) * 2] hardcore random points if you greentext this round!"))
+			to_chat(iter_human, span_notice("Вы получите [round(iter_human.hardcore_survival_score) * 2] невероятных случайных очка, если подпишетесь на этот раунд зеленым текстом!"))
 		else
-			to_chat(iter_human, span_notice("You will gain [round(iter_human.hardcore_survival_score)] hardcore random points if you survive this round!"))
+			to_chat(iter_human, span_notice("Вы получите [round(iter_human.hardcore_survival_score)] невероятные случайные очки, если выживете в этом раунде!"))
 
 //These callbacks will fire after roundstart key transfer
 /datum/controller/subsystem/ticker/proc/OnRoundstart(datum/callback/cb)
@@ -435,7 +435,7 @@ SUBSYSTEM_DEF(ticker)
 		for(var/mob/dead/new_player/new_player_mob as anything in GLOB.new_player_list)
 			var/mob/living/carbon/human/new_player_human = new_player_mob.new_character
 			if(new_player_human)
-				to_chat(new_player_mob, span_notice("Captainship not forced on anyone."))
+				to_chat(new_player_mob, span_notice("Звание капитана никому не назначено."))
 			CHECK_TICK
 
 
@@ -490,7 +490,7 @@ SUBSYSTEM_DEF(ticker)
 	if(!hard_popcap)
 		list_clear_nulls(queued_players)
 		for (var/mob/dead/new_player/new_player in queued_players)
-			to_chat(new_player, span_userdanger("The alive players limit has been released!<br><a href='byond://?src=[REF(new_player)];late_join=override'>[html_encode(">>Join Game<<")]</a>"))
+			to_chat(new_player, span_userdanger("Лимит на количество живых игроков снят!<br><a href='byond://?src=[REF(new_player)];late_join=override'>[html_encode(">>Присоединиться к игре<<")]</a>"))
 			SEND_SOUND(new_player, sound('sound/announcer/notice/notice1.ogg'))
 			GLOB.latejoin_menu.ui_interact(new_player)
 		queued_players.len = 0
@@ -505,14 +505,14 @@ SUBSYSTEM_DEF(ticker)
 			list_clear_nulls(queued_players)
 			if(living_player_count() < hard_popcap)
 				if(next_in_line?.client)
-					to_chat(next_in_line, span_userdanger("A slot has opened! You have approximately 20 seconds to join. <a href='byond://?src=[REF(next_in_line)];late_join=override'>\>\>Join Game\<\<</a>"))
+					to_chat(next_in_line, span_userdanger("Открыта вакансия! У вас есть примерно 20 секунд, чтобы присоединиться. <a href='byond://?src=[REF(next_in_line)];late_join=override'>\>\>Присоединиться к игре\<\<</a>"))
 					SEND_SOUND(next_in_line, sound('sound/announcer/notice/notice1.ogg'))
 					next_in_line.ui_interact(next_in_line)
 					return
 				queued_players -= next_in_line //Client disconnected, remove he
 			queue_delay = 0 //No vacancy: restart timer
 		if(25 to INFINITY)  //No response from the next in line when a vacancy exists, remove he
-			to_chat(next_in_line, span_danger("No response received. You have been removed from the line."))
+			to_chat(next_in_line, span_danger("Ответа не получено. Вы были удалены с линии."))
 			queued_players -= next_in_line
 			queue_delay = 0
 
@@ -560,18 +560,18 @@ SUBSYSTEM_DEF(ticker)
 
 /datum/controller/subsystem/ticker/proc/send_news_report()
 	var/news_message
-	var/news_source = "Nanotrasen News Network"
+	var/news_source = "Новостная сеть Нанотрейзен"
 	var/decoded_station_name = html_decode(station_name()) //decode station_name to avoid minor_announce double encode
 
 	switch(news_report)
 		// The nuke was detonated on the syndicate recon outpost
 		if(NUKE_SYNDICATE_BASE)
-			news_message = "In a daring raid, the heroic crew of [decoded_station_name] \
-				detonated a nuclear device in the heart of a terrorist base."
+			news_message = "В ходе дерзкого рейда героическая команда [decoded_station_name] \
+				взорвала ядерное устройство в самом сердце базы террористов."
 		// The station was destroyed by nuke ops
 		if(STATION_DESTROYED_NUKE)
-			news_message = "We would like to reassure all employees that the reports of a Syndicate \
-				backed nuclear attack on [decoded_station_name] are, in fact, a hoax. Have a secure day!"
+			news_message = "Мы хотели бы заверить всех сотрудников, что сообщения о ядерной \
+				атаке при поддержке Синдиката на [decoded_station_name], является не более чем мистификацией. Удачного дня!"
 		// The station was evacuated (normal result)
 		if(STATION_EVACUATED)
 			// Had an emergency reason supplied to pass along
