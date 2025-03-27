@@ -39,7 +39,7 @@ export const sound_ghost_poll_prompt: FeatureChoiced = {
 };
 
 export const sound_ghost_poll_prompt_volume: Feature<number> = {
-  name: 'Громкость звка на призрачный опрос',
+  name: 'Громкость звука на призрачный опрос',
   category: 'Звук',
   description:
     'Громкость, на которой будут воспроизводиться подсказки Призрачный опрос.',
