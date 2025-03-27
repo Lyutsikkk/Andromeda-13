@@ -1,8 +1,8 @@
 #define PANCAKE_MAX_STACK 10
 
 /obj/item/food/pancakes
-	name = "pancake"
-	desc = "A fluffy pancake. The softer, superior relative of the waffle."
+	name = "Блин"
+	desc = "Пышный блинчик. Более мягкий и качественный по сравнению с вафлями."
 	icon_state = "pancakes_1"
 	inhand_icon_state = null
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 2)
@@ -15,8 +15,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/pancakes/raw
-	name = "goopy pancake"
-	desc = "A barely cooked mess that some may mistake for a pancake. It longs for the griddle."
+	name = "Липкий блинчик"
+	desc = "Едва приготовленное блюдо, которое некоторые могут принять за блинчик. Его так и тянет обжарить на сковороде."
 	icon_state = "rawpancakes_1"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("milky batter" = 1)
@@ -34,12 +34,12 @@
 	var/newresult
 	if(istype(garnish, /obj/item/food/grown/berries))
 		newresult = /obj/item/food/pancakes/blueberry
-		name = "raw blueberry pancake"
+		name = "Блинчик с сырой черникой"
 		icon_state = "rawbbpancakes_1"
 		stack_name = "rawbbpancakes"
 	else if(istype(garnish, /obj/item/food/chocolatebar))
 		newresult = /obj/item/food/pancakes/chocolatechip
-		name = "raw chocolate chip pancake"
+		name = "Блинчик с сырой шоколадной крошкой"
 		icon_state = "rawccpancakes_1"
 		stack_name = "rawccpancakes"
 	else
@@ -55,8 +55,8 @@
 		. += span_notice("You can modify the pancake by adding <b>blueberries</b> or <b>chocolate</b> before finishing the griddle.")
 
 /obj/item/food/pancakes/blueberry
-	name = "blueberry pancake"
-	desc = "A fluffy and delicious blueberry pancake."
+	name = "Черничный блинчик"
+	desc = "Пышный и вкусный блинчик с черникой."
 	icon_state = "bbpancakes_1"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -67,8 +67,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pancakes/chocolatechip
-	name = "chocolate chip pancake"
-	desc = "A fluffy and delicious chocolate chip pancake."
+	name = "Блинчик с шоколадной крошкой"
+	desc = "Пышный и вкусный блинчик с шоколадной крошкой."
 	icon_state = "ccpancakes_1"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,

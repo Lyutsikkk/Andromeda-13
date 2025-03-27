@@ -1,6 +1,6 @@
 /obj/item/food/bait
-	name = "this is bait"
-	desc = "you got baited."
+	name = "Приманка"
+	desc = "ты попался на удочку."
 	icon = 'icons/obj/fishing.dmi'
 	/// Quality trait of this bait
 	var/bait_quality = TRAIT_BASIC_QUALITY_BAIT
@@ -14,8 +14,8 @@
 	ADD_TRAIT(src, bait_quality, INNATE_TRAIT)
 
 /obj/item/food/bait/worm
-	name = "worm"
-	desc = "It's a wriggling worm from a can of fishing bait. You're not going to eat it are you ?"
+	name = "Червяк"
+	desc = "Это извивающийся червяк из банки с наживкой для рыбалки. Ты же не собираешься его есть, правда?"
 	icon = 'icons/obj/fishing.dmi'
 	icon_state = "worm"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 1)
@@ -26,13 +26,13 @@
 	rod_overlay_icon_state = "worm_overlay"
 
 /obj/item/food/bait/worm/premium
-	name = "extra slimy worm"
-	desc = "This worm looks very sophisticated."
+	name = "Очень скользкий червяк"
+	desc = "Этот червь выглядит очень утонченно."
 	bait_quality = TRAIT_GOOD_QUALITY_BAIT
 
 /obj/item/food/bait/natural
-	name = "natural bait"
-	desc = "Fish can't seem to get enough of this!"
+	name = "Натуральная приманка"
+	desc = "Рыба, кажется, никак не может насытиться этим!"
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "pill9"
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
@@ -47,8 +47,8 @@
 	REMOVE_TRAIT(src, bait_quality, INNATE_TRAIT)
 
 /obj/item/food/bait/doughball
-	name = "doughball"
-	desc = "Small piece of dough. Simple but effective fishing bait."
+	name = "Пончик"
+	desc = "Небольшой кусочек теста. Простая, но эффективная приманка для рыбалки."
 	icon = 'icons/obj/fishing.dmi'
 	icon_state = "doughball"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 1)
@@ -60,7 +60,7 @@
 
 ///The abstract synthetic doughball type.
 /obj/item/food/bait/doughball/synthetic
-	name = "synthetic doughball"
+	name = "Синтетический пончиковый шарик"
 	icon_state = "doughball_blue"
 	rod_overlay_icon_state = "dough_blue_overlay"
 	preserved_food = TRUE
@@ -72,8 +72,8 @@
 
 ///Found in the can of omni-baits, only available from the super fishing toolbox, from the fishing mystery box.
 /obj/item/food/bait/doughball/synthetic/super
-	name = "super-doughball"
-	desc = "Be they herbivore or carnivores, no fish will be able to resist this."
+	name = "Супер-пончик"
+	desc = "Будь то травоядные или плотоядные животные, ни одна рыба не сможет устоять перед этим."
 	bait_quality = TRAIT_GREAT_QUALITY_BAIT
 	show_on_wiki = TRUE
 

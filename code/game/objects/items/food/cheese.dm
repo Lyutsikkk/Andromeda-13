@@ -4,8 +4,8 @@
  * Everything that is a subclass of this counts as cheese for regal rats.
  */
 /obj/item/food/cheese
-	name = "the concept of cheese"
-	desc = "This probably shouldn't exist."
+	name = "Понятие о сыре"
+	desc = "Этого, вероятно, не должно было существовать."
 	tastes = list("cheese" = 1)
 	food_reagents = list(/datum/reagent/consumable/nutriment/fat = 3)
 	foodtypes = DAIRY
@@ -24,8 +24,8 @@
 	return COMPONENT_RAT_INTERACTED
 
 /obj/item/food/cheese/wedge
-	name = "cheese wedge"
-	desc = "A wedge of delicious Cheddar. The cheese wheel it was cut from can't have gone far."
+	name = "Сырная долька"
+	desc = "Кусочек вкуснейшего чеддера. Сырный круг, из которого он был вырезан, не мог далеко уйти."
 	icon_state = "cheesewedge"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/fat = 2,
@@ -37,8 +37,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/cheese/wheel
-	name = "cheese wheel"
-	desc = "A big wheel of delicious Cheddar."
+	name = "Сырное колесо"
+	desc = "Большое блюдо из вкуснейшего чеддера."
 	icon_state = "cheesewheel"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/fat = 10,
@@ -69,8 +69,8 @@
 	qdel(src)
 
 /obj/item/food/cheese/royal
-	name = "royal cheese"
-	desc = "Ascend the throne. Consume the wheel. Feel the POWER."
+	name = "Королевский сыр"
+	desc = "Взойди на трон. Используй колесо. Почувствуй СИЛУ."
 	icon_state = "royalcheese"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/fat = 15,
@@ -86,8 +86,8 @@
 //Curd cheese, a general term which I will now proceed to stretch as thin as the toppings on a supermarket sandwich:
 //I'll use it as a substitute for ricotta, cottage cheese and quark, as well as any other non-aged, soft grainy cheese
 /obj/item/food/cheese/curd_cheese
-	name = "curd cheese"
-	desc = "Known by many names throughout human cuisine, curd cheese is useful for a wide variety of dishes."
+	name = "Творожный сыр"
+	desc = "Известный под многими названиями в человеческой кухне, творожный сыр полезен для приготовления самых разнообразных блюд."
 	icon_state = "curd_cheese"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 3,
@@ -105,8 +105,8 @@
 	AddElement(/datum/element/microwavable, /obj/item/food/cheese/cheese_curds)
 
 /obj/item/food/cheese/cheese_curds
-	name = "cheese curds"
-	desc = "Not to be mistaken for curd cheese. Tasty deep fried."
+	name = "Творожный сыр"
+	desc = "Не перепутать с творожным сыром. Очень вкусный, обжаренный во фритюре."
 	icon_state = "cheese_curds"
 	w_class = WEIGHT_CLASS_SMALL
 	rat_heal = 35
@@ -117,8 +117,8 @@
 	AddElement(/datum/element/dryable,  /obj/item/food/cheese/firm_cheese)
 
 /obj/item/food/cheese/firm_cheese
-	name = "firm cheese"
-	desc = "Firm aged cheese, similar in texture to firm tofu. Due to its lack of moisture it's particularly useful for cooking with, as it doesn't melt easily."
+	name = "Твердый сыр"
+	desc = "Твердый выдержанный сыр, по текстуре похожий на твердый тофу. Из-за недостатка влаги он особенно полезен для приготовления, так как не плавится."
 	icon_state = "firm_cheese"
 	tastes = list("aged cheese" = 1)
 	w_class = WEIGHT_CLASS_SMALL
@@ -129,8 +129,8 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/cheese/firm_cheese_slice, 3, 3 SECONDS, screentip_verb = "Slice")
 
 /obj/item/food/cheese/firm_cheese_slice
-	name = "firm cheese slice"
-	desc = "A slice of firm cheese. Perfect for grilling or making into delicious pesto."
+	name = "Ломтик твердого сыра"
+	desc = "Ломтик твердого сыра. Идеально подходит для запекания на гриле или приготовления вкусного соуса песто."
 	icon_state = "firm_cheese_slice"
 	tastes = list("aged cheese" = 1)
 	w_class = WEIGHT_CLASS_SMALL
@@ -141,8 +141,8 @@
 	AddComponent(/datum/component/grillable, /obj/item/food/grilled_cheese, rand(25 SECONDS, 35 SECONDS), TRUE, TRUE)
 
 /obj/item/food/cheese/mozzarella
-	name = "mozzarella cheese"
-	desc = "Delicious, creamy, and cheesy, all in one simple package."
+	name = "Сыр моцарелла"
+	desc = "Вкусный, сливочный и сырный, и все это в одной простой упаковке."
 	icon_state = "mozzarella"
 	tastes = list("mozzarella" = 1)
 	w_class = WEIGHT_CLASS_SMALL

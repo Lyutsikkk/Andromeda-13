@@ -19,8 +19,8 @@
 	return ..()
 
 /obj/item/food/spaghetti/raw
-	name = "spaghetti"
-	desc = "Now that's a nic'e pasta!"
+	name = "Спагетти"
+	desc = "Вот это вкусная паста!"
 	icon_state = "spaghetti"
 	tastes = list("pasta" = 1)
 	crafting_complexity = FOOD_COMPLEXITY_1
@@ -32,8 +32,8 @@
 	AddElement(/datum/element/microwavable, /obj/item/food/spaghetti/boiledspaghetti)
 
 /obj/item/food/spaghetti/boiledspaghetti
-	name = "boiled spaghetti"
-	desc = "A plain dish of noodles, this needs more ingredients."
+	name = "Отварные спагетти"
+	desc = "Это простое блюдо из лапши, но для его приготовления требуется больше ингредиентов."
 	icon_state = "spaghettiboiled"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
@@ -46,8 +46,8 @@
 	AddComponent(/datum/component/customizable_reagent_holder, null, CUSTOM_INGREDIENT_ICON_SCATTER, max_ingredients = 6)
 
 /obj/item/food/spaghetti/pastatomato
-	name = "spaghetti"
-	desc = "Spaghetti and crushed tomatoes. Just like your abusive father used to make!"
+	name = "Спагетти"
+	desc = "Спагетти с измельченными помидорами. Прямо как готовил твой жестокий отец!"
 	icon_state = "pastatomato"
 	bite_consumption = 4
 	food_reagents = list(
@@ -60,8 +60,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/spaghetti/pastatomato/soulful
-	name = "soul food"
-	desc = "Just how mom used to make it."
+	name = "Соул-фуд"
+	desc = "Именно так готовила его мама."
 	food_reagents = list(
 		// same as normal pasghetti
 		/datum/reagent/consumable/nutriment = 6,
@@ -75,8 +75,8 @@
 	tastes = list("nostalgia" = 1, "happiness" = 1)
 
 /obj/item/food/spaghetti/copypasta
-	name = "copypasta"
-	desc = "You probably shouldn't try this, you always hear people talking about how bad it is..."
+	name = "Копипаста"
+	desc = "Вам, наверное, не стоит это пробовать, вы всегда слышите, как люди говорят о том, как это плохо..."
 	icon_state = "copypasta"
 	bite_consumption = 4
 	food_reagents = list(
@@ -89,7 +89,7 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/spaghetti/meatballspaghetti
-	name = "spaghetti and meatballs"
+	name = "Спагетти с фрикадельками"
 	desc = "Now that's a nic'e meatball!"
 	icon_state = "meatballspaghetti"
 	food_reagents = list(
@@ -102,8 +102,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/spaghetti/spesslaw
-	name = "spesslaw"
-	desc = "A lawyers favourite."
+	name = "Салат-пюре"
+	desc = "Любимое блюдо юристов."
 	icon_state = "spesslaw"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -115,8 +115,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/spaghetti/chowmein
-	name = "chow mein"
-	desc = "A nice mix of noodles and fried vegetables."
+	name = "Чоу-мейн"
+	desc = "Отличное сочетание лапши и жареных овощей."
 	icon_state = "chowmein"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -128,8 +128,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/spaghetti/beefnoodle
-	name = "beef noodle"
-	desc = "Nutritious, beefy and noodly."
+	name = "Говяжья лапша"
+	desc = "Питательный, мясистый и аппетитный."
 	icon_state = "beefnoodle"
 	trash_type = /obj/item/reagent_containers/cup/bowl
 	food_reagents = list(
@@ -143,8 +143,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/spaghetti/butternoodles
-	name = "butter noodles"
-	desc = "Noodles covered in savory butter. Simple and slippery, but delicious."
+	name = "Лапша с маслом"
+	desc = "Лапша, политая пикантным сливочным маслом. Просто и скользко, но очень вкусно."
 	icon_state = "butternoodles"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 9,
@@ -155,8 +155,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/spaghetti/mac_n_cheese
-	name = "mac n' cheese"
-	desc = "Made the proper way with only the finest cheese and breadcrumbs. And yet, it can't scratch the same itch as Ready-Donk."
+	name = "Макароны с сыром"
+	desc = "Приготовленный надлежащим образом, только с отборным сыром и панировочными сухарями. И все же, он не вызывает такого острого аппетита, как готовая булочка."
 	icon_state = "mac_n_cheese"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 9,
@@ -167,8 +167,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/spaghetti/shoyu_tonkotsu_ramen
-	name = "shoyu tonkotsu ramen"
-	desc = "A simple ramen made of meat, egg, onion, and a sheet of seaweed."
+	name = "Рамен сею тонкоцу"
+	desc = "Простой рамен из мяса, яиц, лука и морских водорослей."
 	icon_state = "shoyu_tonkotsu_ramen"
 	trash_type = /obj/item/reagent_containers/cup/bowl
 	food_reagents = list(
@@ -181,8 +181,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/spaghetti/kitakata_ramen
-	name = "kitakata ramen"
-	desc = "A hearty ramen composed of meat, mushrooms, onion, and garlic. Often given to the sick to comfort them"
+	name = "Рамен китаката"
+	desc = "Сытный рамен, состоящий из мяса, грибов, лука и чеснока. Его часто дают больным, чтобы успокоить их"
 	icon_state = "kitakata_ramen"
 	trash_type = /obj/item/reagent_containers/cup/bowl
 	food_reagents = list(
@@ -195,8 +195,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/spaghetti/kitsune_udon
-	name = "kitsune udon"
-	desc = "A vegetarian udon made of fried tofu and onions, made sweet and savory with sugar and soy sauce. The name comes from an old folktale about a fox enjoying fried tofu."
+	name = "Кицунэ удон"
+	desc = "Вегетарианский удон, приготовленный из обжаренного тофу и лука, с добавлением сахара и соевого соуса. Название происходит от старой народной сказки о лисе, которая наслаждалась жареным тофу."
 	icon_state = "kitsune_udon"
 	trash_type = /obj/item/reagent_containers/cup/bowl
 	food_reagents = list(
@@ -209,8 +209,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/spaghetti/nikujaga
-	name = "nikujaga"
-	desc = "A delightful Japanese stew of noodles, onions, potatoes, and meat with mixed vegetables."
+	name = "Никуджага"
+	desc = "Восхитительное японское рагу из лапши, лука, картофеля и мяса с овощной смесью."
 	icon_state = "nikujaga"
 	trash_type = /obj/item/reagent_containers/cup/bowl
 	food_reagents = list(
@@ -223,8 +223,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/spaghetti/pho
-	name = "pho"
-	desc = "A Vietnamese dish made of noodles, vegetables, herbs, and meat. Makes for a very popular street food."
+	name = "Пхо"
+	desc = "Вьетнамское блюдо, приготовленное из лапши, овощей, зелени и мяса. Это очень популярное уличное блюдо."
 	icon_state = "pho"
 	trash_type = /obj/item/reagent_containers/cup/bowl
 	food_reagents = list(
@@ -237,8 +237,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/spaghetti/pad_thai
-	name = "pad thai"
-	desc = "A stir-fried noodle dish popular in Thailand made of peanuts, tofu, lime, and onions."
+	name = "Пад-тай"
+	desc = "Популярное в Таиланде блюдо с лапшой, обжаренной во фритюре, приготовленное из арахиса, тофу, лайма и лука."
 	icon_state = "pad_thai"
 	trash_type = /obj/item/reagent_containers/cup/bowl
 	food_reagents = list(
@@ -251,8 +251,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/spaghetti/carbonara
-	name = "spaghetti carbonara"
-	desc = "Silky eggs, crispy pork, cheesy bliss. Mamma mia!"
+	name = "Спагетти карбонара"
+	desc = "Шелковистые яйца, хрустящая свинина, сырное блаженство. Mamma mia!"
 	icon_state = "carbonara"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 10,

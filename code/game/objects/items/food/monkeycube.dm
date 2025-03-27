@@ -1,6 +1,6 @@
 /obj/item/food/monkeycube
-	name = "monkey cube"
-	desc = "Just add water!"
+	name = "Кубик обезьяны"
+	desc = "Просто добавьте воды!"
 	icon_state = "monkeycube"
 	bite_consumption = 12
 	food_reagents = list(/datum/reagent/monkey_powder = 30)
@@ -81,8 +81,8 @@
 	faction = list(FACTION_NEUTRAL, ROLE_SYNDICATE)
 
 /obj/item/food/monkeycube/gorilla
-	name = "gorilla cube"
-	desc = "A Waffle Corp. brand gorilla cube. Now with extra molecules!"
+	name = "Кубик гориллы"
+	desc = "Gorilla cube торговой марки Waffle Corp. Теперь с дополнительными молекулами!"
 	bite_consumption = 20
 	food_reagents = list(
 		/datum/reagent/monkey_powder = 30,
@@ -92,8 +92,8 @@
 	spawned_mob = /mob/living/basic/gorilla
 
 /obj/item/food/monkeycube/chicken
-	name = "chicken cube"
-	desc = "A new Nanotrasen classic, the chicken cube. Tastes like everything!"
+	name = "Кубик курицы"
+	desc = "Новая классика от Nanotrasen - кубик курицы. На вкус как все!"
 	bite_consumption = 20
 	food_reagents = list(
 		/datum/reagent/consumable/eggyolk = 30,
@@ -103,8 +103,8 @@
 	spawned_mob = /mob/living/basic/chicken
 
 /obj/item/food/monkeycube/bee
-	name = "bee cube"
-	desc = "We were sure it was a good idea. Just add water."
+	name = "Кубик пчелы"
+	desc = "Мы были уверены, что это хорошая идея. Просто добавьте воды."
 	bite_consumption = 20
 	food_reagents = list(
 		/datum/reagent/consumable/honey = 10,
