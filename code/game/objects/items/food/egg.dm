@@ -2,8 +2,8 @@
 ////////////////////////////////////////////EGGS////////////////////////////////////////////
 
 /obj/item/food/chocolateegg
-	name = "chocolate egg"
-	desc = "Such, sweet, fattening food."
+	name = "Шоколадное яйцо"
+	desc = "Такая сладкая, питательная пища."
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "chocolateegg"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/sugar = 2, /datum/reagent/consumable/coco = 2, /datum/reagent/consumable/nutriment/vitamin = 1)
@@ -17,8 +17,8 @@
 GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 
 /obj/item/food/egg
-	name = "egg"
-	desc = "An egg!"
+	name = "Яйцо"
+	desc = "Яйцо!"
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "egg"
 	inhand_icon_state = "egg"
@@ -38,8 +38,8 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	AddElement(/datum/element/microwavable, /obj/item/food/boiledegg)
 
 /obj/item/food/egg/organic
-	name = "organic egg"
-	desc = "A 100% natural egg from the best hens."
+	name = "Органическое яйцо"
+	desc = "100% натуральное яйцо от лучших кур."
 	starting_reagent_purity = 1
 
 /obj/item/food/egg/rotten
@@ -54,7 +54,7 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	AddElement(/datum/element/microwavable, /obj/item/food/boiledegg/rotten)
 
 /obj/item/food/egg/gland
-	desc = "An egg! It looks weird..."
+	desc = "Яйцо! Это выглядит странно..."
 
 /obj/item/food/egg/gland/Initialize(mapload)
 	. = ..()
@@ -179,8 +179,8 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	icon_state = "penguin_egg"
 
 /obj/item/food/egg/fertile
-	name = "fertile-looking egg"
-	desc = "An egg! It looks fertilized.\nQuite how you can tell this just by looking at it is a mystery."
+	name = "Оплодотворенное яйцо"
+	desc = "Яйцо! Похоже, она оплодотворена.Остается загадкой, как можно определить это, просто взглянув на нее."
 	chick_throw_prob = 100
 
 /obj/item/food/egg/fertile/Initialize(mapload, loc)
@@ -197,8 +197,8 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	)
 
 /obj/item/food/friedegg
-	name = "fried egg"
-	desc = "A fried egg. Would go well with a touch of salt and pepper."
+	name = "Жаренное яйцо"
+	desc = "Яичницу-глазунью. Хорошо сочетается с небольшим количеством соли и перца."
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "friedegg"
 	food_reagents = list(
@@ -213,8 +213,8 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/rawegg
-	name = "raw egg"
-	desc = "Supposedly good for you, if you can stomach it. Better fried."
+	name = "Сырое яйцо"
+	desc = "Считается, что это полезно для здоровья, если вы можете это переварить. Лучше жареное."
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "rawegg"
 	food_reagents = list() // Receives all reagents from its whole egg counterpart
@@ -228,8 +228,8 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	AddComponent(/datum/component/grillable, /obj/item/food/friedegg, rand(20 SECONDS, 35 SECONDS), TRUE, FALSE)
 
 /obj/item/food/boiledegg
-	name = "boiled egg"
-	desc = "A hard boiled egg."
+	name = "Вареное яйцо"
+	desc = "Яйцо, сваренное вкрутую."
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "egg"
 	inhand_icon_state = "egg"
@@ -246,8 +246,8 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/eggsausage
-	name = "egg with sausage"
-	desc = "A good egg with a side of sausages."
+	name = "Яйцо с колбасой"
+	desc = "Хорошее яйцо с гарниром из сосисок."
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "eggsausage"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/nutriment = 4)
@@ -263,8 +263,8 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	preserved_food = TRUE
 
 /obj/item/food/omelette //FUCK THIS
-	name = "omelette du fromage"
-	desc = "That's all you can say!"
+	name = "Омлет по-деревенски"
+	desc = "Это все, что ты можешь сказать!"
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "omelette"
 	food_reagents = list(
@@ -301,8 +301,8 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	..()
 
 /obj/item/food/benedict
-	name = "eggs benedict"
-	desc = "There is only one egg on this, how rude."
+	name = "Яйца бенедикт"
+	desc = "Во всем этом есть только одно но, как это грубо."
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "benedict"
 	food_reagents = list(
@@ -317,8 +317,8 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/eggwrap
-	name = "egg wrap"
-	desc = "The precursor to Pigs in a Blanket."
+	name = "Яичная обертка"
+	desc = "Предшественник Свиней в одеяле."
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "eggwrap"
 	food_reagents = list(
@@ -332,8 +332,8 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/chawanmushi
-	name = "chawanmushi"
-	desc = "A legendary egg custard that makes friends out of enemies. Probably too hot for a cat to eat."
+	name = "Чаванмуши"
+	desc = "Легендарный яичный крем, который превращает врагов в друзей. Наверное, для кошки он слишком острый."
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "chawanmushi"
 	food_reagents = list(

@@ -34,8 +34,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/cake/plain
-	name = "plain cake"
-	desc = "A plain cake, not a lie."
+	name = "Простой пирог"
+	desc = "Простой пирог, а не ложь."
 	icon_state = "plaincake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 30,
@@ -50,22 +50,22 @@
 	AddComponent(/datum/component/customizable_reagent_holder, /obj/item/food/cake/empty, CUSTOM_INGREDIENT_ICON_FILL, max_ingredients = 16)
 
 /obj/item/food/cakeslice/plain
-	name = "plain cake slice"
-	desc = "Just a slice of cake, it is enough for everyone."
+	name = "Кусочек простого торта"
+	desc = "Просто кусочек торта, его хватит на всех."
 	icon_state = "plaincake_slice"
 	tastes = list("sweetness" = 2, "cake" = 5)
 	foodtypes = GRAIN | DAIRY | SUGAR
 
 /obj/item/food/cake/empty
-	name = "cake"
-	desc = "A custom cake made by an insane chef."
+	name = "Торт"
+	desc = "Торт на заказ, приготовленный безумным шеф-поваром."
 	icon_state = "cake_custom"
 	foodtypes = GRAIN | DAIRY | SUGAR
 	slice_type = /obj/item/food/cakeslice/empty
 
 /obj/item/food/cakeslice/empty
-	name = "cake slice"
-	desc = "A slice of custom cake, made by an insane chef."
+	name = "Кусочек торта"
+	desc = "Кусочек торта на заказ, приготовленного безумным шеф-поваром."
 	icon_state = "cake_custom_slice"
 	foodtypes = GRAIN | DAIRY | SUGAR
 
@@ -74,8 +74,8 @@
 	AddComponent(/datum/component/customizable_reagent_holder, null, CUSTOM_INGREDIENT_ICON_FILL, max_ingredients = 16)
 
 /obj/item/food/cake/carrot
-	name = "carrot cake"
-	desc = "A favorite desert of a certain wascally wabbit. Not a lie."
+	name = "Морковный пирог"
+	desc = "Любимым десертом некоего Келли Уэббита был десерт, который он любил. Это не ложь."
 	icon_state = "carrotcake"
 	tastes = list("cake" = 5, "sweetness" = 2, "carrot" = 1)
 	foodtypes = GRAIN | DAIRY | VEGETABLES | SUGAR
@@ -84,16 +84,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cakeslice/carrot
-	name = "carrot cake slice"
-	desc = "Carrotty slice of Carrot Cake, carrots are good for your eyes! Also not a lie."
+	name = "Кусочек морковного пирога"
+	desc = "Нежный кусочек морковного пирога, морковь полезна для глаз! И это тоже не ложь."
 	icon_state = "carrotcake_slice"
 	tastes = list("cake" = 5, "sweetness" = 2, "carrot" = 1)
 	foodtypes = GRAIN | DAIRY | VEGETABLES | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cake/brain
-	name = "brain cake"
-	desc = "A squishy cake-thing."
+	name = "Мозговой пирог"
+	desc = "Что-то вроде мягкого торта."
 	icon_state = "braincake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 15,
@@ -107,8 +107,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cakeslice/brain
-	name = "brain cake slice"
-	desc = "Lemme tell you something about prions. THEY'RE DELICIOUS."
+	name = "Кусочек мозгового торта"
+	desc = "Позвольте мне рассказать вам кое-что о прионах. ОНИ ОЧЕНЬ ВКУСНЫЕ."
 	icon_state = "braincakeslice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -121,8 +121,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cake/cheese
-	name = "cheese cake"
-	desc = "DANGEROUSLY cheesy."
+	name = "Сырный пирог"
+	desc = "ОПАСНО сырный."
 	icon_state = "cheesecake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -136,8 +136,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cakeslice/cheese
-	name = "cheese cake slice"
-	desc = "Slice of pure cheestisfaction."
+	name = "Кусочек сырного пирога"
+	desc = "Ломтик чистого сыра для придания вкуса."
 	icon_state = "cheesecake_slice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -149,8 +149,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cake/orange
-	name = "orange cake"
-	desc = "A cake with added orange."
+	name = "Апельсиновый торт"
+	desc = "Пирог с добавлением апельсина."
 	icon_state = "orangecake"
 	tastes = list("cake" = 5, "sweetness" = 2, "oranges" = 2)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR | ORANGES
@@ -159,16 +159,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cakeslice/orange
-	name = "orange cake slice"
-	desc = "Just a slice of cake, it is enough for everyone."
+	name = "Кусочек апельсинового торта"
+	desc = "Просто кусочек торта, его хватит на всех."
 	icon_state = "orangecake_slice"
 	tastes = list("cake" = 5, "sweetness" = 2, "oranges" = 2)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR | ORANGES
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cake/lime
-	name = "lime cake"
-	desc = "A cake with added lime."
+	name = "Лаймовый пирог"
+	desc = "Пирог с добавлением лайма."
 	icon_state = "limecake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -181,16 +181,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cakeslice/lime
-	name = "lime cake slice"
-	desc = "Just a slice of cake, it is enough for everyone."
+	name = "Ломтик лаймового торта"
+	desc = "Просто кусочек торта, его хватит на всех."
 	icon_state = "limecake_slice"
 	tastes = list("cake" = 5, "sweetness" = 2, "unbearable sourness" = 2)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cake/lemon
-	name = "lemon cake"
-	desc = "A cake with added lemon."
+	name = "Лимонный пирог"
+	desc = "Пирог с добавлением лимона."
 	icon_state = "lemoncake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -203,16 +203,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cakeslice/lemon
-	name = "lemon cake slice"
-	desc = "Just a slice of cake, it is enough for everyone."
+	name = "Ломтик лимонного торта"
+	desc = "Просто кусочек торта, его хватит на всех."
 	icon_state = "lemoncake_slice"
 	tastes = list("cake" = 5, "sweetness" = 2, "sourness" = 2)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cake/chocolate
-	name = "chocolate cake"
-	desc = "A cake with added chocolate."
+	name = "Шоколадный торт"
+	desc = "Торт с добавлением шоколада."
 	icon_state = "chocolatecake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -225,16 +225,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cakeslice/chocolate
-	name = "chocolate cake slice"
-	desc = "Just a slice of cake, it is enough for everyone."
+	name = "Кусочек шоколадного торта"
+	desc = "Просто кусочек торта, его хватит на всех."
 	icon_state = "chocolatecake_slice"
 	tastes = list("cake" = 5, "sweetness" = 1, "chocolate" = 4)
 	foodtypes = GRAIN | DAIRY | JUNKFOOD | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cake/birthday
-	name = "birthday cake"
-	desc = "Happy Birthday little clown..."
+	name = "Праздничный торт"
+	desc = "С днем рождения, маленький клоун..."
 	icon_state = "birthdaycake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -250,8 +250,8 @@
 	AddElement(/datum/element/microwavable, /obj/item/clothing/head/utility/hardhat/cakehat)
 
 /obj/item/food/cakeslice/birthday
-	name = "birthday cake slice"
-	desc = "A slice of your birthday."
+	name = "Кусочек праздничного торта"
+	desc = "Кусочек твоего дня рождения."
 	icon_state = "birthdaycakeslice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -263,8 +263,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cake/birthday/energy
-	name = "energy cake"
-	desc = "Just enough calories for a whole nuclear operative squad."
+	name = "Энергетический пирог"
+	desc = "Калорий как раз хватит на целую команду ядерных оперативников."
 	icon_state = "energycake"
 	force = 5
 	hitsound = 'sound/items/weapons/blade1.ogg'
@@ -294,8 +294,8 @@
 	energy_bite(target_mob, user)
 
 /obj/item/food/cakeslice/birthday/energy
-	name = "energy cake slice"
-	desc = "For the traitor on the go."
+	name = "Кусочек энергетического торта"
+	desc = "Для предателя в пути."
 	icon_state = "energycakeslice"
 	force = 2
 	hitsound = 'sound/items/weapons/blade1.ogg'
@@ -328,8 +328,8 @@
 	playsound(eater, 'sound/items/weapons/blade1.ogg', 5, TRUE)
 
 /obj/item/food/cake/apple
-	name = "apple cake"
-	desc = "A cake centred with Apple."
+	name = "Яблочный пирог"
+	desc = "Пирог с яблоком в центре."
 	icon_state = "applecake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -342,16 +342,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cakeslice/apple
-	name = "apple cake slice"
-	desc = "A slice of heavenly cake."
+	name = "Кусочек яблочного пирога"
+	desc = "Кусочек райского торта."
 	icon_state = "applecakeslice"
 	tastes = list("cake" = 5, "sweetness" = 1, "apple" = 1)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cake/slimecake
-	name = "Slime cake"
-	desc = "A cake made of slimes. Probably not electrified."
+	name = "Торт со слизью"
+	desc = "Пирог из слаймов Наверное, он не электризуется."
 	icon_state = "slimecake"
 	tastes = list("cake" = 5, "sweetness" = 1, "slime" = 1)
 	foodtypes = GRAIN | DAIRY | SUGAR
@@ -359,16 +359,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cakeslice/slimecake
-	name = "slime cake slice"
-	desc = "A slice of slime cake."
+	name = "Кусочек торта со слизью"
+	desc = "Кусочек торта со слизью."
 	icon_state = "slimecake_slice"
 	tastes = list("cake" = 5, "sweetness" = 1, "slime" = 1)
 	foodtypes = GRAIN | DAIRY | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cake/pumpkinspice
-	name = "pumpkin spice cake"
-	desc = "A hollow cake with real pumpkin."
+	name = "Тыквенный пирог со специями"
+	desc = "Полый пирог с настоящей тыквой."
 	icon_state = "pumpkinspicecake"
 	tastes = list("cake" = 5, "sweetness" = 1, "pumpkin" = 1)
 	foodtypes = GRAIN|DAIRY|SUGAR|VEGETABLES
@@ -377,16 +377,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cakeslice/pumpkinspice
-	name = "pumpkin spice cake slice"
-	desc = "A spicy slice of pumpkin goodness."
+	name = "Кусочек тыквенного пирога со специями"
+	desc = "Пикантный ломтик тыквы просто великолепен."
 	icon_state = "pumpkinspicecakeslice"
 	tastes = list("cake" = 5, "sweetness" = 1, "pumpkin" = 1)
 	foodtypes = GRAIN|DAIRY|SUGAR|VEGETABLES
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cake/berry_vanilla_cake // blackberry strawberries vanilla cake
-	name = "blackberry and strawberry vanilla cake"
-	desc = "A plain cake, filled with assortment of blackberries and strawberries!"
+	name = "Ежевично-клубнично-ванильный пирог"
+	desc = "Простой пирог с начинкой из ежевики и клубники в ассортименте!"
 	icon_state = "blackbarry_strawberries_cake_vanilla_cake"
 	tastes = list("blackberry" = 2, "strawberries" = 2, "vanilla" = 2, "sweetness" = 2, "cake" = 3)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
@@ -394,16 +394,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cakeslice/berry_vanilla_cake
-	name = "blackberry and strawberry vanilla cake slice"
-	desc = "Just a slice of cake  filled with assortment of blackberries and strawberries!"
+	name = "Кусочек ежевично-клубнично-ванильного торта"
+	desc = "Просто кусочек торта с начинкой из ежевики и клубники в ассортименте!"
 	icon_state = "blackbarry_strawberries_cake_vanilla_slice"
 	tastes = list("blackberry" = 2, "strawberries" = 2, "vanilla" = 2, "sweetness" = 2, "cake" = 3)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cake/berry_chocolate_cake // blackbarry strawberries chocolate cake <- this is a relic from before resprite
-	name = "strawberry chocolate cake"
-	desc = "A chocolate cake with five strawberries on top. For some reason, this configuration of cake is particularly aesthetically pleasing to AIs in SELF."
+	name = "Клубнично-шоколадный торт"
+	desc = "Шоколадный торт с пятью клубничками сверху. По какой-то причине такая форма торта особенно эстетична для самостоятельного приготовления."
 	icon_state = "liars_cake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -416,17 +416,17 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/cakeslice/berry_chocolate_cake
-	name = "strawberry chocolate cake slice"
-	desc = "Just a slice of cake with five strawberries on top. \
-		For some reason, this configuration of cake is particularly aesthetically pleasing to AIs in SELF."
+	name = "Кусочек клубнично-шоколадного торта"
+	desc = "Просто кусочек торта с пятью клубничками сверху. \
+		По какой-то причине такая форма торта особенно эстетична для самостоятельного приготовления."
 	icon_state = "liars_slice"
 	tastes = list("strawberries" = 2, "chocolate" = 2, "sweetness" = 2, "cake" = 3)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/cake/holy_cake
-	name = "angel food cake"
-	desc = "A cake made for angels and chaplains alike! Contains holy water."
+	name = "Торт ангельская еда"
+	desc = "Торт, приготовленный как для ангелов, так и для священников! Содержит святую воду."
 	icon_state = "holy_cake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 1,
@@ -438,15 +438,15 @@
 	slice_type = /obj/item/food/cakeslice/holy_cake_slice
 
 /obj/item/food/cakeslice/holy_cake_slice
-	name = "angel food cake slice"
-	desc = "A slice of heavenly cake."
+	name = "Кусочек торта ангельская еда"
+	desc = "Кусочек райского торта."
 	icon_state = "holy_cake_slice"
 	tastes = list("cake" = 5, "sweetness" = 1, "clouds" = 1)
 	foodtypes = GRAIN | DAIRY | SUGAR
 
 /obj/item/food/cake/pound_cake
-	name = "pound cake"
-	desc = "A condensed cake made for filling people up quickly."
+	name = "Фунтовый пирог"
+	desc = "Торт со сгущенкой, приготовленный для быстрого насыщения людей."
 	icon_state = "pound_cake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 60,
@@ -460,8 +460,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/cakeslice/pound_cake_slice
-	name = "pound cake slice"
-	desc = "A slice of condensed cake made for filling people up quickly."
+	name = "Ломтик фунтового торта"
+	desc = "Кусочек торта со сгущенкой, приготовленный для быстрого насыщения людей."
 	icon_state = "pound_cake_slice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 9,
@@ -472,8 +472,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/cake/hardware_cake
-	name = "hardware cake"
-	desc = "A \"cake\" that is made with electronic boards and leaks acid..."
+	name = "Аппаратный торт"
+	desc = "Пирог, который готовится из электронных плат и пропускает кислоту..."
 	icon_state = "hardware_cake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -487,8 +487,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cakeslice/hardware_cake_slice
-	name = "hardware cake slice"
-	desc = "A slice of electronic boards and some acid."
+	name = "Кусочек торта с начинкой"
+	desc = "Кусочек электронной платы и немного кислоты."
 	icon_state = "hardware_cake_slice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -501,8 +501,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cake/vanilla_cake
-	name = "vanilla cake"
-	desc = "A vanilla frosted cake."
+	name = "Ванильный торт"
+	desc = "Торт с ванильной глазурью."
 	icon_state = "vanillacake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -516,8 +516,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cakeslice/vanilla_slice
-	name = "vanilla cake slice"
-	desc = "A slice of vanilla frosted cake."
+	name = "Кусочек ванильного торта"
+	desc = "Кусочек торта с ванильной глазурью."
 	icon_state = "vanillacake_slice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -530,8 +530,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cake/clown_cake
-	name = "clown cake"
-	desc = "A funny cake with a clown face on it."
+	name = "Клоунский торт"
+	desc = "Забавный торт с мордочкой клоуна на нем."
 	icon_state = "clowncake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -545,8 +545,8 @@
 	crafted_food_buff = /datum/status_effect/food/trait/waddle
 
 /obj/item/food/cakeslice/clown_slice
-	name = "clown cake slice"
-	desc = "A slice of bad jokes, and silly props."
+	name = "Кусочек клоунского торта"
+	desc = "Немного плохих шуток и глупого реквизита."
 	icon_state = "clowncake_slice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -559,8 +559,8 @@
 	crafted_food_buff = /datum/status_effect/food/trait/waddle
 
 /obj/item/food/cake/trumpet
-	name = "spaceman's cake"
-	desc = "A spaceman's trumpet frosted cake."
+	name = "Торт космонавта"
+	desc = "Торт с глазурью Труба космонавта."
 	icon_state = "trumpetcake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -575,8 +575,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/cakeslice/trumpet
-	name = "spaceman's cake slice"
-	desc = "A spaceman's trumpet frosted cake."
+	name = "Кусочек торта космонавта"
+	desc = "Торт с глазурью Труба космонавта."
 	icon_state = "trumpetcakeslice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -590,8 +590,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/cake/brioche
-	name = "brioche cake"
-	desc = "A ring of sweet, glazed buns."
+	name = "Торт-бриошь"
+	desc = "Кольцо из сладких булочек с глазурью."
 	icon_state = "briochecake"
 	tastes = list("cake" = 4, "butter" = 2, "cream" = 1)
 	foodtypes = GRAIN | DAIRY | SUGAR
@@ -600,16 +600,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/cakeslice/brioche
-	name = "brioche cake slice"
-	desc = "Delicious sweet-bread. Who needs anything else?"
+	name = "Кусочек торта бриошь"
+	desc = "Вкусный сладкий хлеб. Кому еще что-нибудь нужно?"
 	icon_state = "briochecake_slice"
 	tastes = list("cake" = 4, "butter" = 2, "cream" = 1)
 	foodtypes = GRAIN | DAIRY | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/cake/pavlova
-	name = "pavlova"
-	desc = "A sweet berry pavlova. Invented in New Zealand, but named after a Russian ballerina... And scientifically proven to be the best at dinner parties!"
+	name = "Павлова"
+	desc = "Сладкая ягода Павлова. Изобретена в Новой Зеландии, но названа в честь русской балерины... Научно доказано, что она лучше всего подходит для званых обедов!"
 	icon_state = "pavlova"
 	tastes = list("meringue" = 5, "creaminess" = 1, "berries" = 1)
 	foodtypes = DAIRY | FRUIT | SUGAR
@@ -617,14 +617,14 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cake/pavlova/nuts
-	name = "pavlova with nuts"
+	name = "Павлова с орехами"
 	foodtypes = NUTS | FRUIT | SUGAR
 	slice_type = /obj/item/food/cakeslice/pavlova/nuts
 
 /obj/item/food/cakeslice/pavlova
-	name = "pavlova slice"
-	desc = "A cracked slice of pavlova stacked with berries. \
-		You even got it sliced in such a way that more berries ended up on your slice, how delightfully devilish."
+	name = "Ломтик павловой"
+	desc = "Треснувший ломтик павловой с ягодами. \
+		Ты даже нарезала его таким образом, чтобы на твоем ломтике оказалось больше ягод, это просто дьявольски восхитительно."
 	icon_state = "pavlova_slice"
 	tastes = list("meringue" = 5, "creaminess" = 1, "berries" = 1)
 	foodtypes = DAIRY | FRUIT | SUGAR
@@ -634,8 +634,8 @@
 	foodtypes = NUTS | FRUIT | SUGAR
 
 /obj/item/food/cake/fruit
-	name = "english fruitcake"
-	desc = "A proper good cake, innit?"
+	name = "Английский фруктовый пирог"
+	desc = "Настоящий, вкусный торт, не так ли?"
 	icon_state = "fruitcake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 15,
@@ -650,8 +650,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/cakeslice/fruit
-	name = "english fruitcake slice"
-	desc = "A proper good slice, innit?"
+	name = "Ломтик английского фруктового пирога"
+	desc = "По-настоящему хороший кусок, не так ли?"
 	icon_state = "fruitcake_slice1"
 	base_icon_state = "fruitcake_slice"
 	tastes = list("dried fruit" = 5, "treacle" = 2, "christmas" = 2)
@@ -665,8 +665,8 @@
 	icon_state = "[base_icon_state][rand(1,3)]"
 
 /obj/item/food/cake/plum
-	name = "plum cake"
-	desc = "A cake centred with Plums."
+	name = "Сливовый пирог"
+	desc = "Пирог со сливами в центре."
 	icon_state = "plumcake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -680,16 +680,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cakeslice/plum
-	name = "plum cake slice"
-	desc = "A slice of plum cake."
+	name = "Кусочек сливового пирога"
+	desc = "Кусочек сливового пирога."
 	icon_state = "plumcakeslice"
 	tastes = list("cake" = 5, "sweetness" = 1, "plum" = 2)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cake/wedding
-	name = "wedding cake"
-	desc = "An expensive, multi-tiered cake."
+	name = "Свадебный торт"
+	desc = "Дорогой многоярусный торт."
 	icon_state = "weddingcake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 40,
@@ -702,15 +702,15 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cakeslice/wedding
-	name = "wedding cake slice"
-	desc = "Traditionally, those getting married feed each other a slice of cake."
+	name = "Кусочек свадебного торта"
+	desc = "По традиции, вступающие в брак угощают друг друга кусочками торта."
 	icon_state = "weddingcake_slice"
 	tastes = list("cake" = 3, "frosting" = 1)
 	foodtypes = GRAIN | DAIRY | SUGAR
 
 /obj/item/food/cake/pineapple_cream_cake
-	name = "pineapple cream cake"
-	desc = "A vibrant cake with a layer of thick cream and pineapple on top."
+	name = "Торт с ананасовым кремом"
+	desc = "Яркий торт с прослойкой из густых сливок и ананасом сверху."
 	icon_state = "pineapple_cream_cake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 30,
@@ -723,8 +723,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cakeslice/pineapple_cream_cake
-	name = "pineapple cream cake slice"
-	desc = "A vibrant cake with a layer of thick cream and pineapple on top."
+	name = "Кусочек торта с ананасовым кремом"
+	desc = "Яркий торт с прослойкой из густых сливок и ананасом сверху."
 	icon_state = "pineapple_cream_cake_slice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,

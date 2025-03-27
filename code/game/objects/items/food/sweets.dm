@@ -1,8 +1,8 @@
 // Sweets that didn't make it into any other category
 
 /obj/item/food/candy_corn
-	name = "candy corn"
-	desc = "It's a handful of candy corn. Can be stored in a detective's hat."
+	name = "Засахаренная кукуруза"
+	desc = "Это горсть засахаренной кукурузы. Можно хранить в шляпе детектива."
 	icon_state = "candy_corn"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -15,16 +15,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/candy_corn/prison
-	name = "desiccated candy corn"
-	desc = "If this candy corn were any harder Security would confiscate it for being a potential shiv."
+	name = "Высушенная сахарная кукуруза"
+	desc = "Если бы эта сладкая кукуруза была чуть тверже, охрана конфисковала бы ее как потенциальную заточку."
 	force = 1 // the description isn't lying
 	throwforce = 1 // if someone manages to bust out of jail with candy corn god bless them
 	tastes = list("bitter wax" = 1)
 	foodtypes = GROSS
 
 /obj/item/food/candiedapple
-	name = "candied apple"
-	desc = "An apple coated in sugary sweetness."
+	name = "Засахаренное яблоко"
+	desc = "Яблоко, покрытое приторной сладостью."
 	icon_state = "candiedapple"
 	bite_consumption = 3
 	food_reagents = list(
@@ -38,8 +38,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/mint
-	name = "mint"
-	desc = "It is only wafer thin."
+	name = "Мята"
+	desc = "Он всего лишь толщиной с вафлю."
 	icon_state = "mint"
 	bite_consumption = 1
 	food_reagents = list(/datum/reagent/consumable/mintextract = 2)
@@ -48,8 +48,8 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/ant_candy
-	name = "ant candy"
-	desc = "A colony of ants suspended in hardened sugar. Those things are dead, right?"
+	name = "Муравьиная конфета"
+	desc = "Колония муравьев, подвешенных в затвердевшем сахаре. Эти твари мертвы, верно?"
 	icon_state = "ant_pop"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 1,
@@ -65,8 +65,8 @@
 
 // Chocolates
 /obj/item/food/chocolatebar
-	name = "chocolate bar"
-	desc = "Such, sweet, fattening food."
+	name = "Плитка шоколада"
+	desc = "Такая сладкая, питательная пища."
 	icon_state = "chocolatebar"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
@@ -80,8 +80,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/virtual_chocolate
-	name = "virtual chocolate bar"
-	desc = "Digital food only gives off the sensation of eating... without any of the nutritional benefits."
+	name = "Виртуальный шоколадный батончик"
+	desc = "Цифровая еда создает только ощущение приема пищи... без каких-либо питательных преимуществ."
 	icon_state = "virtual_chocolate"
 	tastes = list("nothing" = 1)
 	foodtypes = NONE
@@ -89,8 +89,8 @@
 
 
 /obj/item/food/chococoin
-	name = "chocolate coin"
-	desc = "A completely edible but non-flippable festive coin."
+	name = "Шоколадная монета"
+	desc = "Полностью съедобная, но не переворачиваемая праздничная монета."
 	icon_state = "chococoin"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -104,8 +104,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/fudgedice
-	name = "fudge dice"
-	desc = "A little cube of chocolate that tends to have a less intense taste if you eat too many at once."
+	name = "Помадка"
+	desc = "Маленький кусочек шоколада, вкус которого становится менее насыщенным, если съесть слишком много за раз."
 	icon_state = "chocodice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -120,8 +120,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/chocoorange
-	name = "chocolate orange"
-	desc = "A festive chocolate orange."
+	name = "Шоколадно-апельсиновый"
+	desc = "Праздничный шоколадный апельсин."
 	icon_state = "chocoorange"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -134,8 +134,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/bonbon
-	name = "bon bon"
-	desc = "A tiny and sweet chocolate."
+	name = "Бон-бон"
+	desc = "Крошечный и сладкий шоколад."
 	icon_state = "tiny_chocolate"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 1,
@@ -148,8 +148,8 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/bonbon/caramel_truffle
-	name = "caramel truffle"
-	desc = "A bite-sized chocolate truffle with a chewy caramel filling."
+	name = "Карамельный трюфель"
+	desc = "Шоколадный трюфель размером с кусочек с жевательной карамельной начинкой."
 	icon_state = "caramel_truffle"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -159,8 +159,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/bonbon/chocolate_truffle
-	name = "chocolate truffle"
-	desc = "A bite-sized chocolate truffle with a rich chocolate mousse filling."
+	name = "Шоколадный трюфель"
+	desc = "Шоколадный трюфель размером с кусочек с насыщенной начинкой из шоколадного мусса."
 	icon_state = "chocolate_truffle"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -168,8 +168,8 @@
 	)
 
 /obj/item/food/bonbon/peanut_truffle
-	name = "peanut truffle"
-	desc = "A bite-sized chocolate truffle with crunchy peanuts mixed in."
+	name = "Арахисовый трюфель"
+	desc = "Шоколадный трюфель размером с кусочек, посыпанный хрустящим арахисом."
 	icon_state = "peanut_truffle"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -180,8 +180,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/bonbon/peanut_butter_cup
-	name = "peanut butter cup"
-	desc = "An ultra-sweet chocolate treat with a savory peanut butter filling."
+	name = "Чашка арахисового масла"
+	desc = "Ультрасладкое шоколадное лакомство с пикантной начинкой из арахисового масла."
 	icon_state = "peanut_butter_cup"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -193,8 +193,8 @@
 
 // Gum
 /obj/item/food/bubblegum
-	name = "bubblegum"
-	desc = "A rubbery strip of gum. Not exactly filling, but it keeps you busy."
+	name = "Жевательная резинка"
+	desc = "Эластичная полоска жевательной резинки. Не очень сытно, но позволяет занять себя."
 	icon_state = "bubblegum"
 	inhand_icon_state = null
 	color = "#E48AB5" // craftable custom gums someday?
@@ -214,7 +214,7 @@
 	AddElement(/datum/element/chewable)
 
 /obj/item/food/bubblegum/nicotine
-	name = "nicotine gum"
+	name = "Никотиновая жвачка"
 	food_reagents = list(
 		/datum/reagent/drug/nicotine = 10,
 		/datum/reagent/consumable/menthol = 5,
@@ -223,15 +223,15 @@
 	color = "#60A584"
 
 /obj/item/food/bubblegum/happiness
-	name = "HP+ gum"
-	desc = "A rubbery strip of gum. It smells funny."
+	name = "HP+ резинка"
+	desc = "Резиновая полоска жевательной резинки. Она странно пахнет."
 	food_reagents = list(/datum/reagent/drug/happiness = 15)
 	tastes = list("paint thinner" = 1)
 	color = "#EE35FF"
 
 /obj/item/food/bubblegum/bubblegum
-	name = "bubblegum gum"
-	desc = "A rubbery strip of gum. You don't feel like eating it is a good idea."
+	name = "Жевательная резинка bubblegum"
+	desc = "Эластичная полоска жевательной резинки. Если вам не хочется ее есть, это хорошая идея."
 	color = "#913D3D"
 	food_reagents = list(/datum/reagent/blood = 15)
 	tastes = list("hell" = 1, "people" = 1)
@@ -262,8 +262,8 @@
 	return ..()
 
 /obj/item/food/gumball
-	name = "gumball"
-	desc = "A colorful, sugary gumball."
+	name = "Жевательная резинка"
+	desc = "Разноцветный, сахарный шарик для жевательной резинки."
 	icon = 'icons/obj/food/lollipop.dmi'
 	icon_state = "gumball"
 	worn_icon_state = "bubblegum"
@@ -283,8 +283,8 @@
 
 // Lollipop
 /obj/item/food/lollipop
-	name = "lollipop"
-	desc = "A delicious lollipop. Makes for a great Valentine's present."
+	name = "Леденец"
+	desc = "Вкусный леденец на палочке. Отличный подарок на день Святого Валентина."
 	icon = 'icons/obj/food/lollipop.dmi'
 	icon_state = "lollipop_stick"
 	inhand_icon_state = null
@@ -330,8 +330,8 @@
 	)
 
 /obj/item/food/spiderlollipop
-	name = "spider lollipop"
-	desc = "Still gross, but at least it has a mountain of sugar on it."
+	name = "Леденец-паук"
+	desc = "Все еще отвратительно, но, по крайней мере, в нем есть гора сахара."
 	icon_state = "spiderlollipop"
 	worn_icon_state = "lollipop_stick"
 	food_reagents = list(
@@ -352,8 +352,8 @@
 	AddElement(/datum/element/chewable)
 
 /obj/item/food/swirl_lollipop
-	name = "swirl lollipop"
-	desc = "A massive rainbow swirlled lollipop. Said to contain extra sugar."
+	name = "Вихревой леденец на палочке"
+	desc = "Огромный леденец с радужными завитушками. Говорят, что в нем больше сахара."
 	icon_state = "swirl_lollipop"
 	worn_icon_state = "lollipop_stick"
 	inhand_icon_state = "swirl_lollipop"

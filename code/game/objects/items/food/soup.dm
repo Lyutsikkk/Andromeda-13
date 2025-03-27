@@ -11,8 +11,8 @@
 	return // It's in a bowl
 
 /obj/item/food/bowled/wish
-	name = "wish soup"
-	desc = "I wish this was soup."
+	name = "Суп желаний"
+	desc = "Жаль, что это не суп."
 	icon_state = "wishsoup"
 	food_reagents = list(/datum/reagent/water = 10)
 	tastes = list("wishes" = 1)
@@ -20,13 +20,13 @@
 /obj/item/food/bowled/wish/Initialize(mapload)
 	. = ..()
 	if(prob(25))
-		desc = "A wish come true!"
+		desc = "Желание сбылось!"
 		reagents.add_reagent(/datum/reagent/consumable/nutriment, 9)
 		reagents.add_reagent(/datum/reagent/consumable/nutriment/vitamin, 1)
 
 /obj/item/food/bowled/mammi
-	name = "Mammi"
-	desc = "A bowl of mushy bread and milk. It reminds you, not too fondly, of a bowel movement."
+	name = "Мамми"
+	desc = "Миска с размягченным хлебом и молоком. Это напоминает вам, хотя и не слишком приятно, об опорожнении кишечника."
 	icon_state = "mammi"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 11,
@@ -36,8 +36,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/bowled/spacylibertyduff
-	name = "spacy liberty duff"
-	desc = "Jello gelatin, from Alfred Hubbard's cookbook."
+	name = "Пикантный либерти дафф"
+	desc = "Желатиновое желе из кулинарной книги Альфреда Хаббарда."
 	icon_state = "spacylibertyduff"
 	bite_consumption = 3
 	food_reagents = list(
@@ -50,8 +50,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/bowled/amanitajelly
-	name = "amanita jelly"
-	desc = "Looks curiously toxic."
+	name = "Желе из мухоморов"
+	desc = "Выглядит на удивление ядовитым."
 	icon_state = "amanitajelly"
 	bite_consumption = 3
 	food_reagents = list(
