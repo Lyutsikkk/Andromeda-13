@@ -1,5 +1,5 @@
 /datum/surgery/eye_surgery
-	name = "Eye surgery"
+	name = "Глазная хирургия"
 	requires_bodypart_type = NONE
 	organ_to_manipulate = ORGAN_SLOT_EYES
 	possible_locs = list(BODY_ZONE_PRECISE_EYES)
@@ -13,7 +13,7 @@
 
 //fix eyes
 /datum/surgery_step/fix_eyes
-	name = "fix eyes (hemostat)"
+	name = "лечение глаз (гемостат)"
 	implements = list(
 		TOOL_HEMOSTAT = 100,
 		TOOL_SCREWDRIVER = 45,
@@ -27,23 +27,23 @@
 	display_results(
 		user,
 		target,
-		span_notice("You begin to fix [target]'s eyes..."),
-		span_notice("[user] begins to fix [target]'s eyes."),
-		span_notice("[user] begins to perform surgery on [target]'s eyes."),
+		span_notice("Вы начинаете исправлять зрение [target]..."),
+		span_notice("[user] начинает исправлять зрение [target]."),
+		span_notice("[user] начинает выполнять операцию на глазах [target]."),
 	)
-	display_pain(target, "You feel a stabbing pain in your eyes!")
+	display_pain(target, "Вы чувствуете острую боль в глазах!")
 
 /datum/surgery_step/fix_eyes/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/obj/item/organ/eyes/target_eyes = target.get_organ_slot(ORGAN_SLOT_EYES)
-	user.visible_message(span_notice("[user] successfully fixes [target]'s eyes!"), span_notice("You succeed in fixing [target]'s eyes."))
+	user.visible_message(span_notice("[user] успешно исправляет зрение [target]!"), span_notice("Вам удалось исправить зрение [target]."))
 	display_results(
 		user,
 		target,
-		span_notice("You succeed in fixing [target]'s eyes."),
-		span_notice("[user] successfully fixes [target]'s eyes!"),
-		span_notice("[user] completes the surgery on [target]'s eyes."),
+		span_notice("Вам удалось вылечить глаза [target]."),
+		span_notice("[user] успешно вылечил глаза [target]!"),
+		span_notice("[user] завершил операцию на глазах [target]."),
 	)
-	display_pain(target, "Your vision blurs, but it seems like you can see a little better now!")
+	display_pain(target, "Ваше зрение затуманивается, но, похоже, теперь вы можете видеть немного лучше!")
 	target.remove_status_effect(/datum/status_effect/temporary_blindness)
 	target.set_eye_blur_if_lower(70 SECONDS) //this will fix itself slowly.
 	target_eyes.set_organ_damage(0) // heals nearsightedness and blindness from eye damage
@@ -54,19 +54,19 @@
 		display_results(
 			user,
 			target,
-			span_warning("You accidentally stab [target] right in the brain!"),
-			span_warning("[user] accidentally stabs [target] right in the brain!"),
-			span_warning("[user] accidentally stabs [target] right in the brain!"),
+			span_warning("Вы случайно наносите удар прямо в мозг [target]!"),
+			span_warning("[user] случайно наносит удар прямо в мозг [target]!"),
+			span_warning("[user] случайно наносит удар прямо в мозг [target]!"),
 		)
-		display_pain(target, "You feel a visceral stabbing pain right through your head, into your brain!")
+		display_pain(target, "Вы чувствуете внутреннюю пронзительную боль, проходящую прямо через вашу голову, в мозг!")
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 70)
 	else
 		display_results(
 			user,
 			target,
-			span_warning("You accidentally stab [target] right in the brain! Or would have, if [target] had a brain."),
-			span_warning("[user] accidentally stabs [target] right in the brain! Or would have, if [target] had a brain."),
-			span_warning("[user] accidentally stabs [target] right in the brain!"),
+			span_warning("Вы случайно ранили прямо в мозг [target]! Или ранили бы, если бы у [target] был мозг."),
+			span_warning("[user] случайно ранит прямо в мозг [target]! Или ранили бы, если бы у [target] был мозг."),
+			span_warning("[user] случайно ранит прямо в мозг [target]!"),
 		)
-		display_pain(target, "You feel a visceral stabbing pain right through your head!") // dunno who can feel pain w/o a brain but may as well be consistent.
+		display_pain(target, "Вы чувствуете внутреннюю пронзительную боль прямо в голове!") // dunno who can feel pain w/o a brain but may as well be consistent.
 	return FALSE

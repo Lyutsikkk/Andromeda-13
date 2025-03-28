@@ -1,5 +1,5 @@
 /datum/surgery/stomach_pump
-	name = "Stomach Pump"
+	name = "Очистить желудок"
 	possible_locs = list(BODY_ZONE_CHEST)
 	steps = list(
 		/datum/surgery_step/incise,
@@ -11,7 +11,7 @@
 	)
 
 /datum/surgery/stomach_pump/mechanic
-	name = "Nutrient Processing Purge"
+	name = "Очистка от питательных веществ"
 	requires_bodypart_type = BODYTYPE_ROBOTIC
 	steps = list(
 		/datum/surgery_step/mechanic_open,
@@ -32,7 +32,7 @@
 
 //Working the stomach by hand in such a way that you induce vomiting.
 /datum/surgery_step/stomach_pump
-	name = "pump stomach (hand)"
+	name = "очистка желудка (рука)"
 	accept_hand = TRUE
 	repeatable = TRUE
 	time = 20
@@ -42,11 +42,11 @@
 	display_results(
 		user,
 		target,
-		span_notice("You begin pumping [target]'s stomach..."),
-		span_notice("[user] begins to pump [target]'s stomach."),
-		span_notice("[user] begins to press on [target]'s chest."),
+		span_notice("Вы начинаете очищать желудок [target]..."),
+		span_notice("[user] начинает очищать желудок [target]."),
+		span_notice("[user] начинает вставлять два пальца в рот [target]."),
 	)
-	display_pain(target, "You feel a horrible sloshing feeling in your gut! You're going to be sick!")
+	display_pain(target, "Ты чувствуешь ужасное горечь в горле! Тебя сейчас стошнит!")
 
 /datum/surgery_step/stomach_pump/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(ishuman(target))
@@ -54,9 +54,9 @@
 		display_results(
 			user,
 			target,
-			span_notice("[user] forces [target_human] to vomit, cleansing their stomach of some chemicals!"),
-			span_notice("[user] forces [target_human] to vomit, cleansing their stomach of some chemicals!"),
-			span_notice("[user] forces [target_human] to vomit!"),
+			span_notice("[user] вызывает рвоту у [target_human] очищая его желудок от некоторых химических веществ!"),
+			span_notice("[user] вызывает рвоту у [target_human] очищая его желудок от некоторых химических веществ!"),
+			span_notice("[user] вызывает рвоту у [target_human]!"),
 		)
 		target_human.vomit((MOB_VOMIT_MESSAGE | MOB_VOMIT_STUN), lost_nutrition = 20, purge_ratio = 0.67) //higher purge ratio than regular vomiting
 	return ..()
@@ -67,9 +67,9 @@
 		display_results(
 			user,
 			target,
-			span_warning("You screw up, bruising [target_human]'s chest!"),
-			span_warning("[user] screws up, brusing [target_human]'s chest!"),
-			span_warning("[user] screws up!"),
+			span_warning("Ты облажался, [target_human] не вырвало!"),
+			span_warning("[user] облажался, [target_human] не вырвало!"),
+			span_warning("[user] облажался!"),
 		)
 		target_human.adjustOrganLoss(ORGAN_SLOT_STOMACH, 5)
 		target_human.adjustBruteLoss(5)

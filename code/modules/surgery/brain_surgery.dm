@@ -1,5 +1,5 @@
 /datum/surgery/brain_surgery
-	name = "Brain surgery"
+	name = "Хирургия головного мозга"
 	possible_locs = list(BODY_ZONE_HEAD)
 	steps = list(
 		/datum/surgery_step/incise,
@@ -11,7 +11,7 @@
 	)
 
 /datum/surgery/brain_surgery/mechanic
-	name = "Wetware OS Diagnostics"
+	name = "Диагностика операционной системы"
 	requires_bodypart_type = BODYTYPE_ROBOTIC
 	possible_locs = list(BODY_ZONE_HEAD)
 	steps = list(
@@ -24,7 +24,7 @@
 	)
 
 /datum/surgery_step/fix_brain
-	name = "fix brain (hemostat)"
+	name = "починка мозга (гемостат)"
 	implements = list(
 		TOOL_HEMOSTAT = 85,
 		TOOL_SCREWDRIVER = 35,
@@ -36,7 +36,7 @@
 	failure_sound = 'sound/items/handling/surgery/organ2.ogg'
 
 /datum/surgery_step/fix_brain/mechanic
-	name = "perform neural debugging (hemostat or multitool)"
+	name = "выполнить нейронную отладку (гемостат или мультитул)"
 	implements = list(
 		TOOL_HEMOSTAT = 85,
 		TOOL_MULTITOOL = 85,
@@ -52,27 +52,27 @@
 	display_results(
 		user,
 		target,
-		span_notice("You begin to fix [target]'s brain..."),
-		span_notice("[user] begins to fix [target]'s brain."),
-		span_notice("[user] begins to perform surgery on [target]'s brain."),
+		span_notice("Вы начинаете восстанавливать мозг [target]..."),
+		span_notice("[user] начинает восстанавливать мозг [target]."),
+		span_notice("[user] начинает выполнять операцию на мозге [target]."),
 	)
-	display_pain(target, "Your head pounds with unimaginable pain!")
+	display_pain(target, "Ваша голова раскалывается от невообразимой боли!")
 
 /datum/surgery_step/fix_brain/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(
 		user,
 		target,
-		span_notice("You succeed in fixing [target]'s brain."),
-		span_notice("[user] successfully fixes [target]'s brain!"),
-		span_notice("[user] completes the surgery on [target]'s brain."),
+		span_notice("Вам удалось восстановить мозг [target]."),
+		span_notice("[user] успешно восстановил мозг [target]!"),
+		span_notice("[user] завершил операцию на мозге [target]."),
 	)
-	display_pain(target, "The pain in your head receeds, thinking becomes a bit easier!")
+	display_pain(target, "Боль в голове отступает, думать становится немного легче!")
 	if(target.mind?.has_antag_datum(/datum/antagonist/brainwashed))
 		target.mind.remove_antag_datum(/datum/antagonist/brainwashed)
 	target.setOrganLoss(ORGAN_SLOT_BRAIN, target.get_organ_loss(ORGAN_SLOT_BRAIN) - 50) //we set damage in this case in order to clear the "failing" flag
 	target.cure_all_traumas(TRAUMA_RESILIENCE_SURGERY)
 	if(target.get_organ_loss(ORGAN_SLOT_BRAIN) > 0)
-		to_chat(user, "[target]'s brain looks like it could be fixed further.")
+		to_chat(user, "мозг [target] похоже, может быть восстановлен.")
 	return ..()
 
 /datum/surgery_step/fix_brain/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
@@ -80,13 +80,13 @@
 		display_results(
 			user,
 			target,
-			span_warning("You screw up, causing more damage!"),
-			span_warning("[user] screws up, causing brain damage!"),
-			span_notice("[user] completes the surgery on [target]'s brain."),
+			span_warning("Вы облажались, нанеся еще повреждение на мозг!"),
+			span_warning("[user] облажался, нанеся повреждение мозгу!"),
+			span_notice("[user] завершил операцию на мозге [target]."),
 		)
-		display_pain(target, "Your head throbs with horrible pain; thinking hurts!")
+		display_pain(target, "Ваша голова раскалывается от ужасной боли; думать больно!")
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 60)
 		target.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_LOBOTOMY)
 	else
-		user.visible_message(span_warning("[user] suddenly notices that the brain [user.p_they()] [user.p_were()] working on is not there anymore."), span_warning("You suddenly notice that the brain you were working on is not there anymore."))
+		user.visible_message(span_warning("[user] внезапно замечает, что мозг, над которым [user.p_they()] [user.p_were()] работал, больше не существует."), span_warning("Вы внезапно замечаете, что мозг, над которым вы работали, больше не существует."))
 	return FALSE

@@ -20,7 +20,7 @@
 	return surgical_tray_overlay
 
 /obj/item/retractor/augment
-	desc = "Micro-mechanical manipulator for retracting stuff."
+	desc = "Микромеханический манипулятор для втягивания материала."
 	toolspeed = 0.5
 
 /obj/item/retractor/cyborg

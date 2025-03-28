@@ -1,127 +1,127 @@
 /datum/award/achievement/misc
-	category = "Misc"
-	icon_state = "basemisc" //for those achievements that still need an actual icon, later.
+	category = "Разное"
+	icon_state = "базовое разное" //для тех достижений, которым все еще нужна настоящая иконка, позже.
 
 /datum/award/achievement/misc/meteor_examine
-	name = "Your Life Before Your Eyes"
-	desc = "Take a close look at hurtling space debris"
+	name = "Твоя Жизнь У Тебя Перед Глазами"
+	desc = "Внимательно посмотрите на несущийся космический мусор"
 	database_id = MEDAL_METEOR
 	icon_state = "meteors"
 
 /datum/award/achievement/misc/pulse
-	name = "Jackpot"
-	desc = "Win a pulse rifle from an arcade machine"
+	name = "Джекпот"
+	desc = "Выиграйте импульсную винтовку в игровом автомате"
 	database_id = MEDAL_PULSE
 	icon_state = "jackpot"
 
 /datum/award/achievement/misc/time_waste
-	name = "Time waster"
-	desc = "Speak no evil, hear no evil, see just errors"
+	name = "Пустая трата времени"
+	desc = "Не говорите зла, не слышите зла, видите только ошибки."
 	database_id = MEDAL_TIMEWASTE
 	icon_state = "timewaste"
 
 /datum/award/achievement/misc/round_and_full
-	name = "Round and Full"
-	desc = "Well at least you aren't down the river, I hear they eat people there."
+	name = "Круглая и полная"
+	desc = "Ну, по крайней мере, ты не ниже по течению, я слышал, там едят людей."
 	database_id = MEDAL_CLOWNCARKING
 	icon_state = "clownking"
 
 /datum/award/achievement/misc/the_best_driver
-	name = "The Best Driver"
-	desc = "100 honks later"
+	name = "Лучший водитель"
+	desc = "100 ебучих хонков спустя"
 	database_id = MEDAL_THANKSALOT
 	icon_state = "clownthanks"
 
 /datum/award/achievement/misc/getting_an_upgrade
-	name = "Getting an upgrade"
-	desc = "Make your first unique material item!"
+	name = "Получение обновления"
+	desc = "Создайте свой первый уникальный материальный предмет!"
 	database_id = MEDAL_MATERIALCRAFT
 	icon_state = "upgrade"
 
 /datum/award/achievement/misc/rocket_holdup
-	name = "Disk, Please!"
-	desc = "Is the man currently pointing a loaded rocket launcher at your head point blank really dumb enough to pull the trigger? Do you really want to find out?"
+	name = "Диск, пожалуйста!"
+	desc = "Неужели человек, который в данный момент целится вам в голову из заряженного гранатомета, действительно настолько глуп, чтобы нажать на спусковой крючок? Вы действительно хотите это выяснить?"
 	database_id = MEDAL_DISKPLEASE
 	icon_state = "rocket_holdup"
 
 /datum/award/achievement/misc/gamer
-	name = "My Watchlist Status is Not Important"
-	desc = "You may be under the impression that violent video games are a harmless pastime, but the security and medical personnel swarming your location with batons and knockout gas look like they disagree."
+	name = "Мой статус в списке наблюдения не важен"
+	desc = "озможно, у вас сложилось впечатление, что жестокие видеоигры - это безобидное времяпрепровождение, но охрана и медицинский персонал, наводняющий ваше местоположение дубинками и усыпляющим газом, похоже, с этим не согласны."
 	database_id = MEDAL_GAMER
 	icon_state = "live_sec_reaction"
 
 /datum/award/achievement/misc/vendor_squish
-	name = "I Was a Teenage Anarchist"
-	desc = "You were doing a great job sticking it to the system until that vending machine decided to fight back."
+	name = "Я был подростком-анархистом"
+	desc = "Ты отлично справлялся с системой, пока этот торговый автомат не решил дать отпор."
 	database_id = MEDAL_VENDORSQUISH
 
 /datum/award/achievement/misc/swirlie
-	name = "A Bowl-d New World"
-	desc = "There's a lot of grisly ways to kick it on the Spinward Periphery, but drowning to death in a toilet probably wasn't what you had in mind. Probably."
+	name = "Новый мир, полный чаш"
+	desc = "На Периферии Вращения есть много ужасных способов избавиться от этого, но, вероятно, утопление в туалете - это не то, что вы имели в виду. Вероятно."
 	database_id = MEDAL_SWIRLIE
 
 /datum/award/achievement/misc/selfouch
-	name = "How Do I Switch Hands???"
-	desc = "If you saw someone casually club themselves upside the head with a toolbox anywhere in the galaxy but here, you'd probably be pretty concerned for them."
+	name = "Как Мне Переключить Руки???"
+	desc = "Если бы вы увидели, как кто-то случайно бьет себя по голове ящиком с инструментами где угодно в галактике, но не здесь, вы бы, вероятно, сильно за него забеспокоились."
 	database_id = MEDAL_SELFOUCH
 
 /datum/award/achievement/misc/cleanboss
-	name = "One Lean, Mean, Cleaning Machine"
-	desc = "How does it feel to know that your workplace values a mop bucket on wheels more than you?" // i can do better than this give me time
+	name = "Одна экономичная машина для уборки"
+	desc = "Каково это - осознавать, что на вашем рабочем месте ведро для швабры на колесиках ценится больше, чем вы сами?" // i can do better than this give me time
 	database_id = MEDAL_CLEANBOSS
 	icon_state = "cleanboss"
 
 /datum/award/achievement/misc/rule8
-	name = "Rule 8"
-	desc = "Call an admin this is ILLEGAL!!"
+	name = "Правило 0"
+	desc = "Вызывать администратора, это НЕЗАКОННО!"
 	database_id = MEDAL_RULE8
 	icon_state = "rule8"
 
 /datum/award/achievement/misc/speed_round
-	name = "Long shift"
-	desc = "Well, that didn't take long."
+	name = "Долгая смена"
+	desc = "Ну, это не заняло много времени."
 	database_id = MEDAL_LONGSHIFT
 	icon_state = "longshift"
 
 /datum/award/achievement/misc/lookoutsir
-	name = "Look Out, Sir!"
-	desc = "Either awarded for making the ultimate sacrifice for your comrades, or a really dumb attempt at grenade jumping."
+	name = "Берегитесь, сэр!"
+	desc = "Награждается либо за самопожертвование ради своих товарищей, либо за действительно глупую попытку прыгнуть с гранатой."
 	database_id = MEDAL_LOOKOUTSIR
 	icon_state = "martyr" // purple heart on an explosive danger warning sign (well, sort of)
 
 /datum/award/achievement/misc/gottem
-	name = "HA, GOTTEM"
-	desc = "Made you look!"
+	name = "ХА, ПОПАЛСЯ"
+	desc = "Заставил тебя выглянуть!"
 	database_id = MEDAL_GOTTEM
 	icon_state = "gottem"
 
 /datum/award/achievement/misc/ascension
-	name = "Ascension"
-	desc = "Caedite eos. Novit enim Dominus qui sunt eius."
+	name = "Вознесение"
+	desc = "Убей их. Господь знает, кто его народ."
 	database_id = MEDAL_ASCENSION
 	icon_state = "ascension"
 
 /datum/award/achievement/misc/ash_ascension
-	name = "Nightwatcher's Eyes"
-	desc = "You've risen above the flames, became one with the ashes. You've been reborn as one with the Nightwatcher."
+	name = "Глаза Ночного стража"
+	desc = "Ты поднялся над пламенем, стал единым целым с пеплом. Ты возродился единым целым с Ночным Стражем."
 	database_id = MEDAL_ASH_ASCENSION
 	icon_state = "ashascend"
 
 /datum/award/achievement/misc/flesh_ascension
-	name = "Vortex of Arms"
-	desc = "You've became something more, something greater. A piece of the emperor resides within you, and you within him."
+	name = "Вихрь оружия"
+	desc = "Ты стал чем-то большим, величественным. Частичка императора живет в тебе, а ты - в нем."
 	database_id = MEDAL_FLESH_ASCENSION
 	icon_state = "fleshascend"
 
 /datum/award/achievement/misc/rust_ascension
-	name = "Hills of Rust"
-	desc = "You've summoned a piece of the Hill of rust, and so the Hills welcome you."
+	name = "Холмы ржавчины"
+	desc = "Вы призвали частичку Холма ржавчины, и холмы приветствуют вас."
 	database_id = MEDAL_RUST_ASCENSION
 	icon_state = "rustascend"
 
 /datum/award/achievement/misc/void_ascension
-	name = "All that perish"
-	desc = "Place of a different being, different time. Everything ends there... but maybe it is just the beginning?"
+	name = "Все, что погибнет"
+	desc = "Место иного бытия, иного времени. Там все заканчивается... но, может быть, это только начало?"
 	database_id = MEDAL_VOID_ASCENSION
 	icon_state = "voidascend"
 

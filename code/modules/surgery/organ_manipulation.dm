@@ -65,7 +65,7 @@
 	)
 
 /datum/surgery/organ_manipulation/external
-	name = "Feature manipulation"
+	name = "Манипулирование конечностями"
 	possible_locs = list(
 		BODY_ZONE_CHEST,
 		BODY_ZONE_HEAD,
@@ -83,7 +83,7 @@
 	)
 
 /datum/surgery/organ_manipulation/alien
-	name = "Alien organ manipulation"
+	name = "Манипуляции с чужеродными органами"
 	possible_locs = list(BODY_ZONE_CHEST, BODY_ZONE_HEAD, BODY_ZONE_PRECISE_GROIN, BODY_ZONE_PRECISE_EYES, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM)
 	target_mobtypes = list(/mob/living/carbon/alien/adult)
 	steps = list(
@@ -96,7 +96,7 @@
 	)
 
 /datum/surgery/organ_manipulation/mechanic
-	name = "Hardware Manipulation"
+	name = "Манипулирование оборудованием"
 	requires_bodypart_type = BODYTYPE_ROBOTIC
 	surgery_flags = SURGERY_SELF_OPERABLE | SURGERY_REQUIRE_LIMB | SURGERY_CHECK_TOOL_BEHAVIOUR
 	possible_locs = list(BODY_ZONE_CHEST, BODY_ZONE_HEAD)
@@ -127,7 +127,7 @@
 	)
 
 /datum/surgery/organ_manipulation/mechanic/external
-	name = "Chassis Manipulation"
+	name = "Манипулирование шасси"
 	possible_locs = list(
 		BODY_ZONE_CHEST,
 		BODY_ZONE_HEAD,
@@ -147,7 +147,7 @@
 
 ///Organ manipulation base class. Do not use, it wont work. Use its subtypes
 /datum/surgery_step/manipulate_organs
-	name = "manipulate organs"
+	name = "манипулировать органами"
 	repeatable = TRUE
 	implements = list(
 		/obj/item/organ = 100,
@@ -169,13 +169,13 @@
 		preop_sound = initial(preop_sound)
 		success_sound = initial(success_sound)
 		if(!length(tool.contents))
-			to_chat(user, span_warning("There is nothing inside [tool]!"))
+			to_chat(user, span_warning("Внутри [tool] ничего нет!"))
 			return SURGERY_STEP_FAIL
 		target_organ = tool.contents[1]
 		if(!isorgan(target_organ))
 			if (target_zone == BODY_ZONE_PRECISE_EYES)
 				target_zone = check_zone(target_zone)
-			to_chat(user, span_warning("You cannot put [target_organ] into [target]'s [target.parse_zone_with_bodypart(target_zone)]!"))
+			to_chat(user, span_warning("Вы не можете поместить [target_organ] в [target.parse_zone_with_bodypart(target_zone)]!"))
 			return SURGERY_STEP_FAIL
 		tool = target_organ
 	if(isorgan(tool))
@@ -187,12 +187,12 @@
 			return SURGERY_STEP_FAIL
 
 		if(target_zone != target_organ.zone || target.get_organ_slot(target_organ.slot))
-			to_chat(user, span_warning("There is no room for [target_organ] in [target]'s [target.parse_zone_with_bodypart(target_zone)]!"))
+			to_chat(user, span_warning("Нет места для [target_organ] в [target.parse_zone_with_bodypart(target_zone)]!"))
 			return SURGERY_STEP_FAIL
 
 		var/obj/item/organ/meatslab = tool
 		if(!meatslab.useable)
-			to_chat(user, span_warning("[target_organ] seems to have been chewed on, you can't use this!"))
+			to_chat(user, span_warning("[target_organ] похоже, что его раскусили, вы не можете это использовать!"))
 			return SURGERY_STEP_FAIL
 
 		if(!can_use_organ(meatslab))
@@ -203,9 +203,9 @@
 		display_results(
 			user,
 			target,
-			span_notice("Вы начинаете вставлять [tool] в [target] [target.parse_zone_with_bodypart(target_zone)]..."),
-			span_notice("[user] начинает вставлять [tool] в [target] [target.parse_zone_with_bodypart(target_zone)]."),
-			span_notice("[user] начинает что-то вставлять в [target] [target.parse_zone_with_bodypart(target_zone)]."),
+			span_notice("Вы начинаете вставлять [tool] в [target.parse_zone_with_bodypart(target_zone)]..."),
+			span_notice("[user] начинает вставлять [tool] в [target.parse_zone_with_bodypart(target_zone)]."),
+			span_notice("[user] начинает что-то вставлять в [target.parse_zone_with_bodypart(target_zone)]."),
 		)
 		display_pain(target, "Вы можете почувствовать, как что-то помещается в вашу [target.parse_zone_with_bodypart(target_zone)]!")
 
@@ -220,7 +220,7 @@
 		if (target_zone == BODY_ZONE_PRECISE_EYES)
 			target_zone = check_zone(target_zone)
 		if(!length(organs))
-			to_chat(user, span_warning("There are no removable organs in [target]'s [target.parse_zone_with_bodypart(target_zone)]!"))
+			to_chat(user, span_warning("В [target.parse_zone_with_bodypart(target_zone)] нет съемных органов!"))
 			return SURGERY_STEP_FAIL
 		else
 			for(var/obj/item/organ/organ in organs)
@@ -228,7 +228,7 @@
 				organs -= organ
 				organs[organ.name] = organ
 
-			var/chosen_organ = tgui_input_list(user, "Remove which organ?", "Surgery", sort_list(organs))
+			var/chosen_organ = tgui_input_list(user, "Какой орган удалить?", "Хирургия", sort_list(organs))
 			if(isnull(chosen_organ))
 				return SURGERY_STEP_FAIL
 			target_organ = chosen_organ
@@ -246,16 +246,16 @@
 				if(!target_organ)
 					return SURGERY_STEP_FAIL
 				if(target_organ.organ_flags & ORGAN_UNREMOVABLE)
-					to_chat(user, span_warning("[target_organ] is too well connected to take out!"))
+					to_chat(user, span_warning("[target_organ] слишком хорошие связи, чтобы его уничтожать!"))
 					return SURGERY_STEP_FAIL
 
 				//start operation
 				display_results(
 					user,
 					target,
-					span_notice("Вы начинаете извлекать [target_organ] из [target] [target.parse_zone_with_bodypart(target_zone)]..."),
-					span_notice("[user] начинает извлекать [target_organ] из [target] [target.parse_zone_with_bodypart(target_zone)]."),
-					span_notice("[user] начинает извлекать что-то из [target] [target.parse_zone_with_bodypart(target_zone)]."),
+					span_notice("Вы начинаете извлекать [target_organ] из [target.parse_zone_with_bodypart(target_zone)]..."),
+					span_notice("[user] начинает извлекать [target_organ] из [target.parse_zone_with_bodypart(target_zone)]."),
+					span_notice("[user] начинает извлекать что-то из [target.parse_zone_with_bodypart(target_zone)]."),
 				)
 				display_pain(target, "Вы можете почувствовать, что ваш  [target_organ.name] удаляется из вашей [target.parse_zone_with_bodypart(target_zone)]!")
 			else
@@ -279,9 +279,9 @@
 		display_results(
 			user,
 			target,
-			span_notice("Вы вставляете [tool] в [target] [target.parse_zone_with_bodypart(target_zone)]."),
-			span_notice("[user] вставляет [tool] в [target] [target.parse_zone_with_bodypart(target_zone)]!"),
-			span_notice("[user] вставляет что-то в [target] [target.parse_zone_with_bodypart(target_zone)]!"),
+			span_notice("Вы вставляете [tool] в [target.parse_zone_with_bodypart(target_zone)]."),
+			span_notice("[user] вставляет [tool] в [target.parse_zone_with_bodypart(target_zone)]!"),
+			span_notice("[user] вставляет что-то в [target.parse_zone_with_bodypart(target_zone)]!"),
 		)
 		display_pain(target, "Ваш [target.parse_zone_with_bodypart(target_zone)] пульсирует от боли, когда ваш новый [tool.name] оживает!")
 		target_organ.on_surgical_insertion(user, target, target_zone, tool)
@@ -291,9 +291,9 @@
 			display_results(
 				user,
 				target,
-				span_notice("Вы успешно извлекли [target_organ] из [target] [target.parse_zone_with_bodypart(target_zone)]."),
-				span_notice("[user] успешно извлек [target_organ] из [target] [target.parse_zone_with_bodypart(target_zone)]!"),
-				span_notice("[user] успешно извлекает что-то из [target] [target.parse_zone_with_bodypart(target_zone)]!"),
+				span_notice("Вы успешно извлекли [target_organ] из [target.parse_zone_with_bodypart(target_zone)]."),
+				span_notice("[user] успешно извлек [target_organ] из [target.parse_zone_with_bodypart(target_zone)]!"),
+				span_notice("[user] успешно извлекает что-то из [target.parse_zone_with_bodypart(target_zone)]!"),
 			)
 			display_pain(target, "Ваша [target.parse_zone_with_bodypart(target_zone)] пульсирует от боли, вы больше не чувствуете свою [target_organ.name]!")
 			log_combat(user, target, "удален хирургическим путем [target_organ.name] из", addition="COMBAT MODE: [uppertext(user.combat_mode)]")
@@ -304,9 +304,9 @@
 			display_results(
 				user,
 				target,
-				span_warning("You can't extract anything from [target]'s [target.parse_zone_with_bodypart(target_zone)]!"),
-				span_notice("[user] can't seem to extract anything from [target]'s [target.parse_zone_with_bodypart(target_zone)]!"),
-				span_notice("[user] can't seem to extract anything from [target]'s [target.parse_zone_with_bodypart(target_zone)]!"),
+				span_warning("Вы не можете ничего извлечь из [target.parse_zone_with_bodypart(target_zone)]!"),
+				span_notice("[user] похоже, ничего не может извлечь из [target.parse_zone_with_bodypart(target_zone)]!"),
+				span_notice("[user] похоже, ничего не может извлечь из [target.parse_zone_with_bodypart(target_zone)]!"),
 			)
 	if(HAS_MIND_TRAIT(user, TRAIT_MORBID) && ishuman(user))
 		var/mob/living/carbon/human/morbid_weirdo = user
@@ -336,12 +336,12 @@
 ///prosthetic surgery gives full effectiveness to crowbars (and hemostats)
 /datum/surgery_step/manipulate_organs/internal/mechanic
 	implements_extract = list(TOOL_HEMOSTAT = 100, TOOL_CROWBAR = 100, /obj/item/kitchen/fork = 35)
-	name = "manipulate prosthetic organs (hemostat or crowbar/organ)"
+	name = "манипулировать протезами органов (гемостат или лом/орган)"
 
 ///Surgery step for external organs/features, like tails, frills, wings etc
 /datum/surgery_step/manipulate_organs/external
 	time = 3.2 SECONDS
-	name = "manipulate features (hemostat/feature)"
+	name = "манипулировать с конечностями (гемостат/доп.конечность)"
 
 ///Only operate on external organs
 /datum/surgery_step/manipulate_organs/external/can_use_organ(obj/item/organ/organ)
@@ -350,4 +350,4 @@
 ///prosthetic surgery gives full effectiveness to crowbars (and hemostats)
 /datum/surgery_step/manipulate_organs/external/mechanic
 	implements_extract = list(TOOL_HEMOSTAT = 100, TOOL_CROWBAR = 100, /obj/item/kitchen/fork = 35)
-	name = "manipulate prosthetic features (hemostat or crowbar/feature)"
+	name = "манипулировать элементами протеза (гемостат или лом/деталь)"

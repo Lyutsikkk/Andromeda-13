@@ -118,7 +118,7 @@ ADMIN_VERB(start_now, R_SERVER, "Start Now", "Start the round RIGHT NOW.", ADMIN
 	log_admin("[key_name(user)] has started the game.")
 	message_admins("[key_name_admin(user)] has started the game.")
 	if(SSticker.current_state == GAME_STATE_STARTUP)
-		message_admins("The server is still setting up, but the round will be started as soon as possible.")
+		message_admins("Сервер все еще загружается, но раунд начнется как можно скорее.")
 	BLACKBOX_LOG_ADMIN_VERB("Start Now")
 
 ADMIN_VERB(delay_round_end, R_SERVER, "Delay Round End", "Prevent the server from restarting.", ADMIN_CATEGORY_SERVER)

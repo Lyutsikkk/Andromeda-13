@@ -1,5 +1,5 @@
 /datum/surgery/cavity_implant
-	name = "Cavity implant"
+	name = "Имплантация"
 	possible_locs = list(BODY_ZONE_CHEST)
 	steps = list(
 		/datum/surgery_step/incise,
@@ -13,7 +13,7 @@ GLOBAL_LIST_INIT(heavy_cavity_implants, typecacheof(list(/obj/item/transfer_valv
 
 //handle cavity
 /datum/surgery_step/handle_cavity
-	name = "implant item"
+	name = "элемент имплантата"
 	accept_hand = 1
 	implements = list(/obj/item = 100)
 	repeatable = TRUE
@@ -34,34 +34,34 @@ GLOBAL_LIST_INIT(heavy_cavity_implants, typecacheof(list(/obj/item/transfer_valv
 		display_results(
 			user,
 			target,
-			span_notice("You begin to insert [tool] into [target]'s [target_zone]..."),
-			span_notice("[user] begins to insert [tool] into [target]'s [target_zone]."),
-			span_notice("[user] begins to insert [tool.w_class > WEIGHT_CLASS_SMALL ? tool : "something"] into [target]'s [target_zone]."),
+			span_notice("Вы начинаете вставлять [tool] в [target_zone]..."),
+			span_notice("[user] начинает вставлять [tool] в [target_zone]."),
+			span_notice("[user] начинает вставлять [tool.w_class > WEIGHT_CLASS_SMALL ? tool : "что-то"] в [target_zone]."),
 		)
-		display_pain(target, "You can feel something being inserted into your [target_zone], it hurts like hell!")
+		display_pain(target, "Вы можете почувствовать, как что-то вставляется в вашу [target_zone], это чертовски больно!")
 		return
 
 	display_results(
 		user,
 		target,
-		span_notice("You check for items in [target]'s [target_zone]..."),
-		span_notice("[user] checks for items in [target]'s [target_zone]."),
-		span_notice("[user] looks for something in [target]'s [target_zone]."),
+		span_notice("Вы проверяете наличие элементов в [target_zone]..."),
+		span_notice("[user] проверяет наличие элементов в  [target_zone]."),
+		span_notice("[user] ищет что-то в [target_zone]."),
 	)
 
 /datum/surgery_step/handle_cavity/success(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/surgery/surgery = FALSE)
 	var/obj/item/bodypart/chest/target_chest = target.get_bodypart(BODY_ZONE_CHEST)
 	if(tool)
 		if(item_for_cavity || ((tool.w_class > WEIGHT_CLASS_NORMAL) && !is_type_in_typecache(tool, GLOB.heavy_cavity_implants)) || HAS_TRAIT(tool, TRAIT_NODROP) || (tool.item_flags & ABSTRACT) || isorgan(tool))
-			to_chat(user, span_warning("You can't seem to fit [tool] in [target]'s [target_zone]!"))
+			to_chat(user, span_warning("Похоже, вы не можете поместить [tool] в [target_zone]!"))
 			return FALSE
 
 		display_results(
 			user,
 			target,
-			span_notice("You stuff [tool] into [target]'s [target_zone]."),
-			span_notice("[user] stuffs [tool] into [target]'s [target_zone]!"),
-			span_notice("[user] stuffs [tool.w_class > WEIGHT_CLASS_SMALL ? tool : "something"] into [target]'s [target_zone]."),
+			span_notice("Вы помещаете [tool] в [target_zone]."),
+			span_notice("[user] помещает [tool] в [target_zone]!"),
+			span_notice("[user] помещает [tool.w_class > WEIGHT_CLASS_SMALL ? tool : "что-то"] в [target_zone]."),
 		)
 
 		if (!user.transferItemToLoc(tool, target, TRUE))
@@ -71,17 +71,17 @@ GLOBAL_LIST_INIT(heavy_cavity_implants, typecacheof(list(/obj/item/transfer_valv
 		return ..()
 
 	if(!item_for_cavity)
-		to_chat(user, span_warning("You don't find anything in [target]'s [target_zone]."))
+		to_chat(user, span_warning("Вы ничего не нашли в [target_zone]."))
 		return FALSE
 
 	display_results(
 		user,
 		target,
-		span_notice("You pull [item_for_cavity] out of [target]'s [target_zone]."),
-		span_notice("[user] pulls [item_for_cavity] out of [target]'s [target_zone]!"),
-		span_notice("[user] pulls [item_for_cavity.w_class > WEIGHT_CLASS_SMALL ? item_for_cavity : "something"] out of [target]'s [target_zone]."),
+		span_notice("Вы извлекаете [item_for_cavity] из [target_zone]."),
+		span_notice("[user] извлекает [item_for_cavity] из [target_zone]!"),
+		span_notice("[user] извлекает [item_for_cavity.w_class > WEIGHT_CLASS_SMALL ? item_for_cavity : "что-то"] из [target_zone]."),
 	)
-	display_pain(target, "Something is pulled out of your [target_zone]! It hurts like hell!")
+	display_pain(target, "Что-то вытащено из вашей [target_zone]! Это чертовски больно!")
 	user.put_in_hands(item_for_cavity)
 	target_chest.cavity_item = null
 	return ..()

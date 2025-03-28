@@ -1,5 +1,5 @@
 /datum/surgery/lipoplasty
-	name = "Lipoplasty"
+	name = "Липопластика"
 	possible_locs = list(BODY_ZONE_CHEST)
 	steps = list(
 		/datum/surgery_step/incise,
@@ -10,7 +10,7 @@
 	)
 
 /datum/surgery/lipoplasty/mechanic
-	name = "Nutrient Reserve Expulsion"
+	name = "Удаление запасов питательных отложений"
 	requires_bodypart_type = BODYTYPE_ROBOTIC
 	steps = list(
 		/datum/surgery_step/mechanic_open,
@@ -30,7 +30,7 @@
 
 //cut fat
 /datum/surgery_step/cut_fat
-	name = "cut excess fat (circular saw)"
+	name = "срежьте лишний жир (хирургической пилой)"
 	implements = list(
 		TOOL_SAW = 100,
 		/obj/item/shovel/serrated = 75,
@@ -45,7 +45,7 @@
 	)
 
 /datum/surgery_step/cut_fat/mechanic
-	name = "open fat containers (wrench or crowbar)"
+	name = "откройте контейнеры для жира (гаечным ключом или ломом)"
 	implements = list(
 		TOOL_WRENCH = 95,
 		TOOL_CROWBAR = 95,
@@ -58,13 +58,13 @@
 	success_sound = 'sound/machines/airlock/doorclick.ogg'
 
 /datum/surgery_step/cut_fat/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	user.visible_message(span_notice("[user] begins to cut away [target]'s excess fat."), span_notice("You begin to cut away [target]'s excess fat..."))
+	user.visible_message(span_notice("[user] начинает удалять лишний жир у [target]."), span_notice("Вы начинаете удалять лишний жир у [target]..."))
 	display_results(
 		user,
 		target,
-		span_notice("You begin to cut away [target]'s excess fat..."),
-		span_notice("[user] begins to cut away [target]'s excess fat."),
-		span_notice("[user] begins to cut [target]'s [target_zone] with [tool]."),
+		span_notice("Вы начинаете удалять лишний жир у [target]..."),
+		span_notice("[user] начинает удалять лишний жир у [target]."),
+		span_notice("[user] начинает удалять лишний жир у [target] в [target_zone] с помощью [tool]."),
 	)
 	display_pain(target, "You feel a stabbing in your [target_zone]!")
 
@@ -72,16 +72,16 @@
 	display_results(
 		user,
 		target,
-		span_notice("You cut [target]'s excess fat loose."),
-		span_notice("[user] cuts [target]'s excess fat loose!"),
-		span_notice("[user] finishes the cut on [target]'s [target_zone]."),
+		span_notice("Вы избавляете [target] от лишнего жира."),
+		span_notice("[user] избавляет [target] от лишнего жира!"),
+		span_notice("[user] заканчивает обработку у [target] в [target_zone]."),
 	)
-	display_pain(target, "The fat in your [target_zone] comes loose, dangling and hurting like hell!")
+	display_pain(target, "Жир из [target_zone] выпадает, болтается и причиняет адскую боль!")
 	return TRUE
 
 //remove fat
 /datum/surgery_step/remove_fat
-	name = "remove loose fat (retractor)"
+	name = "удаление отложившегося жира (ретрактор)"
 	implements = list(
 		TOOL_RETRACTOR = 100,
 		TOOL_SCREWDRIVER = 45,
@@ -92,7 +92,7 @@
 	success_sound = 'sound/items/handling/surgery/retractor2.ogg'
 
 /datum/surgery_step/remove_fat/mechanic
-	name = "engage expulsion valve (screwdriver or wrench)" //gross
+	name = "включить выпускной клапан (отверткой или гаечным ключом)" //gross
 	implements = list(
 		TOOL_SCREWDRIVER = 100,
 		TOOL_WRENCH = 100,
@@ -106,19 +106,19 @@
 	display_results(
 		user,
 		target,
-		span_notice("You begin to extract [target]'s loose fat..."),
-		span_notice("[user] begins to extract [target]'s loose fat!"),
-		span_notice("[user] begins to extract something from [target]'s [target_zone]."),
+		span_notice("Вы начинаете извлекать отложенный жир из [target]..."),
+		span_notice("[user] начинает извлекать отложенный жир из [target]!"),
+		span_notice("[user] начинает извлекать что-то из [target_zone]."),
 	)
-	display_pain(target, "You feel an oddly painless tugging on your loose fat!")
+	display_pain(target, "Вы чувствуете странное безболезненное вытягивание вашего жира!")
 
 /datum/surgery_step/remove_fat/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(
 		user,
 		target,
-		span_notice("You extract [target]'s fat."),
-		span_notice("[user] extracts [target]'s fat!"),
-		span_notice("[user] extracts [target]'s fat!"),
+		span_notice("Вы извлекаете жир [target]."),
+		span_notice("[user] извлекает жир [target]!"),
+		span_notice("[user] извлекает жир [target]!"),
 	)
 	target.overeatduration = 0 //patient is unfatted
 	var/removednutriment = target.nutrition
@@ -134,8 +134,8 @@
 
 	if(typeofmeat)
 		var/obj/item/food/meat/slab/human/newmeat = new typeofmeat
-		newmeat.name = "fatty meat"
-		newmeat.desc = "Extremely fatty tissue taken from a patient."
+		newmeat.name = "Жировые отложения"
+		newmeat.desc = "Чрезвычайно жирная ткань, взятая у пациента."
 		newmeat.subjectname = human.real_name
 		newmeat.subjectjob = human.job
 		newmeat.reagents.add_reagent (/datum/reagent/consumable/nutriment, (removednutriment / 15)) //To balance with nutriment_factor of nutriment

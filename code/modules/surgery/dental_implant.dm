@@ -1,7 +1,7 @@
 #define MARK_TOOTH 1
 
 /datum/surgery/dental_implant
-	name = "Dental implant"
+	name = "Зубной имплантат"
 	possible_locs = list(BODY_ZONE_PRECISE_MOUTH)
 	steps = list(
 		/datum/surgery_step/drill/pill,
@@ -21,15 +21,15 @@
 		count++
 
 	if(teeth_receptangle.teeth_count == 0)
-		to_chat(user, span_notice("[user] has no teeth, doofus!"))
+		to_chat(user, span_notice("[user] нет зубов, придурок!"))
 		return SURGERY_STEP_FAIL
 
 	if(count >= teeth_receptangle.teeth_count)
-		to_chat(user, span_notice("[user]'s teeth have all been replaced with pills already!"))
+		to_chat(user, span_notice("все зубы [user] уже имеют импланты!"))
 		return SURGERY_STEP_FAIL
 
 /datum/surgery_step/insert_pill
-	name = "insert pill"
+	name = "вставить имплант"
 	implements = list(/obj/item/reagent_containers/applicator/pill = 100)
 	time = 16
 
@@ -38,11 +38,11 @@
 	display_results(
 		user,
 		target,
-		span_notice("You begin to wedge [tool] in [target]'s [target.parse_zone_with_bodypart(target_zone)]..."),
-		span_notice("[user] begins to wedge \the [tool] in [target]'s [target.parse_zone_with_bodypart(target_zone)]."),
-		span_notice("[user] begins to wedge something in [target]'s [target.parse_zone_with_bodypart(target_zone)]."),
+		span_notice("Вы начинаете вставлять [tool] в [target.parse_zone_with_bodypart(target_zone)]..."),
+		span_notice("[user] начинает вставлять [tool] в [target.parse_zone_with_bodypart(target_zone)]."),
+		span_notice("[user] начинает что-то вставлять в [target.parse_zone_with_bodypart(target_zone)]."),
 	)
-	display_pain(target, "Something's being jammed into your [target.parse_zone_with_bodypart(target_zone)]!")
+	display_pain(target, "Что-то застряло в вашем [target.parse_zone_with_bodypart(target_zone)]!")
 
 /datum/surgery_step/insert_pill/success(mob/user, mob/living/carbon/target, target_zone, obj/item/reagent_containers/applicator/pill/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(!istype(tool))
@@ -52,7 +52,7 @@
 	user.transferItemToLoc(tool, target.get_bodypart(BODY_ZONE_HEAD), TRUE)
 
 	var/datum/action/item_action/activate_pill/pill_action = new(tool)
-	pill_action.name = "Activate [tool.name]"
+	pill_action.name = "Активировать [tool.name]"
 	pill_action.build_all_button_icons()
 	pill_action.target = tool
 	pill_action.Grant(target) //The pill never actually goes in an inventory slot, so the owner doesn't inherit actions from it
@@ -60,14 +60,14 @@
 	display_results(
 		user,
 		target,
-		span_notice("You wedge [tool] into [target]'s [target.parse_zone_with_bodypart(target_zone)]."),
-		span_notice("[user] wedges \the [tool] into [target]'s [target.parse_zone_with_bodypart(target_zone)]!"),
-		span_notice("[user] wedges something into [target]'s [target.parse_zone_with_bodypart(target_zone)]!"),
+		span_notice("Вы вставляете [tool] в [target.parse_zone_with_bodypart(target_zone)]."),
+		span_notice("[user] вставляет [tool] в [target.parse_zone_with_bodypart(target_zone)]!"),
+		span_notice("[user] что-то вставляет в [target.parse_zone_with_bodypart(target_zone)]!"),
 	)
 	return ..()
 
 /datum/action/item_action/activate_pill
-	name = "Activate Pill"
+	name = "Активировать имплант"
 	check_flags = NONE
 
 /datum/action/item_action/activate_pill/IsAvailable(feedback)
@@ -76,12 +76,12 @@
 	return ..()
 
 /datum/action/item_action/activate_pill/do_effect(trigger_flags)
-	owner.balloon_alert_to_viewers("[owner] grinds their teeth!", "You grit your teeth.")
+	owner.balloon_alert_to_viewers("[owner] скрежет зубами!", "Ты стискиваешь зубы.")
 	if(!do_after(owner, owner.stat * (2.5 SECONDS), owner,  IGNORE_USER_LOC_CHANGE | IGNORE_INCAPACITATED))
 		return FALSE
 	var/obj/item/item_target = target
-	to_chat(owner, span_notice("You grit your teeth and burst the implanted [item_target.name]!"))
-	owner.log_message("swallowed an implanted pill, [target]", LOG_ATTACK)
+	to_chat(owner, span_notice("стиснул зубы и разорвал имплантированную [item_target.name]!"))
+	owner.log_message("проглотил имплант, [target]", LOG_ATTACK)
 	if(item_target.reagents.total_volume)
 		item_target.reagents.trans_to(owner, item_target.reagents.total_volume, transferred_by = owner, methods = INGEST)
 	qdel(target)
@@ -97,19 +97,19 @@
 	display_results(
 		user,
 		target,
-		span_notice("You begin looking in [target]'s mouth for implantable teeth..."),
-		span_notice("[user] begins to look in [target]'s mouth."),
-		span_notice("[user] begins to examine [target]'s teeth."),
+		span_notice("Вы начинаете осматривать рот [target] в поисках имплантируемых зубов..."),
+		span_notice("[user] начинает осматривать рот [target]."),
+		span_notice("[user] ачинает осматривать зубы [target]."),
 	)
-	display_pain(target, "You feel fingers poke around at your teeth.")
+	display_pain(target, "Вы чувствуете, как пальцы ощупывают ваши зубы.")
 
 /datum/surgery_step/search_teeth/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(
 		user,
 		target,
-		span_notice("[user] marks a tooth in [target]'s mouth."),
-		span_notice("[user] marks a tooth in [target]'s mouth."),
-		span_notice("[user] prods a tooth in [target]'s mouth."),
+		span_notice("[user] помечает зуб во рту [target]."),
+		span_notice("[user] помечает зуб во рту [target]."),
+		span_notice("[user] помечает зуб во рту [target]."),
 	)
 	surgery.status = MARK_TOOTH
 	return ..()
