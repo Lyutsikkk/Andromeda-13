@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>/datum/holiday/april_fools - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a> — <a href="datum/holiday/april_fools.html#proc">Proc Details</a></header><main><h1>april_fools <aside>/<a href="datum.html">datum</a>/<a href="datum/holiday.html">holiday</a>/<a href="datum/holiday/april_fools.html">april_fools</a></aside> <a href="https://github.com/Lyutsikkk/Andromeda-13/blob/d938ed166b809908cc2736d06385c3d40d9a4d51/code/modules/holiday/holidays.dm#L250"><img src="git.png" width="16" height="16" title="code/modules/holiday/holidays.dm 250"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Procs</h2></td></tr><tr><th><a href="datum/holiday/april_fools.html#proc/get_holiday_colors">get_holiday_colors</a></th><td>/datum/holiday/april_fools/celebrate()
+. = ..()
+SSjob.set_overflow_role(/datum/job/clown)
+SSticker.set_lobby_music('sound/music/lobby_music/clown.ogg', override = TRUE)
+for(var/i in GLOB.new_player_list)
+var/mob/dead/new_player/P = i
+if(P.client)
+P.client.playtitlemusic()</td></tr></table><h2 id="proc">Proc Details</h2><h3 id="proc/get_holiday_colors"><aside class="parent"><a title="/datum/holiday" href="datum/holiday.html#proc/get_holiday_colors">↑</a></aside>get_holiday_colors<aside>(/<a href="atom.html">atom</a>/thing_to_color)  <a href="https://github.com/Lyutsikkk/Andromeda-13/blob/d938ed166b809908cc2736d06385c3d40d9a4d51/code/modules/holiday/holidays.dm#L266"><img src="git.png" width="16" height="16" title="code/modules/holiday/holidays.dm 266"></a></aside></h3><p>/datum/holiday/april_fools/celebrate()
+. = ..()
+SSjob.set_overflow_role(/datum/job/clown)
+SSticker.set_lobby_music('sound/music/lobby_music/clown.ogg', override = TRUE)
+for(var/i in GLOB.new_player_list)
+var/mob/dead/new_player/P = i
+if(P.client)
+P.client.playtitlemusic()</p></main><footer>tgstation.dme <a href="https://github.com/Lyutsikkk/Andromeda-13/tree/d938ed166b809908cc2736d06385c3d40d9a4d51">d938ed1</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.9.0</a></footer></body></html>
