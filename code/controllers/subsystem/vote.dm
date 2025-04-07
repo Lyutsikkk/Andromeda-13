@@ -470,7 +470,7 @@ SUBSYSTEM_DEF(vote)
 /// Datum action given to mobs that allows players to vote on the current vote.
 /datum/action/vote
 	name = "Голосовать!"
-	button_icon_state = "голосовать"
+	button_icon_state = "vote"
 	show_to_observers = FALSE
 
 /datum/action/vote/IsAvailable(feedback = FALSE)
