@@ -7,7 +7,7 @@
 GLOBAL_VAR_INIT(ert_request_answered, FALSE)
 GLOBAL_LIST_EMPTY(ert_request_messages)
 
-ADMIN_VERB(ert_manager, R_NONE, "Управление ОБР", "Управляйте запросами ОБР.", ADMIN_CATEGORY_GAME)
+ADMIN_VERB(ert_manager, R_ADMIN, "Управление ОБР", "Управляйте запросами ОБР.", ADMIN_CATEGORY_GAME)
 	var/datum/ert_manager/tgui = new(user)
 	tgui.ui_interact(user.mob)
 	BLACKBOX_LOG_ADMIN_VERB("Управление ОБР")
