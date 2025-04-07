@@ -19,7 +19,7 @@
 		AddElement(/datum/element/processable, TOOL_KNIFE, slice_type, yield, table_required = TRUE, screentip_verb = "Slice")
 
 /obj/item/food/pieslice
-	name = "pie slice"
+	name = "кусочек пирога"
 	icon = 'icons/obj/food/piecake.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
@@ -28,8 +28,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/pie/plain
-	name = "plain pie"
-	desc = "A simple pie, still delicious."
+	name = "простой пирог"
+	desc = "Простой пирог, но всё равно очень вкусный."
 	icon_state = "pie"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 8,
@@ -43,14 +43,14 @@
 	AddComponent(/datum/component/customizable_reagent_holder, /obj/item/food/pie/empty, CUSTOM_INGREDIENT_ICON_FILL, max_ingredients = 8)
 
 /obj/item/food/pie/empty
-	name = "pie"
-	desc = "A custom pie made by a crazed chef."
+	name = "пирог"
+	desc = "Индивидуальный пирог, приготовленный сумасшедшим шеф-поваром."
 	icon_state = "pie_custom"
 	slice_type = /obj/item/food/pieslice/empty
 
 /obj/item/food/pieslice/empty
-	name = "pie slice"
-	desc = "A custom pie slice made by a crazed chef."
+	name = "кусочек пирога"
+	desc = "Индивидуальный кусочек пирога, приготовленный сумасшедшим шеф-поваром."
 	icon_state = "pie_custom_slice"
 
 /obj/item/food/pieslice/empty/Initialize(mapload)
@@ -58,8 +58,8 @@
 	AddComponent(/datum/component/customizable_reagent_holder, null, CUSTOM_INGREDIENT_ICON_FILL, max_ingredients = 8)
 
 /obj/item/food/pie/cream
-	name = "banana cream pie"
-	desc = "Just like back home, on clown planet! HONK!"
+	name = "пирог с банановым кремом"
+	desc = "Совсем как дома, на планете клоунов! ХОНК!"
 	icon_state = "pie"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 8,
@@ -80,15 +80,15 @@
 		victim.Paralyze(2 SECONDS) //splat!
 	if(can_splat_on)
 		victim.adjust_eye_blur(2 SECONDS)
-	victim.visible_message(span_warning("[victim] is creamed by [src]!"), span_userdanger("You've been creamed by [src]!"))
+	victim.visible_message(span_warning("[victim] КРЕМирован [src]!"), span_userdanger("Вас КРЕМировал [src]!"))
 	playsound(victim, SFX_DESECRATION, 50, TRUE)
 
 /obj/item/food/pie/cream/nostun
 	stunning = FALSE
 
 /obj/item/food/pie/berryclafoutis
-	name = "berry clafoutis"
-	desc = "No black birds, this is a good sign."
+	name = "ягодный клафути"
+	desc = "Черных птиц нет - это хороший знак.."
 	icon_state = "berryclafoutis"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 11,
@@ -101,8 +101,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pie/bearypie
-	name = "beary pie"
-	desc = "No brown bears, this is a good sign."
+	name = "медвежий пирог"
+	desc = "Бурых медведей нет - это хороший знак.."
 	icon_state = "bearypie"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 12,
@@ -114,9 +114,9 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/pie/meatpie
-	name = "meat-pie"
+	name = "мясной пирог"
 	icon_state = "meatpie"
-	desc = "An old barber recipe, very delicious!"
+	desc = "Старинный рецепт парикмахера, очень вкусный!"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 10,
 		/datum/reagent/consumable/nutriment/vitamin = 4,
@@ -129,17 +129,17 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pieslice/meatpie
-	name = "meat-pie slice"
-	desc = "Oh nice, meat pie!"
+	name = "кусочек мясного пирога"
+	desc = "О, вкусный мясной пирог!"
 	icon_state = "meatpie_slice"
 	tastes = list("pie" = 1, "meat" = 1)
 	foodtypes = GRAIN|DAIRY|MEAT
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pie/tofupie
-	name = "tofu-pie"
+	name = "пирог с тофу"
 	icon_state = "meatpie"
-	desc = "A delicious tofu pie."
+	desc = "Вкусный пирог с тофу."
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 11,
 		/datum/reagent/consumable/nutriment/protein = 1,
@@ -151,16 +151,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pieslice/tofupie
-	name = "tofu-pie slice"
-	desc = "Oh nice, meat pie- WAIT A MINUTE!!"
+	name = "кусочек пирога с тофу"
+	desc = "О, отличный мясной пиро-ПОДОЖДИ МИНУТКУ!!"
 	icon_state = "meatpie_slice"
 	tastes = list("pie" = 1, "disappointment" = 1, "tofu" = 1)
 	foodtypes = GRAIN|DAIRY|VEGETABLES
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pie/amanita_pie
-	name = "amanita pie"
-	desc = "Sweet and tasty poison pie."
+	name = "пирог с мухоморами"
+	desc = "Сладкий и вкусный пирог с грибочками."
 	icon_state = "amanita_pie"
 	bite_consumption = 4
 	food_reagents = list(
@@ -174,8 +174,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pie/plump_pie
-	name = "plump pie"
-	desc = "I bet you love stuff made out of plump helmets!"
+	name = "пышный пирог"
+	desc = "Бьюсь об заклад, вам нравятся вещи, сделанные из толстых шлемов!"
 	icon_state = "plump_pie"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 11,
@@ -188,8 +188,8 @@
 /obj/item/food/pie/plump_pie/Initialize(mapload)
 	var/fey = prob(10)
 	if(fey)
-		name = "exceptional plump pie"
-		desc = "Microwave is taken by a fey mood! It has cooked an exceptional plump pie!"
+		name = "исключительный пышный пирог"
+		desc = "В микроволновке царит волшебное настроение! Получился необыкновенный пышный пирог!"
 		food_reagents = list(
 			/datum/reagent/consumable/nutriment = 11,
 			/datum/reagent/medicine/omnizine = 5,
@@ -198,9 +198,9 @@
 	. = ..()
 
 /obj/item/food/pie/xemeatpie
-	name = "xeno-pie"
+	name = "ксено-пирог"
 	icon_state = "xenomeatpie"
-	desc = "A delicious meatpie. Probably heretical."
+	desc = "Вкусный мясной пирог. Ересь!"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 11,
 		/datum/reagent/consumable/nutriment/protein = 4,
@@ -212,16 +212,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pieslice/xemeatpie
-	name = "xeno-pie slice"
-	desc = "Oh god... Is that still moving?"
+	name = "кусочек ксено-пирога"
+	desc = "О Боже ... Это всё ещё движется?"
 	icon_state = "xenopie_slice"
 	tastes = list("pie" = 1, "acid" = 1, "meat" = 1)
 	foodtypes = GRAIN|DAIRY|MEAT
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pie/applepie
-	name = "apple pie"
-	desc = "A pie containing sweet sweet love... or apple."
+	name = "яблочный пирог"
+	desc = "Пирог со сладкой-пресладкой любовью... или яблоком."
 	icon_state = "applepie"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 11,
@@ -233,8 +233,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pieslice/apple
-	name = "apple pie slice"
-	desc = "A slice of comfy apple pie, warm autumn memories ahead."
+	name = "кусочек яблочного пирога"
+	desc = "Кусочек вкусного яблочного пирога, теплые осенние воспоминания впереди."
 	icon_state = "applepie_slice"
 	tastes = list("pie" = 1, "apples" = 1)
 	foodtypes = GRAIN|DAIRY|FRUIT|SUGAR
@@ -242,8 +242,8 @@
 
 
 /obj/item/food/pie/cherrypie
-	name = "cherry pie"
-	desc = "Taste so good, make a grown man cry."
+	name = "вишнёвый пирог"
+	desc = "Такой вкусный, что взрослый мужчина заплачет.."
 	icon_state = "cherrypie"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 11,
@@ -255,16 +255,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pieslice/cherry
-	name = "cherry pie slice"
-	desc = "A slice of delicious cherry pie, I hope it's morellos!"
+	name = "кусочек вишнёвого пирога"
+	desc = "Кусочек вкуснейшего вишневого пирога, надеюсь, это морелло!"
 	icon_state = "cherrypie_slice"
 	tastes = list("pie" = 1, "apples" = 1)
 	foodtypes = GRAIN|DAIRY|FRUIT|SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pie/pumpkinpie
-	name = "pumpkin pie"
-	desc = "A delicious treat for the autumn months."
+	name = "тыквенный пирог"
+	desc = "Вкусное угощение для осенних месяцев."
 	icon_state = "pumpkinpie"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 11,
@@ -276,16 +276,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pieslice/pumpkin
-	name = "pumpkin pie slice"
-	desc = "A slice of pumpkin pie, with whipped cream on top. Perfection."
+	name = "кусочек тыквенного пирога"
+	desc = "Кусочек тыквенного пирога, покрытый сверху взбитыми сливками. Совершенство."
 	icon_state = "pumpkinpieslice"
 	tastes = list("pie" = 1, "pumpkin" = 1)
 	foodtypes = GRAIN|DAIRY|VEGETABLES|SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pie/appletart
-	name = "golden apple streusel tart"
-	desc = "A tasty dessert that won't make it through a metal detector."
+	name = "пирог со штрейзелем из золотистых яблок"
+	desc = "Вкусный десерт, который не пройдет через металлодетектор."
 	icon_state = "gappletart"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 8,
@@ -297,8 +297,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/pie/grapetart
-	name = "grape tart"
-	desc = "A tasty dessert that reminds you of the wine you didn't make."
+	name = "виноградный пирог"
+	desc = "Вкусный десерт, который напомнит вам о вине, которое вы не готовили."
 	icon_state = "grapetart"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -309,7 +309,7 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/pie/mimetart
-	name = "mime tart"
+	name = "пирог мима"
 	desc = "..."
 	icon_state = "mimetart"
 	food_reagents = list(
@@ -322,8 +322,8 @@
 	crafted_food_buff = /datum/status_effect/food/trait/mute
 
 /obj/item/food/pie/berrytart
-	name = "berry tart"
-	desc = "A tasty dessert of many different small barries on a thin pie crust."
+	name = "ягодный пирог"
+	desc = "Вкусный десерт из множества разных маленьких пирожных на тонкой корочке для пирога."
 	icon_state = "berrytart"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -333,8 +333,8 @@
 	foodtypes = GRAIN|DAIRY|FRUIT|SUGAR
 
 /obj/item/food/pie/cocolavatart
-	name = "chocolate lava tart"
-	desc = "A tasty dessert made of chocolate, with a liquid core." //But it doesn't even contain chocolate...
+	name = "шоколадно-лавовый пирог"
+	desc = "Вкусный десерт из шоколада с жидкой сердцевиной." //But it doesn't even contain chocolate...
 	icon_state = "cocolavatart"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -344,8 +344,8 @@
 	foodtypes = GRAIN|DAIRY|SUGAR
 
 /obj/item/food/pie/blumpkinpie
-	name = "blumpkin pie"
-	desc = "An odd blue pie made with toxic blumpkin."
+	name = "простой пирог"
+	desc = "Необычный голубой пирог, приготовленный с использованием ядовитой начинки."
 	icon_state = "blumpkinpie"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 13,
@@ -357,16 +357,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pieslice/blumpkin
-	name = "blumpkin pie slice"
-	desc = "A slice of blumpkin pie, with whipped cream on top. Is this edible?"
+	name = "кусочек простого пирога"
+	desc = "Кусочек простого пирога со взбитыми сливками сверху. Это съедобно?"
 	icon_state = "blumpkinpieslice"
 	tastes = list("pie" = 1, "a mouthful of pool water" = 1)
 	foodtypes = GRAIN|DAIRY|VEGETABLES|SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pie/dulcedebatata
-	name = "dulce de batata"
-	desc = "A delicious jelly made with sweet potatoes."
+	name = "пирог с сладким картофелем"
+	desc = "Вкусное желе, приготовленное из сладкого картофеля."
 	icon_state = "dulcedebatata"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 14,
@@ -379,16 +379,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pieslice/dulcedebatata
-	name = "dulce de batata slice"
-	desc = "A slice of sweet dulce de batata jelly."
+	name = "кусочек пирога с сладким картофелем"
+	desc = "кусочек пирога с сладким желе и сладким картофелем."
 	icon_state = "dulcedebatataslice"
 	tastes = list("jelly" = 1, "sweet potato" = 1)
 	foodtypes = VEGETABLES | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pie/frostypie
-	name = "frosty pie"
-	desc = "Tastes like blue and cold."
+	name = "морозный пирог"
+	desc = "На вкус как синий и холодный."
 	icon_state = "frostypie"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 14,
@@ -400,16 +400,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pieslice/frostypie
-	name = "frosty pie slice"
-	desc = "Tasty blue, like my favourite crayon!"
+	name = "кусочек морозного пирога"
+	desc = "Нежно-голубой, как мой любимый карандаш.!"
 	icon_state = "frostypie_slice"
 	tastes = list("pie" = 1, "mint" = 1)
 	foodtypes = GRAIN | FRUIT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pie/baklava
-	name = "baklava"
-	desc = "A delightful healthy snack made of nut layers with thin bread."
+	name = "пахлава"
+	desc = "Восхитительная полезная закуска из ореховых коржей с тонким хлебом."
 	icon_state = "baklava"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 12,
@@ -422,16 +422,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/pieslice/baklava
-	name = "baklava dish"
-	desc = "A portion of a delightful healthy snack made of nut layers with thin bread"
+	name = "порция пахвалы"
+	desc = "Порция восхитительного полезного перекуса из ореховых прослоек с тонким хлебом"
 	icon_state = "baklavaslice"
 	tastes = list("nuts" = 1, "pie" = 1)
 	foodtypes = GRAIN|DAIRY|SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/pie/frenchsilkpie
-	name = "french silk pie"
-	desc = "A decadent pie made of a creamy chocolate mousse filling topped with a layer of whipped cream and chocolate shavings. Sliceable."
+	name = "французский шёлковый пирог"
+	desc = "Изысканный пирог с начинкой из сливочно-шоколадного мусса, покрытый слоем взбитых сливок и шоколадной стружки. Можно нарезать."
 	icon_state = "frenchsilkpie"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 12,
@@ -443,16 +443,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pieslice/frenchsilk
-	name = "french silk pie slice"
-	desc = "A slice of french silk pie, filled with a chocolate mousse and topped with a layer of whipped cream and chocolate shavings. Delicious enough to make you cry."
+	name = "кусочек французского шёлкового пирога"
+	desc = "Кусочек французского шелкового пирога, покрытый шоколадным муссом и покрытый сверху слоем взбитых сливок и шоколадной стружки. Такой вкусный, что вы расплачетесь."
 	icon_state = "frenchsilkpieslice"
 	tastes = list("pie" = 1, "smooth chocolate" = 1, "whipped cream" = 1)
 	foodtypes = GRAIN | DAIRY | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pie/shepherds_pie
-	name = "shepherds pie"
-	desc = "A dish of minced meat and mixed vegetables baked under a layer of creamy mashed potatoes. Sliceable."
+	name = "пастуший пирог"
+	desc = "Блюдо из мясного фарша и овощной смеси, запеченное под слоем картофельного пюре со сливками. Нарезанный."
 	icon_state = "shepherds_pie"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 40,
@@ -466,8 +466,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/pieslice/shepherds_pie
-	name = "shepherds pie slice"
-	desc = "A messy slice of shepherds pie, made of minced meat and mixed vegetables baked under a layer of creamy mashed potatoes. Dangerously tasty."
+	name = "кусочек пастушьего пирога"
+	desc = "Пастуший пирог с начинкой из мясного фарша и овощной смеси, запеченный под слоем картофельного пюре со сливками. Невероятно вкусный."
 	icon_state = "shepherds_pie_slice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 10,
@@ -479,8 +479,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/pie/asdfpie
-	name = "pie-flavored pie"
-	desc = "I baked you a pie!"
+	name = "пирожный пирог"
+	desc = "Я испёк для тебя пирог!"
 	icon_state = "asdfpie"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 16,
@@ -491,8 +491,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/pie/bacid_pie
-	name = "battery acid pie"
-	desc = "Ooh it's a pie made of... battery acid? You suppose an ethereal could find some enjoyement in eating this."
+	name = "кислотный пирог с батарейкой"
+	desc = "О, это пирог, приготовленный из... батарейковой кислоты? Как вы думаете, эфирному существу могло бы понравиться есть это?."
 	icon_state = "bacid_pie"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 18,
@@ -506,8 +506,8 @@
 
 
 /obj/item/food/pieslice/bacid_pie
-	name = "battery acid pie slice"
-	desc = "The battery acid filling has a concerningly appealing bright green color"
+	name = "кусочек кислотного пирога с батарейкой"
+	desc = "Кислотная заправка батарейки имеет привлекательный ярко-зеленый цвет"
 	icon_state = "bacid_pie_slice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4.5,
