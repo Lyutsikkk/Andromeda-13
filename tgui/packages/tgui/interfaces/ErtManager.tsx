@@ -156,9 +156,9 @@ const SendERT = (props) => {
   }
 
   enum ERTTYPE {
-    Amber = 'orange',
     Red = 'red',
-    Gamma = 'yellow',
+    Gamma = 'orange',
+    Epsilon = 'purple',
   }
 
   return (

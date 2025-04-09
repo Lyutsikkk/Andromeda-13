@@ -120,14 +120,16 @@
 /datum/sm_delam/explosive/delaminate(obj/machinery/power/supermatter_crystal/sm)
 	message_admins("Supermatter [sm] at [ADMIN_VERBOSEJMP(sm)] triggered a normal delam.")
 	sm.investigate_log("triggered a normal delam.", INVESTIGATE_ENGINE)
-/// Made in Andromeda																					/// Made in Andromeda
+
+/// ADD Andromeda-13 ///
 	priority_announce(
 				title = "Техногенная авария",
 		text = "Кристалл суперматерии подвергся расслоению, выжившим членам экипажа немедленно покинуть зону отчуждения.",
 		sound =  'modular_andromeda/sound/misc/sm_explosion.ogg',
 		color_override = "red",
 	)
-/// Made in Andromeda																					/// Made in Andromeda
+/// END ADD Andromeda-13 ///
+
 	effect_irradiate(sm)
 	effect_demoralize(sm)
 	if(sm.is_main_engine)

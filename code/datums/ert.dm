@@ -14,7 +14,7 @@
 	///Defines the color/alert code of the response team. Unused if a polldesc is defined.
 	var/code
 	///The mission given to this ERT type in their flavor text.
-	var/mission = "Assist the station."
+	var/mission = "Посетите станцию и наведите там порядок."
 	///The number of players for consideration.
 	var/teamsize = 5
 	///The "would you like to play as XXX" message used when polling for players.
@@ -34,26 +34,26 @@
 
 /datum/ert/New()
 	if (!polldesc)
-		polldesc = "a Code [code] Nanotrasen Emergency Response Team"
+		polldesc = "отряд быстрого реагирования кода [code]"
 
 /datum/ert/blue
 	opendoors = FALSE
 	code = "Blue"
 
-/datum/ert/amber
-	code = "Amber"
-
 /datum/ert/red
+	code = "Red"
+
+/datum/ert/gamma
 	leader_role = /datum/antagonist/ert/commander/red
 	roles = list(/datum/antagonist/ert/security/red, /datum/antagonist/ert/medic/red, /datum/antagonist/ert/engineer/red)
-	code = "Red"
+	code = "Gamma"
 
 /datum/ert/deathsquad
 	roles = list(/datum/antagonist/ert/deathsquad)
 	leader_role = /datum/antagonist/ert/deathsquad/leader
 	rename_team = "Deathsquad"
 	code = "Epsilon"
-	mission = "Leave no witnesses."
+	mission = "Не оставляй свидетелей. Убейте любого, кто мешает операции. Подчищайте все грехи корпоратов из Нанотрейзен."
 	polldesc = "Эскадрон смерти"
 
 /datum/ert/marine

@@ -1,16 +1,16 @@
 //Both ERT and DS are handled by the same datums since they mostly differ in equipment in objective.
 /datum/team/ert
-	name = "Emergency Response Team"
+	name = "Отряд Быстрого Реагирования"
 	var/datum/objective/mission //main mission
 
 /datum/antagonist/ert
-	name = "Emergency Response Officer"
+	name = "Боец отряда быстрого реагирования"
 	can_elimination_hijack = ELIMINATION_PREVENT
 	show_in_antagpanel = FALSE
 	show_to_ghosts = TRUE
 	antag_moodlet = /datum/mood_event/focused
 	antagpanel_category = ANTAG_GROUP_ERT
-	suicide_cry = "FOR NANOTRASEN!!"
+	suicide_cry = "Слава Нанотрейзен!!"
 	count_against_dynamic_roll_chance = FALSE
 	// Not 'true' antags, this disables certain interactions that assume the owner is a baddie
 	antag_flags = FLAG_FAKE_ANTAG
@@ -18,7 +18,7 @@
 	var/leader = FALSE
 	var/datum/outfit/outfit = /datum/outfit/centcom/ert/security
 	var/datum/outfit/plasmaman_outfit = /datum/outfit/plasmaman/centcom_official
-	var/role = "Security Officer"
+	var/role = "Оперативник"
 	var/list/name_source
 	var/random_names = TRUE
 	var/rip_and_tear = FALSE
@@ -48,7 +48,7 @@
 	owner.current.fully_replace_character_name(owner.current.real_name,"[role] [pick(name_source)]")
 
 /datum/antagonist/ert/official
-	name = "CentCom Official"
+	name = "Официальный представитель ЦентКом"
 	show_name_in_check_antagonists = TRUE
 	var/datum/objective/mission
 	role = "Inspector"
@@ -58,9 +58,9 @@
 /datum/antagonist/ert/official/greet()
 	. = ..()
 	if (ert_team)
-		to_chat(owner, "<span class='warningplain'>Central Command is sending you to [station_name()] with the task: [ert_team.mission.explanation_text]</span>")
+		to_chat(owner, "<span class='warningplain'>Центральная команда отправляет вас на [station_name()]с заданием: [ert_team.mission.explanation_text]</span>")
 	else
-		to_chat(owner, "<span class='warningplain'>Central Command is sending you to [station_name()] with the task: [mission.explanation_text]</span>")
+		to_chat(owner, "<span class='warningplain'>Центральная команда отправляет вас на [station_name()] с заданием: [mission.explanation_text]</span>")
 
 /datum/antagonist/ert/official/forge_objectives()
 	if (ert_team)
@@ -69,7 +69,7 @@
 		return
 	var/datum/objective/missionobj = new ()
 	missionobj.owner = owner
-	missionobj.explanation_text = "Conduct a routine performance review of [station_name()] and its Captain."
+	missionobj.explanation_text = "Проведите обычную проверку работоспособности [station_name()] и выполнение обязанностей Капитана."
 	missionobj.completed = TRUE
 	mission = missionobj
 	objectives |= mission
@@ -80,21 +80,21 @@
 	outfit = /datum/outfit/centcom/ert/security/alert
 
 /datum/antagonist/ert/engineer
-	role = "Engineer"
+	role = "Полевой инженер"
 	outfit = /datum/outfit/centcom/ert/engineer
 
 /datum/antagonist/ert/engineer/red
 	outfit = /datum/outfit/centcom/ert/engineer/alert
 
 /datum/antagonist/ert/medic
-	role = "Medical Officer"
+	role = "Полевой медик"
 	outfit = /datum/outfit/centcom/ert/medic
 
 /datum/antagonist/ert/medic/red
 	outfit = /datum/outfit/centcom/ert/medic/alert
 
 /datum/antagonist/ert/commander
-	role = "Commander"
+	role = "Командир"
 	outfit = /datum/outfit/centcom/ert/commander
 	plasmaman_outfit = /datum/outfit/plasmaman/centcom_commander
 
@@ -102,15 +102,15 @@
 	outfit = /datum/outfit/centcom/ert/commander/alert
 
 /datum/antagonist/ert/janitor
-	role = "Janitor"
+	role = "Уборщик"
 	outfit = /datum/outfit/centcom/ert/janitor
 
 /datum/antagonist/ert/janitor/heavy
-	role = "Heavy Duty Janitor"
+	role = "Сверхмощный уборщик"
 	outfit = /datum/outfit/centcom/ert/janitor/heavy
 
 /datum/antagonist/ert/deathsquad
-	name = "Deathsquad Trooper"
+	name = "Рядовой эскадрона смерти"
 	outfit = /datum/outfit/centcom/death_commando
 	plasmaman_outfit = /datum/outfit/plasmaman/centcom_commander
 	role = "Trooper"
@@ -121,7 +121,7 @@
 	name_source = GLOB.commando_names
 
 /datum/antagonist/ert/deathsquad/leader
-	name = "Deathsquad Officer"
+	name = "Командир эскадрона смерти"
 	outfit = /datum/outfit/centcom/death_commando/officer
 	role = "Officer"
 
@@ -158,15 +158,15 @@
 	owner.holy_role = HOLY_ROLE_PRIEST
 
 /datum/antagonist/ert/intern
-	name = "CentCom Intern"
+	name = "Оператор ЦентКом"
 	outfit = /datum/outfit/centcom/centcom_intern
 	plasmaman_outfit = /datum/outfit/plasmaman/centcom_intern
 	random_names = FALSE
 	role = "Intern"
-	suicide_cry = "FOR MY INTERNSHIP!!"
+	suicide_cry = "Слава корпоратам!!"
 
 /datum/antagonist/ert/intern/leader
-	name = "CentCom Head Intern"
+	name = "Главный оператор ЦентКом"
 	outfit = /datum/outfit/centcom/centcom_intern/leader
 	random_names = FALSE
 	role = "Head Intern"
@@ -249,15 +249,15 @@
 	if(!ert_team)
 		return
 
-	to_chat(owner, "<span class='warningplain'><B><font size=3 color=red>You are the [name].</font></B></span>")
+	to_chat(owner, "<span class='warningplain'><B><font size=3 color=red>Вы [name].</font></B></span>")
 
-	var/missiondesc = "Your squad is being sent on a mission to [station_name()] by Nanotrasen's Security Division."
+	var/missiondesc = "Подразделение безопасности Нанотрейзен отправляет ваш отряд с миссией на [station_name()]."
 	if(leader) //If Squad Leader
-		missiondesc += " Lead your squad to ensure the completion of the mission. Board the shuttle when your team is ready."
+		missiondesc += " Возглавьте свой отряд, чтобы обеспечить выполнение миссии. Садитесь на шаттл и летите на станцию, когда ваша команда будет готова."
 	else
-		missiondesc += " Follow orders given to you by your squad leader."
+		missiondesc += " Выполняйте приказы, отданные вам командиром вашего отделения."
 	if(!rip_and_tear)
-		missiondesc += " Avoid civilian casualties when possible."
+		missiondesc += " По возможности избегайте жертв среди гражданского населения."
 
 	missiondesc += "<span class='warningplain'><BR><B>Ваша миссия</B> : [ert_team.mission.explanation_text]</span>"
 	to_chat(owner,missiondesc)

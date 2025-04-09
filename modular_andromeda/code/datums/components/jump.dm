@@ -1,4 +1,3 @@
-///Spizjeno by Andromeda	/// Made in Andromeda
 #define JUMP_COMPONENT "jump_component"
 #define JUMP_COMPONENT_COOLDOWN "jump_component_cooldown"
 #define JUMP_SHADOW (1<<0)

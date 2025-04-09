@@ -1,0 +1,27 @@
+/datum/centcom_announcer/classic
+	welcome_sounds = list('sound/announcer/classic/welcome.ogg')
+	alert_sounds = list('sound/announcer/classic/attention.ogg')
+	command_report_sounds = list('sound/announcer/classic/commandreport.ogg')
+	event_sounds = list(
+		ANNOUNCER_AIMALF = 'sound/announcer/classic/aimalf.ogg',
+		ANNOUNCER_ALIENS = 'sound/announcer/classic/aliens.ogg',
+		ANNOUNCER_ANIMES = 'sound/announcer/classic/animes.ogg',
+		ANNOUNCER_GRANOMALIES = 'sound/announcer/classic/granomalies.ogg',
+		ANNOUNCER_INTERCEPT = 'sound/announcer/classic/intercept.ogg',
+		ANNOUNCER_IONSTORM = 'sound/announcer/classic/ionstorm1.ogg', 'sound/announcer/classic/ionstorm2.ogg', 'sound/announcer/classic/ionstorm3.ogg',
+		ANNOUNCER_METEORS = 'sound/announcer/classic/meteors.ogg',
+		ANNOUNCER_OUTBREAK5 = 'sound/announcer/classic/outbreak5.ogg',
+		ANNOUNCER_OUTBREAK7 = 'sound/announcer/classic/outbreak7.ogg',
+		ANNOUNCER_POWEROFF = 'sound/announcer/classic/poweroff1.ogg', 'sound/announcer/classic/poweroff2.ogg',
+		ANNOUNCER_POWERON = 'sound/announcer/classic/poweron.ogg',
+		ANNOUNCER_RADIATION = 'sound/announcer/classic/radiation.ogg',
+		ANNOUNCER_SHUTTLECALLED = 'sound/announcer/classic/shuttlecalled.ogg',
+		ANNOUNCER_SHUTTLEDOCK = 'sound/announcer/classic/shuttledock.ogg',
+		ANNOUNCER_SHUTTLERECALLED = 'sound/announcer/classic/shuttlerecalled.ogg',
+		ANNOUNCER_SPANOMALIES = 'sound/announcer/classic/spanomalies.ogg',)
+	custom_alert_message = list(
+		ANNOUNCER_BSA_ARTILLERY = 'sound/announcer/classic/artillery_bsa.ogg',
+		ANNOUNCER_OBR_REQUEST = 'sound/announcer/classic/obr_request.ogg',
+		ANNOUNCER_OBR_YES = 'sound/announcer/classic/obr_yes.ogg',
+		ANNOUNCER_OBR_NO = 'sound/announcer/classic/obr_no.ogg',
+		ANNOUNCER_DEATHSQUAD = 'sound/announcer/classic/deathsquad.ogg',)

@@ -22,11 +22,11 @@
 	var/poll_key
 	///Response messages sent in specific key areas for full customization of polling.
 	var/list/response_messages = list(
-		POLL_RESPONSE_SIGNUP = "You have signed up for %ROLE%! A candidate will be picked randomly soon.",
-		POLL_RESPONSE_ALREADY_SIGNED = "You have already signed up for this!",
-		POLL_RESPONSE_NOT_SIGNED = "You aren't signed up for this!",
-		POLL_RESPONSE_TOO_LATE_TO_UNREGISTER = "It's too late to unregister yourself, selection has already begun!",
-		POLL_RESPONSE_UNREGISTERED = "You have been unregistered as a candidate for %ROLE%. You can sign up again before the poll ends.",
+		POLL_RESPONSE_SIGNUP = "Вы подписались на %ROLE%! Кандидат будет выбран случайным образом в ближайшее время.",
+		POLL_RESPONSE_ALREADY_SIGNED = "Вы уже подписались на это!",
+		POLL_RESPONSE_NOT_SIGNED = "Вы на это не подписывались!",
+		POLL_RESPONSE_TOO_LATE_TO_UNREGISTER = "Уже слишком поздно отменять подписку!",
+		POLL_RESPONSE_UNREGISTERED = "Вы были отписаны в качестве кандидата на %ROLE%.  Вы можете зарегистрироваться еще раз до окончания голосования.",
 	)
 	var/list/chosen_candidates = list()
 

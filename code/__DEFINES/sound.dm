@@ -161,6 +161,14 @@
 #define ANNOUNCER_SHUTTLERECALLED "announcer_shuttlerecalled"
 #define ANNOUNCER_SPANOMALIES "announcer_spanomalies"
 
+/// ADD Andromeda-13 ///
+#define ANNOUNCER_BSA_ARTILLERY "announcer_bsa_artillery"
+#define ANNOUNCER_OBR_REQUEST "announcer_obr_request"
+#define ANNOUNCER_OBR_YES "announcer_obr_yes"
+#define ANNOUNCER_OBR_NO "announcer_obr_no"
+#define ANNOUNCER_DEATHSQUAD "announcer_deathsquad"
+/// END ADD Andromeda-13 ///
+
 /// Global list of all of our announcer keys.
 GLOBAL_LIST_INIT(announcer_keys, list(
 	ANNOUNCER_AIMALF,
@@ -179,7 +187,15 @@ GLOBAL_LIST_INIT(announcer_keys, list(
 	ANNOUNCER_SHUTTLEDOCK,
 	ANNOUNCER_SHUTTLERECALLED,
 	ANNOUNCER_SPANOMALIES,
-))
+	/// ADD Andromeda-13 ///
+	ANNOUNCER_BSA_ARTILLERY,
+	ANNOUNCER_OBR_REQUEST,
+	ANNOUNCER_OBR_YES,
+	ANNOUNCER_OBR_NO,
+	ANNOUNCER_DEATHSQUAD
+	/// END ADD Andromeda-13 ///
+	,))
+
 
 /// List of all of our sound keys.
 #define SFX_BODYFALL "bodyfall"
