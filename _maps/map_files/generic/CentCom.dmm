@@ -15278,6 +15278,7 @@
 /obj/effect/turf_decal/line/dark_blue/line{
 	dir = 8
 	},
+/obj/machinery/jukebox/no_access,
 /turf/open/floor/iron/dark/smooth_corner,
 /area/centcom/central_command_areas/control)
 "hkm" = (

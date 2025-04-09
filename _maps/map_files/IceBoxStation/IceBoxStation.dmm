@@ -51224,7 +51224,7 @@
 	dir = 8
 	},
 /obj/machinery/light/floor,
-/obj/machinery/jukebox/disco,
+/obj/machinery/jukebox/disco/indestructible,
 /turf/open/floor/stone,
 /area/station/service/bar/atrium)
 "oAs" = (

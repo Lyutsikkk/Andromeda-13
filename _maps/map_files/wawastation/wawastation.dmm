@@ -38119,7 +38119,7 @@
 	},
 /obj/machinery/camera/autoname/directional/north,
 /obj/machinery/light_switch/directional/north,
-/obj/machinery/jukebox/disco,
+/obj/machinery/jukebox/disco/indestructible,
 /turf/open/floor/wood,
 /area/station/commons/lounge)
 "niv" = (

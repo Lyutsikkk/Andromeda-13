@@ -19298,7 +19298,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/obj/machinery/jukebox/disco,
+/obj/machinery/jukebox/disco/indestructible,
 /turf/open/floor/wood/large,
 /area/station/service/bar/atrium/ghetto)
 "eHP" = (
@@ -71756,7 +71756,7 @@
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/fore)
 "rrs" = (
-/obj/machinery/jukebox/disco,
+/obj/machinery/jukebox/disco/indestructible,
 /turf/open/floor/carpet/black,
 /area/station/commons/lounge)
 "rrM" = (
