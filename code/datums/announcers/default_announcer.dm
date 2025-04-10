@@ -18,10 +18,9 @@
 		ANNOUNCER_SHUTTLECALLED = 'sound/announcer/default/shuttlecalled.ogg',
 		ANNOUNCER_SHUTTLEDOCK = 'sound/announcer/default/shuttledock.ogg',
 		ANNOUNCER_SHUTTLERECALLED = 'sound/announcer/default/shuttlerecalled.ogg',
-		ANNOUNCER_SPANOMALIES = 'sound/announcer/default/spanomalies.ogg')
-	custom_alert_message = list(
+		ANNOUNCER_SPANOMALIES = 'sound/announcer/default/spanomalies.ogg',
 		ANNOUNCER_BSA_ARTILLERY = 'sound/announcer/default/artillery_bsa.ogg',
 		ANNOUNCER_OBR_REQUEST = 'sound/announcer/default/obr_request.ogg',
 		ANNOUNCER_OBR_YES = 'sound/announcer/default/obr_yes.ogg',
 		ANNOUNCER_OBR_NO = 'sound/announcer/default/obr_no.ogg',
-		ANNOUNCER_DEATHSQUAD = 'sound/announcer/default/deathsquad.ogg',)
+		ANNOUNCER_DEATHSQUAD = 'sound/announcer/default/deathsquad.ogg')
