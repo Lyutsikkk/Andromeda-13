@@ -2,7 +2,7 @@
 #define vote_font(text) ("<font color='purple'>" + text + "</font>")
 
 SUBSYSTEM_DEF(vote)
-	name = "Голосование"
+	name = "vote"
 	wait = 1 SECONDS
 	flags = SS_KEEP_TIMING
 	runlevels = RUNLEVEL_LOBBY | RUNLEVELS_DEFAULT
@@ -238,7 +238,7 @@ SUBSYSTEM_DEF(vote)
 
 	log_vote(to_display)
 	to_chat(world, custom_boxed_message("purple_box center", span_infoplain(vote_font("[span_bold(to_display)]<br>\
-		Тип <b>голосование</b> или нажмите <a href='byond://winset?command=vote'>here</a> чтобы проголосовать.\n\
+		Началось <b>голосование</b>, нажмите <a href='byond://winset?command=vote'>здесь</a> чтобы проголосовать.\n\
 		У вас [DisplayTimeText(duration)] , чтобы проголосовать."))))
 
 	// And now that it's going, give everyone a voter action
@@ -468,7 +468,7 @@ SUBSYSTEM_DEF(vote)
 
 /// Datum action given to mobs that allows players to vote on the current vote.
 /datum/action/vote
-	name = "Голосовать!"
+	name = "vote"
 	button_icon_state = "vote"
 	show_to_observers = FALSE
 
