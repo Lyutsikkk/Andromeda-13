@@ -125,7 +125,7 @@
 
 /datum/station_trait/announcement_intern/New()
 	. = ..()
-	SSstation.announcer = /datum/centcom_announcer/intern
+	SSstation.announcer = /datum/centcom_announcer/default
 
 /datum/station_trait/announcement_intern/get_pulsar_message()
 	var/advisory_string = "Advisory Level: <b>(TITLE HERE)</b></center><BR>"
