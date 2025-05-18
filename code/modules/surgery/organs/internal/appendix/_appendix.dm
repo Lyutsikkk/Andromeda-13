@@ -3,7 +3,7 @@
 #define INFLAMATION_ADVANCEMENT_PROB 2
 
 /obj/item/organ/appendix
-	name = "appendix"
+	name = "аппендикс"
 	icon_state = "appendix"
 	base_icon_state = "appendix"
 
@@ -14,17 +14,17 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY
 
-	now_failing = span_warning("An explosion of pain erupts in your lower right abdomen!")
-	now_fixed = span_info("The pain in your abdomen has subsided.")
+	now_failing = span_warning("Взрыв боли в правой нижней части живота!")
+	now_fixed = span_info("Боль в животе утихла.")
 
 	var/inflamation_stage = 0
 
 /obj/item/organ/appendix/update_name()
 	. = ..()
-	name = "[inflamation_stage ? "inflamed " : null][initial(name)]"
+	name = "[inflamation_stage ? "воспаленный " : null][initial(name)]"
 
 /obj/item/organ/appendix/update_icon_state()
-	icon_state = "[base_icon_state][inflamation_stage ? "inflamed" : ""]"
+	icon_state = "[base_icon_state][inflamation_stage ? "воспаленный" : ""]"
 	return ..()
 
 /obj/item/organ/appendix/on_life(seconds_per_tick, times_fired)
@@ -50,9 +50,9 @@
 	if(isnull(owner.client))
 		return
 	notify_ghosts(
-		"[owner] has developed spontaneous appendicitis!",
+		"У [owner] развился спонтанный аппендицит!",
 		source = owner,
-		header = "Whoa, Sick!",
+		header = "Ухх, больно!",
 	)
 
 /obj/item/organ/appendix/proc/inflamation(seconds_per_tick)
@@ -66,7 +66,7 @@
 				organ_owner.emote("cough")
 		if(2)
 			if(SPT_PROB(1.5, seconds_per_tick))
-				to_chat(organ_owner, span_warning("You feel a stabbing pain in your abdomen!"))
+				to_chat(organ_owner, span_warning("Вы чувствуете колющую боль в животе!"))
 				organ_owner.adjustOrganLoss(ORGAN_SLOT_APPENDIX, 5)
 				organ_owner.Stun(rand(40, 60))
 				organ_owner.adjustToxLoss(1, forced = TRUE)
@@ -79,11 +79,11 @@
 	var/effective_stage = floor(inflamation_stage + (damage / maxHealth))
 	switch(effective_stage)
 		if(1)
-			return span_warning("Your [self_aware ? "appendix" : "lower abdomen"] feels a little off.")
+			return span_warning("Ваш [self_aware ? "аппендикс" : "нижняя часть живота"] чувствует себя немного не в своей тарелке.")
 		if(2)
-			return span_warning("Your [self_aware ? "appendix" : "lower right abdomen"] feels sore.")
+			return span_warning("У вас [self_aware ? "аппендикс" : "нижняя правая часть живота"] болит.")
 		if(3 to INFINITY)
-			return span_boldwarning("Your [self_aware ? "appendix" : "lower right abdomen"] feels like it's on fire!")
+			return span_boldwarning("У вас [self_aware ? "аппендикс" : "нижняя правая часть живота"] такое чувство, будто он горит!!")
 
 /obj/item/organ/appendix/get_availability(datum/species/owner_species, mob/living/owner_mob)
 	return owner_species.mutantappendix
@@ -101,7 +101,7 @@
 
 /obj/item/organ/appendix/get_status_text(advanced, add_tooltips)
 	if(!(organ_flags & ORGAN_FAILING) && inflamation_stage)
-		return conditional_tooltip("<font color='#ff9933'>Inflamed</font>", "Remove surgically.", add_tooltips)
+		return conditional_tooltip("<font color='#ff9933'>Воспаленный</font>", "Удалить хирургическим путем.", add_tooltips)
 	return ..()
 
 /obj/item/organ/appendix/pod
@@ -113,7 +113,7 @@
 /obj/item/organ/appendix/pod/Initialize(mapload)
 	. = ..()
 	// this could be anything... anything. still useless though
-	name = pick("pod endoplasmic reticulum", "pod golgi apparatus", "pod plastid", "pod vesicle")
+	name = pick("эндоплазматический ретикулум стручка", "аппарат гольджи стручка", "пластиды стручка", "везикула стручка")
 
 /obj/item/organ/appendix/pod/become_inflamed()
 	return

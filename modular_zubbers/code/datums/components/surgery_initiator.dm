@@ -9,26 +9,26 @@
 	var/obj/structure/table/optable/operating_table = locate(/obj/structure/table/optable, mob_turf)
 	if(!isnull(operating_table))
 		if(operating_table.computer?.is_operational)
-			passed_check += "the operating table/computer"
+			passed_check += "операционный стол/компьютер"
 		else
-			passed_check += "the operating table"
-			failed_check += "an operating computer"
+			passed_check += "операционный стол"
+			failed_check += "операционный компьютер"
 
 	if(!issynthetic(target))
 		if((HAS_TRAIT(target, TRAIT_ANALGESIA) && !(HAS_TRAIT(target, TRAIT_STASIS))) || target.stat == DEAD)
-			passed_check += "pain management"
+			passed_check += "обезболивание"
 		else if(!(HAS_TRAIT(target, TRAIT_STASIS)))
-			failed_check += "using anesthetics or painkillers"
+			failed_check += "использование анестетиков"
 
 		if(target.has_sterilizine(target))
-			passed_check += "sterilizine/cryostylane"
+			passed_check += "стерилизатор/криостилан"
 		else
-			failed_check += "using sterilizine or cryostylane"
+			failed_check += "использование стерилизина или криостилана"
 
 	if(length(passed_check) > 0)
-		to_chat(user, span_greenannounce("You have surgery speed bonuses from [english_list(passed_check)]!"))
+		to_chat(user, span_greenannounce("У вас есть бонусы к скорости операции от [english_list(passed_check)]!"))
 	if(length(failed_check) > 0)
-		to_chat(user, span_boldnotice("<b>You could increase surgery speed by [english_list(failed_check)].</b>"))
+		to_chat(user, span_boldnotice("<b>Вы можете увеличить скорость операции, имея [english_list(failed_check)].</b>"))
 
 	if(!(HAS_TRAIT(target, TRAIT_ANALGESIA) || target.stat == DEAD) && !issynthetic(target))
-		to_chat(user, span_bolddanger("[target] has no treatment to manage surgery pain!"))
+		to_chat(user, span_bolddanger("У [target] нет лечения, чтобы справиться с болью при операции!"))

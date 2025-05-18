@@ -190,9 +190,9 @@
 	if(iscarbon(target))
 		var/mob/living/carbon/carbontarget = target
 		if(LAZYLEN(carbontarget.quirks))
-			render_list += "<span class='info ml-1'>Subject Major Disabilities: [carbontarget.get_quirk_string(FALSE, CAT_QUIRK_MAJOR_DISABILITY, from_scan = TRUE)].</span><br>"
+			render_list += "<span class='info ml-1'>Основные инвалидности субъекта: [carbontarget.get_quirk_string(FALSE, CAT_QUIRK_MAJOR_DISABILITY, from_scan = TRUE)].</span><br>"
 			if(advanced)
-				render_list += "<span class='info ml-1'>Subject Minor Disabilities: [carbontarget.get_quirk_string(FALSE, CAT_QUIRK_MINOR_DISABILITY, TRUE)].</span><br>"
+				render_list += "<span class='info ml-1'>Незначительные инвалидности субъекта: [carbontarget.get_quirk_string(FALSE, CAT_QUIRK_MINOR_DISABILITY, TRUE)].</span><br>"
 
 	// Body part damage report
 	if(iscarbon(target))

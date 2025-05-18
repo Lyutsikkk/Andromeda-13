@@ -123,10 +123,10 @@
 		new_right_leg = new /obj/item/bodypart/leg/right/synth/taur()
 
 	if (left_leg_name)
-		new_left_leg.name = left_leg_name + " (Left leg)"
+		new_left_leg.name = left_leg_name + " (Левая нога)"
 		new_left_leg.plaintext_zone = LOWER_TEXT(new_left_leg.name) // weird otherwise
 	if (right_leg_name)
-		new_right_leg.name = right_leg_name + " (Right leg)"
+		new_right_leg.name = right_leg_name + " (Правая нога)"
 		new_right_leg.plaintext_zone = LOWER_TEXT(new_right_leg.name)
 
 	new_left_leg.bodyshape |= external_bodyshapes

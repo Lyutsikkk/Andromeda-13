@@ -1,12 +1,12 @@
 
 /obj/item/bodypart/chest
 	name = BODY_ZONE_CHEST
-	desc = "It's impolite to stare at a person's chest."
+	desc = "Невежливо пялиться на грудь человека."
 	icon_state = "default_human_chest"
 	max_damage = LIMB_MAX_HP_CORE
 	body_zone = BODY_ZONE_CHEST
 	body_part = CHEST
-	plaintext_zone = "chest"
+	plaintext_zone = "грудь"
 	is_dimorphic = TRUE
 	px_x = 0
 	px_y = 0
@@ -126,7 +126,7 @@
 /// Parent Type for arms, should not appear in game.
 /obj/item/bodypart/arm
 	name = "arm"
-	desc = "Hey buddy give me a HAND and report this to the github because you shouldn't be seeing this."
+	desc = "Эй, приятель, дай мне HAND и сообщи об этом на github, потому что ты не должен этого видеть."
 	attack_verb_continuous = list("slaps", "punches")
 	attack_verb_simple = list("slap", "punch")
 	max_damage = LIMB_MAX_HP_DEFAULT
@@ -189,14 +189,13 @@
 
 /obj/item/bodypart/arm/left
 	name = "left arm"
-	desc = "Did you know that the word 'sinister' stems originally from the \
-		Latin 'sinestra' (left hand), because the left hand was supposed to \
-		be possessed by the devil? This arm appears to be possessed by no \
-		one though."
+	desc = "Знаете ли вы, что слово «зловещий» первоначально произошло от слова \
+		латинского «sinestra» (левая рука), потому что считалось, что левая рука \
+		одержима дьяволом? Эта рука, похоже, никем не одержима никем."
 	icon_state = "default_human_l_arm"
 	body_zone = BODY_ZONE_L_ARM
 	body_part = ARM_LEFT
-	plaintext_zone = "left arm"
+	plaintext_zone = "левая рука"
 	aux_zone = BODY_ZONE_PRECISE_L_HAND
 	held_index = 1
 	px_x = -6
@@ -289,12 +288,12 @@
 
 /obj/item/bodypart/arm/right
 	name = "right arm"
-	desc = "Over 87% of humans are right handed. That figure is much lower \
-		among humans missing their right arm."
+	desc = "Более 87% людей - правши. Эта цифра гораздо ниже \
+		среди людей, лишенных правой руки."
 	body_zone = BODY_ZONE_R_ARM
 	body_part = ARM_RIGHT
 	icon_state = "default_human_r_arm"
-	plaintext_zone = "right arm"
+	plaintext_zone = "правая рука"
 	aux_zone = BODY_ZONE_PRECISE_R_HAND
 	aux_layer = BODYPARTS_HIGH_LAYER
 	held_index = 2
@@ -389,7 +388,7 @@
 /// Parent Type for legs, should not appear in game.
 /obj/item/bodypart/leg
 	name = "leg"
-	desc = "This item shouldn't exist. Talk about breaking a leg. Badum-Tss!"
+	desc = "Этот товар не должен существовать. Поговорим о том, как сломать ногу. Бадум-Тсс!"
 	attack_verb_continuous = list("kicks", "stomps")
 	attack_verb_simple = list("kick", "stomp")
 	max_damage = LIMB_MAX_HP_DEFAULT
@@ -433,12 +432,12 @@
 
 /obj/item/bodypart/leg/left
 	name = "left leg"
-	desc = "Some athletes prefer to tie their left shoelaces first for good \
-		luck. In this instance, it probably would not have helped."
+	desc = "Некоторые спортсмены предпочитают завязывать левый шнурок \
+		первым на удачу. В данном случае это, скорее всего, не помогло бы."
 	icon_state = "default_human_l_leg"
 	body_zone = BODY_ZONE_L_LEG
 	body_part = LEG_LEFT
-	plaintext_zone = "left leg"
+	plaintext_zone = "левая нога"
 	px_x = -2
 	px_y = 12
 	can_be_disabled = TRUE
@@ -522,14 +521,14 @@
 
 /obj/item/bodypart/leg/right
 	name = "right leg"
-	desc = "You put your right leg in, your right leg out. In, out, in, out, \
-		shake it all about. And apparently then it detaches.\n\
-		The hokey pokey has certainly changed a lot since space colonisation."
+	desc = "Вы ставите правую ногу внутрь, правую ногу наружу. Туда, сюда, туда, сюда, \
+		трясите ею. И, видимо, потом она отсоединяется.\n\
+		Со времен колонизации космоса «хоки-поки», конечно, сильно изменился."
 	// alternative spellings of 'pokey' are available
 	icon_state = "default_human_r_leg"
 	body_zone = BODY_ZONE_R_LEG
 	body_part = LEG_RIGHT
-	plaintext_zone = "right leg"
+	plaintext_zone = "правая нога"
 	px_x = 2
 	px_y = 12
 	bodypart_trait_source = RIGHT_LEG_TRAIT

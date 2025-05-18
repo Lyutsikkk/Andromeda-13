@@ -1,12 +1,12 @@
 /obj/item/bodypart/head
 	name = BODY_ZONE_HEAD
-	desc = "Didn't make sense not to live for fun, your brain gets smart but your head gets dumb."
+	desc = "Не было смысла жить ради удовольствия, мозг умнеет, а голова тупеет."
 	icon = 'icons/mob/human/bodyparts.dmi'
 	icon_state = "default_human_head"
 	max_damage = LIMB_MAX_HP_CORE
 	body_zone = BODY_ZONE_HEAD
 	body_part = HEAD
-	plaintext_zone = "head"
+	plaintext_zone = "голова"
 	w_class = WEIGHT_CLASS_BULKY //Quite a hefty load
 	slowdown = 1 //Balancing measure
 	throw_range = 2 //No head bowling

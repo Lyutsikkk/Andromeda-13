@@ -562,9 +562,9 @@
 		return
 	var/list/combined_msg = list()
 
-	visible_message(span_notice("[src] examines [p_them()]self."))
+	visible_message(span_notice("[src] осматривает [p_them()]себя."))
 
-	combined_msg += span_notice("<b>You check yourself for injuries.</b>")
+	combined_msg += span_notice("<b>Проверьте себя на наличие травм.</b>")
 
 	var/list/missing = GLOB.all_body_zones.Copy()
 
@@ -583,21 +583,21 @@
 		//SKYRAT EDIT END
 
 	for(var/t in missing)
-		combined_msg += span_boldannounce("&rdsh; Your [parse_zone(t)] is missing!")
+		combined_msg += span_boldannounce("&rdsh; Ваша [parse_zone(t)] отсутствует!")
 
 	var/tox = getToxLoss() + (disgust / 5) + (HAS_TRAIT(src, TRAIT_SELF_AWARE) ? 0 : (rand(-3, 0) * 5))
 	switch(tox)
 		if(10 to 20)
-			combined_msg += span_danger("You feel sick.")
+			combined_msg += span_danger("Вам плохо.")
 		if(20 to 40)
-			combined_msg += span_danger("You feel nauseated.")
+			combined_msg += span_danger("Вы чувствуете тошноту.")
 		if(40 to INFINITY)
-			combined_msg += span_danger("You feel very unwell!")
+			combined_msg += span_danger("Вы чувствуете себя очень плохо!")
 
 	var/oxy = getOxyLoss() + (losebreath * 4) + (blood_volume < BLOOD_VOLUME_NORMAL ? ((BLOOD_VOLUME_NORMAL - blood_volume) * 0.1) : 0) + (HAS_TRAIT(src, TRAIT_SELF_AWARE) ? 0 : (rand(-3, 0) * 5))
 	switch(oxy)
 		if(10 to 20)
-			combined_msg += span_danger("You feel lightheaded.")
+			combined_msg += span_danger("Вы чувствуете головокружение.")
 		if(20 to 40)
 			combined_msg += losebreath ? span_danger("You're choking!") : span_danger("Your thinking is clouded and distant.")
 		if(40 to INFINITY)

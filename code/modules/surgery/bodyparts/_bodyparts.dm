@@ -1,6 +1,6 @@
 /obj/item/bodypart
-	name = "limb"
-	desc = "Why is it detached..."
+	name = "конечность"
+	desc = "Почему она отделена..."
 	force = 3
 	throwforce = 3
 	w_class = WEIGHT_CLASS_SMALL

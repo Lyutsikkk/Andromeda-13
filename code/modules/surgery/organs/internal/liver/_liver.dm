@@ -3,8 +3,8 @@
 #define LIVER_FAILURE_STAGE_SECONDS 60 //amount of seconds before liver failure reaches a new stage
 
 /obj/item/organ/liver
-	name = "liver"
-	desc = "Pairing suggestion: chianti and fava beans."
+	name = "печень"
+	desc = "Может увеличиться, если запивать водку пивом."
 	icon_state = "liver"
 
 	w_class = WEIGHT_CLASS_SMALL
@@ -142,20 +142,20 @@
 /obj/item/organ/liver/organ_failure(seconds_per_tick)
 	switch(failure_time/LIVER_FAILURE_STAGE_SECONDS)
 		if(1)
-			to_chat(owner, span_userdanger("You feel stabbing pain in your abdomen!"))
+			to_chat(owner, span_userdanger("Вы чувствуете колющую боль в животе!"))
 		if(2)
-			to_chat(owner, span_userdanger("You feel a burning sensation in your gut!"))
+			to_chat(owner, span_userdanger("Вы чувствуете жжение в животе!"))
 			owner.vomit(VOMIT_CATEGORY_DEFAULT)
 		if(3)
-			to_chat(owner, span_userdanger("You feel painful acid in your throat!"))
+			to_chat(owner, span_userdanger("Вы чувствуете болезненную жёлчь в горле!"))
 			owner.vomit(VOMIT_CATEGORY_BLOOD)
 		if(4)
-			to_chat(owner, span_userdanger("Overwhelming pain knocks you out!"))
+			to_chat(owner, span_userdanger("Непреодолимая боль вырубает вас!"))
 			owner.vomit(VOMIT_CATEGORY_BLOOD, distance = rand(1,2))
 			owner.emote("Scream")
 			owner.AdjustUnconscious(2.5 SECONDS)
 		if(5)
-			to_chat(owner, span_userdanger("You feel as if your guts are about to melt!"))
+			to_chat(owner, span_userdanger("Вам кажется, что ваши внутренности вот-вот расплавятся!"))
 			owner.vomit(VOMIT_CATEGORY_BLOOD, distance = rand(1,3))
 			owner.emote("Scream")
 			owner.AdjustUnconscious(5 SECONDS)

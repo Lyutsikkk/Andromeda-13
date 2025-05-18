@@ -1,7 +1,7 @@
 /obj/item/organ/ears
-	name = "ears"
+	name = "уши"
 	icon_state = "ears"
-	desc = "There are three parts to the ear. Inner, middle and outer. Only one of these parts should be normally visible."
+	desc = "Ухо состоит из трех частей. Внутреннее, среднее и наружное. Только одна из этих частей должна быть нормально видна."
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EARS
 	gender = PLURAL
@@ -9,10 +9,10 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY
 
-	low_threshold_passed = span_info("Your ears begin to resonate with an internal ring sometimes.")
-	now_failing = span_warning("You are unable to hear at all!")
-	now_fixed = span_info("Noise slowly begins filling your ears once more.")
-	low_threshold_cleared = span_info("The ringing in your ears has died down.")
+	low_threshold_passed = span_info("В ваших ушах иногда появляется внутренний звон.")
+	now_failing = span_warning("Вы совсем не слышите!")
+	now_fixed = span_info("Шум снова начинает медленно заполнять ваши уши.")
+	low_threshold_cleared = span_info("Звон в ушах утих.")
 
 	/// `deaf` measures "ticks" of deafness. While > 0, the person is unable to hear anything.
 	var/deaf = 0
@@ -29,7 +29,7 @@
 /obj/item/organ/ears/on_life(seconds_per_tick, times_fired)
 	// only inform when things got worse, needs to happen before we heal
 	if((damage > low_threshold && prev_damage < low_threshold) || (damage > high_threshold && prev_damage < high_threshold))
-		to_chat(owner, span_warning("The ringing in your ears grows louder, blocking out any external noises for a moment."))
+		to_chat(owner, span_warning("Звон в ушах становится все громче, на мгновение перекрывая все внешние звуки."))
 
 	. = ..()
 	// if we have non-damage related deafness like mutations, quirks or clothing (earmuffs), don't bother processing here.
@@ -62,12 +62,12 @@
 		return
 	if(advanced)
 		if(HAS_TRAIT_FROM(owner, TRAIT_DEAF, QUIRK_TRAIT))
-			return conditional_tooltip("Subject is permanently deaf.", "Irreparable under normal circumstances.", add_tooltips)
+			return conditional_tooltip("Субъект навсегда оглох.", "Непоправимо при обычных обстоятельствах.", add_tooltips)
 		if(HAS_TRAIT_FROM(owner, TRAIT_DEAF, GENETIC_MUTATION))
-			return conditional_tooltip("Subject is genetically deaf.", "Use medication such as [/datum/reagent/medicine/mutadone::name].", add_tooltips)
+			return conditional_tooltip("Субъект генетически глух.", "Используйте такие препараты, как [/datum/reagent/medicine/mutadone::name].", add_tooltips)
 		if(HAS_TRAIT_FROM(owner, TRAIT_DEAF, EAR_DAMAGE))
-			return conditional_tooltip("Subject is [(organ_flags & ORGAN_FAILING) ? "permanently": "temporarily"] deaf from ear damage.", "Repair surgically, use medication such as [/datum/reagent/medicine/inacusiate::name], or protect ears with earmuffs.", add_tooltips)
-	return "Subject is deaf."
+			return conditional_tooltip("Субъект [(organ_flags & ORGAN_FAILING) ? "навсегда": "временно"] глухой из-за повреждения ушей.", "Исправьте ситуацию хирургическим путем, используйте лекарственные препараты, например [/datum/reagent/medicine/inacusiate::name] или защитите уши наушниками.", add_tooltips)
+	return "Субъект глухой."
 
 /obj/item/organ/ears/show_on_condensed_scans()
 	// Always show if we have an appendix
@@ -150,7 +150,7 @@
 
 
 /obj/item/organ/ears/cat
-	name = "cat ears"
+	name = "кошачьи уши"
 	icon = 'icons/obj/clothing/head/costume.dmi'
 	worn_icon = 'icons/mob/clothing/head/costume.dmi'
 	icon_state = "kitty"
@@ -210,17 +210,17 @@
 	return base_ears
 
 /obj/item/organ/ears/penguin
-	name = "penguin ears"
-	desc = "The source of a penguin's happy feet."
+	name = "пингвиньи уши"
+	desc = "Источник счастья пингвинов."
 
 /obj/item/organ/ears/penguin/on_mob_insert(mob/living/carbon/human/ear_owner)
 	. = ..()
-	to_chat(ear_owner, span_notice("You suddenly feel like you've lost your balance."))
+	to_chat(ear_owner, span_notice("Вам вдруг кажется, что вы потеряли равновесие."))
 	ear_owner.AddElementTrait(TRAIT_WADDLING, ORGAN_TRAIT, /datum/element/waddling)
 
 /obj/item/organ/ears/penguin/on_mob_remove(mob/living/carbon/human/ear_owner)
 	. = ..()
-	to_chat(ear_owner, span_notice("Your sense of balance comes back to you."))
+	to_chat(ear_owner, span_notice("К вам возвращается чувство равновесия."))
 	REMOVE_TRAIT(ear_owner, TRAIT_WADDLING, ORGAN_TRAIT)
 
 /obj/item/organ/ears/cybernetic

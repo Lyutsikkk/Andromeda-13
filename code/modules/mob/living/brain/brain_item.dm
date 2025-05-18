@@ -1,6 +1,6 @@
 /obj/item/organ/brain
-	name = "brain"
-	desc = "A piece of juicy meat found in a person's head."
+	name = "мозг"
+	desc = "Кусок сочного мяса, найденный в голове человека."
 	icon_state = "brain"
 	visual = TRUE
 	throw_speed = 3
@@ -58,7 +58,7 @@
 	// Special check for if you're trapped in a body you can't control because it's owned by a ling.
 	if(IS_CHANGELING(brain_owner) && !(movement_flags & NO_ID_TRANSFER))
 		if(brainmob && !(brain_owner.stat == DEAD || (HAS_TRAIT(brain_owner, TRAIT_DEATHCOMA))))
-			to_chat(brainmob, span_danger("You can't feel your body! You're still just a brain!"))
+			to_chat(brainmob, span_danger("Ты не можешь чувствовать свое тело! Ты все еще просто мозг!"))
 		forceMove(brain_owner)
 		brain_owner.update_body_parts()
 		return
@@ -67,7 +67,7 @@
 		// If it's a ling decoy brain, nothing to transfer, just throw it out
 		if(decoy_override)
 			if(brainmob?.key)
-				stack_trace("Decoy override brain with a key assigned - This should never happen.")
+				stack_trace("Приманка перекрывает мозг с назначенным ключом - Этого никогда не должно происходить.")
 
 		// Not a ling - assume direct control
 		else
@@ -91,10 +91,10 @@
 				// if we're being special replaced, the trauma is already applied, so this is expected
 				// but if we're not... this is likely a bug, and should be reported
 				if(!special)
-					stack_trace("A brain trauma ([trauma]) is being re-applied to its owning mob ([brain_owner])!")
+					stack_trace("Травма мозга ([trauma]) повторно накладывается на владельца ([brain_owner])!")
 				continue
 
-			stack_trace("A brain trauma ([trauma]) is being applied to a new mob ([brain_owner]) when it's owned by someone else ([trauma.owner])!")
+			stack_trace("Травма мозга ([trauma]) накладывается на нового моба ([brain_owner]), когда он принадлежит кому-то другому ([trauma.owner])!")
 			continue
 
 		trauma.owner = brain_owner
@@ -110,7 +110,7 @@
 	// Delete skillchips first as parent proc sets owner to null, and skillchips need to know the brain's owner.
 	if(!QDELETED(organ_owner) && length(skillchips))
 		if(!special)
-			to_chat(organ_owner, span_notice("You feel your skillchips enable emergency power saving mode, deactivating as your brain leaves your body..."))
+			to_chat(organ_owner, span_notice("Вы чувствуете, как ваши микросхемы включают аварийный режим энергосбережения, отключаясь, когда ваш мозг покидает тело..."))
 			for(var/chip in skillchips)
 				var/obj/item/skillchip/skillchip = chip
 				// Run the try_ proc with force = TRUE.
@@ -129,11 +129,11 @@
 		organ_owner.clear_mood_event("brain_damage")
 
 /obj/item/organ/brain/update_icon_state()
-	icon_state = "[initial(icon_state)][smooth_brain ? "-smooth" : ""]"
+	icon_state = "[initial(icon_state)][smooth_brain ? "-гладкий" : ""]"
 	return ..()
 
 /obj/item/organ/brain/proc/transfer_identity(mob/living/L)
-	name = "[L.name]'s [initial(name)]"
+	name = "[L.name] [initial(name)]"
 	if(brainmob)
 		if(!decoy_override)
 			return
@@ -162,7 +162,7 @@
 
 	if(L.mind && L.mind.current && !decoy_override)
 		L.mind.transfer_to(brainmob)
-		to_chat(brainmob, span_notice("You feel slightly disoriented. That's normal when you're just a brain."))
+		to_chat(brainmob, span_notice("Вы чувствуете себя слегка дезориентированным. Это нормально, когда ты всего лишь мозг."))
 
 /obj/item/organ/brain/attackby(obj/item/item, mob/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)
@@ -175,13 +175,13 @@
 
 	// Cutting out skill chips.
 	if(length(skillchips) && item.get_sharpness() == SHARP_EDGED)
-		to_chat(user,span_notice("You begin to excise skillchips from [src]."))
+		to_chat(user,span_notice("Вы начинаете извлекать чипы навыков из [src]."))
 		if(do_after(user, 15 SECONDS, target = src))
 			for(var/chip in skillchips)
 				var/obj/item/skillchip/skillchip = chip
 
 				if(!istype(skillchip))
-					stack_trace("Item of type [skillchip.type] qdel'd from [src] skillchip list.")
+					stack_trace("Предмет типа [skillchip.type] извлечен из списка чипов умений [src].")
 					qdel(skillchip)
 					continue
 
@@ -203,21 +203,21 @@
 		user.do_attack_animation(src)
 		playsound(loc, 'sound/effects/meatslap.ogg', 50)
 		set_organ_damage(maxHealth) //fails the brain as the brain was attacked, they're pretty fragile.
-		visible_message(span_danger("[user] hits [src] with [item]!"))
-		to_chat(user, span_danger("You hit [src] with [item]!"))
+		visible_message(span_danger("[user] попадает в [src] с помощью [item]!"))
+		to_chat(user, span_danger("Вы попадаете [src] с помощью [item]!"))
 
 /obj/item/organ/brain/proc/check_for_repair(obj/item/item, mob/user)
 	if(damage && item.is_drainable() && item.reagents.has_reagent(/datum/reagent/medicine/mannitol) && (organ_flags & ORGAN_ORGANIC)) //attempt to heal the brain
 		if(brainmob?.health <= HEALTH_THRESHOLD_DEAD) //if the brain is fucked anyway, do nothing
-			to_chat(user, span_warning("[src] is far too damaged, there's nothing else we can do for it!"))
+			to_chat(user, span_warning("[src] слишком поврежден и мы больше ничего не можем для него сделать!"))
 			return TRUE
 
-		user.visible_message(span_notice("[user] starts to slowly pour the contents of [item] onto [src]."), span_notice("You start to slowly pour the contents of [item] onto [src]."))
+		user.visible_message(span_notice("[user] начинает медленно выливать содержимое [item] на [src]."), span_notice("Вы начинаете медленно выливать содержимое [item] на [src]."))
 		if(!do_after(user, 3 SECONDS, src))
-			to_chat(user, span_warning("You failed to pour the contents of [item] onto [src]!"))
+			to_chat(user, span_warning("Вы не смогли вылить содержимое [item] на [src]!"))
 			return TRUE
 
-		user.visible_message(span_notice("[user] pours the contents of [item] onto [src], causing it to reform its original shape and turn a slightly brighter shade of pink."), span_notice("You pour the contents of [item] onto [src], causing it to reform its original shape and turn a slightly brighter shade of pink."))
+		user.visible_message(span_notice("[user] выливает содержимое [item] на [src], в результате чего он меняет свою первоначальную форму и приобретает чуть более яркий розовый оттенок."), span_notice("Вы выливаете содержимое [item] на [src], в результате чего он меняет свою первоначальную форму и приобретает чуть более яркий розовый оттенок."))
 		var/amount = item.reagents.get_reagent_amount(/datum/reagent/medicine/mannitol)
 		var/healto = max(0, damage - amount * 2)
 		item.reagents.remove_all(ROUND_UP(item.reagents.total_volume / amount * (damage - healto) * 0.5)) //only removes however much solution is needed while also taking into account how much of the solution is mannitol
@@ -228,30 +228,30 @@
 /obj/item/organ/brain/examine(mob/user)
 	. = ..()
 	if(length(skillchips))
-		. += span_info("It has a skillchip embedded in it.")
+		. += span_info("В него встроен чип навыков.")
 	. += brain_damage_examine()
 	if (smooth_brain)
-		. += span_notice("All the pesky wrinkles are gone. Now it just needs a good drying...")
+		. += span_notice("Все досадные извилины исчезли. Теперь его нужно просто хорошо высушить...")
 	if(brain_size < 1)
-		. += span_notice("It is a bit on the smaller side...")
+		. += span_notice("Он немного меньше по размеру...")
 	if(brain_size > 1)
-		. += span_notice("It is bigger than average...")
+		. += span_notice("Он больше, чем средний...")
 	if(GetComponent(/datum/component/ghostrole_on_revive))
-		. += span_notice("Its soul might yet come back...")
+		. += span_notice("Его душа еще может вернуться...")
 
 /// Needed so subtypes can override examine text while still calling parent
 /obj/item/organ/brain/proc/brain_damage_examine()
 	if(suicided)
-		return span_info("It's started turning slightly grey. They must not have been able to handle the stress of it all.")
+		return span_info("Он начал слегка сереть. Должно быть, они не смогли справиться со всем этим стрессом..")
 	if(brainmob && (decoy_override || brainmob.client || brainmob.get_ghost()))
 		if(organ_flags & ORGAN_FAILING)
-			return span_info("It seems to still have a bit of energy within it, but it's rather damaged... You may be able to restore it with some <b>mannitol</b>.")
+			return span_info("Кажется, в нем еще есть немного энергии, но он довольно сильно поврежден... Возможно, вы сможете восстановить его с помощью <b>mannitol</b>.")
 		else if(damage >= BRAIN_DAMAGE_DEATH*0.5)
-			return span_info("You can feel the small spark of life still left in this one, but it's got some bruises. You may be able to restore it with some <b>mannitol</b>.")
+			return span_info("В нем еще теплится искра жизни, но уже есть несколько гематом. Возможно, вы сможете восстановить ее с помощью <b>mannitol</b>.")
 		else
-			return span_info("You can feel the small spark of life still left in this one.")
+			return span_info("Вы можете почувствовать маленькую искру жизни, которая еще осталась в нем.")
 	else
-		return span_info("This one is completely devoid of life.")
+		return span_info("Он полностью лишен жизни.")
 
 /obj/item/organ/brain/get_status_appendix(advanced, add_tooltips)
 	var/list/trauma_text
@@ -259,34 +259,34 @@
 		var/trauma_desc = ""
 		switch(trauma.resilience)
 			if(TRAUMA_RESILIENCE_BASIC)
-				trauma_desc = conditional_tooltip("Mild ", "Repair via brain surgery or medication such as [/datum/reagent/medicine/neurine::name].", add_tooltips)
+				trauma_desc = conditional_tooltip("Умеренная - ", "Восстановление с помощью операции на мозге или лекарств, таких как [/datum/reagent/medicine/neurine::name].", add_tooltips)
 			if(TRAUMA_RESILIENCE_SURGERY)
-				trauma_desc = conditional_tooltip("Severe ", "Repair via brain surgery.", add_tooltips)
+				trauma_desc = conditional_tooltip("Тяжелая - ", "Восстановление с помощью операции на мозге.", add_tooltips)
 			if(TRAUMA_RESILIENCE_LOBOTOMY)
-				trauma_desc = conditional_tooltip("Deep-rooted ", "Repair via Lobotomy.", add_tooltips)
+				trauma_desc = conditional_tooltip("Глубоко укоренившиеся - ", "Исправление с помощью лоботомии.", add_tooltips)
 			if(TRAUMA_RESILIENCE_WOUND)
-				trauma_desc = conditional_tooltip("Fracture-derived ", "Repair via treatment of wounds afflicting the head.", add_tooltips)
+				trauma_desc = conditional_tooltip("Излом - ", "Восстановление и лечение ран на голове.", add_tooltips)
 			// BUBBER EDIT CHANGE BEGIN - Blessed Lobotomy
 			if(TRAUMA_RESILIENCE_MAGIC)
-				trauma_desc = conditional_tooltip("Soul-bound ", "Repair via Blessed Lobotomy.", add_tooltips)
+				trauma_desc = conditional_tooltip("Связанная душой - ", "Восстановление с помощью блаженной лоботомии.", add_tooltips)
 			if(TRAUMA_RESILIENCE_ABSOLUTE)
-				trauma_desc = conditional_tooltip("Permanent ", "Irreparable under normal circumstances.", add_tooltips)
+				trauma_desc = conditional_tooltip("Перманентная - ", "Непоправимо при обычных обстоятельствах.", add_tooltips)
 			// BUBBER EDIT CHANGE FINISH
 		trauma_desc += capitalize(trauma.scan_desc)
 		LAZYADD(trauma_text, trauma_desc)
 	if(LAZYLEN(trauma_text))
-		return "Mental trauma: [english_list(trauma_text, and_text = ", and ")]."
+		return "Психологическая травма: [english_list(trauma_text, and_text = ", и ")]."
 
 /obj/item/organ/brain/feel_for_damage(self_aware)
 	if(damage < low_threshold)
 		return ""
 	if(self_aware)
 		if(damage < high_threshold)
-			return span_warning("Your brain hurts a bit.")
-		return span_warning("Your brain hurts a lot.")
+			return span_warning("Ваш мозг немного болит.")
+		return span_warning("У вас сильно болит мозг.")
 	if(damage < high_threshold)
-		return span_warning("It feels a bit fuzzy.")
-	return span_warning("It aches incessantly.")
+		return span_warning("Ощущения немного размытые.")
+	return span_warning("Он постоянно болит.")
 
 /obj/item/organ/brain/attack(mob/living/carbon/C, mob/user)
 	if(!istype(C))
@@ -300,7 +300,7 @@
 	var/target_has_brain = C.get_organ_by_type(/obj/item/organ/brain)
 
 	if(!target_has_brain && C.is_eyes_covered())
-		to_chat(user, span_warning("You're going to need to remove [C.p_their()] head cover first!"))
+		to_chat(user, span_warning("Сначала вам нужно будет снять крышку с головы  [C.p_their()]!"))
 		return
 
 	//since these people will be dead M != usr
@@ -308,18 +308,18 @@
 	if(!target_has_brain)
 		if(!C.get_bodypart(BODY_ZONE_HEAD) || !user.temporarilyRemoveItemFromInventory(src))
 			return
-		var/msg = "[C] has [src] inserted into [C.p_their()] head by [user]."
+		var/msg = "[C] имеет [src], вставленный в голову[C.p_their()] пользователем [user]."
 		if(C == user)
-			msg = "[user] inserts [src] into [user.p_their()] head!"
+			msg = "[user] вставляет [src] в голову [user.p_their()]!"
 
 		C.visible_message(span_danger("[msg]"),
 						span_userdanger("[msg]"))
 
 		if(C != user)
-			to_chat(C, span_notice("[user] inserts [src] into your head."))
-			to_chat(user, span_notice("You insert [src] into [C]'s head."))
+			to_chat(C, span_notice("[user] вставляет [src] в вашу голову."))
+			to_chat(user, span_notice("Вы вставляете[src] в глову [C]."))
 		else
-			to_chat(user, span_notice("You insert [src] into your head.") )
+			to_chat(user, span_notice("Вы вставляете [src] в свою голову.") )
 
 		Insert(C)
 	else
@@ -335,8 +335,8 @@
 
 /obj/item/organ/brain/on_life(seconds_per_tick, times_fired)
 	if(damage >= BRAIN_DAMAGE_DEATH) //rip
-		to_chat(owner, span_userdanger("The last spark of life in your brain fizzles out..."))
-		owner.investigate_log("has been killed by brain damage.", INVESTIGATE_DEATHS)
+		to_chat(owner, span_userdanger("Последняя искра жизни в вашем мозге угасает..."))
+		owner.investigate_log("погиб из-за повреждения мозга.", INVESTIGATE_DEATHS)
 		owner.death()
 
 /obj/item/organ/brain/check_damage_thresholds(mob/M)
@@ -361,11 +361,11 @@
 		if(owner.stat < UNCONSCIOUS) //conscious or soft-crit
 			var/brain_message
 			if(prev_damage < BRAIN_DAMAGE_MILD && damage >= BRAIN_DAMAGE_MILD)
-				brain_message = span_warning("You feel lightheaded.")
+				brain_message = span_warning("Вы чувствуете головокружение.")
 			else if(prev_damage < BRAIN_DAMAGE_SEVERE && damage >= BRAIN_DAMAGE_SEVERE)
-				brain_message = span_warning("You feel less in control of your thoughts.")
+				brain_message = span_warning("Вы чувствуете, что хуже контролируете свои мысли.")
 			else if(prev_damage < (BRAIN_DAMAGE_DEATH - 20) && damage >= (BRAIN_DAMAGE_DEATH - 20))
-				brain_message = span_warning("You can feel your mind flickering on and off...")
+				brain_message = span_warning("Вы чувствуете, как ваш разум то включается, то выключается...")
 
 			if(.)
 				. += "\n[brain_message]"
@@ -586,7 +586,7 @@
 		if(!actual_trauma.on_gain())
 			qdel(actual_trauma)
 			return FALSE
-		log_game("[key_name_and_tag(owner)] has gained the following brain trauma: [trauma.type]")
+		log_game("[key_name_and_tag(owner)] получил следующую черепно-мозговую травму: [trauma.type]")
 	if(resilience)
 		actual_trauma.resilience = resilience
 	SSblackbox.record_feedback("tally", "traumas", 1, actual_trauma.type)

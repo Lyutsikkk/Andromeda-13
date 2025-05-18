@@ -1,5 +1,5 @@
 /obj/item/organ/lungs
-	name = "lungs"
+	name = "легкие"
 	icon_state = "lungs"
 
 	zone = BODY_ZONE_CHEST
@@ -12,11 +12,11 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY * 0.9 // fails around 16.5 minutes, lungs are one of the last organs to die (of the ones we have)
 
-	low_threshold_passed = span_warning("You feel short of breath.")
-	high_threshold_passed = span_warning("You feel some sort of constriction around your chest as your breathing becomes shallow and rapid.")
-	now_fixed = span_warning("Your lungs seem to once again be able to hold air.")
-	low_threshold_cleared = span_info("You can breathe normally again.")
-	high_threshold_cleared = span_info("The constriction around your chest loosens as your breathing calms down.")
+	low_threshold_passed = span_warning("Вы чувствуете одышку.")
+	high_threshold_passed = span_warning("Вы чувствуете какое-то сжатие в груди, дыхание становится поверхностным и учащенным.")
+	now_fixed = span_warning("Кажется, ваши легкие снова способны удерживать воздух.")
+	low_threshold_cleared = span_info("Вы снова можете нормально дышать.")
+	high_threshold_cleared = span_info("Сужение вокруг вашей груди ослабевает по мере того, как ваше дыхание успокаивается.")
 
 	var/failed = FALSE
 	var/operated = FALSE //whether we can still have our damages fixed through surgery
@@ -84,7 +84,7 @@
 	var/tritium_irradiation_probability_min = 10
 	var/tritium_irradiation_probability_max = 60
 
-	var/cold_message = "your face freezing and an icicle forming"
+	var/cold_message = ", что ваше лицо замерзает, и образуется небольшая сосулька,"
 	var/cold_level_1_threshold = 260
 	var/cold_level_2_threshold = 200
 	var/cold_level_3_threshold = 120
@@ -93,7 +93,7 @@
 	var/cold_level_3_damage = COLD_GAS_DAMAGE_LEVEL_3
 	var/cold_damage_type = BURN
 
-	var/hot_message = "your face burning and a searing heat"
+	var/hot_message = ", что ваше лицо горит и пылает от жара,"
 	var/heat_level_1_threshold = 360
 	var/heat_level_2_threshold = 400
 	var/heat_level_3_threshold = 1000
@@ -389,12 +389,12 @@
 	if (freon_pp > gas_stimulation_min)
 		breather.reagents.add_reagent(/datum/reagent/freon, 1)
 	if (prob(freon_pp))
-		to_chat(breather, span_alert("Your mouth feels like it's burning!"))
+		to_chat(breather, span_alert("Во рту словно все горит!"))
 	if (freon_pp > 40)
 		breather.emote("gasp")
 		breather.adjustFireLoss(15)
 		if (prob(freon_pp / 2))
-			to_chat(breather, span_alert("Your throat closes up!"))
+			to_chat(breather, span_alert("Ваше горло будто бы закрывается!"))
 			breather.set_silence_if_lower(6 SECONDS)
 	else
 		breather.adjustFireLoss(freon_pp / 4)
@@ -414,7 +414,7 @@
 	// Euphoria side-effect.
 	if(healium_pp > gas_stimulation_min)
 		if(prob(15))
-			to_chat(breather, span_alert("Your head starts spinning and your lungs burn!"))
+			to_chat(breather, span_alert("Голова начинает кружиться, а легкие горят!"))
 			healium_euphoria = EUPHORIA_ACTIVE
 			breather.emote("gasp")
 	else
@@ -468,22 +468,22 @@
 			// At lower pp, give out a little warning
 			breather.clear_mood_event("smell")
 			if(prob(5))
-				to_chat(breather, span_notice("There is an unpleasant smell in the air."))
+				to_chat(breather, span_notice("В воздухе витает неприятный запах."))
 		if(5 to 15)
 			//At somewhat higher pp, warning becomes more obvious
 			if(prob(15))
-				to_chat(breather, span_warning("You smell something horribly decayed inside this room."))
+				to_chat(breather, span_warning("В этой комнате пахнет чем-то ужасно разложившимся."))
 				breather.add_mood_event("smell", /datum/mood_event/disgust/bad_smell)
 		if(15 to 30)
 			//Small chance to vomit. By now, people have internals on anyway
 			if(prob(5))
-				to_chat(breather, span_warning("The stench of rotting carcasses is unbearable!"))
+				to_chat(breather, span_warning("Вонь от гниющих туш невыносима!"))
 				breather.add_mood_event("smell", /datum/mood_event/disgust/nauseating_stench)
 				breather.vomit(VOMIT_CATEGORY_DEFAULT)
 		if(30 to INFINITY)
 			//Higher chance to vomit. Let the horror start
 			if(prob(15))
-				to_chat(breather, span_warning("The stench of rotting carcasses is unbearable!"))
+				to_chat(breather, span_warning("Вонь от гниющих туш невыносима!"))
 				breather.add_mood_event("smell", /datum/mood_event/disgust/nauseating_stench)
 				breather.vomit(VOMIT_CATEGORY_DEFAULT)
 		else
@@ -548,7 +548,7 @@
 	if((prob(nitrium_pp) && (nitrium_pp > 15)))
 		// Nitrium side-effect.
 		breather.adjustOrganLoss(ORGAN_SLOT_LUNGS, nitrium_pp * 0.1)
-		to_chat(breather, span_notice("You feel a burning sensation in your chest"))
+		to_chat(breather, span_notice("Вы чувствуете жжение в груди"))
 	// Metabolize to reagents.
 	if (nitrium_pp > 5)
 		var/existing = breather.reagents.get_reagent_amount(/datum/reagent/nitrium_low_metabolization)
@@ -770,7 +770,7 @@
 			breath_effect_prob = 25
 		if(breath_temperature < cold_level_1_threshold)
 			if(prob(sqrt(breath_effect_prob) * 4))
-				to_chat(breather, span_warning("You feel [cold_message] in your [name]!"))
+				to_chat(breather, span_warning("Вы чувствуете [cold_message], так же ужасное ощущение в [name]!"))
 				if(prob(50))
 					breather.emote("shiver")
 			if(prob(breath_effect_prob))
@@ -796,7 +796,7 @@
 			heat_message_prob = 25
 		if(breath_temperature > heat_level_1_threshold)
 			if(prob(sqrt(heat_message_prob) * 4))
-				to_chat(breather, span_warning("You feel [hot_message] in your [name]!"))
+				to_chat(breather, span_warning("Вы чувствуете [hot_message], так же ужасное ощущение в [name]!"))
 
 	// The air you breathe out should match your body temperature
 	breath.temperature = breather.bodytemperature
@@ -847,7 +847,7 @@
 		if(do_i_cough)
 			owner.emote("cough")
 	if(organ_flags & ORGAN_FAILING && owner.stat == CONSCIOUS)
-		owner.visible_message(span_danger("[owner] grabs [owner.p_their()] throat, struggling for breath!"), span_userdanger("You suddenly feel like you can't breathe!"))
+		owner.visible_message(span_danger("[owner] схватился за [owner.p_their()] горло, борясь за возможность вздоха!"), span_userdanger("Вы вдруг почувствовали, что не можете дышать!"))
 		failed = TRUE
 
 /obj/item/organ/lungs/get_availability(datum/species/owner_species, mob/living/owner_mob)
@@ -856,17 +856,17 @@
 /obj/item/organ/lungs/feel_for_damage(self_aware)
 	if(organ_flags & ORGAN_FAILING)
 		if(self_aware)
-			return span_boldwarning("Your lungs hurt madly[HAS_TRAIT(owner, TRAIT_NOBREATH) ? "" : ", and you can't breathe"]!")
-		return span_boldwarning("It hurts madly[HAS_TRAIT(owner, TRAIT_NOBREATH) ? "" : ", and you can't breathe"]!")
+			return span_boldwarning("Ваши легкие безумно болят[HAS_TRAIT(owner, TRAIT_NOBREATH) ? "" : ", и вы не можете дышать"]!")
+		return span_boldwarning("Это безумно больно[HAS_TRAIT(owner, TRAIT_NOBREATH) ? "" : ", и вы не можете дышать"]!")
 	if(damage < low_threshold)
 		return ""
 	if(damage < high_threshold)
 		if(self_aware)
-			return span_warning("Your lungs feel tight[HAS_TRAIT(owner, TRAIT_NOBREATH) ?  "" : ", and breathing is harder"].")
-		return span_warning("It feels tight[HAS_TRAIT(owner, TRAIT_NOBREATH) ?  "" : ", and breathing is harder"].")
+			return span_warning("Ваши легкие напряжены[HAS_TRAIT(owner, TRAIT_NOBREATH) ?  "" : ", и дышать труднее"].")
+		return span_warning("Ощущается тяжесть[HAS_TRAIT(owner, TRAIT_NOBREATH) ?  "" : ", и дышать труднее"].")
 	if(self_aware)
-		return span_boldwarning("Your lungs feel extremely tight[HAS_TRAIT(owner, TRAIT_NOBREATH) ?  "" : ", and every breath is a struggle"].")
-	return span_boldwarning("It feels extremely tight[HAS_TRAIT(owner, TRAIT_NOBREATH) ?  "" : ", and every breath is a struggle"].")
+		return span_boldwarning("Ваши легкие чрезвычайно напряжены[HAS_TRAIT(owner, TRAIT_NOBREATH) ?  "" : ", и каждый вдох - это борьба"].")
+	return span_boldwarning("Чувствуется сильное напряжение[HAS_TRAIT(owner, TRAIT_NOBREATH) ?  "" : ", и каждый вдох - это борьба"].")
 
 #define SMOKER_ORGAN_HEALTH (STANDARD_ORGAN_THRESHOLD * 0.75)
 #define SMOKER_LUNG_HEALING (STANDARD_ORGAN_HEALING * 0.75)

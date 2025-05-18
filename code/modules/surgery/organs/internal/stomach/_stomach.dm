@@ -2,8 +2,8 @@
 #define STOMACH_METABOLISM_CONSTANT 0.25
 
 /obj/item/organ/stomach
-	name = "stomach"
-	desc = "Onaka ga suite imasu."
+	name = "желудок"
+	desc = "Не стоит смешивать внутри космоколу и мемтос."
 	icon_state = "stomach"
 
 	w_class = WEIGHT_CLASS_SMALL
@@ -15,10 +15,10 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY * 1.15 // ~13 minutes, the stomach is one of the first organs to die
 
-	low_threshold_passed = span_info("Your stomach flashes with pain before subsiding. Food doesn't seem like a good idea right now.")
-	high_threshold_passed = span_warning("Your stomach flares up with constant pain- you can hardly stomach the idea of food right now!")
-	high_threshold_cleared = span_info("The pain in your stomach dies down for now, but food still seems unappealing.")
-	low_threshold_cleared = span_info("The last bouts of pain in your stomach have died out.")
+	low_threshold_passed = span_info("Ваш желудок вспыхивает от боли, но потом стихает. Еда сейчас не кажется хорошей идеей.")
+	high_threshold_passed = span_warning("Ваш желудок вспыхивает от постоянной боли - вы с трудом можете вынести мысль о еде прямо сейчас!")
+	high_threshold_cleared = span_info("Боль в желудке пока утихает, но еда все равно кажется непривлекательной.")
+	low_threshold_cleared = span_info("Последние приступы боли в вашем желудке утихли.")
 
 	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue/stomach_lining = 5)
 	//This is a reagent user and needs more then the 10u from edible component
@@ -121,13 +121,13 @@
 	//The stomach is damage has nutriment but low on theshhold, lo prob of vomit
 	if(SPT_PROB(0.0125 * damage * nutri_vol * nutri_vol, seconds_per_tick))
 		body.vomit(VOMIT_CATEGORY_DEFAULT, lost_nutrition = damage)
-		to_chat(body, span_warning("Your stomach reels in pain as you're incapable of holding down all that food!"))
+		to_chat(body, span_warning("Ваш желудок сводит от боли, ведь вы не в силах удержать всю эту еду!"))
 		return
 
 	// the change of vomit is now high
 	if(damage > high_threshold && SPT_PROB(0.05 * damage * nutri_vol * nutri_vol, seconds_per_tick))
 		body.vomit(VOMIT_CATEGORY_DEFAULT, lost_nutrition = damage)
-		to_chat(body, span_warning("Your stomach reels in pain as you're incapable of holding down all that food!"))
+		to_chat(body, span_warning("Ваш желудок сводит от боли, ведь вы не в силах удержать всю эту еду!"))
 
 /obj/item/organ/stomach/proc/handle_hunger(mob/living/carbon/human/human, seconds_per_tick, times_fired)
 	if(HAS_TRAIT(human, TRAIT_NOHUNGER))
@@ -136,12 +136,12 @@
 	//The fucking TRAIT_FAT mutation is the dumbest shit ever. It makes the code so difficult to work with
 	if(HAS_TRAIT_FROM(human, TRAIT_FAT, OBESITY))//I share your pain, past coder.
 		if(human.overeatduration < (200 SECONDS))
-			to_chat(human, span_notice("You feel fit again!"))
+			to_chat(human, span_notice("Вы снова чувствуете себя в хорошей форме!"))
 			human.remove_traits(list(TRAIT_FAT, TRAIT_OFF_BALANCE_TACKLER), OBESITY)
 
 	else
 		if(human.overeatduration >= (200 SECONDS))
-			to_chat(human, span_danger("You suddenly feel blubbery!"))
+			to_chat(human, span_danger("Вы вдруг почувствовали себя пузатым!"))
 			human.add_traits(list(TRAIT_FAT, TRAIT_OFF_BALANCE_TACKLER), OBESITY)
 
 	// nutrition decrease and satiety
@@ -179,15 +179,15 @@
 		human.metabolism_efficiency = 1
 	else if(nutrition > NUTRITION_LEVEL_FED && human.satiety > 80)
 		if(human.metabolism_efficiency != 1.25)
-			to_chat(human, span_notice("You feel vigorous."))
+			to_chat(human, span_notice("Вы чувствуете себя бодро."))
 			human.metabolism_efficiency = 1.25
 	else if(nutrition < NUTRITION_LEVEL_STARVING + 50)
 		if(human.metabolism_efficiency != 0.8)
-			to_chat(human, span_notice("You feel sluggish."))
+			to_chat(human, span_notice("Вы чувствуете себя вяло."))
 		human.metabolism_efficiency = 0.8
 	else
 		if(human.metabolism_efficiency == 1.25)
-			to_chat(human, span_notice("You no longer feel vigorous."))
+			to_chat(human, span_notice("Вы больше не чувствуете бодрости."))
 		human.metabolism_efficiency = 1
 
 	//Hunger slowdown for if mood isn't enabled
@@ -348,7 +348,7 @@
 				disgusted.adjust_stutter(2 SECONDS)
 				disgusted.adjust_confusion(2 SECONDS)
 			if(SPT_PROB(5, seconds_per_tick) && !disgusted.stat)
-				to_chat(disgusted, span_warning("You feel kind of iffy..."))
+				to_chat(disgusted, span_warning("Вы чувствуете себя как-то неуверенно..."))
 			disgusted.adjust_jitter(-6 SECONDS)
 		if(disgust >= DISGUST_LEVEL_VERYGROSS)
 			if(SPT_PROB(pukeprob, seconds_per_tick)) //iT hAndLeS mOrE ThaN PukInG
@@ -403,8 +403,8 @@
 	if(damage < low_threshold)
 		return ""
 	if(damage < high_threshold)
-		return span_warning("Your stomach hurts.")
-	return span_boldwarning("Your stomach cramps in pain!")
+		return span_warning("У вас болит живот.")
+	return span_boldwarning("Ваш живот сводит от боли!")
 
 /// If damage is high enough, we may end up vomiting out whatever we had stored
 /obj/item/organ/stomach/proc/on_punched(datum/source, mob/living/carbon/human/attacker, damage, attack_type, obj/item/bodypart/affecting, final_armor_block, kicking)

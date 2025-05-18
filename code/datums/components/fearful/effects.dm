@@ -26,7 +26,7 @@
 		return
 
 	if (COOLDOWN_FINISHED(src, message_cd) && !owner.has_status_effect(/datum/status_effect/jitter)) // Don't display the message if we're already shaking
-		to_chat(owner, span_warning("You can't stop shaking..."))
+		to_chat(owner, span_warning("Вы не можете перестать дрожать..."))
 		COOLDOWN_START(src, message_cd, TERROR_MESSAGE_CD)
 
 	owner.set_jitter_if_lower(20 SECONDS)
@@ -68,15 +68,15 @@
 	if (terror_buildup < TERROR_BUILDUP_HEART_ATTACK || !prob(15))
 		owner.adjustOxyLoss(8)
 		if (terror_buildup < TERROR_BUILDUP_FEAR)
-			to_chat(owner, span_warning("Your heart skips a beat."))
+			to_chat(owner, span_warning("Ваше сердце учащенно забилось."))
 		else
-			to_chat(owner, span_userdanger("You feel your heart lurching in your chest..."))
+			to_chat(owner, span_userdanger("Вы чувствуете, как сердце колотится в груди..."))
 		return
 
 	owner.visible_message(
-		span_warning("[owner] clutches [owner.p_their()] chest for a moment, then collapses to the floor."),
-		span_alert("The shadows begin to creep up from the corners of your vision, and then there is nothing..."),
-		span_hear("You hear something heavy collide with the ground."),
+		span_warning("[owner] на мгновение хватается за [owner.p_their()] грудь, а затем рушится на пол."),
+		span_alert("Тени начинают подкрадываться из уголков вашего зрения, а затем ничего нет..."),
+		span_hear("Вы слышите, как что-то тяжелое ударяется о землю."),
 	)
 	var/datum/disease/heart_failure/heart_attack = new(src)
 	heart_attack.stage_prob = 2 //Advances twice as fast
@@ -96,7 +96,7 @@
 		return
 
 	if (SPT_PROB((terror_buildup >= TERROR_BUILDUP_PANIC) ? 3 : 1, seconds_per_tick))
-		to_chat(owner, span_warning("You feel sick..."))
+		to_chat(owner, span_warning("Вам плохо..."))
 		// Vomit blood if we're *really* freaking out
 		addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob/living/carbon, vomit), terror_buildup >= TERROR_BUILDUP_PASSIVE_MAXIMUM), 5 SECONDS)
 
@@ -137,7 +137,7 @@
 
 	if (!active)
 		active = TRUE
-		to_chat(owner, span_userdanger("You feel your heart racing!"))
+		to_chat(owner, span_userdanger("Вы чувствуете, как колотится ваше сердце!"))
 		owner.add_fov_trait(type, FOV_270_DEGREES) // Terror induced tunnel vision
 
 	owner.playsound_local(owner, 'sound/effects/health/slowbeat.ogg', 40, FALSE, channel = CHANNEL_HEARTBEAT, use_reverb = FALSE)
@@ -157,7 +157,7 @@
 	owner.Knockdown(0.5 SECONDS)
 	breath_loop.start()
 	addtimer(CALLBACK(src, PROC_REF(stop_panic_attack)), rand(3 SECONDS, 5 SECONDS))
-	owner.visible_message(span_warning("[owner] drops to the floor for a moment, clutching their chest."), span_alert("Your heart lurches in your chest. You can't take much more of this!"))
+	owner.visible_message(span_warning("[owner] на мгновение опускается на пол, схватившись за грудь.."), span_alert("Сердце колотится в груди. Вы не можете больше терпеть!"))
 	return PANIC_ATTACK_TERROR_AMOUNT
 
 /datum/terror_handler/panic/proc/stop_panic_attack()
