@@ -47,15 +47,15 @@ export const Radio = (props) => {
       <Window.Content>
         <Section>
           <LabeledList>
-            <LabeledList.Item label="Frequency">
+            <LabeledList.Item label="Частота">
               {(freqlock && (
                 <Box inline color="light-gray">
-                  {toFixed(frequency / 10, 1) + ' kHz'}
+                  {toFixed(frequency / 10, 1) + ' кГц'}
                 </Box>
               )) || (
                 <NumberInput
                   animate
-                  unit="kHz"
+                  unit="кГц"
                   step={0.2}
                   stepPixelSize={10}
                   minValue={minFrequency / 10}
@@ -75,7 +75,7 @@ export const Radio = (props) => {
                 </Box>
               )}
             </LabeledList.Item>
-            <LabeledList.Item label="Audio">
+            <LabeledList.Item label="Аудио">
               <Button
                 textAlign="center"
                 width="37px"
@@ -95,7 +95,7 @@ export const Radio = (props) => {
                   ml={1}
                   icon="bullhorn"
                   selected={useCommand}
-                  content={`High volume ${useCommand ? 'ON' : 'OFF'}`}
+                  content={`Высокая громкость ${useCommand ? 'ВКЛ' : 'ВЫКЛ'}`}
                   onClick={() => act('command')}
                 />
               )}
@@ -104,13 +104,13 @@ export const Radio = (props) => {
                   ml={1}
                   icon="bullhorn"
                   selected={subspace}
-                  content={`Subspace Tx ${subspace ? 'ON' : 'OFF'}`}
+                  content={`Подпространство Tx ${subspace ? 'ВКЛ' : 'ВЫКЛ'}`}
                   onClick={() => act('subspace')}
                 />
               )}
             </LabeledList.Item>
             {!!subspace && (
-              <LabeledList.Item label="Channels">
+              <LabeledList.Item label="Каналы">
                 {channels.length === 0 && (
                   <Box inline color="bad">
                     No encryption keys installed.

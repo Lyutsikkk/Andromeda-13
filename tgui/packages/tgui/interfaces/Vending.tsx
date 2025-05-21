@@ -183,8 +183,8 @@ export const UserDetails = (props) => {
         </Stack.Item>
         <Stack.Item>
           {user
-            ? `${user.name || 'Unknown'} | ${user.job}`
-            : 'No ID detected! Contact the Head of Personnel.'}
+            ? `${user.name || 'Неизвестный'} | ${user.job}`
+            : 'ID не обнаружено! Обратитесь к главе персонала.'}
         </Stack.Item>
       </Stack>
     </NoticeBox>
@@ -222,7 +222,7 @@ const ProductDisplay = (props: {
     <Section
       fill
       scrollable
-      title="Products"
+      title="Товары"
       buttons={
         <Stack>
           {!all_products_free && user && (
@@ -235,7 +235,7 @@ const ProductDisplay = (props: {
           <Stack.Item>
             <Input
               onInput={(_, value) => setStockSearch(value)}
-              placeholder="Search..."
+              placeholder="Поиск..."
               value={stockSearch}
             />
           </Stack.Item>
@@ -456,8 +456,8 @@ const ProductPrice = (props) => {
 };
 
 const CATEGORY_COLORS = {
-  Contraband: 'red',
-  Premium: 'yellow',
+  Контрабанда: 'red',
+  Премиум: 'yellow',
 };
 
 const CategorySelector = (props: {

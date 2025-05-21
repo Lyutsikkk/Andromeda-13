@@ -11,7 +11,7 @@ export function TagBox(props: ReagentsProps) {
 
   return (
     <LabeledList>
-      <LabeledList.Item label="Affects">
+      <LabeledList.Item label="Воздействие">
         <Button
           color={selectedBitflags & bitflags.BRUTE ? 'green' : 'red'}
           icon="gavel"
@@ -20,7 +20,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Brute
+          Физические
         </Button>
         <Button
           color={selectedBitflags & bitflags.BURN ? 'green' : 'red'}
@@ -30,7 +30,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Burn
+          Термические
         </Button>
         <Button
           color={selectedBitflags & bitflags.TOXIN ? 'green' : 'red'}
@@ -40,7 +40,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Toxin
+          Токсины
         </Button>
         <Button
           color={selectedBitflags & bitflags.OXY ? 'green' : 'red'}
@@ -50,7 +50,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Suffocation
+          Респираторные
         </Button>
         <Button
           color={selectedBitflags & bitflags.ORGAN ? 'green' : 'red'}
@@ -60,7 +60,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Organ
+          Органы
         </Button>
         <Button
           icon="flask"
@@ -70,7 +70,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Chemical
+          Химические
         </Button>
         <Button
           icon="seedling"
@@ -80,7 +80,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Plants
+          Органические
         </Button>
         <Button
           icon="question"
@@ -90,10 +90,10 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Other
+          Прочие
         </Button>
       </LabeledList.Item>
-      <LabeledList.Item label="Type">
+      <LabeledList.Item label="Тип">
         <Button
           color={selectedBitflags & bitflags.DRINK ? 'green' : 'red'}
           icon="cocktail"
@@ -102,7 +102,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Drink
+          Напитки
         </Button>
         <Button
           color={selectedBitflags & bitflags.FOOD ? 'green' : 'red'}
@@ -112,7 +112,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Food
+          Еда
         </Button>
         <Button
           color={selectedBitflags & bitflags.HEALING ? 'green' : 'red'}
@@ -122,7 +122,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Healing
+          Исцеление
         </Button>
         <Button
           icon="skull-crossbones"
@@ -132,7 +132,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Toxic
+          Токсины
         </Button>
         <Button
           icon="pills"
@@ -142,7 +142,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Drugs
+          Наркотики
         </Button>
         <Button
           icon="microscope"
@@ -152,7 +152,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Slime
+          Слизь
         </Button>
         <Button
           icon="bomb"
@@ -162,7 +162,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Explosive
+          Взрывчатка
         </Button>
         <Button
           icon="puzzle-piece"
@@ -172,10 +172,10 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Unique
+          Уникальное
         </Button>
       </LabeledList.Item>
-      <LabeledList.Item label="Difficulty">
+      <LabeledList.Item label="Сложность">
         <Button
           icon="chess-pawn"
           color={selectedBitflags & bitflags.EASY ? 'green' : 'red'}
@@ -184,7 +184,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Easy
+          Лёгкий
         </Button>
         <Button
           icon="chess-knight"
@@ -194,7 +194,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Moderate
+          Средний
         </Button>
         <Button
           icon="chess-queen"
@@ -204,7 +204,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Hard
+          Сложный
         </Button>
         <Button
           icon="exclamation-triangle"
@@ -214,7 +214,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Dangerous
+          Опасный
         </Button>
         <Button
           icon="recycle"
@@ -224,7 +224,7 @@ export function TagBox(props: ReagentsProps) {
             setPage(1);
           }}
         >
-          Competitive
+          Конкурентный
         </Button>
       </LabeledList.Item>
     </LabeledList>

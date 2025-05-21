@@ -31,7 +31,7 @@ const TurbineDisplay = (props) => {
 
   return (
     <Section
-      title="Status"
+      title="Статус"
       buttons={
         <Button
           icon={data.active ? 'power-off' : 'times'}
@@ -39,12 +39,12 @@ const TurbineDisplay = (props) => {
           disabled={!!(data.rpm >= 1000)}
           onClick={() => act('toggle_power')}
         >
-          {data.active ? 'Online' : 'Offline'}
+          {data.active ? 'Онлайн' : 'Офлайн'}
         </Button>
       }
     >
       <LabeledList>
-        <LabeledList.Item label="Intake Regulator">
+        <LabeledList.Item label="Регулятор оборотов">
           <NumberInput
             animated
             value={data.regulator * 100}
@@ -59,7 +59,7 @@ const TurbineDisplay = (props) => {
             }
           />
         </LabeledList.Item>
-        <LabeledList.Item label="Turbine Integrity">
+        <LabeledList.Item label="Целостность турбины">
           <ProgressBar
             value={data.integrity}
             minValue={0}
@@ -71,19 +71,19 @@ const TurbineDisplay = (props) => {
             }}
           />
         </LabeledList.Item>
-        <LabeledList.Item label="Turbine Speed">
-          {data.rpm} RPM
+        <LabeledList.Item label="Частота вращения турбины">
+          {data.rpm} Об/мин
         </LabeledList.Item>
-        <LabeledList.Item label="Max Turbine Speed">
-          {data.max_rpm} RPM
+        <LabeledList.Item label="Макс. частота вращения турбины">
+          {data.max_rpm} Об/мин
         </LabeledList.Item>
-        <LabeledList.Item label="Input Temperature">
-          {data.temp} K
+        <LabeledList.Item label="Входная температура">
+          {data.temp} Кельвин
         </LabeledList.Item>
-        <LabeledList.Item label="Max Temperature">
-          {data.max_temperature} K
+        <LabeledList.Item label="Максимальная температура">
+          {data.max_temperature} Кельвин
         </LabeledList.Item>
-        <LabeledList.Item label="Generated Power">
+        <LabeledList.Item label="Генерируемая мощность">
           {formatPower(data.power)}
         </LabeledList.Item>
       </LabeledList>

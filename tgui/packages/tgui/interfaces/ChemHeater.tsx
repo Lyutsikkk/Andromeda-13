@@ -62,7 +62,7 @@ export const ReactionDisplay = (props: ReactionDisplayProps) => {
 
   return (
     <Section
-      title="Reactions"
+      title="Реакции"
       buttons={
         <Flex>
           <Flex.Item color="label">
@@ -97,18 +97,18 @@ export const ReactionDisplay = (props: ReactionDisplayProps) => {
       }
     >
       {(activeReactions.length === 0 && (
-        <Box color="label">No active reactions.</Box>
+        <Box color="label">Никаких активных реакций.</Box>
       )) || (
         <Table>
           <Table.Row>
             <Table.Cell bold color="label">
-              Reaction
+              Реакция
             </Table.Cell>
             <Table.Cell bold color="label">
-              {!highQualityDisplay ? 'Status' : 'Reaction quality'}
+              {!highQualityDisplay ? 'Статус' : 'Качество реакции'}
             </Table.Cell>
             <Table.Cell bold color="label">
-              Target
+              Цель
             </Table.Cell>
           </Table.Row>
           {activeReactions.map((reaction) => (
@@ -199,7 +199,7 @@ export const ChemHeater = (props) => {
     <Window width={350} height={350}>
       <Window.Content scrollable>
         <Section
-          title="Controls"
+          title="Управления"
           buttons={
             <Flex>
               <Button
@@ -207,7 +207,7 @@ export const ChemHeater = (props) => {
                 selected={isActive}
                 onClick={() => act('power')}
               >
-                {isActive ? 'On' : 'Off'}
+                {isActive ? 'Вкл' : 'Выкл'}
               </Button>
             </Flex>
           }
@@ -215,11 +215,11 @@ export const ChemHeater = (props) => {
           <Table>
             <Table.Row>
               <Table.Cell bold collapsing color="label">
-                Heat
+                Температура
               </Table.Cell>
               <Table.Cell />
               <Table.Cell bold collapsing color="label">
-                Buffers
+                Буферы
               </Table.Cell>
               <Table.Cell />
               <Table.Cell>
@@ -241,7 +241,7 @@ export const ChemHeater = (props) => {
             </Table.Row>
             <Table.Row>
               <Table.Cell collapsing color="label">
-                Target:
+                Температура:
               </Table.Cell>
               <Table.Cell>
                 <NumberInput
@@ -260,13 +260,13 @@ export const ChemHeater = (props) => {
                 />
               </Table.Cell>
               <Table.Cell collapsing color="label">
-                Acidic:
+                Кислота:
               </Table.Cell>
               <Table.Cell>
                 <Button
                   icon={'syringe'}
                   disabled={!acidicBufferVol}
-                  tooltip={'Inject'}
+                  tooltip={'Впрыскивать'}
                   tooltipPosition={'left'}
                   onClick={() =>
                     act('acidBuffer', {
@@ -297,7 +297,7 @@ export const ChemHeater = (props) => {
             </Table.Row>
             <Table.Row>
               <Table.Cell collapsing color="label">
-                Reading:
+                Разогрет:
               </Table.Cell>
               <Table.Cell collapsing color="default">
                 <Box width="60px" textAlign="right">
@@ -311,12 +311,12 @@ export const ChemHeater = (props) => {
                 </Box>
               </Table.Cell>
               <Table.Cell collapsing color="label">
-                Basic:
+                Основной:
               </Table.Cell>
               <Table.Cell>
                 <Button
                   icon={'syringe'}
-                  tooltip={'Inject'}
+                  tooltip={'Впрыскивать'}
                   tooltipPosition={'left'}
                   disabled={!basicBufferVol}
                   onClick={() =>
@@ -332,7 +332,7 @@ export const ChemHeater = (props) => {
               <Table.Cell>
                 <Button
                   icon={'upload'}
-                  tooltip={'Draw all'}
+                  tooltip={'Извлечь всё'}
                   disabled={basicBufferVol === 100}
                   onClick={() =>
                     act('basicBuffer', {

@@ -686,15 +686,15 @@
 	add_avail(produced_energy)
 
 /obj/item/paper/guides/jobs/atmos/turbine
-	name = "paper- 'Quick guide on the new and improved turbine!'"
-	default_raw_text = "<B>How to operate the turbine</B><BR>\
-	-The new turbine is not much different from the old one, just put gases in the chamber, light them up and activate the machine from the nearby computer.\
-	-There is a new parameter that's visible within the turbine computer's UI, damage. The turbine will be damaged when the heat gets too high, according to the tiers of the parts used. Make sure it doesn't get too hot!<BR>\
-	-You can avoid the turbine critically failing by upgrading the parts of the machine, but not with stock parts as you might be used to. There are 3 all-new parts, one for each section of the turbine.<BR>\
-	-These items are: the compressor part, the rotor part and the stator part. All of them can be printed in any engi lathes (both proto and auto).<BR>\
-	-There are 4 tiers for these items, only the first tier can be printed. The next tier of each part can be made by using various materials on the part (clicking with the material in hand, on the part). The material required to reach the next tier is stated in the part's examine text, try shift clicking it!<BR>\
-	-Each tier increases the efficiency (more power), the max reachable RPM, and the max temperature that the machine can process without taking damage (up to fusion temperatures at the last tier!).<BR>\
-	-A word of warning, the machine is very inefficient in its gas consumption and many unburnt gases will pass through. If you want to be cheap you can either pre-burn the gases or add a filtering system to collect the unburnt gases and reuse them."
+	name = "paper- 'Краткое руководство по новой и улучшенной турбине!'"
+	default_raw_text = "<B>Как эксплуатировать турбину</B><BR>\
+	-Новая турбина мало чем отличается от старой: достаточно поместить газы в камеру, зажечь их и активировать турбину с помощью расположенного рядом компьютера..\
+	-В пользовательском интерфейсе компьютера турбины появился новый параметр - повреждение. Турбина будет повреждена, когда нагреется слишком сильно, в зависимости от уровня используемых деталей. Следите за тем, чтобы она не перегревалась!<BR>\
+	-Вы можете избежать критической поломки турбины, модернизировав детали машины, но не те, к которым вы привыкли. Здесь есть 3 абсолютно новые детали, по одной для каждой секции турбины.<BR>\
+	-К ним относятся: часть компрессора, часть ротора и часть статора. Все они могут быть напечатаны на любом токарном станке (как прото, так и авто).<BR>\
+	-Существует 4 уровня этих предметов, но напечатать можно только первый уровень. Следующий уровень каждой детали можно сделать, используя различные материалы на детали (щелчок с материалом в руке на детали). Материал, необходимый для получения следующего уровня, указан в тексте исследования детали, попробуйте нажать на него!<BR>\
+	-Каждый уровень повышает эффективность (больше мощности), максимальное число оборотов и максимальную температуру, которую машина может обрабатывать без повреждений (вплоть до температуры плавления на последнем уровне!).<BR>\
+	-Предупреждаем, что машина очень неэффективно расходует газ, и через нее будет проходить много несгоревших газов. Если вы хотите быть экономным, вы можете либо предварительно сжигать газы, либо добавить систему фильтрации для сбора несгоревших газов и их повторного использования."
 
 /datum/aas_config_entry/engineering_turbine_failure
 	name = "Engineering Alert: Turbine Failure"

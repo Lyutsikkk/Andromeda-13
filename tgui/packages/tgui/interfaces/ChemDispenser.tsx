@@ -59,13 +59,13 @@ export const ChemDispenser = (props) => {
     <Window width={565} height={620}>
       <Window.Content scrollable>
         <Section
-          title="Status"
+          title="Статус"
           buttons={
             <>
               {recording && (
                 <Box inline mx={1} color="red">
                   <Icon name="circle" mr={1} />
-                  Recording
+                  Запись
                 </Box>
               )}
               <Button
@@ -73,17 +73,17 @@ export const ChemDispenser = (props) => {
                 disabled={!beaker}
                 tooltip={
                   beaker
-                    ? 'Look up recipes and reagents!'
-                    : 'Please insert a beaker!'
+                    ? 'Ищите рецепты и реагенты!'
+                    : 'Пожалуйста, вставьте мензурку!'
                 }
                 tooltipPosition="bottom-start"
                 onClick={() => act('reaction_lookup')}
               >
-                Reaction search
+                Поиск реакции
               </Button>
               <Button
                 icon="cog"
-                tooltip="Color code the reagents by pH"
+                tooltip="Цветовая маркировка реагентов по pH"
                 tooltipPosition="bottom-start"
                 selected={showPhCol}
                 onClick={() => setShowPhCol(!showPhCol)}
@@ -92,18 +92,18 @@ export const ChemDispenser = (props) => {
           }
         >
           <LabeledList>
-            <LabeledList.Item label="Energy">
+            <LabeledList.Item label="Энергия">
               <ProgressBar value={data.energy / data.maxEnergy}>
                 {data.displayedUnits +
                   ' / ' +
                   data.displayedMaxUnits +
-                  ' units'}
+                  ' юнитов'}
               </ProgressBar>
             </LabeledList.Item>
           </LabeledList>
         </Section>
         <Section
-          title="Recipes"
+          title="Рецепты"
           buttons={
             <>
               {!recording && (
@@ -112,7 +112,7 @@ export const ChemDispenser = (props) => {
                     color="transparent"
                     onClick={() => act('clear_recipes')}
                   >
-                    Clear recipes
+                    Очистить рецепт
                   </Button>
                 </Box>
               )}
@@ -122,7 +122,7 @@ export const ChemDispenser = (props) => {
                   disabled={!beaker}
                   onClick={() => act('record_recipe')}
                 >
-                  Record
+                  Записать
                 </Button>
               )}
               {recording && (
@@ -131,7 +131,7 @@ export const ChemDispenser = (props) => {
                   color="transparent"
                   onClick={() => act('cancel_recording')}
                 >
-                  Discard
+                  Отклонить
                 </Button>
               )}
               {recording && (
@@ -140,7 +140,7 @@ export const ChemDispenser = (props) => {
                   color="green"
                   onClick={() => act('save_recording')}
                 >
-                  Save
+                  Сохранить
                 </Button>
               )}
             </>
@@ -162,7 +162,9 @@ export const ChemDispenser = (props) => {
                 {recipe}
               </Button>
             ))}
-            {recipes.length === 0 && <Box color="light-gray">No recipes.</Box>}
+            {recipes.length === 0 && (
+              <Box color="light-gray">Никаких рецептов.</Box>
+            )}
           </Box>
         </Section>
         <Button // SKYRAT EDIT ADDITION BEGIN - CHEMISTRY QOL
@@ -171,7 +173,7 @@ export const ChemDispenser = (props) => {
           onClick={() => act('custom_amount')}
         />
         <Section
-          title="Dispense"
+          title="Раздатчик"
           buttons={beakerTransferAmounts.map((amount) => (
             <Button
               key={amount}
@@ -221,7 +223,7 @@ export const ChemDispenser = (props) => {
           </Box>
         </Section>
         <Section
-          title="Beaker"
+          title="Мензурка"
           buttons={beakerTransferAmounts.map((amount) => (
             <Button
               key={amount}
@@ -235,7 +237,7 @@ export const ChemDispenser = (props) => {
         >
           <BeakerDisplay
             beaker={beaker}
-            title_label={recording && 'Virtual beaker'}
+            title_label={recording && 'Виртуальный мензурка'}
             replace_contents={recordedContents}
             showpH={data.showpH}
           />

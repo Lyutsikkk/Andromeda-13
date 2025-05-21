@@ -400,29 +400,30 @@
 	icon_state_active = "corner_active"
 
 /obj/item/paper/guides/jobs/atmos/hypertorus
-	name = "paper- 'Quick guide to safe handling of the HFR'"
-	default_raw_text = "<B>How to safely(TM) operate the Hypertorus</B><BR>\
-	-Build the machine as it�s shown in the main guide.<BR>\
-	-Make a 50/50 gasmix of tritium and hydrogen totalling around 2000 moles.<BR>\
-	-Start the machine, fill up the cooling loop with plasma/hypernoblium and use space or freezers to cool it.<BR>\
-	-Connect the fuel mix into the fuel injector port, allow only 1000 moles into the machine to ease the kickstart of the reaction<BR>\
-	-Set the Heat conductor to 500 when starting the reaction, reset it to 100 when power level is higher than 1<BR>\
-	-In the event of a meltdown, set the heat conductor to max and set the current damper to max. Set the fuel injection to min. \
-	If the heat output doesn�t go negative, try changing the magnetic costrictors untill heat output goes negative. \
-	Make the cooling stronger, put high heat capacity gases inside the moderator (hypernoblium will help dealing with the problem)<BR><BR>\
-	<B>Warnings:</B><BR>\
-	-You cannot dismantle the machine if the power level is over 0<BR>\
-	-You cannot power of the machine if the power level is over 0<BR>\
-	-You cannot dispose of waste gases if power level is over 5<BR>\
-	-You cannot remove gases from the fusion mix if they are not helium and antinoblium<BR>\
-	-Hypernoblium will decrease the power of the mix by a lot<BR>\
-	-Antinoblium will INCREASE the power of the mix by a lot more<BR>\
-	-High heat capacity gases are harder to heat/cool<BR>\
-	-Low heat capacity gases are easier to heat/cool<BR>\
-	-The machine consumes 50 KW per power level, reaching 350 KW at power level 6 so prepare the SM accordingly<BR>\
-	-In case of a power shortage, the fusion reaction will CONTINUE but the cooling will STOP<BR><BR>\
-	The writer of the quick guide will not be held responsible for misuses and meltdown caused by the use of the guide, \
-	use more advanced guides to understando how the various gases will act as moderators."
+	name = "paper- 'Краткое руководство по безопасному обращению с ТРГ'"
+	default_raw_text = "<B>Как безопасно эксплуатировать Гиперторус</B><BR>\
+	Знакомьтесь, это Термоядерный Реактор 'Гиперторус' или же ТРГ!<BR>\
+	-Соберите машину так, как показано в главном руководстве.<BR>\
+	-Приготовьте газовую смесь трития и водорода в соотношении 50/50 общим объемом около 2000 молей.<BR>\
+	-Запустите машину, заполните охлаждающий контур плазмой/гипернобилием и используйте пространство или морозильные камеры для охлаждения.<BR>\
+	-Подключите топливную смесь к порту топливной форсунки, впустите в машину только 1000 молей, чтобы облегчить запуск реакции.<BR>\
+	-Установите теплопроводность на 500 при запуске реакции, сбросьте ее на 100, когда уровень мощности станет выше 1.<BR>\
+	-В случае расплавления установите теплопровод на максимум, а заслонку тока - на максимум. Установите впрыск топлива на минимум. \
+	Если тепловая мощность не становится отрицательной, попробуйте изменить магнитные констрикторы, пока тепловая мощность не станет отрицательной. \
+	Усильте охлаждение, поместите внутрь замедлителя газы с высокой теплоемкостью (гиперноблиум поможет справиться с проблемой).<BR><BR>\
+	<B>Предупреждения:</B><BR>\
+	-Нельзя разбирать машину, если уровень мощности превышает 0<BR>\
+	-Вы не можете выключить машину, если уровень мощности превышает 0<BR>\
+	-Вы не можете утилизировать отработанные газы, если уровень мощности превышает 5<BR>\
+	-Вы не можете удалить газы из термоядерной смеси, если они не являются гелием и антинобилием<BR>\
+	-Гиперноблиум значительно снизит мощность смеси.<BR>\
+	-Антиноблиум увеличит мощность смеси намного больше<BR>\
+	-Газы с высокой теплоемкостью труднее нагревать/охлаждать<BR>\
+	-Газы с низкой теплоемкостью легче нагревать/охлаждать<BR>\
+	-Машина потребляет 50 КВт на каждый уровень мощности, достигая 350 КВт на уровне мощности 6, поэтому подготовьте СМ соответствующим образом.<BR>\
+	-В случае нехватки энергии реакция синтеза БУДЕТ ПРОДОЛЖАТЬСЯ, но охлаждение БУДЕТ ОСТАНОВЛЕНО!<BR><BR>\
+	Автор краткого руководства не несет ответственности за неправильное использование и расплавление, вызванное применением этого руководства, \
+	используйте более продвинутые руководства, чтобы понять, как различные газы будут действовать в качестве модераторов. Удачи :)"
 
 /obj/item/hfr_box
 	name = "HFR box"

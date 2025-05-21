@@ -64,11 +64,11 @@ export const MassSpec = (props) => {
         {!!processing && (
           <Dimmer fontSize="32px">
             <Icon name="cog" spin={1} />
-            {' Purifying... ' + round(eta, 0) + 's'}
+            {' Очищение... ' + round(eta, 0) + 's'}
           </Dimmer>
         )}
         <Section
-          title="Mass Spectroscopy"
+          title="Масс-спектроскопия"
           buttons={
             <Button
               icon="power-off"
@@ -77,17 +77,17 @@ export const MassSpec = (props) => {
               }
               tooltip={
                 !beaker_1_has_contents
-                  ? 'Missing input reagents!'
+                  ? 'Отсутствуют исходные реагенты!'
                   : !beaker2
-                    ? 'Missing an output beaker!'
+                    ? 'Отсутствует выходная мензурка!'
                     : eta <= 0
-                      ? 'No work to be done'
-                      : 'Begin purifying'
+                      ? 'Никакой работы, которую нужно было бы сделать'
+                      : 'Начинайте очищать'
               }
               tooltipPosition="left"
               onClick={() => act('activate')}
             >
-              Start
+              Старт
             </Button>
           }
         >
@@ -100,21 +100,21 @@ export const MassSpec = (props) => {
               maxAbsorbance={peakHeight}
               reagentPeaks={beaker1.contents}
             />
-          )) || <Box>Please insert an input beaker with reagents!</Box>}
+          )) || <Box>Пожалуйста, вставьте входной стакан с реактивами!</Box>}
         </Section>
 
         <Section
-          title="Input beaker"
+          title="Входная мензурка"
           buttons={
             !!beaker1 && (
               <>
                 {
                   <Box inline color="label" mr={2}>
-                    {beaker1.currentVolume} / {beaker1.maxVolume} units
+                    {beaker1.currentVolume} / {beaker1.maxVolume} юнитов
                   </Box>
                 }
                 <Button icon="eject" onClick={() => act('eject1')}>
-                  Eject
+                  Извлечь
                 </Button>
               </>
             )
@@ -126,21 +126,21 @@ export const MassSpec = (props) => {
             beaker={beaker1}
           />
           {!!beaker_1_has_contents && (
-            <Box>{'Eta of selection: ' + round(eta, 0) + ' seconds'}</Box>
+            <Box>{'Время начала отбора: ' + round(eta, 0) + ' секунд'}</Box>
           )}
         </Section>
         <Section
-          title="Output beaker"
+          title="Выходная мензурка"
           buttons={
             !!beaker2 && (
               <>
                 {
                   <Box inline color="label" mr={2}>
-                    {beaker2.currentVolume} / {beaker2.maxVolume} units
+                    {beaker2.currentVolume} / {beaker2.maxVolume} юнитов
                   </Box>
                 }
                 <Button icon="eject" onClick={() => act('eject2')}>
-                  Eject
+                  Извлечь
                 </Button>
               </>
             )
@@ -168,29 +168,29 @@ const BeakerMassProfile = (props: ProfileProps) => {
 
   return (
     <Box>
-      {(!beaker && <Box color="label">No beaker loaded.</Box>) ||
+      {(!beaker && <Box color="label">Мензурка не загружена.</Box>) ||
         (beaker.contents.length === 0 && (
-          <Box color="label">Beaker is empty.</Box>
+          <Box color="label">Мензурка пуста.</Box>
         )) || (
           <Table className="candystripe">
             <Table.Row>
               <Table.Cell bold collapsing color="label">
-                Reagent
+                Реагент
               </Table.Cell>
               <Table.Cell bold collapsing color="label">
-                Mass
+                Масса
               </Table.Cell>
               <Table.Cell bold collapsing color="label">
-                Volume
+                Объем
               </Table.Cell>
               <Table.Cell bold collapsing color="label">
-                Purity
+                Чистота
               </Table.Cell>
               <Table.Cell bold collapsing color="label">
-                Type
+                Тип
               </Table.Cell>
               <Table.Cell bold collapsing color="label">
-                Status
+                Статус
               </Table.Cell>
             </Table.Row>
             {beaker.contents.map((reagent) => {
@@ -282,7 +282,7 @@ const MassSpectroscopy = (props: SpectroscopyProps) => {
             font-weight="bold"
             font-size="16"
           >
-            Mass (G)
+            Масса (G)
           </tspan>
           <tspan x="0%" y={`${base_line + 20}px`}>
             {graphLowerRange}
@@ -347,7 +347,7 @@ const MassSpectroscopy = (props: SpectroscopyProps) => {
           font-size="17"
           font-weight="bold"
         >
-          <tspan>Absorbance (AU)</tspan>
+          <tspan>Абсорбция (AU)</tspan>
         </text>
         <line
           x1={base_width}
