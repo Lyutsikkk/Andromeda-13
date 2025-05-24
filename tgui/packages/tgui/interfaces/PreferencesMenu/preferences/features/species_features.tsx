@@ -8,17 +8,17 @@ import {
 import { FeatureDropdownInput } from './dropdowns';
 
 export const eye_color: Feature<string> = {
-  name: 'Цвет глаз',
+  name: '(Глаза) Цвет глаз',
   component: FeatureColorInput,
 };
 
 export const facial_hair_color: Feature<string> = {
-  name: 'Цвет волос на лице',
+  name: '(Волосы) Цвет волос на лице',
   component: FeatureColorInput,
 };
 
 export const facial_hair_gradient: FeatureChoiced = {
-  name: 'Градиент волос на лице',
+  name: '(Волосы) Градиент волос на лице',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -27,17 +27,17 @@ export const facial_hair_gradient: FeatureChoiced = {
 };
 
 export const facial_hair_gradient_color: Feature<string> = {
-  name: 'Градиентный цвет волос на лице',
+  name: '(Волосы) Градиентный цвет волос на лице',
   component: FeatureColorInput,
 };
 
 export const hair_color: Feature<string> = {
-  name: 'Цвет волос',
+  name: '(Волосы) Цвет волос',
   component: FeatureColorInput,
 };
 
 export const hair_gradient: FeatureChoiced = {
-  name: 'Градиент волос',
+  name: '(Волосы) Градиент волос',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -46,7 +46,7 @@ export const hair_gradient: FeatureChoiced = {
 };
 
 export const hair_gradient_color: Feature<string> = {
-  name: 'Цвет градиента волос',
+  name: '(Волосы) Цвет градиента волос',
   component: FeatureColorInput,
 };
 
@@ -105,7 +105,7 @@ export const feature_lizard_tail: FeatureChoiced = {
 };
 
 export const feature_mcolor: Feature<string> = {
-  name: 'Мутантный цвет',
+  name: 'Кастомный цвет',
   component: FeatureColorInput,
 };
 

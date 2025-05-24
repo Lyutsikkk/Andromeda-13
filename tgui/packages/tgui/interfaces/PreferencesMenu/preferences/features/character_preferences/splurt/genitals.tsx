@@ -13,13 +13,13 @@ import {
 import { FeatureDropdownInput } from '../../dropdowns';
 
 export const scaled_appearance: FeatureToggle = {
-  name: 'Чёткость внешнего вида',
+  name: '(Тело) Чёткость внешнего вида',
   description: 'Придайте своему персонажу резкий или нечеткий вид.',
   component: CheckboxInput,
 };
 
 export const feature_butt: Feature<string> = {
-  name: 'Выбор задницы',
+  name: '(Задница) Выбор задницы',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -28,54 +28,54 @@ export const feature_butt: Feature<string> = {
 };
 
 export const butt_skin_tone: FeatureToggle = {
-  name: 'Задница использует Тон кожи',
+  name: '(Задница) Использовать Тон кожи',
   component: CheckboxInput,
 };
 
 export const butt_skin_color: FeatureToggle = {
-  name: 'Задница использует Цвет кожи',
+  name: '(Задница) Использовать Цвет кожи',
   component: CheckboxInput,
 };
 
 export const butt_color: Feature<string[]> = {
-  name: 'Цвет задницы',
+  name: '(Задница) Цвет задницы',
   component: FeatureTriColorInput,
 };
 
 export const butt_emissive: Feature<boolean[]> = {
-  name: 'Эмиссары задницы',
+  name: '(Задница) Свечение задницы',
   description: 'Детали светятся в темноте.',
   component: FeatureTriBoolInput,
 };
 
 export const butt_size: FeatureNumeric = {
-  name: 'Размер задницы',
+  name: '(Задница) Размер задницы',
   component: FeatureNumberInput,
 };
 
 export const anus_skin_tone: FeatureToggle = {
-  name: 'Анус использует Тон кожи',
+  name: '(Анус) Использовать Тон кожи',
   component: CheckboxInput,
 };
 
 export const anus_skin_color: FeatureToggle = {
-  name: 'Анус использует Цвет кожи',
+  name: '(Анус) Использовать Цвет кожи',
   component: CheckboxInput,
 };
 
 export const anus_color: Feature<string[]> = {
-  name: 'Цвет Ануса',
+  name: '(Анус) Цвет Ануса',
   component: FeatureTriColorInput,
 };
 
 export const anus_emissive: Feature<boolean[]> = {
-  name: 'Эмиссары ануса',
+  name: '(Анус) Свечение ануса',
   description: 'Детали светятся в темноте.',
   component: FeatureTriBoolInput,
 };
 
 export const feature_belly: Feature<string> = {
-  name: 'Выбор живота',
+  name: '(Живот) Выбор живота',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -84,27 +84,27 @@ export const feature_belly: Feature<string> = {
 };
 
 export const belly_size: FeatureNumeric = {
-  name: 'Размер живота',
+  name: '(Живот) Размер живота',
   component: FeatureNumberInput,
 };
 
 export const belly_skin_tone: FeatureToggle = {
-  name: 'Живот использует Тон кожи',
+  name: '(Живот) Использовать Тон кожи',
   component: CheckboxInput,
 };
 
 export const belly_skin_color: FeatureToggle = {
-  name: 'Живот использует Цвет кожи',
+  name: '(Живот) Использовать Цвет кожи',
   component: CheckboxInput,
 };
 
 export const belly_color: Feature<string[]> = {
-  name: 'Цвет живота',
+  name: '(Живот) Цвет живота',
   component: FeatureTriColorInput,
 };
 
 export const belly_emissive: Feature<boolean[]> = {
-  name: 'Эмиссары живота',
+  name: '(Живот) Свечение живота',
   description: 'Детали светятся в темноте.',
   component: FeatureTriBoolInput,
 };
@@ -140,19 +140,19 @@ export const erp_sexual_potency_pref: FeatureNumeric = {
 
 // Genital fluid preferences
 export const testicles_fluid: FeatureChoiced = {
-  name: 'Жидкость яичек',
+  name: '(Яички) Жидкость яичек',
   description: 'Тип жидкости, вырабатываемой яичками.',
   component: FeatureDropdownInput,
 };
 
 export const breasts_fluid: FeatureChoiced = {
-  name: 'Жидкость груди',
+  name: '(Грудь) Жидкость груди',
   description: 'Тип жидкости, вырабатываемой грудью.',
   component: FeatureDropdownInput,
 };
 
 export const vagina_fluid: FeatureChoiced = {
-  name: 'Жидкость влагины',
+  name: '(Вагина) Жидкость влагины',
   description: 'Тип жидкости, вырабатываемой влагалищем.',
   component: FeatureDropdownInput,
 };

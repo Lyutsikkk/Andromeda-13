@@ -14,7 +14,7 @@ import {
 import { FeatureDropdownInput } from '../../dropdowns';
 
 export const feature_penis: Feature<string> = {
-  name: 'Выбор пениса',
+  name: '(Пенис) Выбор пениса',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -23,28 +23,28 @@ export const feature_penis: Feature<string> = {
 };
 
 export const penis_skin_tone: FeatureToggle = {
-  name: 'Пенис использует Тон кожи',
+  name: '(Пенис) Использовать Тон кожи',
   component: CheckboxInput,
 };
 
 export const penis_skin_color: FeatureToggle = {
-  name: 'Пенис использует Цвет кожи',
+  name: '(Пенис) Использовать Цвет кожи',
   component: CheckboxInput,
 };
 
 export const penis_color: Feature<string[]> = {
-  name: 'Цвет пениса',
+  name: '(Пенис) Цвет пениса',
   component: FeatureTriColorInput,
 };
 
 export const penis_emissive: Feature<boolean[]> = {
-  name: 'Эмиссары пениса',
+  name: '(Пенис) Свечение пениса',
   description: 'Детали светятся в темноте.',
   component: FeatureTriBoolInput,
 };
 
 export const penis_sheath: Feature<string> = {
-  name: 'Оболочка пениса',
+  name: '(Пенис) Оболочка пениса',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -53,7 +53,7 @@ export const penis_sheath: Feature<string> = {
 };
 
 export const penis_length: FeatureNumeric = {
-  name: 'Длина пениса',
+  name: '(Пенис) Длина пениса',
   description:
     'Значение измеряется в дюймах.\
      Это значение ограничено 20 для персонажей с размером тела <= 1 \
@@ -63,7 +63,7 @@ export const penis_length: FeatureNumeric = {
 };
 
 export const penis_girth: FeatureNumeric = {
-  name: 'Обхват пениса',
+  name: '(Пенис) Обхват пениса',
   description:
     'Значение - это окружность, измеряемая в дюймах.\
     Это значение ограничено 15 для персонажей с размером тела <= 1 \
@@ -73,7 +73,7 @@ export const penis_girth: FeatureNumeric = {
 };
 
 export const penis_taur_mode_toggle: FeatureToggle = {
-  name: 'Режим пениса Таура',
+  name: '(Пенис) Режим пениса Таура',
   description:
     'Если у выбранного тела тавра есть спрайт пениса, он будет использован \
     вместо обычного.',
@@ -81,7 +81,7 @@ export const penis_taur_mode_toggle: FeatureToggle = {
 };
 
 export const feature_testicles: Feature<string> = {
-  name: 'Выбор яичек',
+  name: '(Яички) Выбор яичек',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -90,33 +90,33 @@ export const feature_testicles: Feature<string> = {
 };
 
 export const testicles_skin_tone: FeatureToggle = {
-  name: 'Яички используют Тон кожи',
+  name: '(Яички) Использовать Тон кожи',
   component: CheckboxInput,
 };
 
 export const testicles_skin_color: FeatureToggle = {
-  name: 'Яички используют Цвет кожи',
+  name: '(Яички) Использовать Цвет кожи',
   component: CheckboxInput,
 };
 
 export const testicles_color: Feature<string[]> = {
-  name: 'Цвет яичек',
+  name: '(Яички) Цвет яичек',
   component: FeatureTriColorInput,
 };
 
 export const testicles_emissive: Feature<boolean[]> = {
-  name: 'Эмиссары яичек',
+  name: '(Яички) Свечение яичек',
   description: 'Детали светятся в темноте.',
   component: FeatureTriBoolInput,
 };
 
 export const balls_size: FeatureNumeric = {
-  name: 'Размер яичек',
+  name: '(Яички) Размер яичек',
   component: FeatureNumberInput,
 };
 
 export const feature_vagina: Feature<string> = {
-  name: 'Выбор вагины',
+  name: '(Вагина) Выбор вагины',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -125,28 +125,28 @@ export const feature_vagina: Feature<string> = {
 };
 
 export const vagina_skin_tone: FeatureToggle = {
-  name: 'Вагина использует Тон кожи',
+  name: '(Вагина) Использовать Тон кожи',
   component: CheckboxInput,
 };
 
 export const vagina_skin_color: FeatureToggle = {
-  name: 'Вагина использует Цвет кожи',
+  name: '(Вагина) Использовать Цвет кожи',
   component: CheckboxInput,
 };
 
 export const vagina_color: Feature<string[]> = {
-  name: 'Цвет вагины',
+  name: '(Вагина) Цвет вагины',
   component: FeatureTriColorInput,
 };
 
 export const vagina_emissive: Feature<boolean[]> = {
-  name: 'Эмиссары вагины',
+  name: '(Вагина) Свечение вагины',
   description: 'Детали светятся в темноте.',
   component: FeatureTriBoolInput,
 };
 
 export const feature_womb: Feature<string> = {
-  name: 'Выбор матки',
+  name: '(Вагина) Выбор матки',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -155,7 +155,7 @@ export const feature_womb: Feature<string> = {
 };
 
 export const feature_breasts: Feature<string> = {
-  name: 'Выбор груди',
+  name: '(Грудь) Выбор груди',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -164,33 +164,33 @@ export const feature_breasts: Feature<string> = {
 };
 
 export const breasts_skin_tone: FeatureToggle = {
-  name: 'Грудь использует Тон кожи',
+  name: '(Грудь) Использовать Тон кожи',
   component: CheckboxInput,
 };
 
 export const breasts_skin_color: FeatureToggle = {
-  name: 'Грудь использует Цвет кожи',
+  name: '(Грудь) Использовать Цвет кожи',
   component: CheckboxInput,
 };
 
 export const breasts_color: Feature<string[]> = {
-  name: 'Цвет груди',
+  name: '(Грудь) Цвет груди',
   component: FeatureTriColorInput,
 };
 
 export const breasts_emissive: Feature<boolean[]> = {
-  name: 'Эмиссары груди',
+  name: '(Грудь) Свечение груди',
   description: 'Детали светятся в темноте.',
   component: FeatureTriBoolInput,
 };
 
 export const breasts_lactation_toggle: FeatureToggle = {
-  name: 'Грудная лактация',
+  name: '(Грудь) Грудная лактация',
   component: CheckboxInput,
 };
 
 export const breasts_size: Feature<string> = {
-  name: 'Размер груди',
+  name: '(Грудь) Размер груди',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -199,12 +199,12 @@ export const breasts_size: Feature<string> = {
 };
 
 export const feature_anus: Feature<string> = {
-  name: 'Выбор ануса',
+  name: '(Анус) Выбор ануса',
   component: FeatureDropdownInput,
 };
 
 export const body_size: FeatureNumeric = {
-  name: 'Размер тела',
+  name: '(Тело) Размер тела',
   component: FeatureNumberInput,
 };
 
