@@ -65,42 +65,42 @@ export const human_pref: FeatureChoiced = {
 };
 
 export const character_ad: Feature<string> = {
-  name: 'Реклама персонажей',
+  name: '(Заметки) Заметка к персонажу',
   description:
-    'Встроенная реклама вашего персонажа. Расскажите о том, что вы ищете в плане ролевой игры и как найти подход к своему персонажу. Постарайтесь сделать больше, чем просто написать, что вы можете говорить в любое время.',
+    'Встроенная заметка вашего персонажа. Расскажите о том, что вы ищете в плане ролевой игры и как найти подход к своему персонажу. Постарайтесь сделать больше, чем просто написать, что вы можете говорить в любое время.',
   component: FeatureTextInput,
 };
 
 export const attraction: FeatureChoiced = {
-  name: 'Привлекательность персонажа',
+  name: '(ПЕРСОНАЖ) Привлекательность персонажа',
   description:
     'Классифицирует то, что привлекает вашего персонажа. Это отображается в каталоге.',
   component: FeatureDropdownInput,
 };
 
 export const display_gender: FeatureChoiced = {
-  name: 'Пол персонажа',
+  name: '(ПЕРСОНАЖ) Пол персонажа',
   description:
     'Какой пол соответствует вашему персонажу. Это отображается в каталоге.',
   component: FeatureDropdownInput,
 };
 
 export const flavor_text_nsfw: Feature<string> = {
-  name: 'Текст аромата NSFW',
+  name: '(Описание) Описание внешность NSFW',
   description:
     'Фрагмент вашего текстового сообщения, который подвергается цензуре в программе examine. Используется для хранения визуальных сексуальных подробностей.',
   component: FeatureTextInput,
 };
 
 export const silicon_flavor_text_nsfw: Feature<string> = {
-  name: 'Текст аромата NSFW (Синтетик)',
+  name: '(Описание) Описание внешность NSFW (Синтетик)',
   description:
-    'Фрагмент текста вашего аромата, сохраненный в examine, используется для силиконов. Используется для хранения визуальных сексуальных подробностей.',
+    'Фрагмент текста вашей внешности, сохраненный в examine, используется для силиконов. Используется для хранения визуальных сексуальных подробностей.',
   component: FeatureTextInput,
 };
 
 export const headshot_silicon: Feature<string> = {
-  name: 'Аватар (Синтетик)',
+  name: '(Арт) Аватар (Синтетик)',
   description:
     'Требуется ссылка, заканчивающаяся на .png, .jpeg или .jpg, начинающаяся с \
     https://, и размещенная на Catbox, Imgbox, Gyazo, Lensdump или F-List. \
@@ -111,7 +111,7 @@ export const headshot_silicon: Feature<string> = {
 };
 
 export const headshot_nsfw: Feature<string> = {
-  name: 'Аватар NSFW',
+  name: '(Арт) Аватар NSFW',
   description:
     'Аватар, но для NSFW. \
     Требуется ссылка, заканчивающаяся на .png, .jpeg или .jpg, начинающаяся с  \
@@ -123,7 +123,7 @@ export const headshot_nsfw: Feature<string> = {
 };
 
 export const headshot_silicon_nsfw: Feature<string> = {
-  name: 'Аватар (Синтетик) NSFW',
+  name: '(Арт) Аватар (Синтетик) NSFW',
   description:
     // Headshot, but for NSFW references on Silicons. Не знаю как перевести.
     'Аватар, но для NSFW ссылка на Синтетика. \
@@ -136,27 +136,27 @@ export const headshot_silicon_nsfw: Feature<string> = {
 };
 
 export const ooc_notes_silicon: Feature<string> = {
-  name: 'Заметки OOC (Синтетик)',
+  name: '(Заметки) Заметки OOC (Синтетик)',
   description: 'То же самое, что и OOC-заметки, но для вашего синтетика!',
   component: FeatureTextInput,
 };
 
 export const custom_species_silicon: Feature<string> = {
-  name: 'Название модели синтетика',
+  name: '(Лор) Название модели синтетика',
   description:
     'Название модуля для вашей компании синтетика, например, «Armadyne Pleasure Model»."',
   component: FeatureShortTextInput,
 };
 
 export const custom_species_lore_silicon: Feature<string> = {
-  name: 'Лор синтетика',
+  name: '(Лор) Лор синтетика',
   description:
     'Расскажите о своем синтетике: его фирме, марке, модели и деталях его создания.',
   component: FeatureTextInput,
 };
 
 export const art_ref: Feature<string> = {
-  name: 'Ссылка на арт',
+  name: '(Арт) Ссылка на арт',
   description:
     'Ссылка на арт, которую другие могут увидеть для вашего персонажа \
     Требуется ссылка, заканчивающаяся на .png, .jpeg или .jpg, начинающаяся на \
@@ -165,7 +165,7 @@ export const art_ref: Feature<string> = {
 };
 
 export const art_ref_nsfw: FeatureToggle = {
-  name: 'Ссылка на арт NSFW',
+  name: '(Арт) Ссылка на арт NSFW',
   description: 'Твоя картинка по ссылке - NSFW?',
   component: CheckboxInput,
 };

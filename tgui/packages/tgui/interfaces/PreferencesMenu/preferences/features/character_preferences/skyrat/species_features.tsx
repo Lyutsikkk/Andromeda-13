@@ -34,50 +34,50 @@ export const feature_mcolor3: Feature<string> = {
 };
 
 export const flavor_text: Feature<string> = {
-  name: 'Описание аромата',
+  name: '(Описание) Описание внешности',
   description:
     'Появляется при осмотре персонажа (но только если его можно опознать - попробуйте надеть противогаз).',
   component: FeatureTextInput,
 };
 
 export const silicon_flavor_text: Feature<string> = {
-  name: 'Описание аромата синта',
+  name: '(Описание) Описание внешности синта',
   description: 'Появляется, только если вы играете за борга/ИИ',
   component: FeatureTextInput,
 };
 
 export const ooc_notes: Feature<string> = {
-  name: 'OOC заметки',
+  name: '(Заметки) OOC заметки',
   component: FeatureTextInput,
 };
 
 export const custom_species: Feature<string> = {
-  name: 'Пользовательское название вида(расы)',
+  name: '(Лор) Пользовательское название вида(расы)',
   description:
     'Появляется при осмотре. Если оставить это поле пустым, вы будете использовать название вида(расы) по умолчанию (например, человек, ящерица).',
   component: FeatureShortTextInput,
 };
 
 export const custom_species_lore: Feature<string> = {
-  name: 'Пользовательская история вида(расы)',
+  name: '(Лор) Пользовательская история вида(расы)',
   description: 'Не отображается, если нет пользовательских видов.',
   component: FeatureTextInput,
 };
 
 export const custom_taste: Feature<string> = {
-  name: 'Вкус персонажа',
+  name: '(Описание) Вкус персонажа',
   description: 'Как ваш персонаж чувствует вкус, если его кто-то облизывает.',
   component: FeatureShortTextInput,
 };
 
 export const custom_smell: Feature<string> = {
-  name: 'Запах персонажа',
+  name: '(Описание) Запах персонажа',
   description: 'Как будет пахнуть ваш персонаж, если кто-то его понюхает.',
   component: FeatureShortTextInput,
 };
 
 export const general_record: Feature<string> = {
-  name: 'Записи - Общие',
+  name: '(Записи) Записи - Общие',
   description:
     'Просмотр возможен при любом доступе к записям. \
     Для общего просмотра - такие вещи, как занятость, квалификация и т.д.',
@@ -85,7 +85,7 @@ export const general_record: Feature<string> = {
 };
 
 export const security_record: Feature<string> = {
-  name: 'Записи - Безопасность',
+  name: '(Записи) Записи - Безопасность',
   description:
     'Просмотр доступен при наличии доступа. \
   Для судимостей, истории арестов и тому подобных вещей.',
@@ -93,7 +93,7 @@ export const security_record: Feature<string> = {
 };
 
 export const medical_record: Feature<string> = {
-  name: 'Записи - Медицинская',
+  name: '(Записи) Записи - Медицинская',
   description:
     'Просмотр доступен при наличии медицинского доступа. \
   Для таких вещей, как история болезни, рецепты, приказы DNR и т.д.',
@@ -101,7 +101,7 @@ export const medical_record: Feature<string> = {
 };
 
 export const exploitable_info: Feature<string> = {
-  name: 'Записи - Антагам',
+  name: '(Записи) Записи - Антагам',
   description:
     'Может быть IC или OOC. Доступно для просмотра некоторым антагонистам/OPFOR пользователям, а также призракам. Обычно содержит \
   такие вещи, как слабые и сильные стороны, важную предысторию, триггерные слова и т.д. А ТАКЖЕ может содержать такие вещи,\
@@ -110,7 +110,7 @@ export const exploitable_info: Feature<string> = {
 };
 
 export const background_info: Feature<string> = {
-  name: 'Записи - Биография',
+  name: '(Записи) Записи - Биография',
   description:
     'Доступно только вам и призракам. Вы можете разместить здесь все, что захотите - это может быть ценно как способ сориентироваться в том, что представляет собой ваш персонаж.',
   component: FeatureTextInput,

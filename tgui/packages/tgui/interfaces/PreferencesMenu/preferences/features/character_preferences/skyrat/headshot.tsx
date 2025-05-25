@@ -2,7 +2,7 @@
 import { Feature, FeatureShortTextInput } from '../../base';
 
 export const headshot: Feature<string> = {
-  name: 'Аватар',
+  name: '(Арт) Аватар',
   description:
     'Требуется ссылка, заканчивающаяся на .png, .jpeg или .jpg, начинающаяся с \
     https://, и размещенная на Catbox, Imgbox, Gyazo, Lensdump или F-List. \

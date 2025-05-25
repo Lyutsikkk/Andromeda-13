@@ -18,7 +18,7 @@ type CharacterPrefsInfo = {
 };
 
 const getPrefIcon = (value: string) => {
-  if (value === 'Ask (L)OOC' || value === 'Check OOC Notes') {
+  if (value === 'Ask (L)OOC' || value === 'Проверьте OOC заметки') {
     return 'question';
   }
   if (value === 'No') {
@@ -28,7 +28,7 @@ const getPrefIcon = (value: string) => {
 };
 
 const getPrefColor = (value: string) => {
-  if (value === 'Ask (L)OOC' || value === 'Check OOC Notes') {
+  if (value === 'Ask (L)OOC' || value === 'Проверьте OOC заметки') {
     return 'yellow';
   }
   if (value === 'No') {

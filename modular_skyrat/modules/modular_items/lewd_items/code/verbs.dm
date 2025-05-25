@@ -73,7 +73,7 @@
 	return TRUE
 
 /mob/living/carbon/human/verb/lick(mob/living/carbon/human/target in get_adjacent_humans())
-	set name = "(ЕРП)Лизать"
+	set name = "Лизать"
 	set category = "IC"
 
 	if(!istype(target))
@@ -88,7 +88,7 @@
 	to_chat(target, span_notice("[src] облизывает тебя."))
 
 /mob/living/carbon/human/verb/smell(mob/living/carbon/human/target in get_adjacent_humans())
-	set name = "(ЕРП)Понюхать"
+	set name = "Понюхать"
 	set category = "IC"
 
 	if(!istype(target))

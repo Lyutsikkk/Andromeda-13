@@ -209,7 +209,7 @@ export const body_size: FeatureNumeric = {
 };
 
 export const erp_status_pref: FeatureChoiced = {
-  name: 'Статус ЕРП',
+  name: '(ЕРП) Статус ЕРП',
   description:
     'Все предпочтения по статусу ЕРП являются лишь маркерами для других игроков \
   о ваших предпочтениях в отношении различных широких категорий ЕРП. Выбрав «нет», вы практически изолируете себя от \
@@ -218,21 +218,21 @@ export const erp_status_pref: FeatureChoiced = {
 };
 
 export const erp_status_pref_nc: FeatureChoiced = {
-  name: 'Статус ЕРП Non-Con (изнасилование)',
+  name: '(ЕРП) Статус ЕРП Non-Con (изнасилование)',
   component: FeatureDropdownInput,
 };
 
 export const erp_status_pref_v: FeatureChoiced = {
-  name: 'Статус ЕРП воре',
+  name: '(ЕРП) Статус ЕРП воре',
   component: FeatureDropdownInput,
 };
 
 export const erp_status_pref_hypnosis: FeatureChoiced = {
-  name: 'Статус ЕРП гипноза',
+  name: '(ЕРП) Статус ЕРП гипноза',
   component: FeatureDropdownInput,
 };
 
 export const erp_status_pref_mechanics: FeatureChoiced = {
-  name: 'Статус ЕРП механа',
+  name: '(ЕРП) Статус ЕРП механа',
   component: FeatureDropdownInput,
 };

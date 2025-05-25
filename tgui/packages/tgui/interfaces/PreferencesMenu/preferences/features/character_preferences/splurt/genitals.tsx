@@ -110,29 +110,29 @@ export const belly_emissive: Feature<boolean[]> = {
 };
 
 export const erp_status_pref_extm: FeatureChoiced = {
-  name: 'Экстремальное ЕРП',
+  name: '(ЕРП) Экстремальное ЕРП',
   component: FeatureDropdownInput,
 };
 
 export const erp_status_pref_extmharm: FeatureChoiced = {
-  name: 'Максимально экстремальное ЕРП',
+  name: '(ЕРП) Максимально экстремальное ЕРП',
   component: FeatureDropdownInput,
 };
 
 export const erp_status_pref_unholy: FeatureChoiced = {
-  name: 'Грязное ЕРП',
+  name: '(ЕРП) Грязное ЕРП',
   component: FeatureDropdownInput,
 };
 
 export const erp_lust_tolerance_pref: FeatureNumeric = {
-  name: 'Множитель толерантности к похоти',
+  name: '(ЕРП-МЕХАН) Множитель толерантности к похоти',
   description:
     'Установите множитель толерантности похоти. \n(0.5 = половинная толерантность, 2 = двойная толерантность)',
   component: FeatureNumberInput,
 };
 
 export const erp_sexual_potency_pref: FeatureNumeric = {
-  name: 'Множитель сексуальной потенции',
+  name: '(ЕРП-МЕХАН) Множитель сексуальной потенции',
   description:
     'Установите множитель сексуальной потенции. \n(0.5 = половина потенции, 2 = двойная потенция)',
   component: FeatureNumberInput,

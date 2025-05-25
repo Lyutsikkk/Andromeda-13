@@ -3,6 +3,6 @@ import { Feature } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
 
 export const loadout_override_preference: Feature<string> = {
-  name: 'Предпочтения предметов лодаута',
+  name: '(ПЕРСОНАЖ) Предпочтения предметов лодаута',
   component: FeatureDropdownInput,
 };

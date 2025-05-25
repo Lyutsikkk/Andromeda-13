@@ -3,6 +3,6 @@ import { FeatureChoiced } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
 
 export const character_laugh: FeatureChoiced = {
-  name: 'Смех персонажа',
+  name: '(Голос) Смех персонажа',
   component: FeatureDropdownInput,
 };
