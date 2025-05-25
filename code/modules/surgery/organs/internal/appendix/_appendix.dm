@@ -50,7 +50,7 @@
 	if(isnull(owner.client))
 		return
 	notify_ghosts(
-		"У [owner] развился спонтанный аппендицит!",
+		"У [owner.real_name] развился спонтанный аппендицит!",
 		source = owner,
 		header = "Ухх, больно!",
 	)

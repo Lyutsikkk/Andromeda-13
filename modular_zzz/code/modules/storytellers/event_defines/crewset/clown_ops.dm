@@ -6,7 +6,7 @@
 	antag_datum = /datum/antagonist/nukeop/clownop
 	antag_leader_datum = /datum/antagonist/nukeop/leader/clownop
 
-	weight = 0
+	weight = 1
 	tags = list(TAG_CREW_ANTAG, TAG_CHAOTIC, TAG_MEDIUM)
 
 	base_antags = 2
@@ -36,4 +36,3 @@
 	for(var/obj/machinery/nuclearbomb/syndicate/nuke as anything in nukes)
 		new /obj/machinery/nuclearbomb/syndicate/bananium(nuke.loc)
 		qdel(nuke)
-

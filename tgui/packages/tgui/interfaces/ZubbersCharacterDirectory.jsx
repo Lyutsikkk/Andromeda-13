@@ -182,7 +182,7 @@ const CharacterDirectoryList = (props) => {
     >
       <Input
         placeholder="Поиск по имени..."
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={setSearchTerm}
         value={searchTerm}
         mb={2}
       />

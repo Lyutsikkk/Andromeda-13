@@ -74,7 +74,7 @@ export const MainContent = () => {
                           ? 'Поиск предмета'
                           : 'Поиск недоступен для этой вкладки'
                 }
-                onInput={(e, value) => setSearchText(value)}
+                onChange={(value) => setSearchText(value)}
               />
             </Stack.Item>
             {tabIndex === 0 && (

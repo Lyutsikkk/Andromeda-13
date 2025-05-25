@@ -1,0 +1,1 @@
+#define INIT_ORDER_FAIL2TOPIC		100.5

@@ -7,7 +7,7 @@
 	for(var/candidate in candidates_tickets)
 		var/candidate_weight = candidates_tickets[candidate]
 		total_tickets += candidate_weight
-	var/average_tickets = round(total_tickets / length(candidates_tickets),1)
+	var/average_tickets = round(total_tickets / max(length(candidates_tickets), 1),1)
 
 	for(var/i in 1 to antag_count)
 		if(!length(candidates_tickets)) //All out of options.

@@ -16,22 +16,22 @@
 
 	nuke_chat()
 
-	// Failed to fix, using tgalert as fallback
-	action = tgalert(src, "Это сработало?", "", "Да", "Нет, переключитесь на старый интерфейс")
+	// Failed to fix, using tg_alert as fallback
+	action = tg_alert(src, "Это сработало?", "", "Да", "Нет, переключитесь на старый интерфейс")
 	if (action == "No, switch to old ui")
-		winset(src, "legacy_output_selector", "left=output_legacy")
+		winset(src, "output_selector.legacy_output_selector", "left=output_legacy")
 		log_tgui(src, "Failed to fix.", context = "verb/fix_tgui_panel")
 
 /client/proc/nuke_chat()
 	// Catch all solution (kick the whole thing in the pants)
-	winset(src, "legacy_output_selector", "left=output_legacy")
+	winset(src, "output_selector.legacy_output_selector", "left=output_legacy")
 	if(!tgui_panel || !istype(tgui_panel))
 		log_tgui(src, "tgui_panel datum is missing",
 			context = "verb/fix_tgui_panel")
 		tgui_panel = new(src)
 	tgui_panel.initialize(force = TRUE)
 	// Force show the panel to see if there are any errors
-	winset(src, "legacy_output_selector", "left=output_browser")
+	winset(src, "output_selector.legacy_output_selector", "left=output_browser")
 
 /client/verb/refresh_tgui()
 	set name = "Обновить интерфейс"

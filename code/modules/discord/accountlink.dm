@@ -42,7 +42,8 @@
 	//SPLURT EDIT - Notify if they must stay in our discord server
 	if(CONFIG_GET(flag/forced_discord_stay))
 		message += span_warning("Помните, что для получения верификации вы ДОЛЖНЫ оставаться на сервере discord")
-	var/datum/browser/window = new/datum/browser(usr, "discordverification", "Верификация в Дискорде")
+	//SPLURT EDIT END
+	var/datum/browser/window = new /datum/browser(usr, "discordverification", "Верификация в Дискорде")
 	window.set_content("<div>[message]</div>")
 	window.open()
 

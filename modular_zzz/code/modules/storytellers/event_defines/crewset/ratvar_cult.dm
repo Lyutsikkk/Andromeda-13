@@ -9,7 +9,6 @@
 
 	maximum_antags_global = 5
 
-	track = EVENT_TRACK_CREWSET
 	tags = list(TAG_COMBAT, TAG_SPOOKY, TAG_CREW_ANTAG, TAG_MEDIUM)
 
 /datum/round_event_control/antagonist/solo/clock_cult/midround

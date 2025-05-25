@@ -1,7 +1,6 @@
 GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 	GLOB.arcade_prize_pool = 150,
 	/obj/item/relic = 100,
-	/obj/item/air_refresher = 25,
 	list(
 		/obj/item/storage/backpack = 200,
 		/obj/item/storage/backpack/duffelbag = 100,
@@ -438,18 +437,6 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/storage/fancy/cigarettes/dromedaryco = 25,
 		/obj/item/storage/fancy/cigarettes/khi = 25
 	) = 100,
-	list(
-		/obj/item/perfume/amber = 1,
-		/obj/item/perfume/cherry = 1,
-		/obj/item/perfume/cologne = 1,
-		/obj/item/perfume/jasmine = 1,
-		/obj/item/perfume/mint = 1,
-		/obj/item/perfume/pear = 1,
-		/obj/item/perfume/rose = 1,
-		/obj/item/perfume/strawberry = 1,
-		/obj/item/perfume/vanilla = 1,
-		/obj/item/perfume/wood = 1
-	) = 25,
 	list(
 		/obj/item/assembly/health = 25,
 		/obj/item/assembly/igniter = 100,
@@ -974,6 +961,9 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/reagent_containers/applicator/pill/maintenance/achievement = 200,
 		/obj/item/reagent_containers/applicator/pill/nanite_slurry = 5,
 		/obj/item/reagent_containers/applicator/pill/zoom = 5,
+		/obj/item/reagent_containers/applicator/pill/zvezdochka = 150,  // MOON ADD
+		/obj/item/reagent_containers/applicator/pill/labebium = 150,  // MOON ADD
+		/obj/item/reagent_containers/applicator/pill/pendosovka = 150,  // MOON ADD
 		/obj/item/reagent_containers/syringe/contraband/bath_salts = 1,
 		/obj/item/reagent_containers/syringe/contraband/fentanyl = 1,
 		/obj/item/reagent_containers/syringe/contraband/krokodil = 1,

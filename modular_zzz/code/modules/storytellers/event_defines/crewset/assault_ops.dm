@@ -8,7 +8,7 @@
 // 	name = "Assault Operatives"
 // 	roundstart = TRUE
 
-// 	antag_flag = ROLE_OPERATIVE
+// 	antag_flag = ROLE_ASSAULT_OPERATIVE
 // 	antag_datum = /datum/antagonist/assault_operative
 
 // 	weight = 0
@@ -19,8 +19,6 @@
 // 	maximum_antags_global = 5
 
 // 	typepath = /datum/round_event/antagonist/team/assault_nukie
-
-// 	ruleset_lazy_templates = list(LAZY_TEMPLATE_KEY_NUKIEBASE)
 
 // /datum/round_event/antagonist/team/assault_nukie
 // 	var/datum/job/job_type = /datum/job/assault_operative

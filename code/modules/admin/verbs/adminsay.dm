@@ -16,6 +16,8 @@ ADMIN_VERB(cmd_admin_say, R_NONE, "ASay", "Send a message to other admins", ADMI
 				window_flash(iter_admin_client)
 				SEND_SOUND(iter_admin_client.mob, sound('sound/misc/asay_ping.ogg'))
 
+	GLOB.bot_asay_sending_que += list(list("author" = user.ckey, "message" = message, "rank" = join_admin_ranks(user.holder.ranks)))
+
 	user.mob.log_talk(message, LOG_ASAY)
 	message = keywords_lookup(message)
 	send_asay_to_other_server(user.ckey, message) //SKYRAT EDIT ADDITION

@@ -74,6 +74,15 @@
 		note_severity = input("Set the severity of the note.", "Severity", null, null) as null|anything in list("High", "Medium", "Minor", "None")
 		if(!note_severity)
 			return
+		if(!secret)
+			GLOB.bot_event_sending_que += list(list(
+				"type" = "notes",
+				"player" = target_ckey,
+				"admin_ckey" = admin_ckey,
+				"text" = text,
+				"timestamp" = timestamp,
+				"round" = GLOB.round_id
+			))
 	var/list/parameters = list(
 		"type" = type,
 		"target_ckey" = target_ckey,

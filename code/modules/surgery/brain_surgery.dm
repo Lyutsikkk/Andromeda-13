@@ -12,7 +12,7 @@
 
 /datum/surgery/brain_surgery/mechanic
 	name = "Диагностика Wetware OS"
-	requires_bodypart_type = BODYTYPE_ROBOTIC
+	requires_bodypart_type = BODYTYPE_ROBOTIC | BODYTYPE_NANO
 	possible_locs = list(BODY_ZONE_HEAD)
 	steps = list(
 		/datum/surgery_step/mechanic_open,

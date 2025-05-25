@@ -24,7 +24,6 @@
 
 	return TRUE
 
-
 /mob/living/verb/shift_layer_down()
 	set name = "Смещение слоя вниз"
 	set category = "IC"

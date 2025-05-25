@@ -683,6 +683,19 @@
 			"who" = who,
 			"adminwho" = adminwho
 		))
+
+	GLOB.bot_event_sending_que += list(list(
+		"type" = "ban_a",
+		"title" = isnull(duration) ? "Пермаментная Блокировка" : "Блокировка",
+		"player" = player_ckey,
+		"admin" = admin_ckey,
+		"reason" = reason,
+		"banduration" = duration,
+		"bantimestamp" = ISOtime(),
+		"round" = GLOB.round_id,
+		"additional_info" = list("ban_job" = roles_to_ban ? roles_to_ban.Join(", ") : null)
+	))
+
 	if(!SSdbcore.MassInsert(format_table_name("ban"), sql_ban, warn = TRUE, special_columns = special_columns))
 		return
 	var/target = ban_target_string(player_key, player_ip, player_cid)
@@ -887,6 +900,13 @@
 		qdel(query_unban)
 		return
 	qdel(query_unban)
+	GLOB.bot_event_sending_que += list(list(
+		"type" = "unban_a",
+		"title" = "Разбан",
+		"player" = player_key,
+		"admin" = admin_key,
+		"round" = GLOB.round_id,
+	))
 	log_admin_private("[kn] has unbanned [target] from [role].")
 	message_admins("[kna] has unbanned [target] from [role].")
 	var/client/C = GLOB.directory[player_key]

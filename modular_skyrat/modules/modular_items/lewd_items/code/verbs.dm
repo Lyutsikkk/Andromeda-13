@@ -52,7 +52,7 @@
 	set name = "Безопасные слова OOC"
 	set category = "OOC"
 	set desc = "Удаляет с вас все непристойные слова."
-
+	SEND_SIGNAL(src, COMSIG_OOC_ESCAPE)
 	log_message("[key_name(src)] использовал Безопасные слова OOC.", LOG_ATTACK)
 	for(var/obj/item/equipped_item in get_equipped_items())
 		if(!(equipped_item.type in GLOB.pref_checked_clothes))

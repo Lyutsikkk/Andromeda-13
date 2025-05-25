@@ -149,7 +149,6 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 		/obj/item/storage/box/papersack/meat = 200,
 		/obj/item/storage/box/party_poppers = 75,
 		/obj/item/storage/box/pdas = 25,
-		/obj/item/storage/box/perfume = 25,
 		/obj/item/storage/box/petridish = 75,
 		/obj/item/storage/box/pillbottles = 100,
 		/obj/item/storage/box/pinpointer_pairs = 1,
@@ -585,7 +584,10 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 		/obj/item/storage/pill_bottle/liquid_solder = 20,
 		/obj/item/storage/pill_bottle/liquid_solder/braintumor = 20,
 		/obj/item/storage/pill_bottle/nanite_slurry = 20,
-		/obj/item/storage/pill_bottle/system_cleaner = 20
+		/obj/item/storage/pill_bottle/system_cleaner = 20,
+		/obj/item/storage/pill_bottle/labebium = 50, // MOON ADD
+		/obj/item/storage/pill_bottle/zvezdochka = 50, // MOON ADD
+		/obj/item/storage/pill_bottle/pendosovka = 50 // MOON ADD
 	) = 40,
 	list(
 		/obj/item/storage/lunchbox = 100,

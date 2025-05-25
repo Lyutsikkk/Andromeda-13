@@ -10,6 +10,7 @@
 	description = "Накормить своего партнера своей грудью. (Это заводит, Немного приятно)"
 	user_required_parts = list(ORGAN_SLOT_BREASTS = REQUIRE_GENITAL_EXPOSED)
 	interaction_requires = list(INTERACTION_REQUIRE_TARGET_MOUTH, INTERACTION_REQUIRE_SELF_HUMAN)
+	additional_details = list(INTERACTION_MAY_CONTAIN_DRINK)
 	message = list(
 		"Прижимает свои груди ко рту %TARGET%, выплескивая свои теплые %MILK% прямо в рот.",
 		"Наполняет рот %TARGET% теплым и сладким %MILK% пока грудь сжата.",

@@ -19,7 +19,7 @@
 	description = "Уйти в призраки"
 	keybind_signal = COMSIG_KB_ADMIN_AGHOST_DOWN
 
-/datum/keybinding/admin/admin_ghost/down(client/user)
+/datum/keybinding/admin/admin_ghost/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return
@@ -33,7 +33,7 @@
 	description = "Открывает новую панель игрока"
 	keybind_signal = COMSIG_KB_ADMIN_PLAYERPANELNEW_DOWN
 
-/datum/keybinding/admin/player_panel_new/down(client/user)
+/datum/keybinding/admin/player_panel_new/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return
@@ -47,7 +47,7 @@
 	description = "Включает режим строительства"
 	keybind_signal = COMSIG_KB_ADMIN_TOGGLEBUILDMODE_DOWN
 
-/datum/keybinding/admin/toggle_buildmode_self/down(client/user)
+/datum/keybinding/admin/toggle_buildmode_self/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return
@@ -61,7 +61,7 @@
 	description = "Включает скрытный режим"
 	keybind_signal = COMSIG_KB_ADMIN_STEALTHMODETOGGLE_DOWN
 
-/datum/keybinding/admin/stealthmode/down(client/user)
+/datum/keybinding/admin/stealthmode/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return
@@ -75,7 +75,7 @@
 	description = "Включает невидимость, как у призраков (Не абузьте этим)"
 	keybind_signal = COMSIG_KB_ADMIN_INVISIMINTOGGLE_DOWN
 
-/datum/keybinding/admin/invisimin/down(client/user)
+/datum/keybinding/admin/invisimin/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return
@@ -89,7 +89,7 @@
 	description = "Отправляет сообщение в чат мертвых"
 	keybind_signal = COMSIG_KB_ADMIN_DSAY_DOWN
 
-/datum/keybinding/admin/deadsay/down(client/user)
+/datum/keybinding/admin/deadsay/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return
@@ -103,7 +103,7 @@
 	description = "Избавтесь от своих админских сил"
 	keybind_signal = COMSIG_KB_ADMIN_DEADMIN_DOWN
 
-/datum/keybinding/admin/deadmin/down(client/user)
+/datum/keybinding/admin/deadmin/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return
@@ -117,7 +117,7 @@
 	description = "Верните свои админские силы"
 	keybind_signal = COMSIG_KB_ADMIN_READMIN_DOWN
 
-/datum/keybinding/admin/readmin/down(client/user)
+/datum/keybinding/admin/readmin/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return
@@ -131,7 +131,7 @@
 	description = "Открывает меню View-Tags"
 	keybind_signal = COMSIG_KB_ADMIN_VIEWTAGS_DOWN
 
-/datum/keybinding/admin/view_tags/down(client/user)
+/datum/keybinding/admin/view_tags/down(client/user, turf/target)
 	. = ..()
 	if(.)
 		return

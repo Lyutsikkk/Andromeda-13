@@ -6,6 +6,7 @@
 	description = "Посасывайте чьи-нибудь сосочки. (Это заводит, Немного приятно)"
 	interaction_requires = list(INTERACTION_REQUIRE_SELF_MOUTH)
 	target_required_parts = list(ORGAN_SLOT_BREASTS = REQUIRE_GENITAL_EXPOSED)
+	additional_details = list(INTERACTION_MAY_CONTAIN_DRINK)
 	message = list(
 		"Нежно посасывает сосочек на груди %TARGET%.",
 		"Плавно и спокойно посасывает титьку %TARGET%.",

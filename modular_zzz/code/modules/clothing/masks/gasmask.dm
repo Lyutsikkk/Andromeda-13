@@ -54,3 +54,8 @@
 	name = "M1062-B"
 	desc = "Standard military gas mask of the Yekitezh Army, except this one optimized with glowing red lenses and black coverage for 'tactical' issues."
 	icon_state = "m1062b"
+
+/obj/item/clothing/mask/gas/syndicate/cool_version/judas_version
+	name = "Andromeda Mask"
+	desc = "A close-fitting tactical mask used by shark-like species. It has moderate protection against ballistic damage and a flap for closed breathing."
+	icon_state = "akula_mask"

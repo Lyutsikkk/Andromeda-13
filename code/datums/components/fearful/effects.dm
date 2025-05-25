@@ -78,9 +78,7 @@
 		span_alert("Тени начинают подкрадываться из уголков вашего зрения, а затем ничего нет..."),
 		span_hear("Вы слышите, как что-то тяжелое ударяется о землю."),
 	)
-	var/datum/disease/heart_failure/heart_attack = new(src)
-	heart_attack.stage_prob = 2 //Advances twice as fast
-	owner.ForceContractDisease(heart_attack)
+	owner.apply_status_effect(/datum/status_effect/heart_attack)
 	owner.Unconscious(20 SECONDS)
 
 /// Low chance to vomit when terrified, increases significantly during panic attacks

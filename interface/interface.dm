@@ -70,9 +70,9 @@
 		message += "<br>Следующие экспериментальные изменения активны и, вероятно, являются причиной любых новых или внезапных проблем, с которыми вы можете столкнуться. Если возможно, постарайтесь найти конкретную тему для вашей проблемы, а не писать в общий трекер проблем:<br>"
 		message += GLOB.revdata.GetTestMergeInfo(FALSE)
 
-	// We still use tgalert here because some people were concerned that if someone wanted to report that tgui wasn't working
+	// We still use tg_alert here because some people were concerned that if someone wanted to report that tgui wasn't working
 	// then the report issue button being tgui-based would be problematic.
-	if(tgalert(src, message, "Сообщить о проблеме","Да","Нет") != "Да")
+	if(tg_alert(src, message, "Сообщить о проблеме", "Да", "Нет") != "Да")
 		return
 
 	var/base_link = githuburl + "/issues/new?template=bug_report_form.yml"
@@ -91,9 +91,9 @@
 		for(var/entry in testmerge_data)
 			var/datum/tgs_revision_information/test_merge/tm = entry
 			all_tms += "- \[[tm.title]\]([githuburl]/pull/[tm.number])"
-		var/all_tms_joined = jointext(all_tms, "%0A") // %0A is a newline for URL encoding because i don't trust \n to not break
+		var/all_tms_joined = jointext(all_tms, "\n")
 
-		concatable += ("&test-merges=" + all_tms_joined)
+		concatable += ("&test-merges=" + url_encode(all_tms_joined))
 
 	DIRECT_OUTPUT(src, link(jointext(concatable, "")))
 
@@ -108,7 +108,7 @@
 	if(prefs.lastchangelog != GLOB.changelog_hash)
 		prefs.lastchangelog = GLOB.changelog_hash
 		prefs.save_preferences()
-		winset(src, "infowindow.changelog", "font-style=;")
+		winset(src, "infobuttons.changelog", "font-style=;")
 
 /client/verb/hotkeys_help()
 	set name = "Хоткеи"

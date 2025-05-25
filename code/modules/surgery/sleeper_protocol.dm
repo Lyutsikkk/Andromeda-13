@@ -23,7 +23,7 @@
 /datum/surgery/advanced/brainwashing_sleeper/mechanic
 	name = "Sleeper Agent Reprogramming"
 	desc = "Программное обеспечение, которое напрямую имплантирует протокол спящего агента в операционную систему роботизированного пациента и делает его абсолютным приоритетом. Протокол можно очистить с помощью импланта защиты разума."
-	requires_bodypart_type = BODYTYPE_ROBOTIC
+	requires_bodypart_type = BODYTYPE_ROBOTIC | BODYTYPE_NANO
 	steps = list(
 		/datum/surgery_step/mechanic_open,
 		/datum/surgery_step/open_hatch,

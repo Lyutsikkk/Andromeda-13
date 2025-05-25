@@ -60,24 +60,16 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 
 /datum/job/security_officer/after_roundstart_spawn(mob/living/spawning, client/player_client)
 	. = ..()
-	//SKYRAT EDIT REMOVAL
-	/*
 	if(ishuman(spawning))
 		setup_department(spawning, player_client)
-	*/
-	//SKYRAT EDIT END
 
 
 /datum/job/security_officer/after_latejoin_spawn(mob/living/spawning)
 	. = ..()
-	//SKYRAT EDIT REMOVAL
-	/*
 	if(ishuman(spawning))
 		var/department = setup_department(spawning, spawning.client)
 		if(department)
 			announce_latejoin(spawning, department, GLOB.security_officer_distribution)
-	*/
-	//SKYRAT EDIT END
 
 
 /// Returns the department this mob was assigned to, if any.
@@ -135,7 +127,7 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 		var/obj/item/modular_computer/pda/pda = spawning.get_item_by_slot(ITEM_SLOT_BELT)
 		var/assignment = worn_id.get_trim_assignment()
 		if(istype(pda) && !isnull(assignment))
-			pda.imprint_id(spawning.real_name, assignment, worn_id)
+			pda.imprint_id(spawning.real_name, assignment)
 
 	var/spawn_point = pick(LAZYACCESS(GLOB.department_security_spawns, department))
 

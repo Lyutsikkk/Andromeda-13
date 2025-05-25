@@ -110,13 +110,6 @@ export const sound_achievement: FeatureChoiced = {
   component: FeatureDropdownInput,
 };
 
-export const sound_radio_noise: Feature<number> = {
-  name: 'Громкость оповещения рации',
-  category: 'ЗВУК',
-  description: `Громкость оповещений, когда в рацию кто-то говорит.`,
-  component: FeatureSliderInput,
-};
-
 export const sound_ai_vox: Feature<number> = {
   name: 'Громкость оповещения VOX ИИ',
   category: 'ЗВУК',
