@@ -135,9 +135,9 @@
 		var/repeal = (authorized.len < old_len)
 		var/remaining = max(0, auth_need - authorized.len)
 		if(authorized.len && remaining)
-			minor_announce("[remaining] authorizations needed until shuttle is launched early", null, alert)
+			minor_announce("[remaining] авторизаций необходимо до раннего запуска шаттла", null, alert)
 		if(repeal)
-			minor_announce("Early launch authorization revoked, [remaining] authorizations needed")
+			minor_announce("Разрешение на ранний запуск отменено, требуются [remaining] авторизаций")
 
 	acted_recently += user
 	SStgui.update_user_uis(user, src)
@@ -154,8 +154,8 @@
 
 	authorized += ID
 
-	message_admins("[ADMIN_LOOKUPFLW(user)] has authorized early shuttle launch")
-	log_shuttle("[key_name(user)] has authorized early shuttle launch in [COORD(src)]")
+	message_admins("[ADMIN_LOOKUPFLW(user)] выполнил ранний запуск шаттлов")
+	log_shuttle("[key_name(user)] выполнил ранний запуск шаттлов на [COORD(src)]")
 	// Now check if we're on our way
 	. = TRUE
 	process(SSMACHINES_DT)

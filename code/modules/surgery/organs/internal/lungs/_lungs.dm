@@ -12,7 +12,7 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY * 0.9 // fails around 16.5 minutes, lungs are one of the last organs to die (of the ones we have)
 
-	low_threshold_passed = span_warning("Вы чувствуете одышку.")
+	low_threshold_passed = span_warning("Вы чувствуете отдышку.")
 	high_threshold_passed = span_warning("Вы чувствуете какое-то сжатие в груди, дыхание становится поверхностным и учащенным.")
 	now_fixed = span_warning("Кажется, ваши легкие снова способны удерживать воздух.")
 	low_threshold_cleared = span_info("Вы снова можете нормально дышать.")

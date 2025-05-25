@@ -99,9 +99,9 @@
 
 /obj/item/tank/proc/get_status_tab_item(mob/living/source, list/items)
 	SIGNAL_HANDLER
-	items += "Internal Atmosphere Info: [name]"
-	items += "Tank Pressure: [air_contents.return_pressure()] kPa"
-	items += "Distribution Pressure: [distribute_pressure] kPa"
+	items += "Информация о внутренней атмосфере: [name]"
+	items += "Давление в резервуаре: [air_contents.return_pressure()] кПа"
+	items += "Давление в распределителе: [distribute_pressure] кПа"
 
 /// Attempts to toggle the mob's internals on or off using this tank. Returns TRUE if successful.
 /obj/item/tank/proc/toggle_internals(mob/living/carbon/mob_target)

@@ -290,7 +290,7 @@
 		ui_reaction_index = index
 	var/list/sub_reactions = get_recipe_from_reagent_product(path)
 	if(!length(sub_reactions))
-		to_chat(usr, "There is no recipe associated with this product.")
+		to_chat(usr, "Для этого продукта не существует рецепта.")
 		return FALSE
 	if(ui_reaction_index > length(sub_reactions))
 		ui_reaction_index = 1
