@@ -2,7 +2,7 @@
 // got its own handling and global lists declarations in the `mentor` module.
 
 /datum/player_rank_controller/mentor
-	rank_title = "mentor"
+	rank_title = "Ментор"
 
 
 /datum/player_rank_controller/mentor/New()

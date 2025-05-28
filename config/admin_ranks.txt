@@ -16,23 +16,23 @@
 #If SQL-based admin loading is enabled, ranks and their keywords listed here will be loaded first and override any with the same name loaded from the database.
 #
 #The following are valid permission keywords:
-#ADMIN = general admin tools, verbs etc.
-#FUN = events, other event-orientated actions. Access to the fun secrets in the secrets panel.
-#BAN = the ability to ban and unban.
-#STEALTH = the ability to stealthmin (make yourself appear with a fake name to everyone but other admins.
-#POSSESS = the ability to possess objects.
-#POLL = the ability to create in game server polls (requires DB).
-#BUILD = the ability to use buildmode.
-#SERVER = the ability to restart the server, change the game mode or force a round to start/end.
-#DEBUG = debug tools used for diagnosing and fixing problems. It's useful to give this to coders so they can investigate problems on a live server.
-#VAREDIT = everyone may view viewvars/debugvars/whatever you call it. This keyword allows you to actually EDIT those variables.
-#PERMISSIONS = allows you to promote and/or demote people.
-#SOUND = allows you to upload and play SOUND.
-#SPAWN = mob transformations, spawning of most atoms including mobs (high-risk atoms, e.g. blackholes, will require the +FUN flag too).
-#AUTOADMIN = admin gains powers upon connect. This defaults to on, you can exclude AUTOADMIN to make a role require using the readmin verb to gain powers (this does not effect the admin's ability to walk past bans or other on-connect limitations like panic bunker or pop limit).
-#DBRANKS = when sql-based admin loading is enabled, allows for non-temporary changes in the permissions panel to be saved (requires DB).
-#EVERYTHING = Simply gives you everything without having to type every flag.
-#@ = special keyword for the current permission type that adds all the keywords that the preceding rank has of the same type.
+#ADMIN = общие инструменты администратора, взаимодействия и т.д.
+#FUN = события, другие действия, ориентированные на события. Доступ к веселым секретам на панели секретов.
+#BAN = возможность банить и разбанивать.
+#STEALTH = способность к стелсмину (заставить себя появляться под вымышленным именем для всех, кроме других администраторов.)
+#POSSESS = способность обладать объектами.
+#POLL = возможность создавать опросы на игровом сервере (требуется БД).
+#BUILD = возможность использовать режим стройки.
+#SERVER = возможность перезапуска сервера, изменения режима игры или принудительного начала/окончания раунда.
+#DEBUG = Инструменты отладки, используемые для диагностики и устранения проблем. Это полезно давать кодерам, чтобы они могли исследовать проблемы на живом сервере.
+#VAREDIT = все могут просматривать viewvars/debugvars/как бы вы их ни называли. Это ключевое слово позволяет вам фактически редактировать эти переменные.
+#PERMISSIONS = позволяет повышать и/или понижать людей в должности.
+#SOUND = позволяет загружать и воспроизводить SOUND.
+#SPAWN = превращения мобов, порождение большинства атомов, включая мобов (атомы с высоким уровнем риска, например, черные дыры, потребуют флаг +FUN).
+#AUTOADMIN = Администратор получает полномочия при подключении. По умолчанию включено, вы можете исключить AUTOADMIN, чтобы роль требовала взаимодействие readmin для получения полномочий (это не влияет на способность администратора обходить запреты или другие ограничения при подключении, такие как бункер паники или поп-лимит).
+#DBRANKS = при включенной загрузке админки на основе sql позволяет сохранять не временные изменения в панели разрешений (требуется БД).
+#EVERYTHING = Просто дает вам все, что нужно, без необходимости вводить каждый флаг.
+#@ = специальное ключевое слово для текущего типа разрешения, которое добавляет все ключевые слова, которые есть у предыдущего ранга того же типа.
 
 Name = Admin Observer
 Include =
@@ -49,37 +49,27 @@ Include = @
 Exclude =
 Edit =
 
-Name = Trial Admin
+Name = Администратор Стажёр
 Include = @ SPAWN VAREDIT BAN
 Exclude =
 Edit =
 
-Name = Badmin
-Include = @ POSSESS POLL BUILD SERVER FUN
-Exclude =
-Edit =
-
-Name = Game Admin
+Name = Администратор
 Include = @ STEALTH SOUND DEBUG
 Exclude =
 Edit =
 
-Name = Game Master
+Name = Старшая Администрация
 Include = EVERYTHING
 Exclude =
 Edit = EVERYTHING
 
-Name = Lazy Master
-Include = EVERYTHING
-Exclude = AUTOADMIN
-Edit = EVERYTHING
-
-Name = Host
+Name = Хост
 Include = EVERYTHING
 Exclude =
 Edit = EVERYTHING
 
-Name = Coder
+Name = Кодер
 Include = DEBUG VAREDIT SERVER SPAWN POLL
 Exclude = AUTOADMIN
 Edit =

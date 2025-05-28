@@ -3,7 +3,7 @@ GLOBAL_LIST_EMPTY(donator_list)
 GLOBAL_PROTECT(donator_list)
 
 /datum/player_rank_controller/donator
-	rank_title = "donator"
+	rank_title = "Спонсор"
 	// Yes, this is incredibly long, deal with it. It's to keep that cute little comment at the top.
 	legacy_file_header = "###############################################################################################\n# List for people who support us! They get cool loadout items                                 #\n# Case is not important for ckey.                                                             #\n###############################################################################################\n"
 

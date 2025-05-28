@@ -4,10 +4,13 @@
 #Ranks will match to those with the same name in admin_ranks.txt, if a match isn't found the user won't be adminned.
 #If SQL-based admin loading is enabled, admins listed here will always be loaded first and will override any duplicate entries in the database.
 
-Rewokin = Host
-MlsKira = Game Admin
-YanNikk = Game Admin
-NIKforest321 = Game Admin
-POPik = Game Admin
-ZiIuyeer = Game Admin
-Saneksotka = Game Admin
+Rewokin = Хост
+
+MlsKira = Старшая Администрация
+YanNikk = Старшая Администрация
+NIKforest321 = Старшая Администрация
+POPik = Старшая Администрация
+ZiIuyeer = Старшая Администрация
+
+Saneksotka = Администратор
+

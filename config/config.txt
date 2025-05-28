@@ -205,7 +205,8 @@ HOSTEDBY Rewokin
 
 ###---Что-то про АЙПИ---
 ## Uncomment this to stop people connecting to your server without a registered ckey. (i.e. guest-* are all blocked from connecting)
-GUEST_BAN
+## Отмените этот параметр, чтобы запретить людям подключаться к вашему серверу без зарегистрированного ключа. (т. е. гостям-* будет запрещено подключаться)
+# GUEST_BAN
 
 ## IPINTEL:
 ## This allows you to detect likely proxies by checking ips against getipintel.net
