@@ -67,7 +67,7 @@ micro-manipulator, console screen, beaker, Microlaser, matter bin, power cells.
 */
 
 /obj/item/circuitboard/machine
-	name_extension = "(Machine Board)"
+	name_extension = "(Машинная плата)"
 	var/needs_anchored = TRUE // Whether this machine must be anchored to be constructed.
 	var/list/req_components // Components required by the machine.
 							// Example: list(/obj/item/stock_parts/matter_bin = 5)
@@ -107,7 +107,7 @@ micro-manipulator, console screen, beaker, Microlaser, matter bin, power cells.
 /obj/item/circuitboard/machine/examine(mob/user)
 	. = ..()
 	if(!LAZYLEN(req_components))
-		. += span_info("It requires no components.")
+		. += span_info("Не требует никаких компонентов.")
 		return
 
 	var/list/nice_list = list()
@@ -144,7 +144,7 @@ micro-manipulator, console screen, beaker, Microlaser, matter bin, power cells.
 
 		//append decoded name to final result
 		if (isnull(component_name))
-			stack_trace("[component_path] was an invalid component")
-		nice_list += list("[component_amount] [component_name]\s")
+			stack_trace("[component_path] недопустимый компонент")
+		nice_list += list("[component_amount] [component_name]")
 
-	. += span_info("It requires [english_list(nice_list)].")
+	. += span_info("Для этого требуется [english_list(nice_list)].")

@@ -160,7 +160,7 @@ GLOBAL_VAR(command_name)
 		if(5)
 			new_station_name += convert_integer_to_words(rand(-1,99), capitalise = TRUE)
 		if(13)
-			new_station_name += pick("13","XIII","Thirteen")
+			new_station_name += pick("13","XIII","Тринадцать")
 		if(999999999)
 			new_station_name += convert_integer_to_words(rand(111111111,999999999), capitalise = TRUE)
 	return new_station_name
@@ -169,7 +169,7 @@ GLOBAL_VAR(command_name)
 	var/name = ""
 
 	// Prefix
-	name += pick("Clandestine", "Prima", "Blue", "Zero-G", "Max", "Blasto", "North", "Omni", "Newton", "Cyber", "Bonk", "Gene", "Gib")
+	name += pick("Подпольный", "Прима", "Синий", "Зиро-Г", "Макс", "Бласто", "Север", "Омни", "Ньютон", "Кибер", "Бонк", "Джин", "Гиб")
 
 	// Suffix
 	if (prob(80))
@@ -177,16 +177,16 @@ GLOBAL_VAR(command_name)
 
 		// Full
 		if (prob(60))
-			name += pick("Syndicate", "Consortium", "Collective", "Corporation", "Group", "Holdings", "Biotech", "Industries", "Systems", "Products", "Chemicals", "Enterprises", "Family", "Creations", "International", "Intergalactic", "Interplanetary", "Foundation", "Positronics", "Hive")
+			name += pick("Синдикат", "Консорциум", "Коллектив", "Корпорация", "Группа", "Холдинги", "Биотехнологии", "Промышленности", "Системы", "Продукция", "Химикаты", "Предприятия", "Семейство", "Творчества", "Международный", "Межгалактический", "Межпланетный", "Фонд", "Позитроника", "Улей")
 		// Broken
 		else
-			name += pick("Syndi", "Corp", "Bio", "System", "Prod", "Chem", "Inter", "Hive")
+			name += pick("Синди", "Корп", "Био", "Систем", "Пром", "Хим", "Межн", "Улей")
 			name += pick("", "-")
-			name += pick("Tech", "Co", "Tek", "X", "Inc", "Code")
+			name += pick("Техн", "Ко", "Тех", "X", "Инк", "Код")
 	// Small
 	else
 		name += pick("-", "*", "")
-		name += pick("Tech", "Co", "Tek", "X", "Inc", "Gen", "Star", "Dyne", "Code", "Hive")
+		name += pick("Техн", "Ко", "Тех", "X", "Инк", "Ген", "Звезда", "Дайн", "Код", "Улей")
 
 	return name
 
@@ -292,10 +292,10 @@ GLOBAL_DATUM(syndicate_code_response_regex, /regex)
 				. += ", "
 
 /proc/odd_organ_name()
-	return "[pick(GLOB.gross_adjectives)], [pick(GLOB.gross_adjectives)] organ"
+	return "[pick(GLOB.gross_adjectives)], [pick(GLOB.gross_adjectives)] орган"
 
 /proc/hive_name()
-	return "[pick(GLOB.hive_names)]-hive"
+	return "[pick(GLOB.hive_names)]-улей"
 
 /**
  * Generate a name devices
@@ -315,7 +315,7 @@ GLOBAL_DATUM(syndicate_code_response_regex, /regex)
 	//All names already used
 	var/static/list/used_names = list()
 
-	var/static/valid_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+	var/static/valid_chars = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзиёклмнопрстуфхцчшщъыьэюя0123456789"
 	var/list/new_name = list()
 	var/text
 	// machine id's should be fun random chars hinting at a larger world
@@ -339,47 +339,47 @@ GLOBAL_DATUM(syndicate_code_response_regex, /regex)
 /proc/tool_behaviour_name(tool_behaviour)
 	switch(tool_behaviour)
 		if(TOOL_CROWBAR)
-			return "a crowbar"
+			return "лом"
 		if(TOOL_MULTITOOL)
-			return "a multitool"
+			return "мультитул"
 		if(TOOL_SCREWDRIVER)
-			return "a screwdriver"
+			return "отвёртка"
 		if(TOOL_WIRECUTTER)
-			return "a pair of wirecutters"
+			return "кусачки"
 		if(TOOL_WRENCH)
-			return "a wrench"
+			return "гаечный ключ"
 		if(TOOL_WELDER)
-			return "a welder"
+			return "сварочный аппарат"
 		if(TOOL_ANALYZER)
 			return "an analyzer tool"
 		if(TOOL_MINING)
-			return "a mining implement"
+			return "горный инструмент"
 		if(TOOL_SHOVEL)
-			return "a digging tool"
+			return "копательный инструмент"
 		if(TOOL_RETRACTOR)
-			return "a retractor"
+			return "ретрактор"
 		if(TOOL_HEMOSTAT)
-			return "something to clamp bleeding"
+			return "что-нибудь, чтобы зажать кровотечение"
 		if(TOOL_CAUTERY)
-			return "a cautery"
+			return "каутеризатор"
 		if(TOOL_DRILL)
-			return "a drilling tool"
+			return "сверлильный инструмент"
 		if(TOOL_SCALPEL)
-			return "a fine cutting tool"
+			return "тонкий режущий инструмент"
 		if(TOOL_SAW)
-			return "a saw"
+			return "пила"
 		if(TOOL_BONESET)
-			return "a bone setter"
+			return "костоправ"
 		if(TOOL_KNIFE)
-			return "a cutting tool"
+			return "режущий инструмент"
 		if(TOOL_BLOODFILTER)
-			return "a blood filter"
+			return "фильтр крови"
 		if(TOOL_ROLLINGPIN)
-			return "a rolling pin"
+			return "скалка"
 		if(TOOL_RUSTSCRAPER)
-			return "a rust scraper"
+			return "скребок для удаления ржавчины"
 		else
-			return "something... but the gods didn't set this up right (Please report this bug)"
+			return "что-то... но боги настроили это неправильно (Пожалуйста, сообщите об этой ошибке)"
 
 ///Find the first name of a mob from a passed string with regex
 /proc/first_name(given_name)

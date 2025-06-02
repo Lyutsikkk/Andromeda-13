@@ -1,11 +1,11 @@
 /obj/item/circuitboard/computer
 	name = "Generic"
-	name_extension = "(Computer Board)"
+	name_extension = "(Компьютерная плата)"
 
 /obj/item/circuitboard/computer/examine()
 	. = ..()
 	if(GetComponent(/datum/component/gps))
-		. += span_info("there's a small, blinking light!")
+		. += span_info("есть маленькая мигающая лампочка!")
 
 //Command
 
