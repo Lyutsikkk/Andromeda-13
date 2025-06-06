@@ -280,9 +280,9 @@
 					// just double check
 					SSmapping.lazy_load_template(LAZY_TEMPLATE_KEY_NUKIEBASE)
 					destination_dock = "emergency_syndicate"
-					minor_announce("Corruption detected in \
-						shuttle navigation protocols. Please contact your \
-						supervisor.", "SYSTEM ERROR:", sound_override = 'sound/announcer/announcement/announce_syndi.ogg')
+					minor_announce("Обнаружен взлом в протоколах \
+						автопилота шаттла. Мы не видим вас на радаре... \
+						весь экипаж, улетевший на шаттле, объявляется потерянным без вести.", "СИСТЕМНАЯ ОШИБКА:", sound_override = 'sound/announcer/announcement/announce_syndi.ogg')
 
 				dock_id(destination_dock)
 				unbolt_all_doors() // BUBBER EDIT ADDITION - Shuttle doors bolt/sounds

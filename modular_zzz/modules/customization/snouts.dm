@@ -50,3 +50,11 @@
 	icon = 'modular_zzz/icons/mob/sprite_accessory/snouts.dmi'
 	icon_state = "acrador_4_alt"
 	has_inner = TRUE
+
+/datum/sprite_accessory/snouts/mouse
+	name = "Mouse (Alt)"
+	icon = 'modular_zzz/icons/mob/sprite_accessory/snouts.dmi'
+	icon_state = "mouse"
+	relevent_layers = list(BODY_FRONT_LAYER, BODY_ADJ_LAYER)
+	color_src = USE_MATRIXED_COLORS
+	has_inner = TRUE

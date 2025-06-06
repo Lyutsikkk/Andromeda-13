@@ -39,3 +39,8 @@
 /datum/sprite_accessory/ears/acrador/short/alt_4
 	name = "Acrador (Short) (Alt 4)"
 	icon_state = "acrador_short_alt_4"
+
+/datum/sprite_accessory/ears/mouse
+	name = "Mouse (Alt)"
+	icon = 'modular_zzz/icons/mob/sprite_accessory/ears.dmi'
+	icon_state = "mouse"

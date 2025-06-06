@@ -21,38 +21,38 @@ SUBSYSTEM_DEF(statpanels)
 	if (!resumed)
 		num_fires++
 		var/datum/map_config/cached = SSmap_vote.next_map_config
-		/* BUBBER EDIT CHANGE BEGIN - Stat Panel - Original:
-		global_data = list(
-			"Map: [SSmapping.current_map?.map_name || "Loading..."]",
-			cached ? "Next Map: [cached.map_name]" : null,
-			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
-			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss", world.timezone)]",
-			"Round Time: [ROUND_TIME()]",
-			"Station Time: [station_time_timestamp()]",
-			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)",
-		)
-		*/
+
+		if(isnull(SSmapping.current_map))
+			global_data = list("Loading")
+		else if(SSmapping.current_map.feedback_link)
+			global_data = list(list("Map: [SSmapping.current_map.map_name]", " (Feedback)", "action=openLink&link=[SSmapping.current_map.feedback_link]"))
+		else
+			global_data = list("Map: [SSmapping.current_map?.map_name]")
+
+		if(SSmapping.current_map?.mapping_url)
+			global_data += list(list("same_line", " | (View in Browser)", "action=openWebMap"))
+
+		if(cached)
+			global_data += "Next Map: [cached.map_name]"
+
+		// BUBBER EDIT ADDITION BEGIN - Extra stat panel info
 		var/real_round_time = world.timeofday - SSticker.real_round_start_time
 		var/active_players = get_active_player_count(alive_check = FALSE, afk_check = TRUE, human_check = FALSE) //This is a list of all active players, including players who are dead
 		var/observing_players = length(GLOB.current_observers_list) //This is a list of all players that started as an observer-- dead and lobby players are not included.
 		var/current_date = "[time2text(world.realtime, "DDD Month DD")], [CURRENT_STATION_YEAR]"
+		// BUBBER EDIT ADDITION END - Extra stat panel info
 
-		global_data = list(
-			"Карта: [SSmapping.current_map?.map_name || "Загрузка..."]",
-			cached ? "Следующая карта: [cached.map_name]" : null,
-			"Рассказчик: [SSgamemode.storyteller ? SSgamemode.storyteller.name : "N/A"]", // BUBBER EDIT ADDITION
+		global_data += list(
 			"ID Раунда: [GLOB.round_id ? GLOB.round_id : "NULL"]",
-			"Подключенные игроки: [GLOB.clients.len] | Активные: [active_players][CONFIG_GET(number/hard_popcap)] | Наблюдают: [observing_players]", //BUBBER EDIT: ACTIVE AND OBSERVING PLAYERS
-			" ",
-			"OOC: [GLOB.ooc_allowed ? "Включенный" : "Выключенный"]",
-			" ",
-			"Серверное время UTC+3 (GMT+3, МСК): [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
-			"Станционное время: [station_time_timestamp(format = "hh:mm")], [current_date]", //BUBBER EDIT: READABLE STATION TIME
-			"Время раунда: [time2text(real_round_time, "hh:mm:ss", 0)]",
-			"Время с начала смены: [time2text(real_round_time, "hh:mm:ss", 0)]",
+			"Подключенные игроки: [GLOB.clients.len] | Активные: [active_players]/[CONFIG_GET(number/hard_popcap)] | Наблюдают: [observing_players]", // BUBBER EDIT ADDITION - Extra stat panel info
+			"OOC: [GLOB.ooc_allowed ? "Включенный" : "Выключенный"]", // BUBBER EDIT ADDITION - Extra stat panel info
+			" ", // BUBBER EDIT ADDITION - Extra stat panel info
+			"Рассказчик: [SSgamemode.storyteller ? SSgamemode.storyteller.name : "N/A"]", // BUBBER EDIT ADDITION - Extra stat panel info
+			"Станционное время: [station_time_timestamp(format = "hh:mm")], [current_date]", // BUBBER EDIT CHANGE - Extra stat panel info - ORIGINAL: "Station Time: [station_time_timestamp()]"
+			"Время раунда: [time2text(real_round_time, "hh:mm:ss", 0)]", // BUBBER EDIT CHANGE - Extra stat panel info - ORIGINAL: "Round Time: [ROUND_TIME()]"
+			"Время с начала смены: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss", world.timezone)]",
 			"Замедление времени: [round(SStime_track.time_dilation_current,1)]% В среднем:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)",
 		)
-		// BUBBER EDIT CHANGE END
 
 		if(SSshuttle.emergency)
 			var/ETA = SSshuttle.emergency.getModeStr()

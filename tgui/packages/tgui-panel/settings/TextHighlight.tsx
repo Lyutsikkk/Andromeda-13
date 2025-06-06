@@ -153,12 +153,11 @@ function TextHighlightSetting(props) {
         <Stack.Item>
           <ColorBox mr={1} color={highlightColor} />
           <Input
-            expensive
             width="5em"
             monospace
             placeholder="#ffffff"
             value={highlightColor}
-            onChange={(value) =>
+            onBlur={(value) =>
               dispatch(
                 updateHighlightSetting({
                   id: id,
@@ -170,12 +169,11 @@ function TextHighlightSetting(props) {
         </Stack.Item>
       </Stack>
       <TextArea
-        expensive
         fluid
         height="3em"
         value={highlightText}
         placeholder="Поставьте здесь слова, которые нужно выделить. Выделяйте термины запятыми, например (термин1, термин2, термин3)"
-        onChange={(value) =>
+        onBlur={(value) =>
           dispatch(
             updateHighlightSetting({
               id: id,

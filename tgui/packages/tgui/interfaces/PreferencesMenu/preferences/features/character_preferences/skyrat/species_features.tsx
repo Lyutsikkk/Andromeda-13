@@ -663,6 +663,13 @@ export const naga_sole: FeatureToggle = {
   component: CheckboxInput,
 };
 
+export const synthetic_taur: FeatureToggle = {
+  name: 'Taur (Synthetic)',
+  description:
+    "If using a taur body, determines if the taur body is synthetic, doesn't apply to taur bodies that are already synthetic.",
+  component: CheckboxInput,
+};
+
 export const xenodorsal_toggle: FeatureToggle = {
   name: '(Отростки) Использовать отростки на спине',
   component: CheckboxInput,
