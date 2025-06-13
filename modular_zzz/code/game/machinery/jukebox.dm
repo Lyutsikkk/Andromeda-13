@@ -63,14 +63,14 @@
 	if(isobserver(user))
 		return ..()
 	if(!anchored)
-		to_chat(user,span_warning("This device must be anchored by a wrench!"))
+		to_chat(user,span_warning("Это устройство должно быть закреплено гаечным ключом!"))
 		return UI_CLOSE
 	if(!allowed(user))
-		to_chat(user,span_warning("Error: Access Denied."))
+		to_chat(user,span_warning("Ошибка: Доступ запрещен."))
 		user.playsound_local(src, 'sound/machines/compiler/compiler-failure.ogg', 25, TRUE)
 		return UI_CLOSE
 	if(!length(music_player.songs))
-		to_chat(user,span_warning("Error: No music tracks have been authorized for your station. Petition Central Command to resolve this issue."))
+		to_chat(user,span_warning("Ошибка: Для вашей станции не было авторизовано ни одной музыкальной композиции. Обратитесь к Центральному Командованию с просьбой решить эту проблему."))
 		user.playsound_local(src, 'sound/machines/compiler/compiler-failure.ogg', 25, TRUE)
 		return UI_CLOSE
 	return ..()
@@ -93,11 +93,11 @@
 		if("toggle")
 			if(isnull(music_player.active_song_sound))
 				if(!COOLDOWN_FINISHED(src, jukebox_song_cd))
-					to_chat(usr, span_warning("Error: The device is still resetting from the last activation, \
-						it will be ready again in [DisplayTimeText(COOLDOWN_TIMELEFT(src, jukebox_song_cd))]."))
+					to_chat(usr, span_warning("Ошибка: Устройство все еще сбрасывает настройки после последней активации, \
+						оно будет готово снова через [DisplayTimeText(COOLDOWN_TIMELEFT(src, jukebox_song_cd))]."))
 					if(COOLDOWN_FINISHED(src, jukebox_error_cd))
 						playsound(src, 'sound/machines/compiler/compiler-failure.ogg', 33, TRUE)
-						COOLDOWN_START(src, jukebox_error_cd, 15 SECONDS)
+						COOLDOWN_START(src, jukebox_error_cd, 0.1 SECONDS)
 					return TRUE
 
 				activate_music()
@@ -114,8 +114,8 @@
 
 			var/selected = params["track"]
 			music_player.queuedplaylist_songnames += selected
-			say("[selected] has been added to the queue.")
-			COOLDOWN_START(src, add_to_queue_cd, 10 DECISECONDS)
+			say("[selected] был добавлен в очередь.")
+			COOLDOWN_START(src, add_to_queue_cd, 0.1 DECISECONDS)
 			return TRUE
 
 		if ("random_song")
@@ -124,7 +124,7 @@
 
 		if("select_track")
 			if(!isnull(music_player.active_song_sound))
-				to_chat(usr, span_warning("Error: You cannot change the song until the current one is over."))
+				to_chat(usr, span_warning("Ошибка: Вы не можете изменить песню, пока не закончится текущая."))
 				return TRUE
 
 			var/datum/track/new_song = music_player.songs[params["track"]]
