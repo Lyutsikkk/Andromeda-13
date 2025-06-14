@@ -533,15 +533,15 @@ MINUTE_CLICK_LIMIT 400
 
 ## Which channels will have a message about a new game starting, message includes the station name.
 ## На каких каналах будет сообщение о начале новой игры, сообщение включает название станции.
-#CHANNEL_ANNOUNCE_NEW_GAME
+CHANNEL_ANNOUNCE_NEW_GAME
 
 ## Which channels will have a message about a new game starting, message includes the round ID of the game that has just ended.
 ## На каких каналах будет сообщение о начале новой игры, сообщение включает в себя ID раунда только что закончившейся игры.
-#CHANNEL_ANNOUNCE_END_GAME
+CHANNEL_ANNOUNCE_END_GAME
 
 ## Ping users who use the `notify` command when a new game starts.
 ## Пингуйте пользователей, использующих команду `notify`, когда начинается новая игра.
-#CHAT_NEW_GAME_NOTIFICATIONS
+# CHAT_NEW_GAME_NOTIFICATIONS
 
 ## Uncomment this flag to validate admin commands from discord by requiring they come from linked discord accounts and that those discord accounts link to a ckey with the right admin permissions.
 ## Снимите этот флаг, чтобы проверять команды администратора из discord, требуя, чтобы они исходили от связанных аккаунтов discord и чтобы эти аккаунты discord были связаны с ckey с правильными правами администратора.

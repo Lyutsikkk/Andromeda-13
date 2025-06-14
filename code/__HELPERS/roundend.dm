@@ -262,7 +262,7 @@ GLOBAL_LIST_INIT(achievements_unlocked, list())
 	*/
 	if(!CONFIG_GET(flag/roundend_embeds)) // SPLURT EDIT - Discord rounded embeds.
 		for(var/channel_tag in CONFIG_GET(str_list/channel_announce_end_game))
-			send2chat("Текущий раунд закончился. Приготовьтесь к сменному репортажу Nanotrasen News Network!", channel_tag)
+			send2chat("Текущий раунд закончился. Приготовьтесь к сменному репортажу новостной сети Нанотразен!", channel_tag)
 			send2chat(send_news_report(), channel_tag)
 	//SKYRAT EDIT - END
 

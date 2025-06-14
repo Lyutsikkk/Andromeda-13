@@ -1278,24 +1278,16 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	if (isnull(cheesy_messages))
 		cheesy_messages = list(
-			"Навсегда один :(",
 			"У меня нет админов онлайн!",
-			"Мне нужны объятия :(",
-			"Мне нужен кто-то на мне :(",
-			"Мне нужен мужчина :(",
-			"Я совсем одна :(",
-			"Я чувствую себя одинокой :(",
-			"Мне так одиноко :(",
-			"Кто-нибудь, обнимите меня :(",
 			"Что случилось? Куда все подевались?",
 			"Куда все подевались?",
 			"Почему меня никто не любит? :(",
 		)
 
 	message_to_send += pick(cheesy_messages)
-	message_to_send += "(Нет администраторов в Сети)"
+	message_to_send += "(Нет администраторов в сети)"
 
-	send2adminchat("Server", jointext(message_to_send, " "))
+	send2adminchat("Сервер", jointext(message_to_send, " "))
 
 /// This grabs the DPI of the user per their skin
 /client/proc/acquire_dpi()
