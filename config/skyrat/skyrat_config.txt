@@ -77,10 +77,10 @@ BLACKOUTPOLICY You remember nothing after you've blacked out and you do not reme
 COMBAT_INDICATOR
 
 ## Role ID for the new game discord ping
-GAME_ALERT_ROLE_ID
+GAME_ALERT_ROLE_ID 1356661166629458071
 
 ## Channel that either has reaction roles or instruction on assigning roles
-ROLE_ASSIGN_CHANNEL_ID
+ROLE_ASSIGN_CHANNEL_ID 1353381014130397224
 
 ##Rockplanet Ruins Budget
 ROCKPLANET_BUDGET 60
