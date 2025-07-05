@@ -530,7 +530,10 @@
 			if(get_malf_status(user))
 				malfvacate()
 		if("reboot")
-			reboot() // BANDASTATION EDIT START - moved code to reboot proc
+			failure_timer = 0
+			force_update = FALSE
+			update_appearance()
+			update()
 		if("emergency_lighting")
 			emergency_lights = !emergency_lights
 			for(var/obj/machinery/light/area_light as anything in get_lights())

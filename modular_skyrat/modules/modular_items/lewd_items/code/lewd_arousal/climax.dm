@@ -103,8 +103,6 @@
 			if(istype(portal, /obj/structure/lewd_portal))
 				buttons += CLIMAX_PORTAL
 
-			var/penis_climax_choice = climax_interaction && !manual ? CLIMAX_IN_OR_ON : tgui_alert(src, "Choose where to shoot your load.", "Load preference!", buttons) //SPLURT EDIT CHANGE - Interactions
-
 			var/create_cum_decal = FALSE
 
 			if(!penis_climax_choice || penis_climax_choice == CLIMAX_ON_FLOOR)
