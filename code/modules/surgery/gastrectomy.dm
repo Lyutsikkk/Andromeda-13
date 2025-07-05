@@ -16,7 +16,7 @@
 
 /datum/surgery/gastrectomy/mechanic
 	name = "Диагностика системы усвоения нутриментов"
-	requires_bodypart_type = BODYTYPE_ROBOTIC | BODYTYPE_NANO
+	requires_bodypart_type = BODYTYPE_ROBOTIC | BODYTYPE_NANO //Bubber Edit - BODYTYPE_NANO
 	steps = list(
 		/datum/surgery_step/mechanic_open,
 		/datum/surgery_step/open_hatch,

@@ -22,18 +22,25 @@ endmap
 #	maxplayers 66
 #	votable
 #endmap
-
-map deltastation
-	votable
-endmap
-
-#map icebox
+#map birdshot
+	#default
+#	maxplayers 66
 #	votable
 #endmap
 
-map catwalkstation
+map deltastation
+	minplayers 50
+	votable
+endmap
+
+map icebox
 	minplayers 25
 	votable
+endmap
+
+map catwalkstation
+	minplayers 25
+#	votable
 endmap
 
 map metastation
@@ -44,25 +51,25 @@ map metastation
 	#webmap_url https://webmap.affectedarc07.co.uk/maps/tgstation/metastation
 endmap
 
-#map tramstation
-#	minplayers 35
-#	votable
-#endmap
+map tramstation
+	minplayers 35
+	votable
+endmap
 
-#map nebulastation
-#	minplayers 35
-#	votable
-#endmap
+map nebulastation
+	minplayers 35
+	votable
+endmap
 
-#map nebulastation
-#	minplayers 35
-#	votable
-#endmap
+map nebulastation
+	minplayers 35
+	votable
+endmap
 
-#map wawastation
-#	votable
-#	minplayers 40
-#endmap
+map wawastation
+	votable
+	minplayers 40
+endmap
 
 # Debug-only maps.
 
@@ -77,13 +84,13 @@ endmap
 
 ##SKYRAT MAPS##
 
-#map voidraptor
-#	votable
-#endmap
+map voidraptor
+	votable
+endmap
 
-#map biodome
-#	votable
-#endmap
+map biodome
+	votable
+endmap
 
 ##BUBBERSTATION MAPS##
 
@@ -91,9 +98,9 @@ map boxstation
 	votable
 endmap
 
-#map moonstation
-#	votable
-#endmap
+map moonstation
+	votable
+endmap
 
 map kilostation
 	votable

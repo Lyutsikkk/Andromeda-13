@@ -74,3 +74,17 @@
 	name = "Tactical combat Catcrin gasmask"
 	desc = "Gasmask with special visor and filters that typicaly used in the Catcrin army."
 	icon_state = "catcrin_three"
+
+/obj/item/clothing/mask/gas/syndicate/mtb
+	name = "Monocular Tactical Balaclava"
+	desc = "A sinister, one-eyed balaclava designed for Nanotrasen's black-ops operatives and elite riot control specialists. This unnerving mask obscures all facial features except for a single, red blinking eye — enhanced with an unknown-type monocle. Whether you're lurking in maintenance, conducting midnight deitys, or just trying to psychologically unnerve the clown, this mask ensures you see everything... while remaining a faceless enigma of papa Nanotrasen."
+	icon_state = "mtb"
+
+/obj/item/cigarette/pipe/long_pipe
+	name = "Long smoking pipe"
+	desc = "A long smoking pipe made in a sophisticated style, with a small bulge at the end for dry herbs."
+	icon = 'modular_zzz/icons/obj/clothing/masks/mask.dmi'
+	worn_icon = 'modular_zzz/icons/mob/clothing/mask.dmi'
+	icon_state = "donator_pipeoff"
+	icon_on = "donator_pipeoff"
+	icon_off = "donator_pipeoff"

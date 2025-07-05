@@ -321,7 +321,7 @@
 /datum/config_entry/string/banappeals
 
 /datum/config_entry/string/wikiurl
-	default = "https://bs.ss220.club/index.php/Заглавная_страница"
+	default = "https://wiki.tgstation13.org"
 
 /datum/config_entry/string/forumurl
 	default = "https://discord.gg/7An9evC6Ys"
@@ -632,12 +632,6 @@
 /datum/config_entry/number/rounds_until_hard_restart
 	default = -1
 	min_val = 0
-
-/datum/config_entry/string/default_view
-	default = "15x15"
-
-/datum/config_entry/string/default_view_square
-	default = "15x15"
 
 /datum/config_entry/flag/log_pictures
 

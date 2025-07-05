@@ -229,7 +229,7 @@
 
 /// INTEQ_SQUAD START ///
 
-/datum/outfit/centcom/inteq
+/datum/outfit/centcom/ert/inteq
 	name = "PMC InteQ: ERT"
 
 	uniform = /obj/item/clothing/under/syndicate/inteq_honorable_vanguard
@@ -237,7 +237,6 @@
 	mask = /obj/item/clothing/mask/balaclava/breath/inteq
 	gloves = /obj/item/clothing/gloves/combat
 	suit = /obj/item/clothing/suit/armor/inteq
-	shoes = /obj/item/clothing/shoes/combat
 
 	box = /obj/item/storage/box/centcom
 	back = /obj/item/mod/control/pre_equipped/inteqe
@@ -256,7 +255,7 @@
 
 	implants = list(/obj/item/implant/deathrattle)
 
-/datum/outfit/centcom/inteq/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/centcom/ert/inteq/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(prob(10))
 		suit_store = /obj/item/gun/ballistic/automatic/ar/ak12/pink
@@ -273,20 +272,21 @@
 			/obj/item/melee/baton/security/loaded = 1,
 		)
 
-/datum/outfit/centcom/inteq/officer/pre_equip(mob/living/carbon/human/H, visualsOnly, client/preference_source)
+/datum/outfit/centcom/ert/inteq/officer/pre_equip(mob/living/carbon/human/H, visualsOnly, client/preference_source)
 	. = ..()
 	var/list/extra_backpack_items = list(
 		/obj/item/choice_beacon/inteq_mech = 1
 	)
 	LAZYADD(backpack_contents, extra_backpack_items)
 
-/datum/outfit/centcom/inteq/officer
+/datum/outfit/centcom/ert/inteq/officer
 	name = "PMC InteQ: ERT Leader"
 	id = /obj/item/card/id/advanced/centcom/ert/inteq/leader
 	head = /obj/item/clothing/head/HoS/inteq_honorable_vanguard
 	suit = /obj/item/clothing/suit/armor/inteq/honorable_vanguard
+	back = /obj/item/mod/control/pre_equipped/inteqe/elite
 
-/datum/outfit/centcom/inteq/officer/post_equip(mob/living/carbon/human/squaddie, visuals_only = FALSE)
+/datum/outfit/centcom/ert/inteq/officer/post_equip(mob/living/carbon/human/squaddie, visuals_only = FALSE)
 	. = ..()
 	var/obj/item/mod/control/mod = squaddie.back
 	if(!istype(mod))

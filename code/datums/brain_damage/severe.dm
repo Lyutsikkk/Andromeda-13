@@ -164,14 +164,15 @@
 
 	var/drowsy = !!owner.has_status_effect(/datum/status_effect/drowsiness)
 	var/caffeinated = HAS_TRAIT(owner, TRAIT_STIMULATED)
+	var/final_sleep_chance = sleep_chance
 	if(owner.move_intent == MOVE_INTENT_RUN)
-		sleep_chance += sleep_chance_running
+		final_sleep_chance += sleep_chance_running
 	if(drowsy)
-		sleep_chance += sleep_chance_drowsy //stack drowsy ontop of base or running odds with the += operator
+		final_sleep_chance += sleep_chance_drowsy //stack drowsy ontop of base or running odds with the += operator
 	if(caffeinated)
-		sleep_chance = sleep_chance / 2 //make it harder to fall asleep on caffeine
+		final_sleep_chance *= 0.5 //make it harder to fall asleep on caffeine
 
-	if (!SPT_PROB(sleep_chance, seconds_per_tick))
+	if(!SPT_PROB(final_sleep_chance, seconds_per_tick))
 		return
 
 	//if not drowsy, don't fall asleep but make them drowsy
@@ -305,111 +306,6 @@
 /datum/brain_trauma/severe/dyslexia/on_lose()
 	REMOVE_TRAIT(owner, TRAIT_ILLITERATE, TRAUMA_TRAIT)
 	..()
-
-/*
- * Brain traumas that eldritch paintings apply
- * This one is for "The Sister and He Who Wept" or /obj/structure/sign/painting/eldritch
- */
-/datum/brain_trauma/severe/weeping
-	name = "Психотическая депрессия"
-	desc = "Пациент страдает от тяжелых депрессивных эпизодов. Во время этих эпизодов у пациента иногда возникают галлюцинации."
-	scan_desc = "депрессия"
-	gain_text = span_warning("Плач... Это преследует мой разум...")
-	lose_text = span_notice("Ваша зацикленность заканчивается. Вы чувствуете себя значительно менее напряженно.")
-	random_gain = FALSE
-	/// Our cooldown declare for causing hallucinations
-	COOLDOWN_DECLARE(weeping_hallucinations)
-
-/datum/brain_trauma/severe/weeping/on_life(seconds_per_tick, times_fired)
-	if(owner.stat != CONSCIOUS || owner.IsSleeping() || owner.IsUnconscious())
-		return
-	// If they have examined a painting recently
-	if(HAS_TRAIT(owner, TRAIT_ELDRITCH_PAINTING_EXAMINE))
-		return
-	if(!COOLDOWN_FINISHED(src, weeping_hallucinations))
-		return
-	owner.cause_hallucination(/datum/hallucination/delusion/preset/heretic, "Вызвано травмой мозга «Плачущего».")
-	owner.add_mood_event("eldritch_weeping", /datum/mood_event/eldritch_painting/weeping)
-	COOLDOWN_START(src, weeping_hallucinations, 10 SECONDS)
-	return ..()
-
-//This one is for "The First Desire" or /obj/structure/sign/painting/eldritch/desire
-/datum/brain_trauma/severe/flesh_desire
-	name = "Расстройство Бина"
-	desc = "Пациент зациклен на потреблении сырой плоти, особенно плоти одного вида. Пациент также страдает от психосоматических приступов голода."
-	scan_desc = "умеренное расстройство пищевого поведения"
-	gain_text = span_warning("Вы чувствуете голод, жажду органов и сырого мяса...")
-	lose_text = span_notice("Ваш аппетит приходит в норму.")
-	random_gain = FALSE
-	/// How much faster we loose hunger
-	var/hunger_rate = 15
-
-/datum/brain_trauma/severe/flesh_desire/on_gain()
-	// Allows them to eat faster, mainly for flavor
-	ADD_TRAIT(owner, TRAIT_VORACIOUS, REF(src))
-	ADD_TRAIT(owner, TRAIT_FLESH_DESIRE, REF(src))
-	return ..()
-
-/datum/brain_trauma/severe/flesh_desire/on_life(seconds_per_tick, times_fired)
-	// Causes them to need to eat at 10x the normal rate
-	owner.adjust_nutrition(-hunger_rate * HUNGER_FACTOR)
-	if(SPT_PROB(10, seconds_per_tick))
-		to_chat(owner, span_notice(pick("Вы не можете перестать думать о сыром мясе...", "Тебе НУЖНО кого-нибудь съесть.", "Чувство голода вернулось...", "Ты жаждешь плоти.", "Вы умираете от голода!")))
-	owner.overeatduration = max(owner.overeatduration - 200 SECONDS, 0)
-
-/datum/brain_trauma/severe/flesh_desire/on_lose()
-	REMOVE_TRAIT(owner, TRAIT_VORACIOUS, REF(src))
-	REMOVE_TRAIT(owner, TRAIT_FLESH_DESIRE, REF(src))
-	return ..()
-
-// This one is for "Lady out of gates" or /obj/item/wallframe/painting/eldritch/beauty
-/datum/brain_trauma/severe/eldritch_beauty
-	name = "Навязчивый перфекционизм"
-	desc = "Пациент зациклен на воспринимаемом 'несовершенстве' окружающих его предметов. Пациента возбуждает ощущение одежды на теле."
-	scan_desc = "обсессивное расстройство личности"
-	gain_text = span_warning("Все вокруг *неидеально*! Я не выношу, когда ко мне прикасаются!")
-	lose_text = span_notice("Ваш разум успокаивается.")
-	random_gain = FALSE
-	/// How much damage we deal with each scratch
-	var/scratch_damage = 0.5
-
-/datum/brain_trauma/severe/eldritch_beauty/on_life(seconds_per_tick, times_fired)
-	if(owner.incapacitated)
-		return
-
-	// Scratching code
-	var/obj/item/bodypart/bodypart = owner.get_bodypart(owner.get_random_valid_zone(even_weights = TRUE))
-	if(!bodypart || !IS_ORGANIC_LIMB(bodypart) || (bodypart.bodypart_flags & BODYPART_PSEUDOPART))
-		return
-	if(!ishuman(owner))
-		return
-	// Jumpsuits ruin the "perfection" of the body
-	var/mob/living/carbon/human/scratcher = owner
-	if(!length(scratcher.get_clothing_on_part(bodypart)))
-		return
-
-	owner.apply_damage(scratch_damage, BRUTE, bodypart)
-	if(SPT_PROB(33, seconds_per_tick))
-		to_chat(owner, span_notice("Вы яростно царапаете свою одежду [bodypart.plaintext_zone]!"))
-
-// This one is for "Climb over the rusted mountain" or /obj/structure/sign/painting/eldritch/rust
-/datum/brain_trauma/severe/rusting
-	name = "Синдром периодических психических проявлений"
-	desc = "Пациент страдает от редкого психического расстройства и может проявлять или усиливать психические явления в округе. Пациент не контролирует эти явления."
-	scan_desc = "опасная пси-волновая активность"
-	gain_text = span_warning("Поднимитесь над ржавчиной. Овладейте энтропией.")
-	lose_text = span_notice("Вы чувствуете себя так, будто только что проснулись от дурного сна.")
-	random_gain = FALSE
-
-/datum/brain_trauma/severe/rusting/on_life(seconds_per_tick, times_fired)
-	var/atom/tile = get_turf(owner)
-	// Examining a painting should stop this effect to give counterplay
-	if(HAS_TRAIT(owner, TRAIT_ELDRITCH_PAINTING_EXAMINE))
-		return
-
-	if(SPT_PROB(50, seconds_per_tick))
-		to_chat(owner, span_notice("Вы чувствуете упадок..."))
-		tile.rust_heretic_act()
 
 /datum/brain_trauma/severe/kleptomaniac
 	name = "Клептомания"

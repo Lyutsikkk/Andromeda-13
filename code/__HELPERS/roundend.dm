@@ -372,17 +372,11 @@ GLOBAL_LIST_INIT(achievements_unlocked, list())
 			//ignore this comment, it fixes the broken sytax parsing caused by the " above
 			else
 				parts += "[FOURSPACES]<i>В эту смену никто не умер! Как это вообще возможно?</i>"
-
-	parts += "[FOURSPACES]Уровень угрозы: [SSdynamic.threat_level]"
-	parts += "[FOURSPACES]Минувшая угроза: [SSdynamic.mid_round_budget]"
-	if(SSdynamic.roundend_threat_log.len)
-		parts += "[FOURSPACES]Правки угроз:"
-		for(var/entry as anything in SSdynamic.roundend_threat_log)
-			parts += "[FOURSPACES][FOURSPACES][entry]<BR>"
-	parts += "[FOURSPACES]Выполненные правила:"
-	for(var/datum/dynamic_ruleset/rule in SSdynamic.executed_rules)
-		parts += "[FOURSPACES][FOURSPACES][rule.ruletype] - <b>[rule.name]</b>: -[rule.cost + rule.scaled_times * rule.scaling_cost] угроза"
-
+	/* BUBBER EDIT REMOVAL BEGIN - Storyteller
+	parts += "[FOURSPACES]Round: [SSdynamic.current_tier.name]"
+	for(var/datum/dynamic_ruleset/rule as anything in SSdynamic.executed_rulesets - SSdynamic.unreported_rulesets)
+		parts += "[FOURSPACES][FOURSPACES]- <b>[rule.name]</b> ([rule.config_tag])"
+	*/// BUBBER EDIT REMOVAL END - Storyteller
 	return parts.Join("<br>")
 
 /client/proc/roundend_report_file()

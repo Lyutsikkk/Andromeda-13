@@ -21,11 +21,11 @@
 		count++
 
 	if(teeth_receptangle.teeth_count == 0)
-		to_chat(user, span_notice("[user] не имеет зубов, дурашка!"))
+		to_chat(user, span_notice("[target] не имеет зубов, дурашка!"))
 		return SURGERY_STEP_FAIL
 
 	if(count >= teeth_receptangle.teeth_count)
-		to_chat(user, span_notice("Все зубы [user] уже заменены на таблетки!"))
+		to_chat(user, span_notice("Все зубы [target] уже заменены на таблетки!"))
 		return SURGERY_STEP_FAIL
 
 /datum/surgery_step/insert_pill

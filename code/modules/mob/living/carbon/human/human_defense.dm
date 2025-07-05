@@ -566,7 +566,7 @@
 
 	combined_msg += span_notice("<b>Проверьте себя на наличие травм.</b>")
 
-	var/list/missing = GLOB.all_body_zones.Copy()
+	var/list/missing = get_all_limbs()
 
 	for(var/obj/item/bodypart/body_part as anything in bodyparts)
 		missing -= body_part.body_zone

@@ -1,62 +1,63 @@
 //Please use mob or src (not usr) in these procs. This way they can be called in the same fashion as procs.
-/client/verb/wiki(query as text)
+/client/verb/wiki()
 	set name = "wiki"
-	set desc = "Введите информацию, о которой вы хотите узнать.  Это откроет вики в вашем веб-браузере. Чтобы перейти на главную страницу, введите «ничего»."
+	set desc = "Переносит вас на Wiki"
 	set hidden = TRUE
+
 	var/wikiurl = CONFIG_GET(string/wikiurl)
-	if(wikiurl)
-		if(query)
-			var/output = wikiurl + "/index.php?title=Special%3ASearch&profile=default&search=" + query
-			src << link(output)
-		else if (query != null)
-			src << link(wikiurl)
-	else
+	if(!wikiurl)
 		to_chat(src, span_danger("URL-адрес wiki не задан в конфигурации сервера."))
-	return
+		return
+
+	var/query = tgui_input_text(src,
+		"Type what you want to know about. This will open the wiki in your web browser. Type nothing to go to the main page.",
+		"Wiki",
+		max_length = MAX_MESSAGE_LEN,
+	)
+	if(isnull(query)) //cancelled out
+		return
+	var/output = wikiurl
+	if(query != "")
+		output += "?title=Special%3ASearch&profile=default&search=[query]"
+	DIRECT_OUTPUT(src, link(output))
 
 /client/verb/forum()
 	set name = "forum"
 	set desc = "Посетите форум."
 	set hidden = TRUE
+
 	var/forumurl = CONFIG_GET(string/forumurl)
-	if(forumurl)
-		if(tgui_alert(src, "Это откроет форум в вашем браузере. Вы уверены?",, list("Да","Нет"))!="Да")
-			return
-		src << link(forumurl)
-	else
-		to_chat(src, span_danger("URL-адрес форума не задан в конфигурации сервера."))
-	return
+	if(!forumurl)
+		to_chat(src, span_danger("URL форума не установлен в конфигурации сервера."))
+		return
+	DIRECT_OUTPUT(src, link(forumurl))
 
 /client/verb/rules()
 	set name = "rules"
 	set desc = "Показать правила сервера."
 	set hidden = TRUE
+
 	var/rulesurl = CONFIG_GET(string/rulesurl)
-	if(rulesurl)
-		if(tgui_alert(src, "Это откроет правила в вашем браузере. Вы уверены?",, list("Да","Нет"))!="Да")
-			return
-		src << link(rulesurl)
-	else
-		to_chat(src, span_danger("URL-адрес правил не задан в конфигурации сервера."))
-	return
+	if(!rulesurl)
+		to_chat(src, span_danger("URL форума не установлен в конфигурации сервера."))
+		return
+	DIRECT_OUTPUT(src, link(rulesurl))
 
 /client/verb/github()
 	set name = "github"
 	set desc = "Посетите GitHub"
 	set hidden = TRUE
+
 	var/githuburl = CONFIG_GET(string/githuburl)
-	if(githuburl)
-		if(tgui_alert(src, "Это откроет репозиторий GitHub в вашем браузере. Вы уверены?",, list("Да","Нет"))!="Да")
-			return
-		src << link(githuburl)
-	else
-		to_chat(src, span_danger("URL-адрес GitHub не задан в конфигурации сервера."))
-	return
+	if(!githuburl)
+		to_chat(src, span_danger("URL-адрес Github не указан в конфигурации сервера."))
+		return
+	DIRECT_OUTPUT(src, link(githuburl))
 
 /client/verb/reportissue()
 	set name = "report-issue"
 	set desc = "Сообщить о проблеме"
-	set hidden = TRUE
+
 	var/githuburl = CONFIG_GET(string/githuburl)
 	if(!githuburl)
 		to_chat(src, span_danger("URL-адрес GitHub не задан в конфигурации сервера."))
@@ -97,10 +98,10 @@
 
 	DIRECT_OUTPUT(src, link(jointext(concatable, "")))
 
-
 /client/verb/changelog()
 	set name = "Changelog"
 	set category = "OOC"
+
 	if(!GLOB.changelog_tgui)
 		GLOB.changelog_tgui = new /datum/changelog()
 

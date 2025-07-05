@@ -1,6 +1,6 @@
 /obj/item/encryptionkey/headset_syndicate/inteq
 	name = "InteQ Encryption Key"
-	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SECURITY = 1)
+	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_CENTCOM = 1)
 	icon_state = "inteq_cypherkey"
 	icon = 'modular_zzz/icons/obj/clothing/ears/key.dmi'
 	special_channels = RADIO_SPECIAL_CENTCOM

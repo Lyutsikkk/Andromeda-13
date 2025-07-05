@@ -133,10 +133,10 @@
 			return get_simple_winner()
 		if(VOTE_WINNER_METHOD_WEIGHTED_RANDOM)
 			return get_random_winner()
-		// SPLURT EDIT ADDITION - Ranked Choice Voting
+		// BUBBER EDIT ADDITION BEGIN - RANKED CHOICE VOTING
 		if(VOTE_WINNER_METHOD_RANKED)
 			return get_ranked_winner()
-		// SPLURT EDIT ADDITION - End
+		// BUBBER EDIT ADDITION END
 
 	stack_trace("недопустимый метод выбора победителя: [winner_method]. По умолчанию используется значение Простой.")
 	return get_simple_winner()
@@ -187,10 +187,10 @@
 			returned_text += "Никто"
 		if(VOTE_WINNER_METHOD_WEIGHTED_RANDOM)
 			returned_text += "Случайные голоса"
-		// SPLURT EDIT ADDITION - Ranked Choice Voting
+		// BUBBER EDIT ADDITION BEGIN - RANKED CHOICE VOTING
 		if(VOTE_WINNER_METHOD_RANKED)
 			returned_text += "Рейтинг"
-		// SPLURT EDIT ADDITION - End
+		// BUBBER EDIT ADDITION END
 		else
 			returned_text += "Простой"
 

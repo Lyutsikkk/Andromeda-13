@@ -9,6 +9,7 @@
 #define CLIMAX_ON_FLOOR "На пол"
 #define CLIMAX_IN_OR_ON "Кульминация на/в кого то"
 #define CLIMAX_OPEN_CONTAINER "Заполнить контейнер для реагентов"
+#define CLIMAX_PORTAL "Через портал"
 
 /mob/living/proc/climax(manual = TRUE, mob/living/partner = null, datum/interaction/climax_interaction = null, interaction_position = null) // SPLURT EDIT - INTERACTIONS - All mobs should be interactable
 	if (CONFIG_GET(flag/disable_erp_preferences))
@@ -97,6 +98,13 @@
 
 			var/penis_climax_choice = climax_interaction && !manual ? CLIMAX_IN_OR_ON : tgui_alert(src, "Выберите куда будете стрелять.", "Загрузить предпочтения", buttons) //SPLURT EDIT CHANGE - Interactions
 
+			// If your using a LustWish portal lets you cum through it
+			var/obj/structure/lewd_portal/portal = src.buckled
+			if(istype(portal, /obj/structure/lewd_portal))
+				buttons += CLIMAX_PORTAL
+
+			var/penis_climax_choice = climax_interaction && !manual ? CLIMAX_IN_OR_ON : tgui_alert(src, "Choose where to shoot your load.", "Load preference!", buttons) //SPLURT EDIT CHANGE - Interactions
+
 			var/create_cum_decal = FALSE
 
 			if(!penis_climax_choice || penis_climax_choice == CLIMAX_ON_FLOOR)
@@ -104,8 +112,48 @@
 				visible_message(span_userlove("[src] стреляет [self_their] липким семенем на пол!"), \
 					span_userlove("Вы выстреливаете струю за струей, попадая на пол!"))
 
+			else if(penis_climax_choice == CLIMAX_OPEN_CONTAINER)
+				target_choice = tgui_input_list(src, "Choose a container to cum into.", "Choose target!", interactable_inrange_open_containers) //SPLURT EDIT CHANGE - Interactions
+				if(!target_choice)
+					create_cum_decal = TRUE
+					visible_message(span_userlove("[src] shoots [self_their] sticky load onto the floor!"), \
+						span_userlove("You shoot string after string of hot cum, hitting the floor!"))
+				else
+					var/obj/item/reagent_containers/cup/target_open_container = interactable_inrange_open_containers[target_choice]
+					if(target_open_container.is_refillable() && target_open_container.is_drainable())
+						// here's where we actually do the cumming(?)
+						var/obj/item/organ/genital/testicles/src_testicles = src.get_organ_slot(ORGAN_SLOT_TESTICLES)
+						var/cum_volume = src_testicles.genital_size * 10
+						var/total_volume_w_cum = cum_volume + target_open_container.reagents.total_volume
+						conditional_pref_sound(get_turf(src), SFX_DESECRATION, 50, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds)
+						if(target_open_container.reagents.holder_full())
+							// its full already
+							add_cum_splatter_floor(get_turf(target_open_container))
+							visible_message(span_userlove("[src] tries to cum into the [target_open_container], but it's already full, spilling their hot load onto the floor!"), \
+								span_userlove("You try to cum into the [target_open_container], but it's already full, so it all hits the floor instead!"))
+						else
+							target_open_container.reagents.add_reagent(/datum/reagent/consumable/cum, cum_volume)
+							if(total_volume_w_cum > target_open_container.volume)
+								// overflow, make the decal
+								add_cum_splatter_floor(get_turf(target_open_container))
+								visible_message(span_userlove("[src] shoots [self_their] sticky load into the [target_open_container], it's so full that it overflows!"), \
+									span_userlove("You shoot string after string of hot cum into the [target_open_container], making it overflow!"))
+							else
+								visible_message(span_userlove("[src] shoots [self_their] sticky load into the [target_open_container]!"), \
+									span_userlove("You shoot string after string of hot cum into the [target_open_container]!"))
+					else
+						// cum fail
+						create_cum_decal = TRUE
+						visible_message(span_userlove("[src] shoots [self_their] sticky load onto the floor!"), \
+							span_userlove("You shoot string after string of hot cum, hitting the floor!"))
+
+			else if(penis_climax_choice == CLIMAX_PORTAL)
+				to_chat(src, "You shoot string after string of hot cum, hitting whatever is on the other side!")
+				portal.relayed_body.visible_message("[portal.relayed_body] shoots its sticky load onto the floor!")
+				add_cum_splatter_floor(get_turf(portal.relayed_body))
+
 			else
-				target_choice = climax_interaction && !manual ? partner?.name : tgui_input_list(src, "Выберите человека, в которого можно кончить или на которого можно кончить.", "Выберите цель!", interactable_inrange_mobs) //SPLURT EDIT CHANGE - Interactions
+				target_choice = climax_interaction && !manual ? partner?.name : tgui_input_list(src, "Choose a person to cum in or on.", "Choose target!", interactable_inrange_mobs) //SPLURT EDIT CHANGE - Interactions
 				if(!target_choice)
 					create_cum_decal = TRUE
 					visible_message(span_userlove("[src] выстреливает [self_their] горячей спермой на пол!"), \
@@ -151,7 +199,7 @@
 					else
 						climax_into_choice = "На [target_mob_them]"
 
-					if(climax_interaction && !manual && climax_interaction.show_climax(src, target_mob, interaction_position))
+					if(climax_interaction && !manual && climax_interaction.show_climax(src, target_mob, interaction_position, portal)) //I think gloryhole portals could be way less snowflakey
 						create_cum_decal = !interaction_inside
 					else if(!climax_into_choice)
 					//SPLURT EDIT CHANGE END
@@ -388,3 +436,4 @@
 #undef CLIMAX_ON_FLOOR
 #undef CLIMAX_IN_OR_ON
 #undef CLIMAX_OPEN_CONTAINER
+#undef CLIMAX_PORTAL

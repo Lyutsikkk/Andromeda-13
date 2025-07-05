@@ -128,9 +128,9 @@
 
 /area/shuttle/arrival/on_joining_game(mob/living/boarder)
 	if(SSshuttle.arrivals?.mode == SHUTTLE_CALL)
-		var/atom/movable/screen/splash/Spl = new(null, boarder.client, TRUE)
-		Spl.Fade(TRUE)
-		boarder.playsound_local(get_turf(boarder), 'modular_zzplurt/sound/announcer/lait/lait_approachingSPLURT2.ogg', 25)
+		var/atom/movable/screen/splash/Spl = new(null, null, boarder.client, TRUE)
+		Spl.fade(TRUE)
+		boarder.playsound_local(get_turf(boarder), 'modular_zzplurt/sound/announcer/lait/lait_approachingSPLURT2.ogg', 25) // SPLURT EDIT ADDITION - Arrival Shuttle Sound
 	boarder.update_parallax_teleport()
 
 
