@@ -92,8 +92,8 @@ const HolopadContent = (props) => {
                   icon={call.connected ? 'phone-slash' : 'phone-alt'}
                   content={
                     call.connected
-                      ? 'Отключите вызов от ' + call.caller
-                      : 'Ответьте на вызов ' + call.caller
+                      ? `Отключите вызов от ${call.caller}`
+                      : `Ответьте на вызов ${call.caller}`
                   }
                   color={call.connected ? 'bad' : 'good'}
                   disabled={!on_network}

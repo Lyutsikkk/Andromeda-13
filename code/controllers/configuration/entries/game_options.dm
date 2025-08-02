@@ -178,6 +178,9 @@
 /datum/config_entry/string/alert_delta
 	default = "Уничтожение станции неизбежно. Всем членам экипажа приказано подчиняться всем указаниям, отдаваемым начальством. Любое нарушение этих приказов карается смертью. Это не учения."
 
+/datum/config_entry/flag/roundstart_blue_alert
+	default = TRUE
+
 /datum/config_entry/flag/revival_pod_plants
 
 /datum/config_entry/number/revival_brain_life

@@ -83,10 +83,16 @@
 					if("Полное владение")
 						adding_flags |= ALL
 
-				if(LAZYACCESS(language_holder.blocked_languages, language_datum))
-					choice = tgui_alert(user, "Хотите ли вы снять блокировку, которая мешает разговаривать или понимать язык?", "[language_datum]", list("Да", "Нет"))
-					if(choice == "Нет")
-						language_holder.remove_blocked_language(language_datum, LANGUAGE_ALL)
+				var/ask_to_remove_block
+				var/list/block_being_removed_on = list()
+				if(adding_flags & SPOKEN_LANGUAGE && LAZYACCESS(language_holder.blocked_speaking, language_datum))
+					ask_to_remove_block = TRUE
+					block_being_removed_on += "spoken"
+
+				if(ask_to_remove_block)
+					choice = tgui_alert(user, "Вы хотите снять блокировку, которая также препятствует использованию языка [block_being_removed_on.Join(" или ")]?", "[language_datum]", list("Да", "Нет"))
+					if(choice == "Да")
+						language_holder.remove_blocked_language(language_datum, adding_flags, LANGUAGE_ALL)
 				language_holder.grant_language(language_datum, adding_flags)
 				if(is_admin)
 					message_admins("[key_name_admin(user)] даровал понимание язык [language_name] игроку [key_name_admin(speaker)].")

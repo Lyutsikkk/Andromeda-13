@@ -1,18 +1,27 @@
 /obj/item/storage/box/centcom
-	name = "box"
+	name = "Centcom Box"
 	desc = "It's just an ordinary box."
 	icon_state = "internals_large"
 
 /obj/item/storage/box/centcom/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/clothing/mask/gas/sechailer = 1,
+		/obj/item/pinpointer/crew/centcom = 1,
+		/obj/item/pinpointer/nuke = 1,
 		/obj/item/tank/internals/emergency_oxygen/double = 1,
 		/obj/item/reagent_containers/hypospray/medipen/atropine = 2,
 		/obj/item/reagent_containers/hypospray/medipen/salacid = 1,
-		/obj/item/pinpointer/nuke = 1,
 		/obj/item/crowbar/power/syndicate = 1,
 		)
 	generate_items_inside(items_inside,src)
+
+/obj/item/pinpointer/crew/centcom
+	name = "Centcom Pinpointer"
+	desc = "A handheld tracking device that locks onto certain signals. Ignores suit sensors, but is much less accurate."
+	icon = 'modular_zzz/icons/obj/device.dmi'
+	icon_state = "pinpointer_centcom"
+	worn_icon_state = "pinpointer_black"
+	minimum_range = 5
+	ignore_suit_sensor_level = TRUE
 
 /obj/item/storage/box/m223_ammo
 	name = "box with ammo"
@@ -21,6 +30,16 @@
 /obj/item/storage/box/m223_ammo/PopulateContents()
 	var/static/items_inside = list(
 		/obj/item/ammo_box/magazine/m223 = 7,
+		)
+	generate_items_inside(items_inside,src)
+
+/obj/item/storage/box/smgm45_ammo
+	name = "box with ammo"
+	icon_state = "secbox"
+
+/obj/item/storage/box/smgm45_ammo/PopulateContents()
+	var/static/items_inside = list(
+		/obj/item/ammo_box/magazine/smgm45 = 5,
 		)
 	generate_items_inside(items_inside,src)
 
@@ -87,3 +106,49 @@
 		/obj/item/pen/red/security,
 		/obj/item/gun/microfusion,
 	)
+
+/obj/item/mod/control/pre_equipped/responsory
+	theme = /datum/mod_theme/responsory
+	applied_cell = /obj/item/stock_parts/power_store/cell/bluespace
+	applied_modules = list(
+		/obj/item/mod/module/storage/bluespace,
+		/obj/item/mod/module/welding,
+		/obj/item/mod/module/emp_shield,
+		/obj/item/mod/module/magnetic_harness,
+		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/quick_cuff,
+		/obj/item/mod/module/jetpack/advanced,
+	)
+
+/datum/mod_theme/responsory
+	armor_type = /datum/armor/mod_theme_corporate
+
+/datum/mod_theme/responsory/budget
+	armor_type = /datum/armor/mod_theme_responsory
+
+/obj/item/mod/control/pre_equipped/responsory/budget
+	theme = /datum/mod_theme/responsory/budget
+	applied_modules = list(
+		/obj/item/mod/module/storage/large_capacity,
+		/obj/item/mod/module/welding,
+		/obj/item/mod/module/emp_shield,
+		/obj/item/mod/module/magnetic_harness,
+		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/quick_cuff,
+	)
+
+/obj/item/mod/control/pre_equipped/responsory/budget/commander
+	insignia_type = /obj/item/mod/module/insignia/commander
+	additional_modules = /obj/item/mod/module/power_kick
+
+/obj/item/mod/control/pre_equipped/responsory/budget/security
+	insignia_type = /obj/item/mod/module/insignia/security
+	additional_modules = /obj/item/mod/module/pepper_shoulders
+
+/obj/item/mod/control/pre_equipped/responsory/budget/engineer
+	insignia_type = /obj/item/mod/module/insignia/engineer
+	additional_modules = /obj/item/mod/module/rad_protection
+
+/obj/item/mod/control/pre_equipped/responsory/budget/medic
+	insignia_type = /obj/item/mod/module/insignia/medic
+	additional_modules = /obj/item/mod/module/quick_carry

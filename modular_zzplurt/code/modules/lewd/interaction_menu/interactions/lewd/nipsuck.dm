@@ -70,18 +70,18 @@
 	if(breasts?.internal_fluid_datum)
 		// Calculate milk amount based on how full the breasts are (0.5 to 2 multiplier)
 		// Рассчитайте количество молока в зависимости от наполненности груди (множитель от 0,5 до 2)
-		var/milk_multiplier = 0.5
+		var/milk_multiplier = 1
 		if(breasts.internal_fluid_maximum > 0)
-			milk_multiplier = 0.5 + (1.5 * (breasts.internal_fluid_count / breasts.internal_fluid_maximum))
+			milk_multiplier = 1 + (3 * (breasts.reagents.total_volume / breasts.internal_fluid_maximum))
 
-		var/transfer_amount = rand(1, 2 * milk_multiplier)
+		var/transfer_amount = rand(2, 4 * milk_multiplier)
 		var/intent = resolve_intent_name(user.combat_mode)
 		if(intent == "harm" || intent == "grab")
-			transfer_amount = rand(1, 3 * milk_multiplier) // More aggressive sucking gets more milk	// Более агрессивное сосание позволяет получить больше молока
+			transfer_amount = rand(2, 6 * milk_multiplier) // More aggressive sucking gets more milk	// Более агрессивное сосание позволяет получить больше молока
 
 		var/datum/reagents/R = new(breasts.internal_fluid_maximum)
-		breasts.transfer_internal_fluid(R, transfer_amount)
-		R.trans_to(user, R.total_volume)
+		breasts.reagents.trans_to(R, transfer_amount)
+		R.trans_to(user, R.total_volume, transferred_by = target)
 		qdel(R)
 
 	if(!user.combat_mode && prob(5 + target.arousal))

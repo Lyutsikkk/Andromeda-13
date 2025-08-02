@@ -10,12 +10,12 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	"Retro" = 'icons/hud/screen_retro.dmi',
 	"Plasmafire" = 'icons/hud/screen_plasmafire.dmi',
 	"Slimecore" = 'icons/hud/screen_slimecore.dmi',
-	"Operative" = 'icons/hud/screen_operative.dmi',
+	"Operative" = 'modular_zzz/icons/hud/screen_operative.dmi',
 	"Clockwork" = 'icons/hud/screen_clockwork.dmi',
 	"Glass" = 'icons/hud/screen_glass.dmi',
 	"Trasen-Knox" = 'icons/hud/screen_trasenknox.dmi',
 	"Detective" = 'icons/hud/screen_detective.dmi',
-	"Blue - 98" = 'modular_zubbers/master_files/icons/hud/screen_blue98.dmi' // Bubber Addition
+	"Blue - 98" = 'modular_zzz/icons/hud/screen_blue98.dmi' // Bubber Addition
 ))
 
 //SKYRAT EDIT - ADDITION - ERP ICONS FIX
@@ -51,7 +51,7 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	var/hotkey_ui_hidden = FALSE //This is to hide the buttons that can be used via hotkeys. (hotkeybuttons list of buttons)
 
 	var/atom/movable/screen/ammo_counter //SKYRAT EDIT ADDITION
-	var/atom/movable/screen/text/activation_text/activation // BUBBER EDIT ADDITION
+	// var/atom/movable/screen/text/activation_text/activation // BUBBER EDIT ADDITION
 
 	var/atom/movable/screen/alien_plasma_display
 	var/atom/movable/screen/alien_queen_finder
@@ -156,8 +156,8 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	screentip_text = new(null, src)
 	static_inventory += screentip_text
 
-	activation = new(null, src) // BUBBER EDIT ADDITION
-	static_inventory += activation // BUBBER EDIT ADDITION
+	// activation = new(null, src) // BUBBER EDIT ADDITION
+	// static_inventory += activation // BUBBER EDIT ADDITION
 
 	for(var/mytype in subtypesof(/atom/movable/plane_master_controller))
 		var/atom/movable/plane_master_controller/controller_instance = new mytype(null,src)
@@ -283,7 +283,7 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	//SKYRAT EDIT ADDITION START - SKYRAT HUD
 	wanted_lvl = null
 	ammo_counter = null
-	activation = null
+	// activation = null
 	// SKYRAT EDIT ADDITION END - SKYRAT HUD
 
 	// SPLURT EDIT - FIX AMMO COUNTER HUD
