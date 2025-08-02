@@ -44,7 +44,7 @@ SUBSYSTEM_DEF(statpanels)
 
 		global_data += list(
 			"ID Раунда: [GLOB.round_id ? GLOB.round_id : "NULL"]",
-			"Подключенные игроки: [GLOB.clients.len] | Активные: [active_players]/[CONFIG_GET(number/hard_popcap)] | Наблюдают: [observing_players]", // BUBBER EDIT ADDITION - Extra stat panel info
+			"Подключенные игроки: [GLOB.clients.len] | Активные: [active_players] [CONFIG_GET(number/hard_popcap)] | Наблюдают: [observing_players]", // BUBBER EDIT ADDITION - Extra stat panel info
 			"OOC: [GLOB.ooc_allowed ? "Включенный" : "Выключенный"]", // BUBBER EDIT ADDITION - Extra stat panel info
 			" ", // BUBBER EDIT ADDITION - Extra stat panel info
 			"Рассказчик: [SSgamemode.storyteller ? SSgamemode.storyteller.name : "N/A"]", // BUBBER EDIT ADDITION - Extra stat panel info

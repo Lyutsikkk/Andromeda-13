@@ -372,7 +372,7 @@ SOFT_POPCAP_MESSAGE Be warned that the server is currently serving a high number
 #HARD_POPCAP 150
 
 ## Message for hard cap
-HARD_POPCAP_MESSAGE The server is currently serving a high number of users, You cannot currently join. You may wait for the number of living crew to decline, observe, or find alternative servers.
+HARD_POPCAP_MESSAGE В настоящее время сервер переполнен, вы не можете присоединиться к нему. Вы можете подождать, пока количество аккктивных пользователей уменьшится, понаблюдать или найти альтернативные серверы.
 
 ## Uncomment for 'extreme' population caps, players will not be allowed to join the server if living crew exceeds the listed number.
 #EXTREME_POPCAP 200
