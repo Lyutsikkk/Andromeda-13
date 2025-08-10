@@ -1,6 +1,6 @@
 /obj/machinery/gibber//SKYRAT EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
 	name = "gibber"
-	desc = "The name isn't descriptive enough?"
+	desc = "Название недостаточно информативное?"
 	icon = 'icons/obj/machines/kitchen.dmi'
 	icon_state = "grinder"
 	density = TRUE
@@ -25,10 +25,11 @@
 	RegisterSignal(src, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(on_cleaned))
 	if(prob(5))
 		name = "meat grinder"
-		desc = "Okay, if I... if I chop you up in a meat grinder, and the only thing that comes out, that's left of you, is your eyeball, \
-			you'r- you're PROBABLY DEAD! You're probably going to - not you, I'm just sayin', like, if you- if somebody were to, like, \
-			push you into a meat grinder, and, like, your- one of your finger bones is still intact, they're not gonna pick it up and go, \
-			Well see, yeah it wasn't deadly, it wasn't an instant kill move! You still got, like, this part of your finger left!"
+		ru_names_rename(ru_names_toml(name))
+		desc = "Ладно, если я... если я измельчу тебя в мясорубке, и единственное, что от тебя останется, - это глазное яблоко, \
+		то ты... ты ТОЧНО УМРЕШЬ! Ты, наверное, - не ты, я просто говорю, что если бы ты... если бы кто-то, типа, \
+			если тебя заталкивают в мясорубку, и, к примеру, одна из косточек твоего пальца все еще цела, они не станут ее поднимать и уходить, \
+			видите ли, да, это не было смертельно опасно, это не было мгновенным убийством! У тебя еще осталась часть пальца!"
 		dirty = TRUE
 		update_appearance(UPDATE_OVERLAYS)
 

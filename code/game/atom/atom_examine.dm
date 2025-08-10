@@ -32,7 +32,7 @@
 		// some regex to ensure that we don't add another "and" if the final element's main text (not tooltip) has one
 		tag_string = english_list(tag_string, and_text = (findtext(tag_string[length(tag_string)], regex(@">.*?и .*?<"))) ? " " : " и ")
 		var/post_descriptor = examine_post_descriptor(user)
-		. += "[p_They()] [p_are()] [tag_string] [examine_descriptor(user)][length(post_descriptor) ? " [jointext(post_descriptor, " ")]" : ""]."
+		. += "Это [examine_descriptor(user)] [tag_string][length(post_descriptor) ? " [jointext(post_descriptor, " ")]" : ""]."
 
 	if(reagents)
 		var/user_sees_reagents = user.can_see_reagents()
@@ -94,8 +94,8 @@
 	var/mats_list = list()
 	for(var/custom_material in custom_materials)
 		var/datum/material/current_material = GET_MATERIAL_REF(custom_material)
-		mats_list += span_tooltip("Объект сделан из [current_material.name].", current_material.name)
-	. += "из [english_list(mats_list)]"
+		mats_list += span_tooltip("Объект сделан из [current_material.declent_ru(GENITIVE)].", current_material.declent_ru(GENITIVE))
+	. += "из: [english_list(mats_list)]"
 
 /**
  * Called when a mob examines (shift click or verb) this atom twice (or more) within EXAMINE_MORE_WINDOW (default 1 second)
@@ -119,8 +119,8 @@
  * You can override what is returned from this proc by registering to listen for the
  * [COMSIG_ATOM_GET_EXAMINE_NAME] signal
  */
-/atom/proc/get_examine_name(mob/user)
-	var/list/override = list(article, null, "<em>[get_visible_name()]</em>")
+/atom/proc/get_examine_name(mob/user, declent = NOMINATIVE) // BANDASTATION EDIT - Declents
+	var/list/override = list(article, null, "<em>[get_visible_name(declent = declent)]</em>") // BANDASTATION EDIT - Declents
 	SEND_SIGNAL(src, COMSIG_ATOM_GET_EXAMINE_NAME, user, override)
 
 	if(!isnull(override[EXAMINE_POSITION_ARTICLE]))
@@ -128,8 +128,8 @@
 		return jointext(override, " ")
 	if(!isnull(override[EXAMINE_POSITION_BEFORE]))
 		override -= null // There is no article, don't try to join it
-		return "\a [jointext(override, " ")]"
-	return "\a [src]"
+		return "[jointext(override, " ")]" // BANDASTATION EDIT - Declents
+	return "[declent_ru(declent)]" // BANDASTATION EDIT - Declents
 
 /mob/living/get_examine_name(mob/user)
 	var/visible_name = get_visible_name()
@@ -148,9 +148,9 @@
  * * user - the mob examining the atom
  * * thats - whether to include "That's", or similar (mobs use "This is") before the name
  */
-/atom/proc/examine_title(mob/user, thats = FALSE)
+/atom/proc/examine_title(mob/user, thats = FALSE, declent = NOMINATIVE) // BANDASTATION EDIT - Declents
 	var/examine_icon = get_examine_icon(user)
-	return "[examine_icon ? "[examine_icon] " : ""][thats ? "[examine_thats] ":""]<em>[get_examine_name(user)]</em>"
+	return "[examine_icon ? "[examine_icon] " : ""][thats ? "[examine_thats] ":""]<em>[get_examine_name(user, declent)]</em>" // BANDASTATION EDIT - Declents
 
 /**
  * Returns an extended list of examine strings for any contained ID cards.
@@ -167,5 +167,5 @@
 
 /// Used by mobs to determine the name for someone wearing a mask, or with a disfigured or missing face. By default just returns the atom's name. add_id_name will control whether or not we append "(as [id_name])".
 /// force_real_name will always return real_name and add (as face_name/id_name) if it doesn't match their appearance
-/atom/proc/get_visible_name(add_id_name, force_real_name)
-	return name
+/atom/proc/get_visible_name(add_id_name, force_real_name, declent = NOMINATIVE) // BANDASTATION EDIT - Declents
+	return declent_ru(declent) // BANDASTATION EDIT - Declents
