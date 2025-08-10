@@ -16,7 +16,7 @@
 
 /datum/surgery/gastrectomy/mechanic
 	name = "Диагностика системы усвоения нутриментов"
-	requires_bodypart_type = BODYTYPE_ROBOTIC | BODYTYPE_NANO //Bubber Edit - BODYTYPE_NANO
+	requires_bodypart_type = BODYTYPE_ROBOTIC
 	steps = list(
 		/datum/surgery_step/mechanic_open,
 		/datum/surgery_step/open_hatch,
@@ -62,9 +62,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете вырезать поврежденную часть желудка у [target]..."),
-		span_notice("[user] начинает делать надрез у [target]."),
-		span_notice("[user] начинает делать надрез у [target]."),
+		span_notice("Вы начинаете вырезать поврежденную часть желудка у [target.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает делать надрез у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает делать надрез у [target.declent_ru(GENITIVE)]."),
 	)
 	display_pain(target, "Вы чувствуете колющую боль в животе!")
 
@@ -79,9 +79,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы успешно удаляете поврежденную часть желудка у [target]."),
-		span_notice("[user] успешно удаляет поврежденную часть желудка у [target]."),
-		span_notice("[user] успешно удаляет поврежденную часть желудка у [target]."),
+		span_notice("Вы успешно удаляете поврежденную часть желудка у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] успешно удаляет поврежденную часть желудка у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] успешно удаляет поврежденную часть желудка у [target.declent_ru(GENITIVE)]."),
 	)
 	display_pain(target, "Боль в вашем животе утихает и проходит.")
 	return ..()
@@ -92,8 +92,8 @@
 	display_results(
 		user,
 		target,
-		span_warning("Вы удаляете не ту часть желудка у [target]!"),
-		span_warning("[user] удаляет не ту часть желудка у [target]!"),
-		span_warning("[user] удаляет не ту часть желудка у [target]!"),
+		span_warning("Вы удаляете не ту часть желудка у [target.declent_ru(GENITIVE)]!"),
+		span_warning("[capitalize(user.declent_ru(NOMINATIVE))] удаляет не ту часть желудка у [target.declent_ru(GENITIVE)]!"),
+		span_warning("[capitalize(user.declent_ru(NOMINATIVE))] удаляет не ту часть желудка у [target.declent_ru(GENITIVE)]!"),
 	)
 	display_pain(target, "У вас болит живот, и от этого не становится легче!")

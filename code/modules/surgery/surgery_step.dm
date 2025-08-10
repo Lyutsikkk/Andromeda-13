@@ -30,7 +30,7 @@
 /datum/surgery_step/proc/try_op(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, try_to_fail = FALSE)
 	var/success = FALSE
 	if(surgery.organ_to_manipulate && !target.get_organ_slot(surgery.organ_to_manipulate))
-		to_chat(user, span_warning("Кажется, у [target] не хватает необходимого органа, для завершения этой операции!"))
+		to_chat(user, span_warning("Кажется, у [target.declent_ru(GENITIVE)] не хватает необходимого органа, для завершения этой операции!"))
 		return FALSE
 
 	if(accept_hand)
@@ -65,7 +65,7 @@
 			if(get_location_accessible(target, target_zone) || (surgery.surgery_flags & SURGERY_IGNORE_CLOTHES))
 				initiate(user, target, target_zone, tool, surgery, try_to_fail)
 			else
-				to_chat(user, span_warning("Вам надо снять все, что может закрывать [target.parse_zone_with_bodypart(target_zone)] у [target], для того чтобы начать операцию!"))
+				to_chat(user, span_warning("Вам надо снять все, что может закрывать [target.parse_zone_with_bodypart(target_zone, declent = ACCUSATIVE)] у [target.declent_ru(GENITIVE)], для того чтобы начать операцию!"))
 			return TRUE //returns TRUE so we don't stab the guy in the dick or wherever.
 
 	if(repeatable)
@@ -100,7 +100,7 @@
 
 	if(!chem_check(target))
 		user.balloon_alert(user, "отсутствует [LOWER_TEXT(get_chem_list())]!")
-		to_chat(user, span_warning("[target] не имеет [LOWER_TEXT(get_chem_list())], необходимых для совершения данного шага операции!"))
+		to_chat(user, span_warning("[capitalize(target.declent_ru(NOMINATIVE))] не имеет [LOWER_TEXT(get_chem_list())], необходимых для совершения данного шага операции!"))
 		surgery.step_in_progress = FALSE
 		return FALSE
 
@@ -235,9 +235,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете проводить операцию на [target]..."),
-		span_notice("[user] начинает проводить операцию на [target]."),
-		span_notice("[user] начинает проводить операцию на [target]."),
+		span_notice("Вы начинаете проводить операцию на [target.declent_ru(PREPOSITIONAL)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает проводить операцию на [target.declent_ru(PREPOSITIONAL)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает проводить операцию на [target.declent_ru(PREPOSITIONAL)]."),
 	)
 
 /datum/surgery_step/proc/play_preop_sound(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
@@ -260,8 +260,8 @@
 			user,
 			target,
 			span_notice("Вам удалось."),
-			span_notice("[user] удалось!"),
-			span_notice("[user] заканчивает."),
+			span_notice("[capitalize(user.declent_ru(NOMINATIVE))] удалось!"),
+			span_notice("[capitalize(user.declent_ru(NOMINATIVE))] заканчивает."),
 		)
 	// BUBBER EDIT: prevents blood from being splashed / added to the surgeon's gloves if the patient's limb / organ (eyes) are robotic
 	if(ishuman(user))
@@ -302,8 +302,8 @@
 		user,
 		target,
 		span_warning("Вы ошибаетесь![screwedmessage]"),
-		span_warning("[user] ошибается!"),
-		span_notice("[user] ошибается."), TRUE) //By default the patient will notice if the wrong thing has been cut
+		span_warning("[capitalize(user.declent_ru(NOMINATIVE))] ошибается!"),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] ошибается."), TRUE) //By default the patient will notice if the wrong thing has been cut
 	return FALSE
 
 /datum/surgery_step/proc/play_failure_sound(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)

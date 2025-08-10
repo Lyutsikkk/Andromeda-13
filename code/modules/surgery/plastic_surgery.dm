@@ -42,11 +42,11 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете вставлять [tool] в разрезе на [target.parse_zone_with_bodypart(target_zone)] у [target]..."),
-		span_notice("[user] начинает вставлять [tool] в разрезе на [target.parse_zone_with_bodypart(target_zone)] у [target]."),
-		span_notice("[user] начинает вставлять [tool] в разрезе на [target.parse_zone_with_bodypart(target_zone)] у [target]."),
+		span_notice("Вы начинаете вставлять [tool.declent_ru(ACCUSATIVE)] в разрезе на [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)] ..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает вставлять [tool.declent_ru(ACCUSATIVE)] в разрезе на [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает вставлять [tool.declent_ru(ACCUSATIVE)] в разрезе на [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]."),
 	)
-	display_pain(target, "Вы чувствуете, как что-то вставили вам под кожу в [target.parse_zone_with_bodypart(target_zone)].")
+	display_pain(target, "Вы чувствуете, как что-то вставили вам под кожу в [target.parse_zone_with_bodypart(target_zone, declent = ACCUSATIVE)].")
 
 /datum/surgery_step/insert_plastic/success(mob/user, mob/living/target, target_zone, obj/item/stack/tool, datum/surgery/surgery, default_display_results)
 	. = ..()
@@ -63,13 +63,13 @@
 	surgery_effects_mood = TRUE
 
 /datum/surgery_step/reshape_face/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	user.visible_message(span_notice("[user] начинает изменять внешний вид у [target]."), span_notice("Вы начинаете изменять внешний вид у [target]..."))
+	user.visible_message(span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает изменять внешний вид у [target.declent_ru(GENITIVE)]."), span_notice("Вы начинаете изменять внешний вид у [target.declent_ru(GENITIVE)]..."))
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете изменять внешний вид у [target]..."),
-		span_notice("[user] начинает изменять внешний вид у [target]."),
-		span_notice("[user] начинает делать надрез на лице у [target]."),
+		span_notice("Вы начинаете изменять внешний вид у [target.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает изменять внешний вид у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает делать надрез на лице у [target.declent_ru(GENITIVE)]."),
 	)
 	display_pain(target, "Вы чувствуете острую боль на лице!")
 
@@ -79,9 +79,9 @@
 		display_results(
 			user,
 			target,
-			span_notice("Вы успешно восстанавливаете внешний вид лица у [target]."),
-			span_notice("[user] успешно восстанавливает внешний вид лица у [target]!"),
-			span_notice("[user] заканчивает проводить операцию на лице у [target]."),
+			span_notice("Вы успешно восстанавливаете внешний вид лица у [target.declent_ru(GENITIVE)]."),
+			span_notice("[capitalize(user.declent_ru(NOMINATIVE))] успешно восстанавливает внешний вид лица у [target.declent_ru(GENITIVE)]!"),
+			span_notice("[capitalize(user.declent_ru(NOMINATIVE))] заканчивает проводить операцию на лице у [target.declent_ru(GENITIVE)]."),
 		)
 		display_pain(target, "Боль исчезает, лицо вновь становится нормальным!")
 	else
@@ -98,9 +98,9 @@
 					names += target.generate_random_mob_name(TRUE)
 		else
 			for(var/j in 1 to 9)
-				names += "Субъект [target.gender == MALE ? "i" : "o"]-[pick("a", "b", "c", "d", "e")]-[rand(10000, 99999)]"
+				names += "Subject [target.gender == MALE ? "i" : "o"]-[pick("a", "b", "c", "d", "e")]-[rand(10000, 99999)]"
 			names += target.generate_random_mob_name(TRUE) //give one normal name in case they want to do regular plastic surgery
-		var/chosen_name = tgui_input_list(user, "Присвоение нового имени", "Пластическая хирургия", names)
+		var/chosen_name = tgui_input_list(user, "New name to assign", "Plastic Surgery", names)
 		if(isnull(chosen_name))
 			return
 		var/oldname = target.real_name
@@ -109,9 +109,9 @@
 		display_results(
 			user,
 			target,
-			span_notice("Вы полностью изменяете внешность у [oldname], [target.p_they()] теперь [newname]."),
-			span_notice("[user] полностью изменяет внешность у [oldname], [target.p_they()] теперь [newname]!"),
-			span_notice("[user] заканчивает проводить операцию на лице у [target]."),
+			span_notice("Вы полностью изменяете внешность у [oldname], [target.ru_p_they()] теперь [newname]."),
+			span_notice("[capitalize(user.declent_ru(NOMINATIVE))] полностью изменяет внешность у [oldname], [target.ru_p_they()] теперь [newname]!"),
+			span_notice("[capitalize(user.declent_ru(NOMINATIVE))] заканчивает проводить операцию на лице у [target.declent_ru(GENITIVE)]."),
 		)
 		display_pain(target, "Боль проходит, а ваше лицо кажется новым и непривычным!")
 	if(ishuman(target))
@@ -126,9 +126,9 @@
 	display_results(
 		user,
 		target,
-		span_warning("Вы ошибаетесь, сделав обезображенное лицо у [target]!"),
-		span_notice("[user] ошибается, сделав обезображенное лицо у [target]!"),
-		span_notice("[user] заканчивает проводить операцию на лице у [target]."),
+		span_warning("Вы ошибаетесь, сделав обезображенное лицо у [target.declent_ru(GENITIVE)]!"),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] ошибается, сделав обезображенное лицо у [target.declent_ru(GENITIVE)]!"),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] заканчивает проводить операцию на лице у [target.declent_ru(GENITIVE)]."),
 	)
 	display_pain(target, "Вы чувствуете, что теперь ваше лицо изуродовано и обезображено!")
 	ADD_TRAIT(target, TRAIT_DISFIGURED, TRAIT_GENERIC)

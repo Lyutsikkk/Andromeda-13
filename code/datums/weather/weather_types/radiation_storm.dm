@@ -63,7 +63,7 @@
 /datum/weather/rad_storm/end()
 	if(..())
 		return
-	priority_announce("Радиационная угроза миновала. Пожалуйста, возвращайтесь на свои рабочие места.", "Предупреждение об аномалии", ANNOUNCER_RADIATIONPASSED) //SKYRAT EDIT CHANGE
+	priority_announce("Радиационная угроза миновала. Пожалуйста, возвращайтесь на свои рабочие места.", "Радиационная тревога", ANNOUNCER_RADIATIONPASSED) //SKYRAT EDIT CHANGE
 	status_alarm(FALSE)
 
 /datum/weather/rad_storm/proc/do_mutate(mob/living/carbon/human/mutant)

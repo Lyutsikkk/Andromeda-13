@@ -2,7 +2,7 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 
 /obj/machinery/announcement_system
 	density = TRUE
-	name = "\improper Automated Announcement System"
+	name = "Автоматическая система оповещений"
 	desc = "Автоматизированная система оповещения, которая обрабатывает незначительные объявления по радио."
 	icon = 'icons/obj/machines/telecomms.dmi'
 	icon_state = "AAS_On"

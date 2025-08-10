@@ -29,7 +29,7 @@
 	return TRUE
 
 /datum/surgery_step/autopsy
-	name = "Perform Autopsy (autopsy scanner)"
+	name = "Проведите вскрытие (сканер аутопсии)"
 	implements = list(/obj/item/autopsy_scanner = 100)
 	time = 10 SECONDS
 	success_sound = 'sound/machines/printer.ogg'
@@ -38,9 +38,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы приступаете к вскрытию [target]..."),
-		span_notice("[user] использует [tool] для вскрытия [target]."),
-		span_notice("[user] использует [tool] на груди у [target]."),
+		span_notice("Вы приступаете к вскрытию [target.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] использует [tool.declent_ru(ACCUSATIVE)] для вскрытия [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] использует [tool.declent_ru(ACCUSATIVE)] на груди у [target.declent_ru(GENITIVE)]."),
 	)
 	display_pain(target, "Вы чувствуете жжение в груди!")
 
@@ -59,8 +59,8 @@
 	display_results(
 		user,
 		target,
-		span_warning("Вы ошибаетесь, оставляя ушиб на груди у [target]!"),
-		span_warning("[user] ошибается, оставляя ушиб на груди у [target]!"),
-		span_warning("[user] ошибается!"),
+		span_warning("Вы ошибаетесь, оставляя ушиб на груди у [target.declent_ru(GENITIVE)]!"),
+		span_warning("[capitalize(user.declent_ru(NOMINATIVE))] ошибается, оставляя ушиб на груди у [target.declent_ru(GENITIVE)]!"),
+		span_warning("[capitalize(user.declent_ru(NOMINATIVE))] ошибается!"),
 	)
 	target.adjustBruteLoss(5)

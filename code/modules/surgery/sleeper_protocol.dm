@@ -23,7 +23,7 @@
 /datum/surgery/advanced/brainwashing_sleeper/mechanic
 	name = "Sleeper Agent Reprogramming"
 	desc = "Программное обеспечение, которое напрямую имплантирует протокол спящего агента в операционную систему роботизированного пациента и делает его абсолютным приоритетом. Протокол можно очистить с помощью импланта защиты разума."
-	requires_bodypart_type = BODYTYPE_ROBOTIC | BODYTYPE_NANO //Bubber Edit - BODYTYPE_NANO
+	requires_bodypart_type = BODYTYPE_ROBOTIC
 	steps = list(
 		/datum/surgery_step/mechanic_open,
 		/datum/surgery_step/open_hatch,
@@ -76,8 +76,8 @@
 		user,
 		target,
 		span_notice("Вы начинаете промывать мозги [target]..."),
-		span_notice("[user] начинает исправлять мозги [target]."),
-		span_notice("[user] начинает делать операцию на мозге [target]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает исправлять мозги [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает делать операцию на мозге [target.declent_ru(GENITIVE)]."),
 	)
 	display_pain(target, "Голова раскалывается от невообразимой боли!") // Same message as other brain surgeries
 

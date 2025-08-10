@@ -65,7 +65,7 @@
 	/// Status Effects that are given to the holder of the organ.
 	var/list/organ_effects
 	/// String displayed when the organ has decayed.
-	var/failing_desc = "слишком долго разлагался и приобрел нездоровый цвет. Без ремонта она, скорее всего, не будет работать."
+	var/failing_desc = "пребывает под влиянием разложения слишком долго, что уже принимает болезненный цвет. Орган уже не заработает, если его не лечить."
 	/// Assoc list of alternate zones where this can organ be slotted to organ slot for that zone
 	var/list/valid_zones = null
 
@@ -191,24 +191,24 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 			. += span_info("Жилище и домашний уют. Проверенная временем работа. На рынке он должен стоить очень дорого.")
 
 	if(organ_flags & ORGAN_FAILING)
-		. += span_warning("[src] [failing_desc]")
+		. += span_warning("[capitalize(declent_ru(NOMINATIVE))] [failing_desc]")
 		return
 
 	if(damage > high_threshold)
 		if(IS_ROBOTIC_ORGAN(src))
-			. += span_warning("[src], похоже, не работает.")
+			. += span_warning("[capitalize(declent_ru(NOMINATIVE))], кажется, работает неисправно.")
 			return
-		. += span_warning("[src] начинает выглядеть обесцвеченным.")
+		. += span_warning("[capitalize(declent_ru(NOMINATIVE))] начинает обесцвечиваться.")
 
 /// Returns a line to be displayed regarding valid insertion zones
 /obj/item/organ/proc/zones_tip()
 	if (!valid_zones)
-		return span_notice("Это должено быть вставлено в [parse_zone(zone)].")
+		return span_notice("Должно вставляться в [ru_parse_zone(zone, declent = ACCUSATIVE)].")
 
 	var/list/fit_zones = list()
 	for (var/valid_zone in valid_zones)
 		fit_zones += parse_zone(valid_zone)
-	return span_notice("Это следует вставить в [english_list(fit_zones, and_text = " или ")].")
+	return span_notice("Должно вставляться в [english_list(fit_zones, and_text = " или ")].")
 
 ///Used as callbacks by object pooling
 /obj/item/organ/proc/exit_wardrobe()

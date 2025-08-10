@@ -127,15 +127,15 @@ Des: Removes all infected images from the alien.
 	return TRUE
 
 /mob/living/carbon/alien/get_visible_suicide_message()
-	return "[src] is thrashing wildly! It looks like [p_theyre()] trying to commit suicide."
+	return "[capitalize(declent_ru(NOMINATIVE))] дико мечется! Кажется, [ru_p_they()] пытается совершить самоубийство."
 
 /mob/living/carbon/alien/get_blind_suicide_message()
-	return "You hear thrashing."
+	return "Вы слышите мечение."
 
 /mob/living/carbon/alien/proc/alien_evolve(mob/living/carbon/alien/new_xeno)
 	visible_message(
-		span_alertalien("[src] begins to twist and contort!"),
-		span_noticealien("You begin to evolve!"),
+		span_alertalien("[capitalize(declent_ru(NOMINATIVE))] начинает извиваться и изменяться!"),
+		span_noticealien("Вы начинаете эволюционировать!"),
 	)
 
 	new_xeno.setDir(dir)

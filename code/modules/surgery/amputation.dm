@@ -86,22 +86,22 @@
 	display_results(
 		user,
 		target,
-		span_notice("You begin to sever [target]'s [target.parse_zone_with_bodypart(target_zone)]..."),
-		span_notice("[user] begins to sever [target]'s [target.parse_zone_with_bodypart(target_zone)]!"),
-		span_notice("[user] begins to sever [target]'s [target.parse_zone_with_bodypart(target_zone)]!"),
+		span_notice("Вы начинаете отрезать [target.parse_zone_with_bodypart(target_zone, declent = ACCUSATIVE)] у [target.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает отрезать [target.parse_zone_with_bodypart(target_zone, declent = ACCUSATIVE)] у [target.declent_ru(GENITIVE)]!"),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает отрезать [target.parse_zone_with_bodypart(target_zone, declent = ACCUSATIVE)] у [target.declent_ru(GENITIVE)]!"),
 	)
-	display_pain(target, "You feel a gruesome pain in your [parse_zone(target_zone)]'s joint!")
+	display_pain(target, "Вы чувствуете жуткую боль в [ru_parse_zone(target_zone, declent = PREPOSITIONAL)]!")
 
 
 /datum/surgery_step/sever_limb/success(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете отрезать [target.parse_zone_with_bodypart(target_zone)] у [target]."),
-		span_notice("[user] отрезает [target.parse_zone_with_bodypart(target_zone)] у [target]!"),
-		span_notice("[user] отрезает [target.parse_zone_with_bodypart(target_zone)] у [target]!"),
+		span_notice("Вы отрезаете [target.parse_zone_with_bodypart(target_zone, declent = ACCUSATIVE)] у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] отрезает [target.parse_zone_with_bodypart(target_zone, declent = ACCUSATIVE)] у [target.declent_ru(GENITIVE)]!"),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] отрезает [target.parse_zone_with_bodypart(target_zone, declent = ACCUSATIVE)] у [target.declent_ru(GENITIVE)]!"),
 	)
-	display_pain(target, "Вы больше не чувствуете свою [target.parse_zone_with_bodypart(target_zone)]!")
+	display_pain(target, "Вы больше не чувствуете свою [target.parse_zone_with_bodypart(target_zone, declent = ACCUSATIVE)]!")
 
 	if(HAS_MIND_TRAIT(user, TRAIT_MORBID) && ishuman(user))
 		var/mob/living/carbon/human/morbid_weirdo = user

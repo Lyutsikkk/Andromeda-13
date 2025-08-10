@@ -67,9 +67,9 @@
 			display_results(
 				user,
 				target,
-				span_notice("Вы пытаетесь наложить швы на [woundtype] у [target]."),
-				span_notice("[user] пытается наложить швы на [woundtype] у [target]."),
-				span_notice("[user] пытается наложить швы на [woundtype] у [target]."),
+				span_notice("Вы пытаетесь наложить швы на [woundtype] у [target.declent_ru(GENITIVE)]."),
+				span_notice("[capitalize(user.declent_ru(NOMINATIVE))] пытается наложить швы на [woundtype] у [target.declent_ru(GENITIVE)]."),
+				span_notice("[capitalize(user.declent_ru(NOMINATIVE))] пытается наложить швы на [woundtype] у [target.declent_ru(GENITIVE)]."),
 			)
 		display_pain(target, "Ваши [woundtype] чертовски болят!")
 
@@ -81,8 +81,8 @@
 			break
 
 /datum/surgery_step/heal/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	var/user_msg = "Вы успешно обрабатываете раны у [target]" //no period, add initial space to "addons"
-	var/target_msg = "[user] успешно обрабатывает раны у [target]" //see above
+	var/user_msg = "Вы успешно обрабатываете раны у [target.declent_ru(GENITIVE)]" //no period, add initial space to "addons"
+	var/target_msg = "[capitalize(user.declent_ru(NOMINATIVE))] успешно обрабатывает раны у [target.declent_ru(GENITIVE)]" //see above
 	var/brute_healed = brutehealing
 	var/burn_healed = burnhealing
 	var/dead_patient = FALSE
@@ -144,8 +144,8 @@
 		user,
 		target,
 		span_warning("Вы ошибаетесь!"),
-		span_warning("[user] ошибается!"),
-		span_notice("[user] зашивает некоторые раны у [target]."),
+		span_warning("[capitalize(user.declent_ru(NOMINATIVE))] ошибается!"),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] зашивает некоторые раны у [target.declent_ru(GENITIVE)]."),
 		target_detailed = TRUE,
 	)
 	var/brute_dealt = brutehealing * 0.8
@@ -369,8 +369,8 @@
 		user,
 		target,
 		span_warning("Вы ошибаетесь!"),
-		span_warning("[user] ошибается!"),
-		span_notice("[user] обрабатывает некоторые раны у [target]."),
+		span_warning("[capitalize(user.declent_ru(NOMINATIVE))] ошибается!"),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] обрабатывает некоторые раны у [target.declent_ru(GENITIVE)]."),
 		target_detailed = TRUE,
 	)
 	target.take_bodypart_damage(5,5)

@@ -14,9 +14,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете откручивать корпус в [target.parse_zone_with_bodypart(target_zone)] у [target]..."),
-		span_notice("[user] начинает откручивать корпус в [target.parse_zone_with_bodypart(target_zone)] у [target]."),
-		span_notice("[user] начинает откручивать корпус в [target.parse_zone_with_bodypart(target_zone)] у [target]."),
+		span_notice("Вы начинаете откручивать корпус в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает откручивать корпус в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает откручивать корпус в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]."),
 	)
 	display_pain(target, "Вы ощущаете, как [target.parse_zone_with_bodypart(target_zone)] немеет по мере откручивания сенсорной панели.", TRUE)
 
@@ -44,11 +44,11 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете закручивать корпус в [target.parse_zone_with_bodypart(target_zone)] у [target]..."),
-		span_notice("[user] начинает закручивать корпус в [target.parse_zone_with_bodypart(target_zone)] у [target]."),
-		span_notice("[user] начинает закручивать корпус в [target.parse_zone_with_bodypart(target_zone)] у [target]."),
+		span_notice("Вы начинаете закручивать корпус в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает закручивать корпус в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает закручивать корпус в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]."),
 	)
-	display_pain(target, "Вы ощущаете, как начинаете получать показания датчиков из [target.parse_zone_with_bodypart(target_zone)] после того, как панель закрутили обратно.", TRUE)
+	display_pain(target, "Вы ощущаете, как начинаете получать показания датчиков из [target.parse_zone_with_bodypart(target_zone, declent = GENITIVE)], после того, как панель закрутили обратно.", TRUE)
 
 /datum/surgery_step/mechanic_close/tool_check(mob/user, obj/item/tool)
 	if(implement_type == /obj/item && !tool.get_sharpness())
@@ -72,11 +72,11 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете подготовку электроники в [target.parse_zone_with_bodypart(target_zone)] у [target]..."),
-		span_notice("[user] начинает подготовку электроники в [target.parse_zone_with_bodypart(target_zone)] у [target]."),
-		span_notice("[user] начинает подготовку электроники в [target.parse_zone_with_bodypart(target_zone)] у [target]."),
+		span_notice("Вы начинаете подготовку электроники в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает подготовку электроники в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает подготовку электроники в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]."),
 	)
-	display_pain(target, "Вы чувствуете слабое жужжание в [target.parse_zone_with_bodypart(target_zone)] когда электроника перезагружается.", TRUE)
+	display_pain(target, "Вы чувствуете слабое жужжание в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)], когда электроника перезагружается.", TRUE)
 
 //unwrench
 /datum/surgery_step/mechanic_unwrench
@@ -91,11 +91,11 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете откручивать болты в [target.parse_zone_with_bodypart(target_zone)] у [target]..."),
-		span_notice("[user] начинает откручивать болты в [target.parse_zone_with_bodypart(target_zone)] у [target]."),
-		span_notice("[user] начинает откручивать болты в [target.parse_zone_with_bodypart(target_zone)] у [target]."),
+		span_notice("Вы начинаете откручивать болты в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает откручивать болты в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает откручивать болты в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]."),
 	)
-	display_pain(target, "Вы чувствуете вибрацию в [target.parse_zone_with_bodypart(target_zone)], когда болты начинают ослабевать.", TRUE)
+	display_pain(target, "Вы чувствуете вибрацию в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)], когда болты начинают ослабевать.", TRUE)
 
 /datum/surgery_step/mechanic_unwrench/tool_check(mob/user, obj/item/tool)
 	if(tool.usesound)
@@ -116,11 +116,11 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете закручивать болты в [target.parse_zone_with_bodypart(target_zone)] у [target]..."),
-		span_notice("[user] начинает закручивать болты в [target.parse_zone_with_bodypart(target_zone)] у [target]."),
-		span_notice("[user] начинает закручивать болты в [target.parse_zone_with_bodypart(target_zone)] у [target]."),
+		span_notice("Вы начинаете закручивать болты в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает закручивать болты в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает закручивать болты в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]."),
 	)
-	display_pain(target, "Вы чувствуете вибрацию в [target.parse_zone_with_bodypart(target_zone)], когда болты начинают затягиваться.", TRUE)
+	display_pain(target, "Вы чувствуете вибрацию в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)], когда болты начинают затягиваться.", TRUE)
 
 /datum/surgery_step/mechanic_wrench/tool_check(mob/user, obj/item/tool)
 	if(tool.usesound)
@@ -140,11 +140,11 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете открывать люк в [target.parse_zone_with_bodypart(target_zone)] у [target]..."),
-		span_notice("[user] начинает открывать люк в [target.parse_zone_with_bodypart(target_zone)] у [target]."),
-		span_notice("[user] начинает открывать люк в [target.parse_zone_with_bodypart(target_zone)] у [target]."),
+		span_notice("Вы начинаете открывать люк в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает открывать люк в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает открывать люк в [target.parse_zone_with_bodypart(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]."),
 	)
-	display_pain(target, "Вы получаете последние показания датчиков из вашей [target.parse_zone_with_bodypart(target_zone)], когда открывается люк.", TRUE)
+	display_pain(target, "Вы получаете последние показания датчиков из вашей [target.parse_zone_with_bodypart(target_zone, declent = GENITIVE)], когда открывается люк.", TRUE)
 
 /datum/surgery_step/open_hatch/tool_check(mob/user, obj/item/tool)
 	if(tool.usesound)

@@ -31,9 +31,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете фильтровать кровь у [target]..."),
-		span_notice("[user] использует [tool] для фильтрации крови у [target]."),
-		span_notice("[user] использует [tool] на груди у [target]."),
+		span_notice("Вы начинаете фильтровать кровь у [target.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] использует [tool.declent_ru(ACCUSATIVE)] для фильтрации крови у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] использует [tool.declent_ru(ACCUSATIVE)] на груди у [target.declent_ru(GENITIVE)]."),
 	)
 	if(!..())
 		return
@@ -57,7 +57,7 @@
 		return TRUE
 	// BUBBER EDIT ADDITION END
 	if(!length(target.reagents?.reagent_list))
-		bloodfilter.audible_message(span_notice("[bloodfilter] сигнализирует об отсутствии химикатов в крови у [target]."))
+		bloodfilter.audible_message(span_notice("[capitalize(bloodfilter.declent_ru(NOMINATIVE))] сигнализирует об отсутствии химикатов в крови у [target.declent_ru(GENITIVE)]."))
 		playsound(get_turf(target), 'sound/machines/ping.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1)
 		return FALSE
 
@@ -90,9 +90,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("[tool] сигнализирует о завершении фильтрация крови у [target]."),
-		span_notice("[tool] сигнализирует об окончании перекачивания крови у [target]."),
-		span_notice("[tool] сигнализирует об окончании перекачивания крови."),
+		span_notice("[capitalize(tool.declent_ru(NOMINATIVE))] сигнализирует о завершении фильтрация крови у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(tool.declent_ru(NOMINATIVE))] сигнализирует об окончании перекачивания крови у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(tool.declent_ru(NOMINATIVE))] сигнализирует об окончании перекачивания крови."),
 	)
 
 	if(locate(/obj/item/healthanalyzer) in user.held_items)
@@ -104,8 +104,8 @@
 	display_results(
 		user,
 		target,
-		span_warning("Вы ошибаетесь, оставляя ушиб на груди у [target]!"),
-		span_warning("[user] ошибается, оставляя ушиб на груди у [target]!"),
-		span_warning("[user] ошибается!"),
+		span_warning("Вы ошибаетесь, оставляя ушиб на груди у [target.declent_ru(GENITIVE)]!"),
+		span_warning("[capitalize(user.declent_ru(NOMINATIVE))] ошибается, оставляя ушиб на груди у [target.declent_ru(GENITIVE)]!"),
+		span_warning("[capitalize(user.declent_ru(NOMINATIVE))] ошибается!"),
 	)
 	target.adjustBruteLoss(5)

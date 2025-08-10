@@ -58,25 +58,25 @@
 	success_sound = 'sound/machines/airlock/doorclick.ogg'
 
 /datum/surgery_step/cut_fat/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	user.visible_message(span_notice("[user] начинает отрезать лишний жир у [target]."), span_notice("Вы начинаете отрезать лишний жир у [target]..."))
+	user.visible_message(span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает отрезать лишний жир у [target.declent_ru(GENITIVE)]."), span_notice("Вы начинаете отрезать лишний жир у [target.declent_ru(GENITIVE)]..."))
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете отрезать лишний жир у [target]..."),
-		span_notice("[user] начинает отрезать лишний жир у [target]."),
-		span_notice("[user] начинает отрезать что-то из [target_zone] у [target] при помощи [tool]."),
+		span_notice("Вы начинаете отрезать лишний жир у [target.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает отрезать лишний жир у [target.declent_ru(GENITIVE)]"),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает отрезать что-то из [ru_parse_zone(target_zone, declent = GENITIVE)] у [target.declent_ru(GENITIVE)] при помощи [tool.declent_ru(GENITIVE)]."),
 	)
-	display_pain(target, "Вы чувствуете резкую боль в вашей [target_zone]!")
+	display_pain(target, "Вы чувствуете резкую боль в вашей [ru_parse_zone(target_zone, declent = PREPOSITIONAL)]!")
 
 /datum/surgery_step/cut_fat/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
 	display_results(
 		user,
 		target,
-		span_notice("Вы отрезали лишний жир у [target]."),
-		span_notice("[user] отрезал лишний жир у [target]!"),
-		span_notice("[user] заканчивает разрез на [target_zone] у [target]."),
+		span_notice("Вы отрезали лишний жир у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] отрезал лишний жир у [target.declent_ru(GENITIVE)]!"),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] заканчивает разрез на [ru_parse_zone(target_zone, declent = PREPOSITIONAL)] у [target.declent_ru(GENITIVE)]."),
 	)
-	display_pain(target, "Жир в вашей [target_zone] ослабевает, свисает и болит, как черт знает что!")
+	display_pain(target, "Жир в вашей [ru_parse_zone(target_zone, declent = PREPOSITIONAL)] ослабевает, свисает и болит, как черт знает что!")
 	return TRUE
 
 //remove fat
@@ -106,9 +106,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете извлекать лишний жир у [target]..."),
-		span_notice("[user] начинает извлекать лишний жир у [target]!"),
-		span_notice("[user] начинает извлекать что-то у [target] из [target_zone]."),
+		span_notice("Вы начинаете извлекать лишний жир у [target.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает извлекать лишний жир у [target.declent_ru(GENITIVE)]!"),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает извлекать что-то у [target.declent_ru(GENITIVE)] из [ru_parse_zone(target_zone, declent = PREPOSITIONAL)]."),
 	)
 	display_pain(target, "Вы чувствуете странное безболезненное потягивание за лишний жир!")
 
@@ -116,9 +116,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы извлекли жир у [target]."),
-		span_notice("[user] извлек жир у [target]!"),
-		span_notice("[user] извлек жир у [target]!"),
+		span_notice("Вы извлекли жир у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] извлек жир у [target.declent_ru(GENITIVE)]!"),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] извлек жир у [target.declent_ru(GENITIVE)]!"),
 	)
 	target.overeatduration = 0 //patient is unfatted
 	var/removednutriment = target.nutrition

@@ -27,21 +27,21 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете лечить глаза у [target]..."),
-		span_notice("[user] начинает лечить глаза у [target]."),
-		span_notice("[user] начинает проводить операцию на глазах у [target]."),
+		span_notice("Вы начинаете лечить глаза у [target.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает лечить глаза у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает проводить операцию на глазах у [target.declent_ru(GENITIVE)]."),
 	)
 	display_pain(target, "Вы чувствуете колющую боль в глазах!")
 
 /datum/surgery_step/fix_eyes/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/obj/item/organ/eyes/target_eyes = target.get_organ_slot(ORGAN_SLOT_EYES)
-	user.visible_message(span_notice("[user] успешно лечит глаза у [target]!"), span_notice("Вы успешно лечите глаза у [target]'s eyes."))
+	user.visible_message(span_notice("[capitalize(user.declent_ru(NOMINATIVE))] успешно лечит глаза у [target.declent_ru(GENITIVE)]!"), span_notice("Вы успешно лечите глаза у [target.declent_ru(GENITIVE)]."))
 	display_results(
 		user,
 		target,
-		span_notice("Вы успешно вылечиваете глаза у [target]."),
-		span_notice("[user] успешно излечивает глаза у [target]!"),
-		span_notice("[user] завершает операцию на глазах у [target]."),
+		span_notice("Вы успешно вылечиваете глаза у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] успешно излечивает глаза у [target.declent_ru(GENITIVE)]!"),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] завершает операцию на глазах у [target.declent_ru(GENITIVE)]."),
 	)
 	display_pain(target, "Ваше зрение размыто, но кажется, что теперь вы видите немного лучше!")
 	target.remove_status_effect(/datum/status_effect/temporary_blindness)
@@ -54,9 +54,9 @@
 		display_results(
 			user,
 			target,
-			span_warning("Вы отвлекаетесь, случайно задевая мозг у [target]!"),
-			span_warning("[user] отвлекается, случайно задевая мозг у [target]!"),
-			span_warning("[user] отвлекается, случайно задевая мозг у [target]!"),
+			span_warning("Вы отвлекаетесь, случайно задевая мозг у [target.declent_ru(GENITIVE)]!"),
+			span_warning("[capitalize(user.declent_ru(NOMINATIVE))] отвлекается, случайно задевая мозг у [target.declent_ru(GENITIVE)]!"),
+			span_warning("[capitalize(user.declent_ru(NOMINATIVE))] отвлекается, случайно задевая мозг у [target.declent_ru(GENITIVE)]!"),
 		)
 		display_pain(target, "Вы чувствуете сильную колющую боль в голове, прямо в мозгу!")
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 70)
@@ -64,9 +64,9 @@
 		display_results(
 			user,
 			target,
-			span_warning("Вы отвлекаетесь, случайно задев мозг у [target]! Либо, задели бы его, был бы у [target] мозг."),
-			span_warning("[user] отвлекается, случайно задевая мозг у [target]! Если бы, конечно, у [target] был бы мозг."),
-			span_warning("[user] отвлекается, случайно задевая мозг у [target]!"),
+			span_warning("Вы отвлекаетесь, случайно задев мозг у [target.declent_ru(GENITIVE)]! Либо, задели бы его, был бы у [target.declent_ru(GENITIVE)] мозг."),
+			span_warning("[capitalize(user.declent_ru(NOMINATIVE))] отвлекается, случайно задевая мозг у [target.declent_ru(GENITIVE)]! Если бы, конечно, у [target.declent_ru(GENITIVE)] был бы мозг."),
+			span_warning("[capitalize(user.declent_ru(NOMINATIVE))] отвлекается, случайно задевая мозг у [target.declent_ru(GENITIVE)]!"),
 		)
 		display_pain(target, "Вы чувствуете сильную колющую боль в голове!") // dunno who can feel pain w/o a brain but may as well be consistent.
 	return FALSE

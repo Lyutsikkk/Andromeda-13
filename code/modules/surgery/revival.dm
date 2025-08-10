@@ -71,12 +71,12 @@
 	if(istype(tool, /obj/item/shockpaddles))
 		var/obj/item/shockpaddles/paddles = tool
 		if((paddles.req_defib && !paddles.defib.powered) || !HAS_TRAIT(paddles, TRAIT_WIELDED) || paddles.cooldown || paddles.busy)
-			to_chat(user, span_warning("Вам нужно держать обе ручки, и для [paddles.defib] необходимо питание!"))
+			to_chat(user, span_warning("Вам нужно держать обе ручки, и для [paddles.defib.declent_ru(GENITIVE)] необходимо питание!"))
 			return FALSE
 	if(istype(tool, /obj/item/melee/baton/security))
 		var/obj/item/melee/baton/security/baton = tool
 		if(!baton.active)
-			to_chat(user, span_warning("Нужно активировать [baton]!"))
+			to_chat(user, span_warning("Нужно активировать [baton.declent_ru(NOMINATIVE)]!"))
 			return FALSE
 	if(istype(tool, /obj/item/gun/energy))
 		var/obj/item/gun/energy/egun = tool
@@ -90,11 +90,11 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы готовитесь применить [tool] для воздействия на мозг [target]."),
-		span_notice("[user] готовится применить [tool] для воздействия на мозг [target]."),
-		span_notice("[user] готовится применить [tool] для воздействия на мозг [target]."),
+		span_notice("Вы готовитесь применить [tool.declent_ru(ACCUSATIVE)] для воздействия на мозг [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] готовится применить [tool.declent_ru(ACCUSATIVE)] для воздействия на мозг."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] готовится применить [tool.declent_ru(ACCUSATIVE)] для воздействия на мозг."),
 	)
-	target.notify_revival("Someone is trying to zap your brain.", source = target)
+	target.notify_revival("Кто-то пытается поразить ваш мозг.", source = target)
 
 /datum/surgery_step/revive/play_preop_sound(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(istype(tool, /obj/item/shockpaddles))
@@ -106,9 +106,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы успешно поражаете мозг [target] с помощью [tool]..."),
-		span_notice("[user] посылает мощный удар в мозг [target] с помощью [tool]..."),
-		span_notice("[user] посылает мощный удар в мозг [target] с помощью [tool]..."),
+		span_notice("Вы успешно поражаете мозг [target.declent_ru(GENITIVE)] с помощью [tool.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] посылает мощный удар в мозг [target.declent_ru(GENITIVE)] с помощью [tool.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] посылает мощный удар в мозг [target.declent_ru(GENITIVE)] с помощью [tool.declent_ru(GENITIVE)]..."),
 	)
 	target.grab_ghost()
 	target.adjustOxyLoss(-50)
@@ -129,7 +129,7 @@
 
 /// Called when you have been successfully raised from the dead
 /datum/surgery_step/revive/proc/on_revived(mob/surgeon, mob/living/patient)
-	patient.visible_message(span_notice("...[patient] просыпается, живым и в сознании!"))
+	patient.visible_message(span_notice("...[capitalize(patient.declent_ru(NOMINATIVE))] просыпается, живым и в сознании!"))
 	patient.emote("gasp")
 	to_chat(patient, "<span class='userdanger'>[CONFIG_GET(string/blackoutpolicy)]</span>") //SKYRAT EDIT ADDITION - BLACKOUT POLICY
 	if(HAS_MIND_TRAIT(surgeon, TRAIT_MORBID) && ishuman(surgeon)) // Contrary to their typical hatred of resurrection, it wouldn't be very thematic if morbid people didn't love playing god
@@ -140,9 +140,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы успешно поражаете мозг [target] при помощи [tool], но [target.p_they()] не реагирует."),
-		span_notice("[user] успешно поражает мозг [target] мощным ударом с помощью [tool], но [target.p_they()] не реагирует."),
-		span_notice("[user] успешно поражает мозг [target] мощным ударом с помощью [tool], но [target.p_they()] не реагирует."),
+		span_notice("Вы успешно поражаете мозг [target.declent_ru(GENITIVE)] при помощи [tool.declent_ru(GENITIVE)], но [target.ru_p_they()] не реагирует."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] успешно поражает мозг [target.declent_ru(GENITIVE)] мощным ударом с помощью [tool.declent_ru(GENITIVE)], но [target.ru_p_they()] не реагирует."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] успешно поражает мозг [target.declent_ru(GENITIVE)] мощным ударом с помощью [tool.declent_ru(GENITIVE)], но [target.ru_p_they()] не реагирует."),
 	)
 	return FALSE
 

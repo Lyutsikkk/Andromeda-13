@@ -50,9 +50,9 @@
 		var/armor_block = run_armor_check(affecting, MELEE,"","",10)
 
 		playsound(loc, 'sound/items/weapons/slice.ogg', 25, TRUE, -1)
-		visible_message(span_danger("[user] slashes at [src]!"), \
-						span_userdanger("[user] slashes at you!"), span_hear("You hear a sickening sound of a slice!"), null, user)
-		to_chat(user, span_danger("You slash at [src]!"))
+		visible_message(span_danger("[capitalize(user.declent_ru(NOMINATIVE))] режет [declent_ru(ACCUSATIVE)]!"), \
+						span_userdanger("[capitalize(user.declent_ru(NOMINATIVE))] режет вас!"), span_hear("Вы слышите противный звук разрезания!"), null, user)
+		to_chat(user, span_danger("Вы режете [declent_ru(ACCUSATIVE)]!"))
 		log_combat(user, src, "attacked")
 
 		if(!dismembering_strike(user, user.zone_selected)) //Dismemberment successful

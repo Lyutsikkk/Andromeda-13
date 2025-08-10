@@ -61,9 +61,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете делать надрез сердца у [target]..."),
-		span_notice("[user] начинает делать надрез сердца у [target]."),
-		span_notice("[user] начинает делать надрез сердца у [target]."),
+		span_notice("Вы начинаете делать надрез сердца у [target.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает делать надрез сердца у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает делать надрез сердца у [target.declent_ru(GENITIVE)]."),
 	)
 	display_pain(target, "Вы чувствуете ужасную боль в сердце. Вы близки к тому, чтобы потерять сознание!")
 
@@ -75,9 +75,9 @@
 			display_results(
 				user,
 				target,
-				span_notice("[blood_name] скапливается вокруг разреза на сердца [target_human]."),
-				span_notice("[blood_name] скапливается вокруг разреза на сердца [target_human]."),
-				span_notice("[blood_name] скапливается вокруг разреза на сердца [target_human]."),
+				span_notice("Вокруг сердца у [target_human.declent_ru(GENITIVE)] образуется лужа [blood_name]."),
+				span_notice("Вокруг сердца у [target_human.declent_ru(GENITIVE)] образуется лужа [blood_name]."),
+				span_notice("Вокруг сердца у [target_human.declent_ru(GENITIVE)] образуется лужа [blood_name]."),
 			)
 			var/obj/item/bodypart/target_bodypart = target_human.get_bodypart(target_zone)
 			target_bodypart.adjustBleedStacks(10)
@@ -92,8 +92,8 @@
 			user,
 			target,
 			span_warning("Вы ошибаетесь, совершив слишком глубокий надрез сердца!"),
-			span_warning("[user] ошибается, в результате чего из груди [target_human] фонтанирует [blood_name]!"),
-			span_warning("[user] ошибается, в результате чего из груди [target_human] фонтанирует [blood_name]!"),
+			span_warning("[capitalize(user.declent_ru(NOMINATIVE))] ошибается, в результате чего из груди [target_human.declent_ru(GENITIVE)] выплескивается [blood_name]!"),
+			span_warning("[capitalize(user.declent_ru(NOMINATIVE))] ошибается, в результате чего из груди [target_human.declent_ru(GENITIVE)] выплескивается [blood_name]!"),
 		)
 		var/obj/item/bodypart/target_bodypart = target_human.get_bodypart(target_zone)
 		target_bodypart.adjustBleedStacks(10)
@@ -128,9 +128,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете шунтирование сердца у [target]..."),
-		span_notice("[user] начинает шунтирование сердца у [target]!"),
-		span_notice("[user] начинает шунтирование сердца у [target]!"),
+		span_notice("Вы начинаете шунтирование сердца у [target.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает шунтирование сердца у [target.declent_ru(GENITIVE)]!"),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает шунтирование сердца у [target.declent_ru(GENITIVE)]!"),
 	)
 	display_pain(target, "Боль в груди невыносима! Вы едва можете это вытерпеть!")
 
@@ -144,9 +144,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы успешно проводите шунтирование сердца у [target]."),
-		span_notice("[user] успешно проводит шунтирование сердца у [target]."),
-		span_notice("[user] успешно проводит шунтирование сердца у [target]."),
+		span_notice("Вы успешно проводите шунтирование сердца у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] успешно проводит шунтирование сердца у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] успешно проводит шунтирование сердца у [target.declent_ru(GENITIVE)]."),
 	)
 	display_pain(target, "Боль в груди не отступает, но сердце чувствует себя как никогда хорошо!")
 	return ..()
@@ -158,8 +158,8 @@
 			user,
 			target,
 			span_warning("Вы ошибаетесь при шунтировании сердца и повредили часть сердца!"),
-			span_warning("[user] ошибается, в результате чего из груди [target_human] обильно хлещет кровь!"),
-			span_warning("[user] ошибается, в результате чего из груди [target_human] обильно хлещет кровь!"),
+			span_warning("[capitalize(user.declent_ru(NOMINATIVE))] ошибается, в результате чего из груди [target_human.declent_ru(GENITIVE)] обильно хлещет кровь!"),
+			span_warning("[capitalize(user.declent_ru(NOMINATIVE))] ошибается, в результате чего из груди [target_human.declent_ru(GENITIVE)] обильно хлещет кровь!"),
 		)
 		display_pain(target, "В груди все горит; вам кажется, что вы сходите с ума!")
 		target_human.adjustOrganLoss(ORGAN_SLOT_HEART, 20)

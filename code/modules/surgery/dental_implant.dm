@@ -21,11 +21,11 @@
 		count++
 
 	if(teeth_receptangle.teeth_count == 0)
-		to_chat(user, span_notice("[target] не имеет зубов, дурашка!"))
+		to_chat(user, span_notice("[capitalize(target.declent_ru(NOMINATIVE))] не имеет зубов, дурашка!"))
 		return SURGERY_STEP_FAIL
 
 	if(count >= teeth_receptangle.teeth_count)
-		to_chat(user, span_notice("Все зубы [target] уже заменены на таблетки!"))
+		to_chat(user, span_notice("Все зубы [target.declent_ru(GENITIVE)] уже заменены на таблетки!"))
 		return SURGERY_STEP_FAIL
 
 /datum/surgery_step/insert_pill
@@ -38,11 +38,11 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете вставлять [tool] в [target.parse_zone_with_bodypart(target_zone)] у [target]..."),
-		span_notice("[user] начинает вставлять [tool] в [target.parse_zone_with_bodypart(target_zone)] у [target]."),
-		span_notice("[user] начинает вставлять что-то в [target.parse_zone_with_bodypart(target_zone)] у [target]."),
+		span_notice("Вы начинаете вставлять [tool.declent_ru(ACCUSATIVE)] в [target.parse_zone_with_bodypart(target_zone, declent = ACCUSATIVE)] у [target.declent_ru(GENITIVE)]..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает вставлять [tool.declent_ru(ACCUSATIVE)] в [target.parse_zone_with_bodypart(target_zone, declent = ACCUSATIVE)] у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает вставлять что-то в [target.parse_zone_with_bodypart(target_zone, declent = ACCUSATIVE)] у [target.declent_ru(GENITIVE)]."),
 	)
-	display_pain(target, "Что-то засовывают вам в [target.parse_zone_with_bodypart(target_zone)]!")
+	display_pain(target, "Что-то засовывают вам в [target.parse_zone_with_bodypart(target_zone, declent = ACCUSATIVE)]!")
 
 /datum/surgery_step/insert_pill/success(mob/user, mob/living/carbon/target, target_zone, obj/item/reagent_containers/applicator/pill/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(!istype(tool))
@@ -52,7 +52,7 @@
 	user.transferItemToLoc(tool, target.get_bodypart(BODY_ZONE_HEAD), TRUE)
 
 	var/datum/action/item_action/activate_pill/pill_action = new(tool)
-	pill_action.name = "Активировать [tool.name]"
+	pill_action.name = "Активировать [tool.declent_ru(ACCUSATIVE)]"
 	pill_action.build_all_button_icons()
 	pill_action.target = tool
 	pill_action.Grant(target) //The pill never actually goes in an inventory slot, so the owner doesn't inherit actions from it
@@ -60,9 +60,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы вставляете [tool] в [target.parse_zone_with_bodypart(target_zone)] у [target]."),
-		span_notice("[user] вставляет [tool] в [target.parse_zone_with_bodypart(target_zone)] у [target]!"),
-		span_notice("[user] вставляет что-то в [target.parse_zone_with_bodypart(target_zone)] у [target]!"),
+		span_notice("Вы вставляете [tool.declent_ru(ACCUSATIVE)] в [target.parse_zone_with_bodypart(target_zone, declent = ACCUSATIVE)] у [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] вставляет [tool.declent_ru(ACCUSATIVE)] в [target.parse_zone_with_bodypart(target_zone, declent = ACCUSATIVE)] у [target.declent_ru(GENITIVE)]!"),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] вставляет что-то в [target.parse_zone_with_bodypart(target_zone, declent = ACCUSATIVE)] у [target.declent_ru(GENITIVE)]!"),
 	)
 	return ..()
 
@@ -76,7 +76,7 @@
 	return ..()
 
 /datum/action/item_action/activate_pill/do_effect(trigger_flags)
-	owner.balloon_alert_to_viewers("[owner] прикусывает зубы!", "Вы прикусываете зубами.")
+	owner.balloon_alert_to_viewers("[owner.declent_ru(NOMINATIVE)] прикусывает зубы!", "Вы прикусываете зубами.")
 	if(!do_after(owner, owner.stat * (2.5 SECONDS), owner,  IGNORE_USER_LOC_CHANGE | IGNORE_INCAPACITATED))
 		return FALSE
 	var/obj/item/item_target = target
@@ -97,9 +97,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("Вы начинаете осматривать рот [target] на подходящие для имплантации зубы..."),
-		span_notice("[user] начинает вглядываться в рот [target]."),
-		span_notice("[user] начинает осматривать зубы [target]."),
+		span_notice("Вы начинаете осматривать рот [target.declent_ru(GENITIVE)] на подходящие для имплантации зубы..."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает вглядываться в рот [target.declent_ru(GENITIVE)]"),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает осматривать зубы [target.declent_ru(GENITIVE)]."),
 	)
 	display_pain(target, "Вы чувствуете, как рука касается ваших зубов.")
 
@@ -107,9 +107,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("[user] отмечает зуб во рту [target]."),
-		span_notice("[user] отмечает зуб во рту [target]."),
-		span_notice("[user] касается зуба во рту [target]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] отмечает зуб во рту [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] отмечает зуб во рту [target.declent_ru(GENITIVE)]."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] касается зуба во рту [target.declent_ru(GENITIVE)]."),
 	)
 	surgery.status = MARK_TOOTH
 	return ..()
