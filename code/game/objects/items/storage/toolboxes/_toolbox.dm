@@ -1,6 +1,6 @@
 /obj/item/storage/toolbox
 	name = "toolbox"
-	desc = "Danger. Very robust."
+	desc = "Опасно. Очень крепкий."
 	icon = 'icons/obj/storage/toolbox.dmi'
 	icon_state = "toolbox_default"
 	inhand_icon_state = "toolbox_default"
@@ -62,7 +62,7 @@
 		return ITEM_INTERACT_SUCCESS
 
 	if (user.get_inactive_held_item())
-		user.balloon_alert(user, "hands busy!")
+		user.balloon_alert(user, "руки заняты!")
 		return ITEM_INTERACT_BLOCKING
 
 	var/list/item_radial = list()
@@ -119,7 +119,7 @@
 		. += latches
 
 /obj/item/storage/toolbox/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] robusts [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] использует [user.p_them()]с помощью [src]! Похоже [user.p_theyre()] пытается покончить с собой!"))
 	return BRUTELOSS
 
 //repairbot assembly
@@ -138,7 +138,7 @@
 	if(!is_type_in_list(src, allowed_toolbox) && (type != /obj/item/storage/toolbox))
 		return ITEM_INTERACT_BLOCKING
 	if(contents.len >= 1)
-		balloon_alert(user, "not empty!")
+		balloon_alert(user, "не пустой!")
 		return ITEM_INTERACT_BLOCKING
 	var/static/list/toolbox_colors = list(
 		/obj/item/storage/toolbox = "#445eb3",
@@ -154,7 +154,7 @@
 	repair.set_color(new_color)
 	user.put_in_hands(repair)
 	repair.update_appearance()
-	repair.balloon_alert(user, "sensor added!")
+	repair.balloon_alert(user, "датчик добавлен!")
 	qdel(tool)
 	qdel(src)
 	return ITEM_INTERACT_SUCCESS

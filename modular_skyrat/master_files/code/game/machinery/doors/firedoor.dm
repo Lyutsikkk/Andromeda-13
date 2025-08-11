@@ -4,11 +4,11 @@
 
 /obj/machinery/door/firedoor/examine(mob/user)
 	. = ..()
-	. += span_notice("Alt-click the door to use the manual override.")
+	. += span_notice("Зажмите Alt и кликните по двери, чтобы открыть вручную.")
 
 /obj/machinery/door/proc/try_manual_override(mob/user)
 	if(density && !welded && !operating)
-		balloon_alert(user, "opening...")
+		balloon_alert(user, "открытие...")
 		if(do_after(user, 5 SECONDS, target = src))
 			try_to_crowbar(null,user)
 			return TRUE
@@ -33,7 +33,7 @@
 
 /obj/machinery/door/firedoor/solid
 	name = "solid emergency shutter"
-	desc = "Emergency air-tight shutter, capable of sealing off breached areas. It has a mechanism to open it with just your hands."
+	desc = "Аварийный герметичный шлюз, способный изолировать повреждённые участки. Он оснащён механизмом, позволяющим открыть его вручную."
 	icon = 'modular_skyrat/modules/aesthetics/firedoor/icons/firedoor.dmi'
 	glass = FALSE
 

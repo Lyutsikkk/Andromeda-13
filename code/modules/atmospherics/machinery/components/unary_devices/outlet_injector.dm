@@ -2,7 +2,7 @@
 	icon_state = "inje_map-3"
 
 	name = "air injector"
-	desc = "Has a valve and pump attached to it."
+	desc = "Имеет клапан и насос."
 
 	use_power = IDLE_POWER_USE
 	can_unwrench = TRUE

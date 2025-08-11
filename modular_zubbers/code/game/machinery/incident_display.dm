@@ -16,9 +16,9 @@
 #define NAME_TRAM "tram incident display"
 #define NAME_DISEASE "epidemic display"
 
-#define DESC_DELAM "A signs describe how long it's been since the last delamination incident. Features an advert for SAFETY MOTH."
+#define DESC_DELAM "На экране указано, сколько времени прошло с момента последнего случая расслоения. На табличке размещена реклама компании SAFETY MOTH."
 #define DESC_TRAM "A display that provides the number of tram related safety incidents this shift."
-#define DESC_DISEASE "A display that provides the number of active disease outbreak cases on shift.<br/><span class='boldwarning'>Doctor-Patient confidentiality is not practised on this station.</span>" // BUBBER EDIT ADDITION - Disease Counter
+#define DESC_DISEASE "Дисплей, на котором отображается количество случаев активных вспышек заболеваний за смену.<br/><span class='boldwarning'>На данной станции не соблюдается врачебная тайна.</span>" // BUBBER EDIT ADDITION - Disease Counter
 
 
 /obj/machinery/incident_display

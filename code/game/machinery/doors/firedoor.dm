@@ -185,6 +185,7 @@
 
 /obj/machinery/door/firedoor/update_name(updates)
 	. = ..()
+	ru_names_rename(ru_names_toml("firelock", suffix = " ([get_area_name(src)]) - [id_tag]", override_base = "[get_area_name(my_area)] [initial(name)] [id_tag]"))
 	name = "[get_area_name(my_area)] [initial(name)] [id_tag]"
 
 /**
@@ -555,7 +556,7 @@
 
 	if(density)
 		being_held_open = TRUE
-		crowbar_owner.balloon_alert_to_viewers("holding firelock open", "holding firelock open")
+		crowbar_owner.balloon_alert_to_viewers("шлюз открылся", "шлюз закрылся")
 		COOLDOWN_START(src, activation_cooldown, REACTIVATION_DELAY)
 		open()
 		if(QDELETED(crowbar_owner))

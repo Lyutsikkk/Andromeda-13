@@ -2,7 +2,7 @@
 
 /obj/machinery/flasher
 	name = "mounted flash"
-	desc = "A wall-mounted flashbulb device."
+	desc = "Настенное устройство для вспышки."
 	icon = 'icons/obj/wallmounts.dmi'
 	icon_state = "mflash1"
 	base_icon_state = "mflash"

@@ -2,7 +2,7 @@
 	icon_state = "scrub_map-3"
 
 	name = "air scrubber"
-	desc = "Has a valve and pump attached to it."
+	desc = "Имеет клапан и насос."
 	construction_type = /obj/item/pipe/directional/scrubber
 	use_power = IDLE_POWER_USE
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.1
@@ -177,6 +177,7 @@
 	. = ..()
 	if(override_naming)
 		return
+	ru_names_rename(ru_names_toml("air scrubber", suffix = " ([get_area_name(src)]) - [id_tag]", override_base = "\proper [get_area_name(src)] [name] [id_tag]"))
 	name = "\proper [get_area_name(src)] [name] [id_tag]"
 
 /obj/machinery/atmospherics/components/unary/vent_scrubber/should_atmos_process(datum/gas_mixture/air, exposed_temperature)

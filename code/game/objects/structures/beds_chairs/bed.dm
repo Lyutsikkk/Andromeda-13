@@ -377,7 +377,7 @@
 // Double Beds, for luxurious sleeping, i.e. the captain and maybe heads- if people use this for ERP, send them to skyrat
 /obj/structure/bed/double
 	name = "double bed"
-	desc = "A luxurious double bed, for those too important for small dreams."
+	desc = "Роскошная двуспальная кровать для тех, кто слишком важен для маленьких мечтаний."
 	icon_state = "bed_double"
 	build_stack_amount = 4
 	max_buckled_mobs = 2

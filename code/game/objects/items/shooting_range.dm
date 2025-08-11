@@ -1,6 +1,6 @@
 /obj/item/target
 	name = "shooting target"
-	desc = "A shooting target."
+	desc = "Мишень для стрельбы."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "target_h"
 	density = FALSE

@@ -315,7 +315,7 @@ GLOBAL_DATUM(syndicate_code_response_regex, /regex)
 	//All names already used
 	var/static/list/used_names = list()
 
-	var/static/valid_chars = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзиёклмнопрстуфхцчшщъыьэюя0123456789"
+	var/static/valid_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 	var/list/new_name = list()
 	var/text
 	// machine id's should be fun random chars hinting at a larger world

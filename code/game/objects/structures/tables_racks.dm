@@ -14,7 +14,7 @@
 
 /obj/structure/table
 	name = "table"
-	desc = "A square piece of iron standing on four metal legs. It can not move."
+	desc = "Квадратный кусок железа, стоящий на четырёх металлических ножках, но не может двигаться."
 	icon = 'icons/obj/smooth_structures/table.dmi'
 	icon_state = "table-0"
 	base_icon_state = "table"
@@ -610,7 +610,7 @@
 
 /obj/structure/table/wood
 	name = "wooden table"
-	desc = "Do not apply fire to this. Rumour says it burns easily."
+	desc = "Не подносите к нему огонь. Ходят слухи, что он легко горит."
 	icon = 'icons/obj/smooth_structures/wood_table.dmi'
 	icon_state = "wood_table-0"
 	base_icon_state = "wood_table"
@@ -626,8 +626,8 @@
 	if(QDELETED(src) || prob(66))
 		return
 	visible_message(
-		span_warning("[src] smashes into bits!"),
-		blind_message = span_hear("You hear the loud cracking of wood being split."),
+		span_warning("[src] разлетается на куски!"),
+		blind_message = span_hear("Вы слышите громкий треск раскалываемого дерева."),
 	)
 
 	playsound(src, 'sound/effects/wounds/crack2.ogg', 50, TRUE)

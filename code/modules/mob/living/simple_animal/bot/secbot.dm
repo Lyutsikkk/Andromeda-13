@@ -68,14 +68,14 @@
 
 /mob/living/simple_animal/bot/secbot/beepsky
 	name = "Commander Beep O'sky"
-	desc = "It's Commander Beep O'sky! Officially the superior officer of all bots on station, Beepsky remains as humble and dedicated to the law as the day he was first fabricated."
+	desc = "Это Командир Бип О'ски! Официально — старший офицер всех роботов на станции, Бипски остаётся таким же скромным и преданным закону, каким был в день своего создания."
 	bot_mode_flags = BOT_MODE_ON | BOT_MODE_AUTOPATROL | BOT_MODE_REMOTE_ENABLED
 	commissioned = TRUE
 
 
 /mob/living/simple_animal/bot/secbot/beepsky/officer
 	name = "Officer Beepsky"
-	desc = "It's Officer Beepsky! Powered by a potato and a shot of whiskey, and with a sturdier reinforced chassis, too."
+	desc = "Это офицер Бипски! Работает на картофеле и глотке виски, а также оснащён более прочным укреплённым корпусом."
 	health = 45
 
 /mob/living/simple_animal/bot/secbot/beepsky/officer/Initialize(mapload)
@@ -85,19 +85,19 @@
 
 /mob/living/simple_animal/bot/secbot/beepsky/ofitser
 	name = "Prison Ofitser"
-	desc = "Powered by the tears and sweat of laborers."
+	desc = "Работает на слезах и поте трудящихся."
 	bot_mode_flags = ~(BOT_MODE_CAN_BE_SAPIENT|BOT_MODE_AUTOPATROL)
 
 /mob/living/simple_animal/bot/secbot/beepsky/armsky
 	name = "Sergeant-At-Armsky"
-	desc = "It's Sergeant-At-Armsky! He's a disgruntled assistant to the warden that would probably shoot you if he had hands."
+	desc = "Это сержант-армыски! Он — недовольный помощник надзирателя, который, вероятно, застрелил бы вас, если бы умел держать оружие."
 	health = 45
 	bot_mode_flags = ~(BOT_MODE_CAN_BE_SAPIENT|BOT_MODE_AUTOPATROL)
 	security_mode_flags = SECBOT_DECLARE_ARRESTS | SECBOT_CHECK_IDS | SECBOT_CHECK_RECORDS
 
 /mob/living/simple_animal/bot/secbot/beepsky/jr
 	name = "Officer Pipsqueak"
-	desc = "It's Commander Beep O'sky's smaller, just-as aggressive cousin, Pipsqueak."
+	desc = "Это меньший, такой же агрессивный родственник Командира Бипа О'ски — Пипсквик."
 	commissioned = FALSE
 
 /mob/living/simple_animal/bot/secbot/beepsky/jr/Initialize(mapload)
@@ -106,7 +106,7 @@
 
 /mob/living/simple_animal/bot/secbot/pingsky
 	name = "Officer Pingsky"
-	desc = "It's Officer Pingsky! Delegated to satellite guard duty for harbouring anti-human sentiment."
+	desc = "Это офицер Пингски! Назначен на охрану спутника за проявление античеловеческих настроений."
 	light_color = "#62baf5"
 	radio_channel = RADIO_CHANNEL_AI_PRIVATE
 	bot_mode_flags = ~(BOT_MODE_CAN_BE_SAPIENT|BOT_MODE_AUTOPATROL)
@@ -114,7 +114,7 @@
 
 /mob/living/simple_animal/bot/secbot/genesky
 	name = "Officer Genesky"
-	desc = "A beefy variant of the standard securitron model."
+	desc = "Мощная версия стандартной модели секуритбота."
 	health = 50
 	faction = list(FACTION_NANOTRASEN_PRIVATE)
 	bot_mode_flags = BOT_MODE_ON
@@ -182,7 +182,7 @@
 		base_speed += 3
 		addtimer(VARSET_CALLBACK(src, base_speed, base_speed - 3), 6 SECONDS)
 		playsound(src, 'sound/machines/defib/defib_zap.ogg', 50)
-		visible_message(span_warning("[src] shakes and speeds up!"))
+		visible_message(span_warning("[src] трясётся и ускоряется!"))
 
 /mob/living/simple_animal/bot/secbot/Exited(atom/movable/gone, direction)
 	. = ..()
@@ -234,7 +234,7 @@
 		mode = BOT_HUNT
 	if(threatlevel < 0 && prob(5))
 		manual_emote("salutes.")
-		speak("Thank you sir.")
+		speak("Благодарю вас, сэр.")
 
 /mob/living/simple_animal/bot/secbot/proc/judgement_criteria()
 	var/final = FALSE
@@ -261,9 +261,9 @@
 
 		// Turns an oversight into a feature. Beepsky will now announce when pacifists taunt him over sec comms.
 		if(HAS_TRAIT(user, TRAIT_PACIFISM))
-			user.visible_message(span_notice("[user] taunts [src], daring [p_them()] to give chase!"), \
-				span_notice("You taunt [src], daring [p_them()] to chase you!"), span_hear("You hear someone shout a daring taunt!"), DEFAULT_MESSAGE_RANGE, user)
-			speak("Taunted by pacifist scumbag [RUNECHAT_BOLD("[user]")] in [get_area(src)].", radio_channel)
+			user.visible_message(span_notice("[user] дразнит [src], провоцируя [p_them()] броситься в погоню!"), \
+				span_notice("Ты дразнишь [src], провоцируя [p_them()] преследовать тебя!"), span_hear("Вы слышите, как кто-то выкрикивает дерзкую насмешку!"), DEFAULT_MESSAGE_RANGE, user)
+			speak("Нас оскорбил негодяй-пацифист [RUNECHAT_BOLD("[user]")] в [get_area(src)].", radio_channel)
 
 			// Interrupt the attack chain. We've already handled this scenario for pacifists.
 			return
@@ -285,14 +285,14 @@
 	if(!(bot_cover_flags & BOT_COVER_EMAGGED))
 		return
 	if(user)
-		balloon_alert(user, "target assessment circuits shorted")
+		balloon_alert(user, "цепи оценки цели закорочены")
 		oldtarget_name = user.name
 
 	if(bot_type == HONK_BOT)
-		audible_message(span_danger("[src] gives out an evil laugh!"))
+		audible_message(span_danger("[src] издает злобный смех!"))
 		playsound(src, 'sound/mobs/non-humanoids/honkbot/honkbot_evil_laugh.ogg', 75, TRUE, -1) // evil laughter
 	else
-		audible_message(span_danger("[src] buzzes oddly!"))
+		audible_message(span_danger("[src] странно жужжит!"))
 
 	security_mode_flags &= ~SECBOT_DECLARE_ARRESTS
 	update_appearance()
@@ -336,8 +336,8 @@
 /mob/living/simple_animal/bot/secbot/proc/start_handcuffing(mob/living/carbon/current_target)
 	mode = BOT_ARREST
 	playsound(src, 'sound/items/weapons/cablecuff.ogg', 30, TRUE, -2)
-	current_target.visible_message(span_danger("[src] is trying to put zipties on [current_target]!"),\
-						span_userdanger("[src] is trying to put zipties on you!"))
+	current_target.visible_message(span_danger("[src] пытается надеть стяжки на [current_target]!"),\
+						span_userdanger("[src] пытается надеть на тебя стяжки!"))
 	addtimer(CALLBACK(src, PROC_REF(handcuff_target), current_target), 6 SECONDS)
 
 /mob/living/simple_animal/bot/secbot/proc/handcuff_target(mob/living/carbon/current_target)
@@ -375,9 +375,9 @@
 	log_combat(src, current_target, "stunned")
 	if(security_mode_flags & SECBOT_DECLARE_ARRESTS)
 		var/area/location = get_area(src)
-		speak("[security_mode_flags & SECBOT_HANDCUFF_TARGET ? "Arresting" : "Detaining"] level [threat] scumbag [RUNECHAT_BOLD("[current_target]")] in [location].", radio_channel)
-	current_target.visible_message(span_danger("[src] stuns [current_target]!"),\
-							span_userdanger("[src] stuns you!"))
+		speak("[security_mode_flags & SECBOT_HANDCUFF_TARGET ? "Арестовываю" : "Задерживаю"] негодяя [threat] уровня, [RUNECHAT_BOLD("[current_target]")] в [location].", radio_channel)
+	current_target.visible_message(span_danger("[src] оглушает [current_target]!"),\
+							span_userdanger("[src] оглушает вас!"))
 
 	target_lastloc = current_target.loc
 	mode = BOT_PREP_ARREST
@@ -502,14 +502,14 @@
 		target = nearby_carbons
 		oldtarget_name = nearby_carbons.name
 		threat_react(threatlevel)
-		visible_message("<b>[src]</b> points at [nearby_carbons.name]!")
+		visible_message("<b>[src]</b> указывает на [nearby_carbons.name]!")
 		mode = BOT_HUNT
 		INVOKE_ASYNC(src, PROC_REF(handle_automated_action))
 		break
 
 /// React to detecting criminal scum by making some kind of noise
 /mob/living/simple_animal/bot/secbot/proc/threat_react(threatlevel)
-	speak("Level [threatlevel] infraction alert!")
+	speak("Нарушение [threatlevel] уровня!")
 	playsound(src, pick(
 		'sound/mobs/non-humanoids/beepsky/criminal.ogg',
 		'sound/mobs/non-humanoids/beepsky/justice.ogg',
@@ -579,21 +579,21 @@
 	var/mob/living/carbon/human/human_target = target
 	var/obj/item/card/id/target_id = human_target.get_idcard()
 	if(!target_id)
-		say("Suspect NAP Violation: No ID card found.")
+		say("Удостоверение личности не обнаружено.")
 		nap_violation(target)
 		return FALSE
 	var/datum/bank_account/insurance = target_id.registered_account
 	if(!insurance)
-		say("Suspect NAP Violation: No bank account found.")
+		say("Банковский счет не найден.")
 		nap_violation(target)
 		return FALSE
 	var/fair_market_price = (security_mode_flags & SECBOT_HANDCUFF_TARGET ? fair_market_price_detain : fair_market_price_arrest)
 	if(!insurance.adjust_money(-fair_market_price))
-		say("Suspect NAP Violation: Unable to pay.")
+		say("Невозможность оплаты.")
 		nap_violation(target)
 		return FALSE
 	var/datum/bank_account/beepsky_department_account = SSeconomy.get_dep_account(payment_department)
-	say("Thank you for your compliance. Your account been charged [fair_market_price] credits.")
+	say("Благодарим за согласие. С вашего счёта списано [fair_market_price] кредитов.")
 	if(beepsky_department_account)
 		beepsky_department_account.adjust_money(fair_market_price)
 		return TRUE

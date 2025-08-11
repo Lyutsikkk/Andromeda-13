@@ -4,7 +4,7 @@
 	icon_state = "vent_map-3"
 
 	name = "air vent"
-	desc = "Has a valve and pump attached to it."
+	desc = "Имеет клапан и насос."
 	construction_type = /obj/item/pipe/directional/vent
 	use_power = IDLE_POWER_USE
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.15
@@ -316,6 +316,7 @@
 	. = ..()
 	if(override_naming)
 		return
+	ru_names_rename(ru_names_toml("air vent", suffix = " ([get_area_name(src)]) - [id_tag]", override_base = "\proper [get_area_name(src)] [name] [id_tag]"))
 	name = "\proper [get_area_name(src)] [name] [id_tag]"
 
 /obj/machinery/atmospherics/components/unary/vent_pump/welder_act(mob/living/user, obj/item/welder)

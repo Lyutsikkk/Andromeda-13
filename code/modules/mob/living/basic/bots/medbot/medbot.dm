@@ -1,8 +1,8 @@
 #define TEND_DAMAGE_INTERACTION "tend_damage_interaction"
 
 /mob/living/basic/bot/medbot
-	name = "\improper Medibot"
-	desc = "A little medical robot. He looks somewhat underwhelmed."
+	name = "Medibot"
+	desc = "Маленький медицинский робот. Он выглядит несколько разочаровавшимся."
 	icon = 'icons/mob/silicon/aibots.dmi'
 	icon_state = "medbot_generic_idle"
 	base_icon_state = "medbot"
@@ -21,7 +21,7 @@
 	bot_type = MED_BOT
 	data_hud_type = DATA_HUD_MEDICAL_ADVANCED
 	hackables = "health processor circuits"
-	possessed_message = "You are a medbot! Ensure good health among the crew to the best of your ability!"
+	possessed_message = "Вы — медбот! Обеспечьте здоровье экипажа всеми силами!"
 
 	additional_access = /datum/id_trim/job/paramedic
 	announcement_type = /datum/action/cooldown/bot_announcement/medbot
@@ -382,15 +382,15 @@
 	medical_mode_flags = MEDBOT_DECLARE_CRIT | MEDBOT_STATIONARY_MODE | MEDBOT_SPEAK_MODE
 
 /mob/living/basic/bot/medbot/mysterious
-	name = "\improper Mysterious Medibot"
-	desc = "International Medibot of mystery."
+	name = "Mysterious Medibot"
+	desc = "Сколько же в нём тайн? Просим вас не разбирать его, чтоб узнать об этом."
 	skin = "bezerk"
 	damage_type_healer = HEAL_ALL_DAMAGE
 	heal_amount = 10
 
 /mob/living/basic/bot/medbot/derelict
-	name = "\improper Old Medibot"
-	desc = "Looks like it hasn't been modified since the late 2080s."
+	name = "Old Medibot"
+	desc = "Похоже, его не меняли с конца 2080-х годов."
 	skin = "bezerk"
 	damage_type_healer = HEAL_ALL_DAMAGE
 	medical_mode_flags = MEDBOT_SPEAK_MODE
@@ -399,7 +399,7 @@
 
 /mob/living/basic/bot/medbot/nukie
 	name = "Oppenheimer"
-	desc = "A medibot stolen from a Nanotrasen station and upgraded by the Syndicate. Despite their best efforts at reprogramming, it still appears visibly upset near nuclear explosives."
+	desc = "Медибот, украденный со станции «НаноТрейзен» и улучшенный Синдикатом. Несмотря на все усилия по перепрограммированию, он всё ещё выглядит несколько разочаровавшимся."
 	health = 40
 	maxHealth = 40
 	skin = "bezerk"

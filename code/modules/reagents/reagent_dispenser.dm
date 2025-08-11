@@ -371,7 +371,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/reagent_dispensers/wall/peppertank, 3
 
 /obj/structure/reagent_dispensers/water_cooler
 	name = "liquid cooler"
-	desc = "A machine that dispenses liquid to drink."
+	desc = "Кулер выдающий жидкость для питья."
 	icon = 'icons/obj/machines/vending.dmi' //SKYRAT EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
 	icon_state = "water_cooler"
 	anchored = TRUE

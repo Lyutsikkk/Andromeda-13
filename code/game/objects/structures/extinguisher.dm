@@ -1,6 +1,6 @@
 /obj/structure/extinguisher_cabinet
 	name = "extinguisher cabinet"
-	desc = "A small wall mounted cabinet designed to hold a fire extinguisher."
+	desc = "Маленький настенный шкаф, предназначенный для хранения огнетушителя."
 	icon = 'icons/obj/wallmounts.dmi'
 	icon_state = "extinguisher"
 	anchored = TRUE
@@ -67,11 +67,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/extinguisher_cabinet, 29)
 
 /obj/structure/extinguisher_cabinet/attackby(obj/item/used_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(used_item.tool_behaviour == TOOL_WRENCH && !stored_extinguisher)
-		user.balloon_alert(user, "deconstructing cabinet...")
+		user.balloon_alert(user, "разбираем шкаф...")
 		used_item.play_tool_sound(src)
 		if(used_item.use_tool(src, user, 60))
 			playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-			user.balloon_alert(user, "cabinet deconstructed")
+			user.balloon_alert(user, "шкаф разобран")
 			deconstruct(TRUE)
 		return
 
@@ -82,7 +82,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/extinguisher_cabinet, 29)
 			if(!user.transferItemToLoc(used_item, src))
 				return
 			stored_extinguisher = used_item
-			user.balloon_alert(user, "extinguisher stored")
+			user.balloon_alert(user, "огнетушитель в шкафу")
 			update_appearance(UPDATE_ICON)
 			return TRUE
 		else
@@ -101,7 +101,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/extinguisher_cabinet, 29)
 		return
 	if(stored_extinguisher)
 		user.put_in_hands(stored_extinguisher)
-		user.balloon_alert(user, "extinguisher removed")
+		user.balloon_alert(user, "огнетушитель не в шкафу")
 		if(!opened)
 			opened = 1
 			playsound(loc, 'sound/machines/click.ogg', 15, TRUE, -3)
@@ -181,7 +181,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/extinguisher_cabinet, 29)
 
 /obj/item/wallframe/extinguisher_cabinet
 	name = "extinguisher cabinet frame"
-	desc = "Used for building wall-mounted extinguisher cabinets."
+	desc = "Используется в изготовлении настенных шкафов для огнетушителей."
 	icon = 'icons/obj/wallmounts.dmi'
 	icon_state = "extinguisher" //Reuses wallmount icon, but no door overlay
 	result_path = /obj/structure/extinguisher_cabinet
