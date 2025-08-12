@@ -24857,7 +24857,7 @@ instrumental = "Тюремщиком"
 prepositional = "Тюремщике"
 gender = "male"
 
-[Sergeant-At-Armsky]
+["Sergeant-At-Armsky"]
 nominative = "Сержант-Ат-Армский"
 genitive = "Сержанта-Ат-Армского"
 dative = "Сержанту-Ат-Армскому"
