@@ -248,13 +248,10 @@
 		humanc = character //Let's retypecast the var to be human,
 
 	if(humanc) //These procs all expect humans
-		// BEGIN SKYRAT EDIT CHANGE - ALTERNATIVE_JOB_TITLES
-		var/chosen_rank = humanc.client?.prefs.alt_job_titles?[rank] || rank
 		if(SSshuttle.arrivals)
-			SSshuttle.arrivals.QueueAnnounce(humanc, chosen_rank)
+			SSshuttle.arrivals.QueueAnnounce(humanc, rank)
 		else
-			announce_arrival(humanc, chosen_rank)
-		// END SKYRAT EDIT CHANGE - customization
+			announce_arrival(humanc, rank)
 		AddEmploymentContract(humanc)
 
 		humanc.increment_scar_slot()
@@ -275,7 +272,7 @@
 		SSquirks.AssignQuirks(humanc, humanc.client)
 
 	if(humanc) // Quirks may change manifest datapoints, so inject only after assigning quirks
-		GLOB.manifest.inject(humanc, null, humanc.client) // SKYRAT EDIT - Added humanc.client - ALTERNATIVE_JOB_TITLES
+		GLOB.manifest.inject(humanc, null)
 		SEND_SIGNAL(humanc, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
 	var/area/station/arrivals = GLOB.areas_by_type[/area/station/hallway/secondary/entry]
 	if(humanc && arrivals && !arrivals.power_environ) //arrivals depowered

@@ -1,0 +1,28 @@
+/// Пояснялка от Rewokin'a
+/// Чтоб нам не дрочить каждый раз "tgstation.dme", что находится в корне билда, мы делаем свой "andromeda.dme"
+/// Запускается "tgstation.dme" - запускает "andromeda.dme" - запускает уже всё то, что в "modular_andromeda"
+
+/// Инициализация всех .dm и .dme в "modular_andromeda"
+
+
+// BEGIN_INTERNALS
+// END_INTERNALS
+
+
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+
+
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+
+
+// BEGIN_INCLUDE
+#include "_modpack.dm"
+#include "_modpacks.dm"
+#include "code\_DEFINES\ru_jobs.dm"
+#include "code\modules\ru_jobs\ru_id_cards.dm"
+#include "code\modules\ru_jobs\ru_jobs.dm"
+#include "code\modules\ru_jobs\ru_pda.dm"
+// END_INCLUDE

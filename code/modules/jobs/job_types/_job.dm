@@ -202,9 +202,9 @@
 
 /// Announce that this job as joined the round to all crew members.
 /// Note the joining mob has no client at this point.
-/datum/job/proc/announce_job(mob/living/joining_mob, job_title) // SKYRAT EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: /datum/job/proc/announce_job(mob/living/joining_mob)
+/datum/job/proc/announce_job(mob/living/joining_mob)
 	if(head_announce)
-		announce_head(joining_mob, head_announce, job_title) // SKYRAT EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: announce_head(joining_mob, head_announce)
+		announce_head(joining_mob, head_announce)
 
 
 //Used for a special check of whether to allow a client to latejoin as this job.
@@ -319,21 +319,21 @@
 	return TRUE
 
 /// Gets the message that shows up when spawning as this job
-/datum/job/proc/get_spawn_message(alt_title) // SKYRAT EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: /datum/job/proc/get_spawn_message()
+/datum/job/proc/get_spawn_message()
 	SHOULD_NOT_OVERRIDE(TRUE)
-	return boxed_message(span_infoplain(jointext(get_spawn_message_information(alt_title), "\n&bull; "))) // SKYRAT EDIT CHANGE - ALTERNATIVE_JOB_TITLED - ORIGINAL: return boxed_message(span_infoplain(jointext(get_spawn_message_information(), "\n&bull; ")))
+	return boxed_message(span_infoplain(jointext(get_spawn_message_information(), "\n&bull; ")))
 
 /// Returns a list of strings that correspond to chat messages sent to this mob when they join the round.
-/datum/job/proc/get_spawn_message_information(alt_title = title) // SKYRAT EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: /datum/job/proc/get_spawn_message_information()
+/datum/job/proc/get_spawn_message_information()
 	SHOULD_CALL_PARENT(TRUE)
 	var/list/info = list()
-	info += "<b>You are the [alt_title].</b>\n" // SKYRAT EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: info += "<b>You are the [title].</b>\n"
+	info += "<b>You are the [title].</b>\n"
 	var/related_policy = get_policy(policy_override || title)
 	var/radio_info = get_radio_information()
 	if(related_policy)
 		info += related_policy
 	if(supervisors)
-		info += "As the [alt_title == title ? alt_title : "[alt_title] ([title])"] you answer directly to [supervisors]. Special circumstances may change this." // SKYRAT EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: info += "As the [title] you answer directly to [supervisors]. Special circumstances may change this."
+		info += "As the [title] you answer directly to [supervisors]. Special circumstances may change this."
 	if(radio_info)
 		info += radio_info
 	if(req_admin_notify)
@@ -343,11 +343,6 @@
 		info += span_boldnotice("As this station was initially staffed with a \
 			[CONFIG_GET(flag/jobs_have_minimal_access) ? "full crew, only your job's necessities" : "skeleton crew, additional access may"] \
 			have been added to your ID card.")
-	//SKYRAT EDIT ADDITION START - ALTERNATIVE_JOB_TITLES
-	if(alt_title != title)
-		info += span_warning("Remember that alternate titles are purely for flavor and roleplay.")
-		info += span_doyourjobidiot("Do not use your \"[alt_title]\" alt title as an excuse to forego your duties as a [title].")
-	//SKYRAT EDIT END
 
 	return info
 

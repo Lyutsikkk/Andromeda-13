@@ -1,6 +1,7 @@
 import { sortBy } from 'es-toolkit';
 import type { PropsWithChildren, ReactNode } from 'react';
 import { useBackend } from 'tgui/backend';
+import { JOBS_RU } from '../../../andromeda/ru_jobs';
 import { Box, Button, Dropdown, Stack, Tooltip } from 'tgui-core/components';
 import { classes } from 'tgui-core/react';
 
@@ -196,12 +197,6 @@ function JobRow(props: JobRowProps) {
   const experienceNeeded = data.job_required_experience?.[name];
   const daysLeft = data.job_days_left ? data.job_days_left[name] : 0;
 
-  // SKYRAT EDIT ADDITION
-  const alt_title_selected = data.job_alt_titles[name]
-    ? data.job_alt_titles[name]
-    : name;
-  // SKYRAT EDIT END
-
   let rightSide: ReactNode;
 
   if (experienceNeeded) {
@@ -265,22 +260,7 @@ function JobRow(props: JobRowProps) {
               paddingLeft: '0.3em',
             }}
           >
-            {
-              // SKYRAT EDIT CHANGE START - ORIGINAL: {name}
-              !job.alt_titles ? (
-                name
-              ) : (
-                <Dropdown
-                  width="100%"
-                  options={job.alt_titles}
-                  selected={alt_title_selected}
-                  onSelected={(value) =>
-                    act('set_job_title', { job: name, new_title: value })
-                  }
-                />
-              )
-              // SKYRAT EDIT CHANGE END
-            }
+            {JOBS_RU[name] ? JOBS_RU[name] : name}
           </Stack.Item>
         </Tooltip>
 
@@ -348,7 +328,7 @@ function JoblessRoleDropdown(props) {
 
   const options = [
     {
-      displayText: `Join as ${data.overflow_role} if unavailable`,
+      displayText: `Присоединиться за ${JOBS_RU[data.overflow_role] ? JOBS_RU[data.overflow_role] : data.overflow_role} если не удалось войти`,
       value: JoblessRole.BeOverflow,
     },
     {

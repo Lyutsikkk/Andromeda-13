@@ -83,9 +83,6 @@ export type Department = {
 export type Job = {
   description: string;
   department: string;
-  // SKYRAT EDIT
-  alt_titles?: string[];
-  // SKYRAT EDIT END
 };
 
 export type Quirk = {
@@ -223,8 +220,6 @@ export type PreferencesMenuData = {
   job_preferences: Record<string, JobPriority>;
 
   // SKYRAT EDIT
-  job_alt_titles: Record<string, string>;
-
   robotic_styles: string[];
   limbs_data: Limb[];
   organs_data: Organ[];

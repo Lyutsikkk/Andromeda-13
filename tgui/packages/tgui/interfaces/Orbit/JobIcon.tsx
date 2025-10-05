@@ -1,5 +1,6 @@
 import { DmIcon, Icon } from 'tgui-core/components';
 
+import { ReverseJobsRu } from '../../andromeda/ru_jobs';
 import { JOB2ICON } from '../common/JobToIcon';
 import type { Antagonist, Observable } from './types';
 
@@ -82,7 +83,7 @@ export function JobIcon(props: Props) {
   return (
     <div className="JobIcon">
       {icon === 'borg' ? (
-        <Icon color="lightblue" name={JOB2ICON[usedJob]} ml={0.3} mt={0.4} />
+        <Icon color="lightblue" name={JOB2ICON[ReverseJobsRu(usedJob)]} ml={0.3} mt={0.4} />
       ) : (
         <DmIcon
           icon={iconSettings.dmi}

@@ -73,7 +73,7 @@
 /datum/loadout_item/pocket_items/secbadge
 	name = "Security Badge"
 	item_path = /obj/item/clothing/accessory/badge
-	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE)
 
 /datum/loadout_item/pocket_items/tailbag
 	name = "Tailbag"

@@ -12,6 +12,7 @@ import {
 import type { BooleanLike } from 'tgui-core/react';
 
 import { useBackend } from '../backend';
+import { DEPARTMENTS_RU, JOBS_RU, ReverseJobsRu,} from '../andromeda/ru_jobs';
 import { Window } from '../layouts';
 import { JOB2ICON } from './common/JobToIcon';
 
@@ -51,7 +52,7 @@ type JobEntryProps = {
 function JobEntry(props: JobEntryProps) {
   const { jobName, job, department, onClick } = props;
 
-  const jobIcon = JOB2ICON[jobName] || null;
+  const jobIcon = JOB2ICON[ReverseJobsRu(jobName)] || null;
 
   return (
     <Button
@@ -93,7 +94,13 @@ function JobEntry(props: JobEntryProps) {
             <Icon name={jobIcon} />
           </Stack.Item>
         )}
-        <Stack.Item grow>{job.command ? <b>{jobName}</b> : jobName}</Stack.Item>
+        {job.command ? (
+          <b>{JOBS_RU[jobName] ? JOBS_RU[jobName] : jobName}</b>
+        ) : JOBS_RU[jobName] ? (
+          JOBS_RU[jobName]
+        ) : (
+          jobName
+        )}
         <Stack.Item>
           <span
             style={{
@@ -221,7 +228,7 @@ export function JobSelection(props) {
         >
           <Box style={{ columns: '20em' }}>
             {Object.entries(departments).map(([name, department]) => (
-              <DepartmentEntry key={name} name={name} department={department} />
+              <DepartmentEntry key={name} name={DEPARTMENTS_RU[name] || name} department={department} />
             ))}
           </Box>
         </Section>

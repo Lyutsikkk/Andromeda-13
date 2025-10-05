@@ -57,13 +57,13 @@
 	name = "Peacekeeper jacket"
 	item_path = /obj/item/clothing/suit/armor/vest/warden/rax
 	//ckeywhitelist = list("raxraus")
-	restricted_roles = list(JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE)
 
 /datum/loadout_item/uniform/rax_banded_uniform
 	name = "Banded Uniform"
 	item_path = /obj/item/clothing/under/rank/security/rax
 	//ckeywhitelist = list("raxraus")
-	restricted_roles = list(JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE)
 
 /datum/loadout_item/head/goldengoggles
 	name = "Steampunk Goggles"
@@ -74,7 +74,7 @@
 	name = "XuraCorp Biohazard Underfitting"
 	item_path = /obj/item/clothing/under/plasmaman/jax2
 	//ckeywhitelist = list("candlejax")
-	restricted_roles = list(JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST, JOB_SCIENCE_GUARD, JOB_GENETICIST)
+	restricted_roles = list(JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST, JOB_GENETICIST)
 
 /datum/loadout_item/head/emissionhelm
 	name = "Emission's Helmet"
@@ -158,7 +158,7 @@
 	name = "Blacktide Armored Coat"
 	item_path = /obj/item/clothing/suit/armor/vest/caligram_parka_vest_tan
 //	ckeywhitelist = list("farsightednightlight", "raxraus", "1ceres", "marcoalbaredaa", "itzshift_yt", "drifter7371", "AvianAviator", "Katty Kat", "Investigator77", "Dalao Azure", "Socialistion", "ChillyLobster", "Sylvara", "AmZee", "Tf4", "rb303", "Kay_Nite", "whataboutism", "taac", "Halkyon", "Lupo_di_rosa", "Merek2", "lowpowermia", "RyeanBread", "Jesterz7", "Saund_Minah", "Ruediger4")
-	restricted_roles = list(JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE)
 	can_be_reskinned = TRUE
 
 /datum/loadout_item/suit/brasspriest

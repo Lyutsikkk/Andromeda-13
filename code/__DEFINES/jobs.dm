@@ -69,35 +69,30 @@
 #define JOB_SECURITY_OFFICER_ENGINEERING "Security Officer (Engineering)"
 #define JOB_SECURITY_OFFICER_SCIENCE "Security Officer (Science)"
 #define JOB_SECURITY_OFFICER_SUPPLY "Security Officer (Cargo)"
-#define JOB_CORRECTIONS_OFFICER "Corrections Officer" // SKYRAT EDIT ADDITION
 //Engineering
 #define JOB_STATION_ENGINEER "Station Engineer"
 #define JOB_ATMOSPHERIC_TECHNICIAN "Atmospheric Technician"
-#define JOB_ENGINEERING_GUARD "Engineering Guard" // SKYRAT EDIT ADDITION
-#define JOB_TELECOMMS_SPECIALIST "Telecomms Specialist" // SKYRAT EDIT ADDITION
+#define JOB_TELECOMMS_SPECIALIST "Telecomms Specialist"
 //Medical
 #define JOB_CORONER "Coroner"
 #define JOB_MEDICAL_DOCTOR "Medical Doctor"
 #define JOB_PARAMEDIC "Paramedic"
 #define JOB_CHEMIST "Chemist"
-#define JOB_ORDERLY "Orderly" // SKYRAT EDIT ADDITION
 //Science
 #define JOB_SCIENTIST "Scientist"
 #define JOB_ROBOTICIST "Roboticist"
 #define JOB_GENETICIST "Geneticist"
-#define JOB_SCIENCE_GUARD "Science Guard"
 //Supply
 #define JOB_QUARTERMASTER "Quartermaster"
 #define JOB_CARGO_TECHNICIAN "Cargo Technician"
 #define JOB_CARGO_GORILLA "Cargo Gorilla"
 #define JOB_SHAFT_MINER "Shaft Miner"
 #define JOB_BITRUNNER "Bitrunner"
-#define JOB_CUSTOMS_AGENT "Customs Agent" // SKYRAT EDIT ADDITION
 //Service
 #define JOB_BARTENDER "Bartender"
 #define JOB_BOTANIST "Botanist"
 #define JOB_COOK "Cook"
-#define JOB_CHEF "Chef" // Alternate cook title.
+#define JOB_CHEF "Chef"
 #define JOB_JANITOR "Janitor"
 #define JOB_CLOWN "Clown"
 #define JOB_MIME "Mime"
@@ -105,8 +100,7 @@
 #define JOB_LAWYER "Lawyer"
 #define JOB_CHAPLAIN "Chaplain"
 #define JOB_PSYCHOLOGIST "Psychologist"
-#define JOB_BARBER "Barber" // SKYRAT EDIT ADDITION
-#define JOB_BOUNCER "Bouncer" // SKYRAT EDIT ADDITION
+#define JOB_BARBER "Barber"
 #define JOB_PUN_PUN "Pun Pun"
 //ERTs
 #define JOB_ERT_DEATHSQUAD "Death Commando"

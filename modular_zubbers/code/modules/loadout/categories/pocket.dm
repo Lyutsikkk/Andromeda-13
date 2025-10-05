@@ -79,7 +79,7 @@
 /datum/loadout_item/pocket_items/nif_disk_sec
 	name = "Security Scrying Lens Disk"
 	item_path = /obj/item/disk/nifsoft_uploader/sec_hud
-	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPT_GUARDS, JOB_BLUESHIELD)
+	restricted_roles = list(ALL_JOBS_SEC, JOB_BLUESHIELD)
 
 /datum/loadout_item/pocket_items/nif_disk_permit
 	name = "Permit Scrying Lens Disk"

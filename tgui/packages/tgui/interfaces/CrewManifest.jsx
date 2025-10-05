@@ -2,36 +2,35 @@ import { Icon, Section, Table, Tooltip } from 'tgui-core/components';
 import { classes } from 'tgui-core/react';
 
 import { useBackend } from '../backend';
+import { DEPARTMENTS_RU, JOBS_RU } from '../andromeda/ru_jobs';
 import { Window } from '../layouts';
 
 const commandJobs = [
-  'Head of Personnel',
-  'Head of Security',
-  'Chief Engineer',
-  'Research Director',
-  'Chief Medical Officer',
-  'Quartermaster',
-  'Nanotrasen Consultant', // SKYRAT EDIT
+  JOBS_RU['Head of Personnel'],
+  JOBS_RU['Head of Security'],
+  JOBS_RU['Chief Engineer'],
+  JOBS_RU['Research Director'],
+  JOBS_RU['Chief Medical Officer'],
+  JOBS_RU['Nanotrasen Consultant'],
+  JOBS_RU.Quartermaster,
 ];
 
-// SKYRAT EDIT CHANGE BEGIN - ALTERNATIVE_JOB_TITLES
-// Any instance of crewMember.trim was originally crewMember.rank
 export const CrewManifest = (props) => {
   const {
     data: { manifest, positions },
   } = useBackend();
 
   return (
-    <Window title="Crew Manifest" width={350} height={500}>
+    <Window title="Манифест Экипажа" width={350} height={500}>
       <Window.Content scrollable>
         {Object.entries(manifest).map(([dept, crew]) => (
           <Section
             className={`CrewManifest--${dept}`}
             key={dept}
             title={
-              dept +
+              (DEPARTMENTS_RU[dept] || dept) +
               (dept !== 'Misc'
-                ? ` (${positions[dept].open} positions open)`
+                ? ` (позиций открыто: ${positions[dept].open})`
                 : '')
             }
           >
@@ -60,8 +59,8 @@ export const CrewManifest = (props) => {
                         <Icon className="CrewManifest__Icon" name="infinity" />
                       </Tooltip>
                     )}
-                    {crewMember.trim === 'Captain' && (
-                      <Tooltip content="Captain" position="bottom">
+                    {crewMember.trim === JOBS_RU.Captain && (
+                      <Tooltip content={JOBS_RU.Captain} position="bottom">
                         <Icon
                           className={classes([
                             'CrewManifest__Icon',
@@ -72,7 +71,7 @@ export const CrewManifest = (props) => {
                       </Tooltip>
                     )}
                     {commandJobs.includes(crewMember.trim) && (
-                      <Tooltip content="Member of command" position="bottom">
+                      <Tooltip content="Член командования" position="bottom">
                         <Icon
                           className={classes([
                             'CrewManifest__Icon',
@@ -105,4 +104,3 @@ export const CrewManifest = (props) => {
     </Window>
   );
 };
-// SKYRAT EDIT CHANGE END - ALTERNATIVE_JOB_TITLES
